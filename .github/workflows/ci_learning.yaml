@@ -19,6 +19,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      # Check out another repository
+      - uses: actions/checkout@v3
+        with:
+          repository: bioimage-io/collection-bioimage-io
+          ref: gh-pages
+          path: bioimageio-gh-pages
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -32,4 +38,5 @@ jobs:
           ls -la
           echo --
           ls -la .. 
+          echo --
           ls $GITHUB_WORKSPACE
