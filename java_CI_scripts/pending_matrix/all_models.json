@@ -1,0 +1,6 @@
+{
+	"include": [{
+		"resource_id": "**",
+		"version_id": "**"
+	}]
+}

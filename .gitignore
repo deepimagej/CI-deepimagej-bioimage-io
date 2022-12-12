@@ -1,2 +1,4 @@
 # annoying vim swap files
 *.swp
+# checked out repo of models
+bioimageio-gh-pages/
