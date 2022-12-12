@@ -37,7 +37,7 @@ jobs:
           pwd
           ls -la
           echo --
-          ls -la biom*
+          ls -la bio*
           echo --
           ls $GITHUB_WORKSPACE | tee output.txt
           echo --
