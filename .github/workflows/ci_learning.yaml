@@ -10,7 +10,9 @@ on:
       pending_matrix:
         description: 'json encoded gh matrix of pending validations for new or updated resources (default: test on all resources)'
         required: true
-        default: '{"include": [{"resource_id": "**", "version_id": "**"}]}'
+        #default: '{"include": [{"resource_id": "**", "version_id": "**"}]}'
+        default: '''{"include": [{"resource_id": "10.5281/zenodo.7261974","version_id": "7261975"},
+        {"resource_id": "deepimagej","version_id": "DeepSTORMZeroCostDL4Mic/latest"}]	}'''
         type: string
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
