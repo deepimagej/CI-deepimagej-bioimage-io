@@ -1,6 +1,6 @@
 {
 	"include": [
 		{"resource_id": "10.5281/zenodo.7261974","version_id": "7261975"},
-		{"resource_id": "deepimagej","version_id": "DeepSTORMZeroCostDL4Mic/latest"}
+		{"resource_id": "deepimagej/DeepSTORMZeroCostDL4Mic","version_id": "latest"}
 	]	
 }
