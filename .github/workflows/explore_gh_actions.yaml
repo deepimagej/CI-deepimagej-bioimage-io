@@ -48,3 +48,15 @@ jobs:
         run: |
           ls
           cat output.txt
+
+
+      - name: setup babashka
+        uses: turtlequeue/setup-babashka@v1.5.0
+
+      - name: run scripts for tests
+        working-directory: ./java_CI_scripts
+        run: |
+          bb --version
+          bb "(require '[collection-test]) (clojure.test/run-tests 'collection-test)"
+
+
