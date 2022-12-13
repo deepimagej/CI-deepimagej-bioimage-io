@@ -42,15 +42,28 @@
     (is (= (count (filter-rdfs all-rdfs)) 164))
     (is (= (count (filter-rdfs some-rdfs)) 2))))
 
-; TODO finish this
 (deftest resource->paths-test
-  (let [all-models (first (file-json->vector "pending_matrix/all_models.json"))
-        version-glob {:resource_id "10.5281/zenodo.5749843" :version_id "**"}
-        one-model (last (file-json->vector "pending_matrix/two_models.json"))
-        resource->paths-root (partial resource->paths COLLECTION-ROOT)]
+  (let [all-models-resources (first (file-json->vector "pending_matrix/all_models.json"))
+        version-glob (first (file-json->vector "pending_matrix/two_versions.json"))
+        one-model (last (file-json->vector "pending_matrix/two_models.json"))]
     (testing "globbing all resources and versions"
-      (is (= (count (resource->paths-root all-models)) 164)))
+      (is (= (count (resource->paths all-models-resources)) 164)))
     (testing "globbing all version of a resource"
-      (is (= (count (resource->paths-root version-glob)) 2)))
+      (is (= (count (resource->paths version-glob)) 2))
+      (is (= (resource->paths version-glob)
+             (resource->paths {:resource_id "10.5281/zenodo.5749843" :version_id "**"}))))
     (testing "paths of a single model (resource and version"
-      (is (= (count (resource->paths-root one-model)) 1)))))
+      (is (= (count (resource->paths one-model)) 1)))))
+
+(deftest get-rdfs-to-test-test
+  (let [filenames ["all_models.json" "two_models.json" "two_versions.json"]
+        files (map #(fs/file "pending_matrix" %) filenames)
+        resource-vectors (map file-json->vector files)
+        [r-a r-b r-c] (map get-rdfs-to-test resource-vectors)]
+    (testing "Resource vector of 1 element but complete globbing"
+      (is (= (count r-a) 164)))
+    (testing "Resource vector has 2 maps"
+      (is (= (map #(fs/file-name (fs/parent %)) r-b) ["7261975" "latest"])))
+    (testing "Resource vector has 1 map, but version globbing"
+      (is (= (map #(fs/file-name (fs/parent %)) r-c) ["5888237" "5877226"])))
+    ))
