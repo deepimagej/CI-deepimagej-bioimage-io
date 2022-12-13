@@ -46,8 +46,11 @@
 (deftest resource->paths-test
   (let [all-models (first (file-json->vector "pending_matrix/all_models.json"))
         version-glob {:resource_id "10.5281/zenodo.5749843" :version_id "**"}
-        one-model (last (file-json->vector "pending_matrix/two_models.json"))]
-    (testing "globbing all resources and versions")
-    (testing "globbing all version of a resource")
-    (testing "paths of a single model (resource and version")
-    ))
+        one-model (last (file-json->vector "pending_matrix/two_models.json"))
+        resource->paths-root (partial resource->paths COLLECTION-ROOT)]
+    (testing "globbing all resources and versions"
+      (is (= (count (resource->paths-root all-models)) 164)))
+    (testing "globbing all version of a resource"
+      (is (= (count (resource->paths-root version-glob)) 2)))
+    (testing "paths of a single model (resource and version"
+      (is (= (count (resource->paths-root one-model)) 1)))))

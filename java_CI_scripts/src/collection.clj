@@ -2,7 +2,8 @@
   (:require [babashka.fs :as fs]
             [cheshire.core :as json]))
 
-(def COLLECTION-ROOT (fs/path ".." "bioimageio-gh-pages" "rdfs"))
+(def COLLECTION-ROOT "Path of the cloned repository" (fs/path ".." "bioimageio-gh-pages" "rdfs"))
+
 (defn str-json->vector
   "Returns the parsed list of resources/versions to test given a raw json string"
   [str-json]
@@ -26,9 +27,11 @@
     (cond
       (= resource_id "**") (filter-rdfs (fs/glob root "**"))
       (= version_id "**") (filter-rdfs (fs/glob (fs/path root resource_id) "**"))
-      :else (seq (fs/path root resource_id version_id "rdf.yaml")))))
+      :else (vector (fs/path root resource_id version_id "rdf.yaml")))))
 
-
+;TODO
+; get all rdfs paths to test
+; parse them -> get all models
 
 (defn -main
   "-s input is a raw json string, -j input is path to a file.json
