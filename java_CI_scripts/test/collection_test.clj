@@ -5,8 +5,8 @@
 
 (deftest collection-root-test
   (is (= (fs/file-name COLLECTION-ROOT) "rdfs"))
-  (is (= (mapv fs/file-name (fs/list-dir COLLECTION-ROOT))
-         ["10.5281" "bioimageio" "deepimagej" "fiji" "hpa" "ilastik" "imjoy" "zero"])
+  (is (= (set (mapv fs/file-name (fs/list-dir COLLECTION-ROOT)))
+         (set ["10.5281" "bioimageio" "deepimagej" "fiji" "hpa" "ilastik" "imjoy" "zero"]))
       "This test may fail if new partners/zenodo dois are added to the zoo"))
 
 (deftest str-json->vector-test
