@@ -34,7 +34,6 @@
 
 (deftest -main-test
   (is (= '("a" "1" 2) (-main "a" "1" 2))))
-(run-tests 'collection-test)
 
 (deftest filter-rdfs-test
   (let [all-rdfs (fs/glob COLLECTION-ROOT "**")
