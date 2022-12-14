@@ -2,3 +2,7 @@
 *.swp
 # checked out repo of models
 bioimageio-gh-pages/
+# dir for test summaries
+test-summaries/
+# dir for models
+models/
