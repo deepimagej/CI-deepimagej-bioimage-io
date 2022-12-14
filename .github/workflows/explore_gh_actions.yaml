@@ -59,6 +59,6 @@ jobs:
         working-directory: ./java_CI_scripts
         run: |
           bb --version
-          bb "(require '[collection-test]) (clojure.test/run-tests 'collection-test)"
+          bb "(require '[collection-test] '[summaries-test]) (clojure.test/run-tests 'collection-test 'summaries-test)"
 
 
