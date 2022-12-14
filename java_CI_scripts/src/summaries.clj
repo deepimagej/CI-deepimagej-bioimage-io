@@ -1,5 +1,6 @@
 (ns summaries
   (:require [babashka.fs :as fs]
+            [clj-yaml.core :as yaml]
             [collection :refer [COLLECTION-ROOT]]))
 
 ;generate hash-maps -> to write yaml
@@ -19,5 +20,10 @@
 
 (defn create-summa-dir
   "Creates directory for resulting test summaries given the path to an rdf"
-  [rdf-path]
-  (fs/create-dirs (get-summa-path rdf-path)))
+  ([summa-root rdf-path] (fs/create-dirs (get-summa-path summa-root rdf-path)))
+  ([rdf-path] (create-summa-dir SUMMA-ROOT rdf-path)))
+
+;TODO
+; generate dictionary
+; write yaml
+

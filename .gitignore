@@ -3,6 +3,8 @@
 # checked out repo of models
 bioimageio-gh-pages/
 # dir for test summaries
-test-summaries/
+test_summaries/
+# dir for testing the test_summaries
+toy_test_summaries/
 # dir for models
 models/
