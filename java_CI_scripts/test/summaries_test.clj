@@ -23,5 +23,10 @@
     (is (= (str (get-summa-path @test-rdf-path)) (str expected-path)))))
 
 ; create folder, check if correct, then delete it!
-(deftest create-test-sum-dir-test
-  )
+(deftest create-summa-dir-test
+  (let [summa-path (get-summa-path @test-rdf-path)
+        res (create-summa-dir @test-rdf-path)]
+    (is (= (str (fs/absolutize summa-path)) (str (fs/absolutize res))))
+    ; list dir
+    ; delete (see if it doesnt exists)
+    ))

@@ -34,8 +34,7 @@
 (defn get-rdfs-to-test
   "Compiles a list of rdf paths that need to be tested, given a list of resource/versions maps.
   If only 1 argument is given, uses COLLECTION-ROOT as root path"
-  ([root resources-vector]
-   (set (flatten (map #(resource->paths root %) resources-vector))))
+  ([root resources-vector] (set (flatten (map #(resource->paths root %) resources-vector))))
   ([resources-vector] (get-rdfs-to-test COLLECTION-ROOT resources-vector)))
 
 (defn write-paths-in-file

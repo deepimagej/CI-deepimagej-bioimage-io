@@ -17,8 +17,7 @@
   ([summa-root rdf-path] (apply fs/path (conj (get-parent-components rdf-path) summa-root)))
   ([rdf-path] (get-summa-path SUMMA-ROOT rdf-path)))
 
-(defn create-test-sum-dir
+(defn create-summa-dir
   "Creates directory for resulting test summaries given the path to an rdf"
   [rdf-path]
   (fs/create-dirs (get-summa-path rdf-path)))
-
