@@ -44,13 +44,14 @@ jobs:
         run: |
           bb --version
           bb -m core
-          tree ../test_summaries -L 2 -h --du --dirsfirst # test-summaries folder should exist
-       - name: upload the test summaries
-         uses: actions/upload-artifact@v3
-         with:
-           name: test-summaries
-           path: ./test_summaries/
-           retention-days: 1
+          tree ../test_summaries -L 3 -h --du --dirsfirst # test-summaries folder should exist
+
+      - name: upload the test summaries
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-summaries
+          path: ./test_summaries/
+          retention-days: 1
 
   deploy:
     needs: my-ci-job
