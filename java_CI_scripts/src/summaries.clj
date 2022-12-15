@@ -24,6 +24,8 @@
   ([rdf-path] (create-summa-dir SUMMA-ROOT rdf-path)))
 
 ;TODO
+; decide api
 ; generate dictionary
 ; write yaml
-
+(defn write-test-summary
+  [])

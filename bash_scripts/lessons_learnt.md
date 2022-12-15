@@ -1,35 +1,24 @@
-# Output of first run with some commands
+# outputs for commands of exploratory run 
 - Checking out changes the `$GITHUB_WORKSPACE` env variable
 ````
-Run date
-  date
-  uname -a
-  java -version
-  pwd
-  ls -la
-  echo --
-  ls -la .. 
-  ls $GITHUB_WORKSPACE
-  shell: /usr/bin/bash -e {0}
-Fri Dec  9 13:01:31 UTC 2022
+uname -a
 Linux fv-az562-837 5.15.0-1024-azure #30-Ubuntu SMP Wed Nov 16 23:37:59 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+
+java -version
 openjdk version "11.0.17" 2022-10-18
 OpenJDK Runtime Environment Temurin-11.0.17+8 (build 11.0.17+8)
 OpenJDK 64-Bit Server VM Temurin-11.0.17+8 (build 11.0.17+8, mixed mode)
+
+pwd
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io
-total 28
-drwxr-xr-x 4 runner docker 4096 Dec  9 13:31 .
-drwxr-xr-x 3 runner docker 4096 Dec  9 13:31 ..
-drwxr-xr-x 8 runner docker 4096 Dec  9 13:31 .git
-drwxr-xr-x 3 runner docker 4096 Dec  9 13:31 .github
--rw-r--r-- 1 runner docker   32 Dec  9 13:31 .gitignore
--rw-r--r-- 1 runner docker  116 Dec  9 13:31 README.md
--rw-r--r-- 1 runner docker  542 Dec  9 13:31 lessons_learnt.md
---
-total 12
-drwxr-xr-x 3 runner docker 4096 Dec  9 13:31 .
-drwxr-xr-x 6 runner root   4096 Dec  9 13:31 ..
-drwxr-xr-x 4 runner docker 4096 Dec  9 13:31 CI-deepimagej-bioimage-io
-README.md
-lessons_learnt.md
 ````
+
+# Running deepimagej headless Needs
+- Folder of the model (name of folder does not matter) needs to be in fiji models folder
+  put nickname as name
+- Name of the model (:name field in yaml)
+- Format (Tensorflow or Pytorch?) <- Download (weights)
+- Pre-post processing <- Download (macros)
+- axes
+- tile
+- example image.tif <- Download 

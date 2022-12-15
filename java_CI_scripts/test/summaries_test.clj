@@ -2,15 +2,8 @@
   (:require [clojure.test :refer [deftest is testing use-fixtures run-tests]]
             [summaries :refer :all]
             [collection :refer [COLLECTION-ROOT]]
+            [test-setup :refer [test-rdf-path load-test-data]]
             [babashka.fs :as fs]))
-
-(def test-rdf-path (atom nil))
-
-(defn load-test-data
-  [test-fn]
-  (reset! test-rdf-path
-          (fs/path (str COLLECTION-ROOT) "10.5281" "zenodo.6334881" "6346477" "rdf.yaml"))
-  (test-fn))
 
 (use-fixtures :once load-test-data)
 
