@@ -44,21 +44,33 @@ jobs:
         run: |
           bb --version
           bb -m core
-          tree ../test_summaries # test-summaries folder should exist
-      # - name: upload the test summaries
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: test-summaries
-      #     path: ./test_summaries/
-      #     retention-days: 1
+          tree ../test_summaries -L 2 -h --du --dirsfirst # test-summaries folder should exist
+       - name: upload the test summaries
+         uses: actions/upload-artifact@v3
+         with:
+           name: test-summaries
+           path: ./test_summaries/
+           retention-days: 1
 
   deploy:
     needs: my-ci-job
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - uses: actions/download-artifact@v3
+      with:
+        name: test-summaries
+        path: .
+
     - name: exploratory commands
       run: |
         chmod +x ./bash_scripts/explore_commands.sh
         bash ./bash_scripts/explore_commands.sh
+
+    - name: Deploy test summaries to gh-pages 🚀
+      uses: JamesIves/github-pages-deploy-action@v4.2.3
+      with:
+        clean: false
+        branch: gh-pages
+        folder: ./test_summaries
       
