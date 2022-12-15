@@ -60,5 +60,8 @@ jobs:
         run: |
           bb --version
           bb "(require '[collection-test] '[summaries-test]) (clojure.test/run-tests 'collection-test 'summaries-test)"
+          echo -------
+          bb -m core
+          tree ../test_summaries # test-summaries folder should exist
 
 

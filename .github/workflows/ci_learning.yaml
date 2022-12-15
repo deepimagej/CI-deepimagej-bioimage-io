@@ -33,3 +33,15 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: echo Hello, world! ${{ inputs.pending_matrix }}
+
+      - name: setup babashka
+        uses: turtlequeue/setup-babashka@v1.5.0
+        with:
+          babashka-version: 1.0.168
+
+      - name: run scripts for tests
+        working-directory: ./java_CI_scripts
+        run: |
+          bb --version
+          bb -m core
+          tree ../test_summaries # test-summaries folder should exist
