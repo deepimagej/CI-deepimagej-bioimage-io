@@ -8,3 +8,5 @@ test_summaries/
 toy_test_summaries/
 # dir for models
 models/
+#
+output.txt

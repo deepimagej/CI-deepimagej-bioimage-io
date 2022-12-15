@@ -58,5 +58,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: exploratory commands
-      run: ./bash_scripts/explore_commands.sh
+      run: |
+        chmod +x ./bash_scripts/explore_commands.sh
+        bash ./bash_scripts/explore_commands.sh
       

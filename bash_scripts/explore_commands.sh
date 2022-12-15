@@ -1,3 +1,5 @@
+#! /usr/bin/env sh
+
 date
 echo --
 pwd
