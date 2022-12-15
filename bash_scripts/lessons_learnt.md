@@ -21,4 +21,5 @@ pwd
 - Pre-post processing <- Download (macros)
 - axes
 - tile
-- example image.tif <- Download 
+- example image.tif <- Download
+- expected output <- Download
