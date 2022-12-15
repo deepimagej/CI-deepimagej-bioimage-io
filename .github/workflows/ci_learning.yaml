@@ -17,7 +17,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  my-job-ci:
+  my-ci-job:
     runs-on: ubuntu-latest
 
     steps:
@@ -39,9 +39,24 @@ jobs:
         with:
           babashka-version: 1.0.168
 
-      - name: run scripts for tests
+      - name: run scripts
         working-directory: ./java_CI_scripts
         run: |
           bb --version
           bb -m core
           tree ../test_summaries # test-summaries folder should exist
+      # - name: upload the test summaries
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: test-summaries
+      #     path: ./test_summaries/
+      #     retention-days: 1
+
+  deploy:
+    needs: my-ci-job
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: exploratory commands
+      run: ./bash_scripts/explore_commands.sh
+      
