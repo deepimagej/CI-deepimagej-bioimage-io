@@ -18,6 +18,8 @@
 
 (defrecord ModelToTest [paths name sample-images processing axes tiles])
 
+(defn build-arg
+  "Builds the argument string needed for the DeepImageJ Run command")
 
 (defn build-model-folder
   "Downloads necessary files for testing in a directory"
