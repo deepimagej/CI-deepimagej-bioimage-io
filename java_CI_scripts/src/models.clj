@@ -16,10 +16,13 @@
 ;- summa-path
 ;- model-folder-path
 
-(defrecord ModelToTest [paths name sample-images processing axes tiles])
+
+(defrecord ModelToTest [ModelPaths name sample-images processing axes tiles])
+(defrecord ModelPaths [rdf-path summa-path model-folder-path])
 
 (defn build-arg
-  "Builds the argument string needed for the DeepImageJ Run command")
+  "Builds the argument string needed for the DeepImageJ Run command"
+  [])
 
 (defn build-model-folder
   "Downloads necessary files for testing in a directory"
