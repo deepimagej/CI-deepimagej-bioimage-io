@@ -23,3 +23,8 @@ pwd
 - tile
 - example image.tif <- Download
 - expected output <- Download
+
+# Models from the zoo with multiple weight formats
+## onnx and pytorch weights
+- affable-shark
+- straightforward-crocodile

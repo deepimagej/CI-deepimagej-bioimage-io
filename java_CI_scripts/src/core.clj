@@ -3,6 +3,11 @@
             [collection :refer [get-rdfs-to-test file-json->vector]]))
 
 ; TODO command line options to make main more useful
+; -t run tests
+; -j file json
+; -s string json
+; -m create model folders (download files)
+; --summary write test summaries
 (defn -main
   "Creates the folders corresponding to test input json (two models)"
   []
