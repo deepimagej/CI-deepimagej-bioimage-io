@@ -38,3 +38,18 @@
       (is (= "Pytorch" (:type (second w2)))))
     (testing "rdf with incorrect keyword"
       (is (= w3 (->Weight "Pytorch" nil))))))
+
+(deftest get-p-process-info-test
+  (let [p (get-p-process-info (parse-model @test-rdf-path))
+        p1 (get-p-process-info model-1)
+        pp-dict-2 (get-in model-2 [:config :deepimagej :prediction])]
+    (testing "rdf with no preprocessing"
+      (is (= [] (get-p-process-info p))))
+    (testing "rdf with pre- and post-processing"
+      (is (= (set p1) (set [(->PProcess :post-p "binarize.ijm")
+                            (->PProcess :pre-p "per_sample_scale_range.ijm")]))))
+    (testing "rdf with only pre-processing"
+      (is (= (get-p-process-info :postprocess pp-dict-2)
+             (->PProcess :post-p nil)))
+      (is (= (get-p-process-info :preprocess pp-dict-2)
+             (->PProcess :pre-p "zero_mean_unit_variance.ijm"))))))
