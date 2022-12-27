@@ -2,28 +2,35 @@
   (:require [clojure.test :refer [deftest is testing use-fixtures run-tests]]
             [models :refer :all]
             [collection :refer [COLLECTION-ROOT]]
-            [test-setup :refer [test-rdf-path load-test-data]]
+            [test-setup :refer [rdf-paths load-test-paths]]
             [babashka.fs :as fs]))
 
-(use-fixtures :once load-test-data)
+(def model-dicts {:a-model (atom nil) :tf-model (atom nil) :pt-model (atom nil)})
+
+(defn load-test-models
+  "Parses test paths into different models for testing:
+  - A model without dij config (with state dict)
+  - A tensorflow model (with keras)
+  - A torchscript model (with state dict)"
+  [test-fn]
+  (reset! (:a-model model-dicts) (parse-model @(:an-rdf rdf-paths)))
+  (reset! (:tf-model model-dicts) (parse-model @(:tf-rdf rdf-paths)))
+  (reset! (:pt-model model-dicts) (parse-model @(:pt-rdf rdf-paths)))
+  (test-fn))
+
+(use-fixtures :once load-test-paths load-test-models)
 
 (deftest parse-model-test
-  (let [model-dict (parse-model @test-rdf-path)]
+  (let [model-dict @(:a-model model-dicts)]
     (is (= "laid-back-lobster" (get-in model-dict [:config :bioimageio :nickname])))
     (is (= "13bbeb9a2403f5ff840951d8907586cf1ceded3072d36466db3e592b5ad53649"
            (get-in model-dict [:weights :pytorch_state_dict :sha256])))))
 
-(def model-1 "A tensorflow model (with keras)"
-  (parse-model (fs/path COLLECTION-ROOT "10.5281" "zenodo.5749843" "5888237" "rdf.yaml")))
-
-(def model-2 "A torchscript model (with state dict)"
-  (parse-model (fs/path COLLECTION-ROOT "10.5281" "zenodo.5874741" "5874742" "rdf.yaml" )))
-
 (deftest get-weight-info-test
-  (let [w (get-weight-info (parse-model @test-rdf-path))
-        w1 (get-weight-info model-1)
-        w2 (get-weight-info model-2)
-        w3 (get-weight-info :torchscript model-1)]
+  (let [w (get-weight-info @(:a-model model-dicts))
+        w1 (get-weight-info @(:tf-model model-dicts))
+        w2 (get-weight-info @(:pt-model model-dicts))
+        w3 (get-weight-info :torchscript @(:tf-model model-dicts))]
     (testing "rdf with 1 incompatible weight (pytorch state dict)"
       (is (= 1 (count w)))
       (is (= (->Weight nil "https://zenodo.org/api/files/4a69ddca-3874-4469-b11d-b9ed626d197f/confocal_pnas_2d.pytorch")
@@ -40,9 +47,9 @@
       (is (= w3 (->Weight "Pytorch" nil))))))
 
 (deftest get-p*process-info-test
-  (let [p (get-p*process-info (parse-model @test-rdf-path))
-        p1 (get-p*process-info model-1)
-        pp-dict-2 (get-in model-2 [:config :deepimagej :prediction])]
+  (let [p (get-p*process-info @(:a-model model-dicts))
+        p1 (get-p*process-info @(:tf-model model-dicts))
+        pp-dict-2 (get-in @(:pt-model model-dicts) [:config :deepimagej :prediction])]
     (testing "rdf with no preprocessing"
       (is (= [] (get-p*process-info p))))
     (testing "rdf with pre- and post-processing"

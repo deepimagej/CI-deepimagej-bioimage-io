@@ -46,7 +46,7 @@
   ([str-key rdf-dict]
    (let [keyw (keyword str-key)
          *nput-map (first (keyw rdf-dict))
-         sample (first (keyword (str "sample_" str-key) rdf-dict))
+         sample (first ((keyword (str "sample_" str-key)) rdf-dict))
          shape (get-in rdf-dict [:config :deepimagej :test_information keyw :size])]
      (->Tensor keyw (:name *nput-map) (:axes *nput-map) sample shape))))
 
