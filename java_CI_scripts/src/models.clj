@@ -10,38 +10,46 @@
 
 (def weight-names {:torchscript "Pytorch"
                    :tensorflow_saved_model_bundle "Tensorflow"})
-(def p-process-names{:preprocess :pre-p :postprocess :post-p} )
+(def p*process-names{:preprocess :pre-p :postprocess :post-p} )
 
-(defrecord Model [paths name weights tensors tiles p-process])
+(defrecord Model [paths name nickname dij-config? weights tensors p*process tiles])
 (defrecord Paths [rdf-path summa-path model-folder-path])
 (defrecord Weight [type source])
-(defrecord Tensor [type name axes sample])
-(defrecord PProcess [type scripts])
+(defrecord Tensor [type name axes sample shape])
+(defrecord PProcess [type script])
+
+(defn get-paths-info
+  "Gets the different paths the model uses"
+  [rdf-path])
 
 (defn get-weight-info
   "Put relevant weight information in a record, given a parsed rdf.
   The field 'type' is 'nil' for unsupported weights"
   ([rdf-dict]
    (map #(get-weight-info % rdf-dict) (keys (:weights rdf-dict))))
-  ([key rdf-dict]
-   (->Weight (weight-names key) (get-in rdf-dict [:weights key :source]))))
+  ([keyw rdf-dict]
+   (->Weight (weight-names keyw) (get-in rdf-dict [:weights keyw :source]))))
 
-(defn get-p-process-info
+(defn get-p*process-info
   "Gathers information about pre- and post-processing from the yaml file"
   ([rdf-dict]
-   (let [p-process-dict (get-in rdf-dict [:config :deepimagej :prediction])]
-     (map #(get-p-process-info % p-process-dict) (keys p-process-dict))))
-  ([key p-process-dict]
-   ; enhance? list the kwargs, not only keep the first (?)
-   (->PProcess (p-process-names key) (:kwargs (first (key p-process-dict))))))
+   (let [p*process-dict (get-in rdf-dict [:config :deepimagej :prediction])]
+     (map #(get-p*process-info % p*process-dict) (keys p*process-dict))))
+  ([keyw p-process-dict]
+   ; enhance? list the scripts in kwargs, not only keep the first (?)
+   (->PProcess (keyw p*process-names) (:kwargs (first (keyw p-process-dict))))))
 
-; todo Fix this
 (defn get-tensor-info
-  "Get relevant information about :inputs and :outputs"
-  [in-or-out-key rdf-dict]
-  (let [tensor-info-dict (first (in-or-out-key rdf-dict))
-        sample-key (in-or-out-key {:inputs :sample_inputs :outputs :sample_outputs})]
-    (->Tensor (:name tensor-info-dict) (:axes tensor-info-dict) (first (sample-key rdf-dict)))))
+  "Get info about input/output tensors"
+  ([rdf-dict]
+   (map #(get-tensor-info % rdf-dict) ["inputs" "outputs"]))
+  ([str-key rdf-dict]
+   (let [keyw (keyword str-key)
+         *nput-map (first (keyw rdf-dict))
+         sample (first (keyword (str "sample_" str-key) rdf-dict))
+         shape (get-in rdf-dict [:config :deepimagej :test_information keyw :size])]
+     (->Tensor keyw (:name *nput-map) (:axes *nput-map) sample shape))))
+
 
 
 (defn build-dij-arg

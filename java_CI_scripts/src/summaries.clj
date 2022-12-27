@@ -27,5 +27,8 @@
 ; decide api
 ; generate dictionary
 ; write yaml
+(defn gen-summa-dict
+  [])
+
 (defn write-test-summary
   [])
