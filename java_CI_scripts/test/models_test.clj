@@ -1,5 +1,6 @@
 (ns models-test
   (:require [clojure.test :refer [deftest is testing use-fixtures run-tests]]
+            [clojure.java.io :refer [as-url]]
             [models :refer :all]
             [collection :refer [COLLECTION-ROOT]]
             [test-setup :refer [rdf-paths load-test-paths]]
@@ -62,14 +63,24 @@
              (->PProcess :pre-p "zero_mean_unit_variance.ijm"))))))
 
 (deftest get-tensor-info-test
-  (let [[[a_in a_o] [b_in b_o] [c_in c_o]] (map (fn [[k v]] (get-tensor-info @v)) model-dicts)]
+  (let [[[a-in a-o] [b-in b-o] [c-in c-o]] (map (fn [[k v]] (get-tensor-info @v)) model-dicts)]
     (testing "A model dict without DeepImageJ config"
-      (is (= (:name a_in) "raw"))
-      (is (nil? (:sample a_in)))
-      (is (= (:axes a_o) "bczyx"))
-      (is (nil? (:shape a_o))))
-    (testing "A tensorflow model")
-    (testing "A pytorch model")))
+      (is (= (:name a-in) "raw"))
+      (is (nil? (:sample a-in)))
+      (is (= (:axes a-o) "bczyx"))
+      (is (nil? (:shape a-o))))
+    (testing "A tensorflow model"
+      (let [in-url (as-url (:sample b-in))
+            in-path (fs/path (.getPath in-url))
+            out-url (as-url (:sample b-o))
+            out-path (fs/path (.getPath out-url))]
+        (is (= "exampleImage.tif" (fs/file-name in-path)))
+        (is (= "1 x 256 x 256 x 8 x 1" (:shape b-in)))
+        (is (= "resultImage.tif" (fs/file-name out-path)))
+        (is (= "zenodo.org" (.getHost out-url)))))
+    (testing "A pytorch model"
+      (is (= (:name c-in) "input0"))
+      (is (= (:shape c-o) "360 x 360 x 32 x 1")))))
 
 ; filter list
 ; (filter #(= (:type %) :inputs) b)
