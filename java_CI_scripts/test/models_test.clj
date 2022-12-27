@@ -60,3 +60,19 @@
              (->PProcess :post-p nil)))
       (is (= (get-p*process-info :preprocess pp-dict-2)
              (->PProcess :pre-p "zero_mean_unit_variance.ijm"))))))
+
+(deftest get-tensor-info-test
+  (let [[[a_in a_o] [b_in b_o] [c_in c_o]] (map (fn [[k v]] (get-tensor-info @v)) model-dicts)]
+    (testing "A model dict without DeepImageJ config"
+      (is (= (:name a_in) "raw"))
+      (is (nil? (:sample a_in)))
+      (is (= (:axes a_o) "bczyx"))
+      (is (nil? (:shape a_o))))
+    (testing "A tensorflow model")
+    (testing "A pytorch model")))
+
+; filter list
+; (filter #(= (:type %) :inputs) b)
+; (filter (fn [t] (= (:type t) :inputs)) b)
+; (filter (fn [{t :type}] (= t :inputs)) b) ;deconstructing
+; (filter (fn [{:keys [:type]}] (= type :inputs)) b)
