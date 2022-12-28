@@ -1,7 +1,8 @@
 (ns models
   (:require [babashka.fs :as fs]
             [clj-yaml.core :as yaml]
-            [summaries :refer [get-parent-components gen-summa-path]]))
+            [collection :refer [COLLECTION-ROOT]]
+            [summaries :refer [new-root-path]]))
 
 (def MODEL-ROOT "path to the models" (fs/path ".." "models"))
 
@@ -20,8 +21,6 @@
 (defrecord Weight [type source])
 (defrecord Tensor [type name axes sample shape])
 (defrecord PProcess [type script])
-
-
 
 (defn get-weight-info
   "Put relevant weight information in a record, given a parsed rdf.
@@ -53,6 +52,18 @@
                     (conj []) flatten first :size)]
      (->Tensor keyw (:name *nput-map) (:axes *nput-map) sample shape))))
 
+
+(defn gen-model-path
+  "Gets the path corresponding to the model directory of an rdf-path"
+  ([coll-root model-root rdf-path] (new-root-path coll-root model-root rdf-path))
+  ([rdf-path] (gen-model-path COLLECTION-ROOT MODEL-ROOT rdf-path)))
+
+(defn create-model-dir
+  "Creates directory for the model given the path to an rdf"
+  ([coll-root model-root rdf-path]
+   (fs/create-dirs (gen-model-path coll-root model-root rdf-path)))
+  ([rdf-path]
+   (create-model-dir COLLECTION-ROOT MODEL-ROOT rdf-path)))
 
 (defn get-paths-info
   "Gets the different paths the model uses"

@@ -20,7 +20,7 @@
 
 (deftest new-root-path-test
   (let [a-path (fs/path "a_root" "first_folder" "second_folder" "file.txt")
-        expect (fs/path "a_new_root" "first_folder" "secod_folder")]
+        expect (fs/path "a_new_root" "first_folder" "second_folder")]
     (is (= (str expect) (str (new-root-path "a_root" "a_new_root" a-path))))))
 
 (deftest gen-summa-path-test
@@ -32,9 +32,9 @@
     (testing "Before folder exists"
       (is (not (fs/exists? toy-root))))
     (testing "Create folder structure"
-      (let [summa-path (gen-summa-path toy-root @(:an-rdf rdf-paths))
-            res (create-summa-dir toy-root @(:an-rdf rdf-paths))]
-        (is (= (str (fs/absolutize summa-path)) (str (fs/absolutize res)))
+      (let [summa-path (gen-summa-path COLLECTION-ROOT toy-root @(:an-rdf rdf-paths))
+            result (create-summa-dir COLLECTION-ROOT toy-root @(:an-rdf rdf-paths))]
+        (is (= (str (fs/absolutize summa-path)) (str (fs/absolutize result)))
             "successful creation returns the path")
         (is (= (map fs/file-name (fs/list-dir toy-root)) ["10.5281"]))))
     (testing "After tests, delete toy folder"

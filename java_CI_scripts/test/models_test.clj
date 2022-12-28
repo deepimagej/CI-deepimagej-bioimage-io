@@ -1,9 +1,9 @@
 (ns models-test
-  (:require [clojure.test :refer [deftest is testing use-fixtures run-tests]]
-            [clojure.java.io :refer [as-url]]
-            [models :refer :all]
+  (:require [models :refer :all]
             [collection :refer [COLLECTION-ROOT]]
             [test-setup :refer [rdf-paths load-test-paths]]
+            [clojure.test :refer [deftest is testing use-fixtures run-tests]]
+            [clojure.java.io :refer [as-url]]
             [babashka.fs :as fs]))
 
 (def model-dicts {:a-model (atom nil) :tf-model (atom nil) :pt-model (atom nil)})
@@ -86,3 +86,11 @@
 ; (filter (fn [t] (= (:type t) :inputs)) b)
 ; (filter (fn [{t :type}] (= t :inputs)) b) ;deconstructing
 ; (filter (fn [{:keys [:type]}] (= type :inputs)) b)
+
+(deftest gen-model-path-test
+  (let [expected-path (fs/path MODEL-ROOT "10.5281" "zenodo.6334881" "6346477")]
+    (is (= (str (gen-model-path @(:an-rdf rdf-paths))) (str expected-path)))))
+
+; No test for create-model-dir
+; too similar to the summary one (which is a big test)
+; it is tested seeing that the models are created (bash tree command after running core.-main)
