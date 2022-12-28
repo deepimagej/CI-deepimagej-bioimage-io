@@ -1,5 +1,6 @@
 (ns models-test
   (:require [models :refer :all]
+            [summaries :refer [SUMMA-ROOT]]
             [collection :refer [COLLECTION-ROOT]]
             [test-setup :refer [rdf-paths load-test-paths]]
             [clojure.test :refer [deftest is testing use-fixtures run-tests]]
@@ -94,3 +95,23 @@
 ; No test for create-model-dir
 ; too similar to the summary one (which is a big test)
 ; it is tested seeing that the models are created (bash tree command after running core.-main)
+
+(deftest get-paths-info-test
+  (let [test-rdf @(:pt-rdf rdf-paths)
+        paths (get-paths-info test-rdf)
+        components '("10.5281" "zenodo.5874741" "5874742")
+        s-path (apply fs/path (conj components SUMMA-ROOT))
+        m-path (apply fs/path (conj components MODEL-ROOT))]
+    (is (= [:rdf-path :summa-path :model-folder-path] (keys paths)))
+    (is (= (:rdf-path paths) test-rdf))
+    (is (= (str s-path) (str (:summa-path paths))))
+    (is (= (str m-path) (str (:model-folder-path paths))))
+    (is (= paths (->Paths test-rdf s-path m-path))) "Equality regardless different references"))
+
+(deftest build-model-test
+  (testing "Only the new fields (record fields already tested"
+    (let [the-keys [:name :nickname :dij-config?]
+          vals-model-0 (map #(% (build-model @(:an-rdf rdf-paths))) the-keys)
+          vals-model-tf (map #(% (build-model @(:tf-rdf rdf-paths))) the-keys)]
+      (is (= vals-model-0 ["2D UNet Arabidopsis Apical Stem Cells" "laid-back-lobster" false]))
+      (is (= vals-model-tf ["Cell Segmentation from Membrane Staining for Plant Tissues" "humorous-owl" true])))))
