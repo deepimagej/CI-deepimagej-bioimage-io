@@ -22,10 +22,9 @@
 (use-fixtures :once load-test-paths load-test-models)
 
 (deftest parse-model-test
-  (let [model-dict @(:a-model model-dicts)]
-    (is (= "laid-back-lobster" (get-in model-dict [:config :bioimageio :nickname])))
-    (is (= "13bbeb9a2403f5ff840951d8907586cf1ceded3072d36466db3e592b5ad53649"
-           (get-in model-dict [:weights :pytorch_state_dict :sha256])))))
+  (is (= "laid-back-lobster" (get-in @(:a-model model-dicts) [:config :bioimageio :nickname])))
+  (is (= "13bbeb9a2403f5ff840951d8907586cf1ceded3072d36466db3e592b5ad53649"
+         (get-in @(:a-model model-dicts) [:weights :pytorch_state_dict :sha256]))))
 
 (deftest get-weight-info-test
   (let [w (get-weight-info @(:a-model model-dicts))

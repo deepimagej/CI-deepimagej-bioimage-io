@@ -1,6 +1,9 @@
 (ns models
   (:require [babashka.fs :as fs]
-            [clj-yaml.core :as yaml]))
+            [clj-yaml.core :as yaml]
+            [summaries :refer [get-parent-components gen-summa-path]]))
+
+(def MODEL-ROOT "path to the models" (fs/path ".." "models"))
 
 (defn parse-model
   "Takes the path of an rdf.yaml and parses it into an ordered dictionary"
@@ -18,9 +21,7 @@
 (defrecord Tensor [type name axes sample shape])
 (defrecord PProcess [type script])
 
-(defn get-paths-info
-  "Gets the different paths the model uses"
-  [rdf-path])
+
 
 (defn get-weight-info
   "Put relevant weight information in a record, given a parsed rdf.
@@ -53,12 +54,11 @@
      (->Tensor keyw (:name *nput-map) (:axes *nput-map) sample shape))))
 
 
+(defn get-paths-info
+  "Gets the different paths the model uses"
+  [rdf-path])
 
 (defn build-dij-arg
   "Builds the argument string needed for the DeepImageJ Run command"
   [])
 
-(defn build-model-folder
-  "Downloads necessary files for testing in a directory"
-  [rdf-path dir-name])
-; download files (build folder for deepimagej)
