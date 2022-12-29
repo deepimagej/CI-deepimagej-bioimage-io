@@ -43,7 +43,7 @@ jobs:
         working-directory: ./java_CI_scripts
         run: |
           bb --version
-          bb -m core
+          bb -m core -s ${{ inputs.pending_matrix }}
           tree -h --du --dirsfirst -L 3 ../test_summaries # test-summaries folder should exist
           tree -h --du --dirsfirst -L 3 ../models # models folder should exist
 

@@ -59,9 +59,8 @@ jobs:
         working-directory: ./java_CI_scripts
         run: |
           bb --version
-          bb "(require '[collection-test] '[summaries-test] '[models-test]) (clojure.test/run-tests 'collection-test 'summaries-test 'models-test)"
-          echo -------
-          bb -m core
+          bb -m core -h
+          bb -m core -u
           tree ../test_summaries -L 3 -h --du --dirsfirst # test-summaries folder should exist
 
 

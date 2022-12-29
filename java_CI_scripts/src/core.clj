@@ -20,6 +20,7 @@
 ; -p --pre-test (avoid downloads)
 ; -m --model-folders populate model folders (also downloads files)
 ; -t --test-summaries write test summaries
+; -v --verbosity
 (def cli-options
   [["-u" "--unit-test" "Run all unit tests"
     :default false]
