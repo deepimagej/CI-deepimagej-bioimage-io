@@ -32,9 +32,6 @@
      (is (= resource_id "deepimagej/DeepSTORMZeroCostDL4Mic"))
      (is (= version_id "latest")))))
 
-(deftest -main-test
-  (is (= '("a" "1" 2) (-main "a" "1" 2))))
-
 (deftest filter-rdfs-test
   (let [all-rdfs (fs/glob COLLECTION-ROOT "**")
         some-rdfs (fs/glob (fs/path COLLECTION-ROOT "10.5281/zenodo.5749843") "**")]

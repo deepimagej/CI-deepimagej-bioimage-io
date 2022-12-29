@@ -7,8 +7,7 @@
                      [test :refer [run-tests]])
             [clojure.tools.cli :as cli]
             [babashka.fs :as fs]
-            [cheshire.core :as json]
-            ))
+            [cheshire.core :as json]))
 
 (defn valid-json? [s]
   (try (json/parse-string s)
@@ -27,7 +26,7 @@
    ["-j" "--json-file FILE" "Read input from json FILE"
     :default "./pending_matrix/two_models.json"
     :validate [#(fs/exists? %) "File must exist"]]
-   ["-s" "--json-string STRING" "Read input from json STRING"
+   ["-s" "--json-string STRING" "Read input from raw json STRING"
     ; not a default value, to make it incompatible with -j
     :validate [#(valid-json? %) "String must be valid json"]]
    ;; A boolean option defaulting to nil
@@ -36,7 +35,7 @@
 (defn usage [options-summary]
   (->> ["DeepImageJ CI of models from the BiomageModelZoo"
         ""
-        "Usage: bb -m core [options]"
+        "Usage: bb -m core [options] (in the java_CI_scripts working directory)"
         ""
         "Options:"
         options-summary
