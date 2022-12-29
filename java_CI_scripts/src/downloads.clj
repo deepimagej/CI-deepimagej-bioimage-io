@@ -13,7 +13,7 @@
   [weights])
 
 (defn available-sample-images?
-  "Tells if input and output tiff sample images are available"
+  "Tells if input and output tiff sample images are in the rdf.yaml"
   [])
 
 ; todo use (format)
