@@ -1,6 +1,6 @@
 (ns collection-test
-  (:require [clojure.test :refer [deftest is testing use-fixtures run-tests run-test]]
-            [collection :refer :all]
+  (:require [collection :refer :all]
+            [clojure.test :refer [deftest is testing]]
             [babashka.fs :as fs]))
 
 (deftest collection-root-test

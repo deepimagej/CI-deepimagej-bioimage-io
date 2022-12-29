@@ -1,6 +1,6 @@
 (ns test-setup
-  (:require [clojure.test :refer :all]
-            [collection :refer [COLLECTION-ROOT]]
+  (:require [collection :refer [COLLECTION-ROOT]]
+            [clojure.test :refer :all]
             [babashka.fs :as fs]))
 
 

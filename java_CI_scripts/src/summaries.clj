@@ -1,7 +1,7 @@
 (ns summaries
-  (:require [babashka.fs :as fs]
+  (:require [collection :refer [COLLECTION-ROOT]]
             [clj-yaml.core :as yaml]
-            [collection :refer [COLLECTION-ROOT]]))
+            [babashka.fs :as fs]))
 
 (def SUMMA-ROOT "path to the test summaries" (fs/path ".." "test_summaries"))
 

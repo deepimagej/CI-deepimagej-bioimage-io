@@ -1,8 +1,8 @@
 (ns summaries-test
-  (:require [clojure.test :refer [deftest is testing use-fixtures run-tests]]
+  (:require [collection :refer [COLLECTION-ROOT]]
             [summaries :refer :all]
-            [collection :refer [COLLECTION-ROOT]]
             [test-setup :refer [rdf-paths load-test-paths]]
+            [clojure.test :refer [deftest is testing use-fixtures run-tests]]
             [babashka.fs :as fs]))
 
 (use-fixtures :once load-test-paths)

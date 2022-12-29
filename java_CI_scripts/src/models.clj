@@ -1,8 +1,8 @@
 (ns models
-  (:require [babashka.fs :as fs]
+  (:require [collection :refer [COLLECTION-ROOT]]
+            [summaries :refer [new-root-path gen-summa-path]]
             [clj-yaml.core :as yaml]
-            [collection :refer [COLLECTION-ROOT]]
-            [summaries :refer [new-root-path gen-summa-path]]))
+            [babashka.fs :as fs]))
 
 (def MODEL-ROOT "path to the models" (fs/path ".." "models"))
 

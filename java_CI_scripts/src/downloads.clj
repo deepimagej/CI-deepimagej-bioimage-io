@@ -11,3 +11,8 @@
   "Downloads in a directory the necessary files for testing a dij-compatible model"
   [model])
 ;todo pmap to potentially download in paralell
+
+
+; todo check models that fail by default
+; - no deepimagej config
+; - no compatible weights
