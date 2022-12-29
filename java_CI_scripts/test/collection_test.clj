@@ -64,5 +64,4 @@
     (testing "Resource vector has 2 maps"
       (is (= (map #(fs/file-name (fs/parent %)) r-b) ["7261975" "latest"])))
     (testing "Resource vector has 1 map, but version globbing"
-      (is (= (map #(fs/file-name (fs/parent %)) r-c) ["5888237" "5877226"])))
-    ))
+      (is (= (map #(fs/file-name (fs/parent %)) r-c) ["5888237" "5877226"])))))

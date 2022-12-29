@@ -35,4 +35,5 @@
   [])
 
 (defn write-test-summary
-  [])
+  "status is a literal string: passed or failed"
+  [model status & kwargs])
