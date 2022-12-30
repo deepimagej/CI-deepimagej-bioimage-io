@@ -62,6 +62,7 @@ jobs:
           bb -m core -h
           bb -m core -u
           bb -m core -j pending_matrix/two_models.json
-          tree ../test_summaries -L 3 -h --du --dirsfirst # test-summaries folder should exist
+          tree -h --du --dirsfirst -L 3 ../test_summaries # test-summaries folder should exist
+          tree -h --du --dirsfirst -L 3 ../models # models folder should exist
 
 
