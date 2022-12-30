@@ -2,7 +2,7 @@
   (:require [summaries :refer [create-summa-dir]]
             [collection :refer [get-rdfs-to-test file-json->vector str-json->vector]]
             [models :refer [create-model-dir]]
-            [collection-test] [models-test] [summaries-test] [downloads-test] [core-test]
+            [collection-test] [models-test] [summaries-test] [downloads-test]
             (clojure [string :as str]
                      [test :refer [run-tests]])
             [clojure.tools.cli :as cli]
