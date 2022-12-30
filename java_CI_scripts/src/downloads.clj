@@ -1,7 +1,10 @@
 (ns downloads
   (:require [clojure.set :refer [rename-keys]]))
 
-; Initial checks to the models to see easy "fails" and prevent downloads
+; Initial checks to the models to see "fails" before inference and prevent downloads
+; - no deepimagej config
+; - not available sample images
+; - no compatible weights
 
 (defn separate-by-dij-config
   "Separates models into the ones that have or not-have deepimagej config field in the rdf"
@@ -26,8 +29,3 @@
   "Downloads in a directory the necessary files for testing a dij-compatible model"
   [model])
 ;todo pmap to potentially download in paralell
-
-
-; todo check models that fail by default
-; - no deepimagej config
-; - no compatible weights
