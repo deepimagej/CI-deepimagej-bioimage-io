@@ -1,6 +1,10 @@
 Project directory for the CI scripts.
 
-## Run main functionality (-h flag for info)
+# Info
+- [Bioimageio Wiki](https://github.com/bioimage-io/bioimage.io/wiki/Contribute-community-partner-specific-test-summaries)
+- [Issue](https://github.com/bioimage-io/collection-bioimage-io/issues/515)
+
+## Run main functionality (-h flag for usage)
 ````
 bb -m core -h
 ````

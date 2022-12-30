@@ -41,3 +41,10 @@
       (let [del (fs/delete-tree toy-root)]
         (is (= (str toy-root) (str del)) "successful delete returns the path")))))
 
+(deftest gen-summa-dict-test
+  (is (= (gen-summa-dict "failed" :initial :no-dij-config)
+         {:bioimageio_spec_version "unknown",
+          :bioimageio_core_version "unknown",
+          :error "rdf does not have keys for config:deepimagej",
+          :status "failed",
+          :name "initial compatibility checks with deepimagej"})))

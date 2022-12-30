@@ -3,7 +3,7 @@
             [clj-yaml.core :as yaml]
             [babashka.fs :as fs]))
 
-(def SUMMA-ROOT "path to the test summaries" (fs/path ".." "test_summaries"))
+(def SUMMA-ROOT "Path to the test summaries" (fs/path ".." "test_summaries"))
 
 (defn get-parent-components
   "Gets the (seq) of components of parent directory structure (from root) of a given rdf path"
@@ -27,13 +27,37 @@
   ([rdf-path]
    (create-summa-dir COLLECTION-ROOT SUMMA-ROOT rdf-path)))
 
-;TODO
-; decide api
-; generate dictionary
-; write yaml
-(defn gen-summa-dict
-  [])
+(def default-summa-dict
+  {:bioimageio_spec_version "unknown"
+   :bioimageio_core_version "unknown"})
+; maybe more fields are obligatory ¯\_(ü)_/¯
 
+(def error-names
+  {:no-dij-config         "rdf does not have keys for config:deepimagej"
+   :no-sample-images      "rdf does not have keys for sample images"
+   :no-compatible-weights "rdf does not have a compatible weight format"})
+; errors can also happen:
+; - while downloading images
+; - while downloading weights
+; - while running dij headless (e.g. a preprocess macro)
+; - test output != expected output
+
+(defn gen-summa-dict
+  "Add additional fields to default summary dictionary to generate a valid test summary"
+  [status-k name-k & error]
+  (let [valid-names   {:initial   "initial compatibility checks with deepimagej"
+                       :download  "downloading testing resources for deepimagej"
+                       :reproduce "reproduce test outputs with deepimagej headless"}
+        valid-statuses #{"passed" "failed"}
+        status         (get valid-statuses status-k)
+        name           (get valid-names name-k)
+        dict (if (empty? error)
+               default-summa-dict
+               (assoc default-summa-dict :error ((first error) error-names)))]
+    (assoc dict :status status :name name)))
+
+;TODO
+; write yaml in the right folder
 (defn write-test-summary
-  "status is a literal string: passed or failed"
-  [model status & kwargs])
+  "Writes the yaml of the summary-dict in the summary path (in the model.path)"
+  [model summa-dict])

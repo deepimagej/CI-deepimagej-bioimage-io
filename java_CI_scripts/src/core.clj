@@ -82,7 +82,7 @@
       (exit (if ok? 0 1) exit-message)
       (cond
         (:unit-test options)
-        ;core cannot run the tests from 'core-test due to cyclic load dependency
+        ;core cannot run the tests from 'core-test due to cyclic load dependency!!
         (run-tests 'collection-test 'summaries-test 'models-test 'downloads-test)
         (:json-string options)
         (create-dirs :json-string options)
