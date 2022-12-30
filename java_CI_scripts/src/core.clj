@@ -1,6 +1,6 @@
 (ns core
   (:require [summaries :refer [create-summa-dir]]
-            [collection :refer [get-rdfs-to-test file-json->vector]]
+            [collection :refer [get-rdfs-to-test file-json->vector str-json->vector]]
             [models :refer [create-model-dir]]
             [collection-test] [models-test] [summaries-test] [downloads-test]
             (clojure [string :as str]
@@ -13,6 +13,7 @@
   (try (json/parse-string s)
        (catch Exception e false))) ;JsonParseException
 
+; '{\"include\": [{\"resource_id\": \"10.5281/zenodo.7261974\",\"version_id\": \"7261975\"}, {\"resource_id\": \"deepimagej\",\"version_id\": \"DeepSTORMZeroCostDL4Mic/latest\"}]}'
 (def a-valid-json "{\"include\": [{\"resource_id\": \"10.5281/zenodo.7261974\",\"version_id\": \"7261975\"},
           {\"resource_id\": \"deepimagej\",\"version_id\": \"DeepSTORMZeroCostDL4Mic/latest\"}]}")
 
@@ -28,7 +29,7 @@
     :default "./pending_matrix/two_models.json"
     :validate [#(fs/exists? %) "File must exist"]]
    ["-s" "--json-string STRING" "Read input from raw json STRING"
-    ; not a default value, to make it incompatible with -j
+    ; not given a default value, to make it incompatible with -j
     :validate [#(valid-json? %) "String must be valid json"]]
    ;; A boolean option defaulting to nil
    ["-h" "--help" "Show help"]])
@@ -65,17 +66,17 @@
   (println msg)
   (System/exit status))
 
-;(defn -main
-;  "Creates the folders corresponding to test input json (two models)"
-;  [& args]
-;  (let [file "./pending_matrix/two_models.json"
-;        rdfs (get-rdfs-to-test (file-json->vector file))]
-;    (do
-;      (println "create dirs for test summaries")
-;      (mapv create-summa-dir rdfs)
-;      (println "creating dirs for models")
-;      (mapv create-model-dir rdfs)))
-;  (parse-opts args cli-options))i
+(defn create-dirs
+  "Creates the folders corresponding to test input json"
+  [json-type options]
+  (let [parsing-function (json-type {:json-file   file-json->vector
+                                     :json-string str-json->vector})
+        rdfs (get-rdfs-to-test (parsing-function (json-type options)))]
+    (do
+      (println "create dirs for test summaries")
+      (mapv create-summa-dir rdfs)
+      (println "creating dirs for models")
+      (mapv create-model-dir rdfs))))
 
 (defn -main [& args]
   (let [{:keys [action options exit-message ok?]} (validate-args args)]
@@ -87,4 +88,6 @@
             (:unit-test options)
             (run-tests 'collection-test 'summaries-test 'models-test 'downloads-test)
             (:json-string options)
-            (print "TODO run things over the string"))))))
+            (create-dirs :json-string options)
+            :else
+            (create-dirs :json-file options))))))
