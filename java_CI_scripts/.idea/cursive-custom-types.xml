@@ -7,6 +7,7 @@
     <file url="file://$PROJECT_DIR$/src/models.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/src/summaries.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/collection_test.clj" value="BABASHKA" />
+    <file url="file://$PROJECT_DIR$/test/core_test.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/downloads_test.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/models_test.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/summaries_test.clj" value="BABASHKA" />

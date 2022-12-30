@@ -31,5 +31,5 @@ bb -m core -s '{\"include\": [{\"resource_id\": \"10.5281/zenodo.7261974\",\"ver
 
 ## Run tests of several namespaces
 ````
- bb "(require '[collection-test]) (clojure.test/run-tests 'collection-test)"
+ bb "(require '[core-test]) (clojure.test/run-tests 'core-test)"
 ````

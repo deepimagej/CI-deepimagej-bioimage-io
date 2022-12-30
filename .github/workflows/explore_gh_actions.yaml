@@ -60,7 +60,8 @@ jobs:
         run: |
           bb --version
           bb -m core -h
-          bb -m core -u
+          bb -m core -u # run all unit tests
+          bb "(require '[core-test]) (clojure.test/run-tests 'core-test)" # run core unit tests
           bb -m core -j pending_matrix/two_models.json
           tree -h --du --dirsfirst -L 3 ../test_summaries # test-summaries folder should exist
           tree -h --du --dirsfirst -L 3 ../models # models folder should exist
