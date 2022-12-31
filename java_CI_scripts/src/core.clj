@@ -1,7 +1,8 @@
 (ns core
-  (:require [summaries :refer [create-summa-dir]]
+  (:require [summaries :refer [create-summa-dir gen-summa-dict write-test-summary]]
             [collection :refer [get-rdfs-to-test file-json->vector str-json->vector]]
-            [models :refer [create-model-dir]]
+            [models :refer [create-model-dir build-model]]
+            [downloads :refer [separate-by-dij-config]]
             [collection-test] [models-test] [summaries-test] [downloads-test]
             (clojure [string :as str]
                      [test :refer [run-tests]])
@@ -13,10 +14,10 @@
   (try (json/parse-string s)
        (catch Exception e false))) ;JsonParseException
 
-; TODO command line options to make main more useful
-; -p --pre-test (avoid downloads)
-; -m --model-folders populate model folders (also downloads files)
-; -t --test-summaries write test summaries
+; TODO actions
+; initial: creates folders and test summaries for incompatible (avoid downloads)
+; download: populates model folders (downloads files)
+; reproduce: write test summaries (from outputs of tested headless dij)
 ; -v --verbosity
 (def cli-options
   [["-u" "--unit-test" "Run all unit tests"
@@ -64,17 +65,22 @@
   (println msg)
   (System/exit status))
 
+;TODO heavy refactor on action and error-name
 (defn create-dirs
   "Creates the folders corresponding to test input json"
   [json-type options]
   (let [parsing-function (json-type {:json-file   file-json->vector
                                      :json-string str-json->vector})
-        rdfs (get-rdfs-to-test (parsing-function (json-type options)))]
-    (do
-      (println "Creating dirs for test summaries")
-      (mapv create-summa-dir rdfs)
-      (println "Creating dirs for models")
-      (mapv create-model-dir rdfs))))
+        rdfs (get-rdfs-to-test (parsing-function (json-type options)))
+        model-records (map build-model rdfs)
+        no-dij (:no-dij-config (separate-by-dij-config model-records))
+        failed-dict (gen-summa-dict "failed" :initial :no-dij-config)]
+    (do (println "Creating dirs for test summaries")
+        (mapv create-summa-dir rdfs)
+        (println "Creating dirs for models")
+        (mapv create-model-dir rdfs)
+        (println "Create test summaries for" (count no-dij) "models")
+        (mapv #(write-test-summary % failed-dict) no-dij))))
 
 (defn -main [& args]
   (let [{:keys [action options exit-message ok?]} (validate-args args)]
