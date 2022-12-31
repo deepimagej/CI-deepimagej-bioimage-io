@@ -11,7 +11,7 @@ on:
         description: 'json encoded gh matrix of pending validations for new or updated resources (default: test on all resources)'
         required: true
         #default: '{"include": [{"resource_id": "**", "version_id": "**"}]}'
-        default: '''{"include": [{"resource_id": "10.5281/zenodo.7261974","version_id": "7261975"},
+        default: '''{"include": [{"resource_id": "10.5281/zenodo.6334881","version_id": "6346477"},
         {"resource_id": "deepimagej","version_id": "DeepSTORMZeroCostDL4Mic/latest"}]	}'''
         type: string
 
@@ -47,7 +47,7 @@ jobs:
           tree -h --du --dirsfirst -L 3 ../test_summaries # test-summaries folder should exist
           tree -h --du --dirsfirst -L 3 ../models # models folder should exist
           echo Print contents of test summaries
-          find test_summaries/ -name '*.yaml' -exec head {} +
+          find ..test_summaries/ -name '*.yaml' -exec head {} +
 
       - name: upload the test summaries
         uses: actions/upload-artifact@v3
