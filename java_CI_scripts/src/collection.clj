@@ -38,19 +38,8 @@
   ([resources-vector] (get-rdfs-to-test COLLECTION-ROOT resources-vector)))
 
 (defn write-paths-in-file
-  "Writes a list of paths into a file,"
+  "Writes a list of rdf paths into a file,"
   [paths-list filename])
-;TODO
+;TODO ?
 ; make newline separated string from paths-list (optional absolutize)
 ; parse rdfs them -> get all models
-
-(defn -main
-  "-s input is a raw json string, -j input is path to a file.json
-  Invoke with bb -m collection <args> in the java_CI_scripts working directory"
-  [& args]
-  (println *command-line-args*)
-  (println args)
-  args)
-;TODO test main
-; input -j flag two_models.json
-; print absolutized paths of rdfs to test

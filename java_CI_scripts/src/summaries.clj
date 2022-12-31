@@ -44,20 +44,22 @@
 
 (defn gen-summa-dict
   "Add additional fields to default summary dictionary to generate a valid test summary"
-  [status-k name-k & error]
+  [status-k name-k & error-k]
   (let [valid-names   {:initial   "initial compatibility checks with deepimagej"
                        :download  "downloading testing resources for deepimagej"
                        :reproduce "reproduce test outputs with deepimagej headless"}
         valid-statuses #{"passed" "failed"}
         status         (get valid-statuses status-k)
         name           (get valid-names name-k)
-        dict (if (empty? error)
+        dict (if (empty? error-k)
                default-summa-dict
-               (assoc default-summa-dict :error ((first error) error-names)))]
+               (assoc default-summa-dict :error ((first error-k) error-names)))]
     (assoc dict :status status :name name)))
 
-;TODO
-; write yaml in the right folder
 (defn write-test-summary
-  "Writes the yaml of the summary-dict in the summary path (in the model.path)"
-  [model summa-dict])
+  "Writes the yaml of the summary-dict in the summary path (in the model.paths)"
+  [model summa-dict]
+  (let [file-name "test_summary.yaml"
+        yaml-str (yaml/generate-string summa-dict :dumper-options {:flow-style :block})
+        out-file (fs/file (fs/path (get-in model [:paths :summa-path]) file-name))]
+    (spit out-file yaml-str)))

@@ -10,10 +10,10 @@
 (def model-dicts {:a-model (atom nil) :tf-model (atom nil) :pt-model (atom nil)})
 
 (defn load-test-models
-  "Parses test paths into different models for testing:
+  "Parses rdfs of test paths into different models for testing:
   - A model without dij config (with state dict)
-  - A tensorflow model (with keras)
-  - A torchscript model (with state dict)"
+  - A tensorflow model (with keras) with pre- and post- process
+  - A torchscript model (with state dict) with pre-process"
   [test-fn]
   (reset! (:a-model model-dicts) (parse-model @(:an-rdf rdf-paths)))
   (reset! (:tf-model model-dicts) (parse-model @(:tf-rdf rdf-paths)))
@@ -94,7 +94,7 @@
 
 ; No test for create-model-dir
 ; too similar to the summary one (which is a big test)
-; it is tested seeing that the models are created (bash tree command after running core.-main)
+; it is tested seeing that the models are created (bash 'tree' commands after running core.-main)
 
 (deftest get-paths-info-test
   (let [test-rdf @(:pt-rdf rdf-paths)

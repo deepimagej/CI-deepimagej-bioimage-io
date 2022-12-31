@@ -1,11 +1,13 @@
 (ns summaries-test
   (:require [collection :refer [COLLECTION-ROOT]]
             [summaries :refer :all]
+            [models :refer [build-model]]
+            [downloads-test :refer [model-records all-model-records load-model-records]]
             [test-setup :refer [rdf-paths load-test-paths]]
             [clojure.test :refer [deftest is testing use-fixtures run-tests]]
             [babashka.fs :as fs]))
 
-(use-fixtures :once load-test-paths)
+(use-fixtures :once load-test-paths load-model-records)
 
 (deftest get-parent-components-test
   (testing "Using 2 arguments on a generic path"
@@ -48,3 +50,19 @@
           :error "rdf does not have keys for config:deepimagej",
           :status "failed",
           :name "initial compatibility checks with deepimagej"})))
+
+(defn no-pp [m]
+  "finds model records without preprocessing (but with dij config)"
+  (let [pp (some #(not (nil? (:script %))) (:p*process m))]
+    (and (not pp) (:dij-config? m))))
+;(count (filter no-pp @all-model-records))
+;=> 0
+
+
+(deftest write-test-summary-test
+  (testing "Before test, create empty directory for test summary of model")
+
+  (testing "List the directory to see the summary test was created")
+  (testing "See that the contents of the test summery are correct")
+  (testing "After the tests, delete the file")
+  )

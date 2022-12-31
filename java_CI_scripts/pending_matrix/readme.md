@@ -16,10 +16,12 @@ Contains models of different characteristics, to see different behaviors during 
 ### A tensorflow model
 - Weights are `tensorflow_saved_model_bundle`
 - "10.5281" "zenodo.5749843" "5888237"
+- Has pre- and post-processing
 
 ### A pytorch model
 - Weights are `torchscript`
 - "10.5281" "zenodo.5874741" "5874742"
+- Has pre-processing
 
 ## two_models.json
 - Two random models from the collection
