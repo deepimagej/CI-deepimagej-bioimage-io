@@ -65,7 +65,7 @@ jobs:
     - uses: actions/download-artifact@v3
       with:
         name: test-summaries
-        path: .
+        path: ./test_summaries/
 
     - name: exploratory commands
       run: |
