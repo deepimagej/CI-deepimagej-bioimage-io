@@ -1,10 +1,10 @@
 (ns summaries-test
   (:require [collection :refer [COLLECTION-ROOT]]
             [summaries :refer :all]
-            [models :refer [build-model]]
             [downloads-test :refer [model-records all-model-records load-model-records]]
             [test-setup :refer [rdf-paths load-test-paths]]
             [clojure.test :refer [deftest is testing use-fixtures run-tests]]
+            [clj-yaml.core :as yaml]
             [babashka.fs :as fs]))
 
 (use-fixtures :once load-test-paths load-model-records)
@@ -55,14 +55,21 @@
   "finds model records without preprocessing (but with dij config)"
   (let [pp (some #(not (nil? (:script %))) (:p*process m))]
     (and (not pp) (:dij-config? m))))
-;(count (filter no-pp @all-model-records))
-;=> 0
 
+(deftest no-pp-test
+  (is (= 0 (count (filter no-pp @all-model-records)))))
 
 (deftest write-test-summary-test
-  (testing "Before test, create empty directory for test summary of model")
-
-  (testing "List the directory to see the summary test was created")
-  (testing "See that the contents of the test summery are correct")
-  (testing "After the tests, delete the file")
-  )
+  (let [model (first @model-records)
+        summa-dict (gen-summa-dict "failed" :initial :no-dij-config)
+        summa-path (get-in model [:paths :summa-path])
+        expected-file (fs/file (fs/path summa-path "test_summary.yaml"))]
+    (testing "Before the test, create empty directory for the test summary of model"
+      (is (= summa-path (create-summa-dir (get-in model [:paths :rdf-path])))))
+    (testing "List the directory to see the summary test was created"
+      (write-test-summary model summa-dict)
+      (is (= (fs/path expected-file) (first (fs/list-dir summa-path)))))
+    (testing "See that the contents of the test summery are correct (parse yaml)"
+      (is (= (yaml/parse-string (slurp expected-file)) summa-dict)))
+    (testing "After the tests, delete the file"
+      (is (fs/delete-if-exists expected-file)))))

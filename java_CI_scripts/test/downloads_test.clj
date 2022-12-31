@@ -16,7 +16,7 @@
   (test-fn))
 
 (defn count-dict
-  "counts a dictionary entries that are seqs"
+  "counts dictionary entries that are seqs"
   [d] (map (fn [[k v]] {k (count v)}) d))
 
 (use-fixtures :once load-test-paths load-model-records)
