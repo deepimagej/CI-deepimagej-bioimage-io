@@ -65,7 +65,9 @@
         summa-path (get-in model [:paths :summa-path])
         expected-file (fs/file (fs/path summa-path "test_summary.yaml"))]
     (testing "Before the test, create empty directory for the test summary of model"
-      (is (= summa-path (create-summa-dir (get-in model [:paths :rdf-path])))))
+      (is (= (fs/absolutize summa-path)
+             (fs/absolutize (create-summa-dir (get-in model [:paths :rdf-path]))))
+          "Need absolute paths, in linux the absolute path is returned after creation"))
     (testing "List the directory to see the summary test was created"
       (write-test-summary model summa-dict)
       (is (= (fs/path expected-file) (first (fs/list-dir summa-path)))))
