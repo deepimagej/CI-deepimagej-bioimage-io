@@ -3,7 +3,7 @@
             [collection :refer [get-rdfs-to-test file-json->vector str-json->vector]]
             [models :refer [create-model-dir build-model]]
             [downloads :refer [separate-by-dij-config]]
-            [collection-test] [models-test] [summaries-test] [downloads-test]
+            [collection-test] [models-test] [summaries-test] [downloads-test] [reproduce.communicate-test]
             (clojure [string :as str]
                      [test :refer [run-tests]])
             [clojure.tools.cli :as cli]
@@ -89,7 +89,7 @@
       (cond
         (:unit-test options)
         ;core cannot run the tests from 'core-test due to cyclic load dependency!!
-        (run-tests 'collection-test 'summaries-test 'models-test 'downloads-test)
+        (run-tests 'collection-test 'summaries-test 'models-test 'downloads-test 'reproduce.communicate-test)
         (:json-string options)
         (create-dirs :json-string options)
         :else

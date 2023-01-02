@@ -19,10 +19,6 @@
   "Tells if input and output tiff sample images are in the rdf.yaml"
   [])
 
-; todo use (format)
-(defn build-dij-arg
-  "Builds the argument string needed for the DeepImageJ Run command"
-  [model])
 
 
 (defn populate-model-folder

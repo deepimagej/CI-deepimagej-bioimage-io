@@ -75,3 +75,10 @@
       (is (= (yaml/parse-string (slurp expected-file)) summa-dict)))
     (testing "After the tests, delete the file"
       (is (fs/delete-if-exists expected-file)))))
+
+(comment
+  "get path for the fiji script"
+  (clojure.string/replace
+    (str (fs/absolutize (get-in (nth @model-records 2) [:paths :model-folder-path])))
+    #"\\" "/")
+  )
