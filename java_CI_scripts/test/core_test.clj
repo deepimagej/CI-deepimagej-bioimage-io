@@ -5,7 +5,7 @@
 (def a-valid-json "{\"include\": [{\"resource_id\": \"10.5281/zenodo.7261974\",\"version_id\": \"7261975\"},
           {\"resource_id\": \"deepimagej\",\"version_id\": \"DeepSTORMZeroCostDL4Mic/latest\"}]}")
 ; '{\"include\": [{\"resource_id\": \"10.5281/zenodo.7261974\",\"version_id\": \"7261975\"}, {\"resource_id\": \"deepimagej\",\"version_id\": \"DeepSTORMZeroCostDL4Mic/latest\"}]}'
-
+; '{\"include\": [{\"resource_id\": \"**\", \"version_id\": \"**\"}]}'
 (deftest valid-json?-test
   (is (not (valid-json? "a")))
   (is (valid-json? a-valid-json)))
