@@ -20,8 +20,8 @@
    (let [in-file (file model-folder model-dir)
          out-file (file fiji-home "Fiji.app" "models" model-dir )
          ls (seq (.listFiles in-file))]
-     (do (make-parents (file out-file "a_file.txt"))
-         (mapv #(copy-file in-file out-file (.getName %)) ls))))
+     (make-parents (file out-file "a_file.txt"))
+     (mapv #(copy-file in-file out-file (.getName %)) ls)))
   ([dij-model] (copy-model-folder (System/getProperty "user.home") dij-model)))
 
 (defn delete-model-folder
@@ -39,18 +39,30 @@
     (copy-model-folder fiji-home model-folder)
     (try (IJ/run imp "DeepImageJ Run" dij-arg)
          (catch Exception e (println "-- Error during deepimagej run")))
-    (IJ/saveAs "Tiff" (str model-folder output-name))
+    (try (IJ/saveAs "Tiff" (str model-folder output-name))
+         (catch Exception e (println "-- Error trying to save output image")))
     (delete-model-folder fiji-home)))
 
-(defn test-one-with-info
+(defn test-one-with-deepimagej-&-info
   "Wrapper for testing a model, adding time and print information"
-  [{:keys [name nickname]}])
+  [{:keys [name nickname] :as model} idx total]
+  (let [fmt-str " %d/%d (%s)"
+        fmt-args [idx total (str nickname)]]
+    (println (apply format (concat [(str "-- Testing model" fmt-str)] fmt-args)))
+    (println (format "   Name: %s" name))
+    (time (test-one-with-deepimagej model))
+    (println (apply format (concat [(str "   Finished testing model" fmt-str)] fmt-args)))))
 
 (defn -main [& args]
+  (println "--")
   (println "Hi from main, the args are:" args)
-  (println "The clojure version is: " *clojure-version*)
-  (test-one-with-deepimagej (first all-models)))
-
+  (println (format "The clojure version is: %s\n" *clojure-version*))
+  ;(test-one-with-deepimagej-&-info (first all-models) 1 2)
+  (doall (map-indexed (fn [i v]
+                        (test-one-with-deepimagej-&-info v (inc i) (count all-models)))
+                      all-models))
+  (println "-- Finished execution of testing_many_with_deepimagej."))
+;(map-indexed)
 
 ;; --
 ;; -- Tests in the same file, as I couldn't find a way to require own ns's in a fiji script
@@ -65,4 +77,4 @@
 (println (run-tests))
 
 
-(-main "a" 1 "2")
+(time (-main "a" 1 "2"))

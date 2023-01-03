@@ -25,3 +25,6 @@
   "Downloads in a directory the necessary files for testing a dij-compatible model"
   [model])
 ;todo pmap to potentially download in paralell (??)
+
+; TODO fix p*processing macros (comment problematic lines)
+; TODO my-time macro
