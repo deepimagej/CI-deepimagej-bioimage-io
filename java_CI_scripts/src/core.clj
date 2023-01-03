@@ -3,7 +3,8 @@
             [collection :refer [get-rdfs-to-test file-json->vector str-json->vector]]
             [models :refer [create-model-dir build-model]]
             [downloads :refer [separate-by-dij-config]]
-            [collection-test] [models-test] [summaries-test] [downloads-test] [reproduce.communicate-test]
+            [reproduce.communicate :refer [build-dij-model write-comm-file]]
+            collection-test models-test summaries-test downloads-test reproduce.communicate-test
             (clojure [string :as str]
                      [test :refer [run-tests]])
             [clojure.tools.cli :as cli]
@@ -66,21 +67,23 @@
   (System/exit status))
 
 ;TODO heavy refactor on action and error-name
-(defn create-dirs
+(defn initial-pipeline
   "Creates the folders corresponding to test input json"
   [json-type options]
   (let [parsing-function (json-type {:json-file   file-json->vector
                                      :json-string str-json->vector})
         rdfs (get-rdfs-to-test (parsing-function (json-type options)))
         model-records (map build-model rdfs)
-        no-dij (:no-dij-config (separate-by-dij-config model-records))
+        {:keys [no-dij-config keep-testing]} (separate-by-dij-config model-records)
         failed-dict (gen-summa-dict "failed" :initial :no-dij-config)]
     (do (println "Creating dirs for test summaries")
         (mapv create-summa-dir rdfs)
         (println "Creating dirs for models")
         (mapv create-model-dir rdfs)
-        (println "Create test summaries for" (count no-dij) "models")
-        (mapv #(write-test-summary % failed-dict) no-dij))))
+        (println "Creating test summaries for" (count no-dij-config) "models")
+        (mapv #(write-test-summary % failed-dict) no-dij-config)
+        (println "Creating comm file for" (count keep-testing) "models")
+        (write-comm-file (map build-dij-model keep-testing)))))
 
 (defn -main [& args]
   (let [{:keys [action options exit-message ok?]} (validate-args args)]
@@ -91,6 +94,6 @@
         ;core cannot run the tests from 'core-test due to cyclic load dependency!!
         (run-tests 'collection-test 'summaries-test 'models-test 'downloads-test 'reproduce.communicate-test)
         (:json-string options)
-        (create-dirs :json-string options)
+        (initial-pipeline :json-string options)
         :else
-        (create-dirs :json-file options)))))
+        (initial-pipeline :json-file options)))))
