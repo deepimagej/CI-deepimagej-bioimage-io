@@ -1,7 +1,6 @@
 (ns reproduce.communicate
-  (:require [clojure.string :as str]
-            [clojure.pprint :as ppr]
-            [clojure.java.io :refer [as-url]]
+  (:require [clojure [string :as str] [pprint :as ppr]]
+            [clojure.java [io :refer [as-url]]]
             [babashka.fs :as fs]))
 
 (def COMM-ROOT (System/getProperty "user.home"))

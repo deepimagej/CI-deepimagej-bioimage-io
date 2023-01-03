@@ -1,4 +1,5 @@
-# outputs for commands of exploratory run 
+# Lessons learnt
+## outputs for commands of exploratory run 
 - Checking out changes the `$GITHUB_WORKSPACE` env variable
 ````
 uname -a
@@ -13,7 +14,7 @@ pwd
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io
 ````
 
-# Running deepimagej headless Needs
+## Running deepimagej headless Needs
 - Folder of the model (name of folder does not matter) needs to be in fiji models folder
   put nickname as name
 - Name of the model (:name field in yaml)
