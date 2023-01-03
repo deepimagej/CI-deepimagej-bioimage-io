@@ -1,11 +1,14 @@
 (ns reproduce.communicate-test
-  (:require
-    [reproduce.communicate :refer :all]
-    [downloads-test :refer [model-records load-model-records]]
-    [clojure.test :refer :all]
-    [clojure.string :as str]))
+  (:require [reproduce.communicate :refer :all]
+            [models :refer [MODEL-ROOT]]
+            [downloads-test :refer [model-records load-model-records]]
+            [test-setup :refer [load-test-paths]]
+            [clojure.test :refer :all]
+            [clojure.string :as str]
+            [clojure.edn :as edn]
+            [babashka.fs :as fs]))
 
-(use-fixtures :once load-model-records)
+(use-fixtures :once load-test-paths load-model-records)
 
 (deftest format-axes-test
   (is (= (format-axes "byxzc") "Y,X,Z,C")))
@@ -52,3 +55,25 @@
   (let [folder (get-model-folder (nth @model-records 1))]
     (is (nil? (str/index-of folder "\\")))
     (is (= (last folder) \/))))
+
+; no test for (build-dij-model) because it is just a record, all fields are tested previously
+
+(deftest write-comm-file-test
+  (let [dij-models (map build-dij-model (rest @model-records))
+        c-name (fs/file-name comm-file)
+        c-file (fs/file MODEL-ROOT c-name)
+        c-file-not-in-dir? (fn [root name]
+                         (empty? (filter #(= % name) (map fs/file-name (fs/list-dir root)))))]
+    (testing "Before test, see that no file is in the directory"
+      (is (c-file-not-in-dir? MODEL-ROOT c-name)))
+    (testing "File written with correct contents"
+      (write-comm-file dij-models c-file)
+      (is (not (c-file-not-in-dir? MODEL-ROOT c-name)) "File exists now in the directory")
+      (let [[map1 map2 :as all] (edn/read-string (slurp c-file))]
+        (is (= (type all) clojure.lang.PersistentVector))
+        (is (>= 2 (count all)))
+        (is (:nickname map1) "humorous-owl")
+        (is (:output-img map2) "sample_output_0.tif")))
+    (testing "After test, delete existing file"
+      (is (fs/delete-if-exists c-file))
+      (is (c-file-not-in-dir? MODEL-ROOT c-name)))))

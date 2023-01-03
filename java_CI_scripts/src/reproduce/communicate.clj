@@ -1,5 +1,6 @@
 (ns reproduce.communicate
   (:require [clojure.string :as str]
+            [clojure.pprint :as ppr]
             [clojure.java.io :refer [as-url]]
             [babashka.fs :as fs]))
 
@@ -10,7 +11,7 @@
   (fs/file COMM-ROOT "models_to_test.edn"))
 
 (defrecord DijArg [model format preprocessing postprocessing axes tile logging])
-(defrecord DijModel [dij-arg model-folder input-img output-img])
+(defrecord DijModel [nickname name dij-arg model-folder input-img output-img])
 
 (defn format-axes
   "Changes format of axes from rdf (e.g. byzxc) to the one needed for DIJ (e.g. Y,X,Z,C)"
@@ -22,10 +23,7 @@
 (defn format-tiles
   "Use as tile the shape in the dij config (separated by commas, not by x's).
   Remove the first element (it is always the batch??)"
-  [s]
-  (->> (str/split s #" x ")
-      rest
-      (str/join ",")))
+  [s] (->> (str/split s #" x ") rest (str/join ",")))
 
 (defn weight-format
   "Gets the weight format from a model record"
@@ -87,11 +85,15 @@
 (defn build-dij-model
   [model-record]
   (let [{:keys [inputs outputs]} (get-test-images model-record)]
-    (map->DijModel {:dij-arg      (dij-arg-str model-record)
+    (map->DijModel {:nickname     (:nickname model-record)
+                    :name         (:name model-record)
+                    :dij-arg      (dij-arg-str model-record)
                     :model-folder (get-model-folder model-record)
                     :input-img    inputs
                     :output-img   outputs})))
 
-;TODO write edn with list of dij-model
-; test by reading it
-; read it also in the clj fiji script
+(defn write-comm-file
+  "Writes the edn file. Communication file between this CI and the fiji script to run dij headless"
+  ([dij-models file]
+   (spit file (with-out-str (ppr/pprint (mapv #(into {} %) dij-models)))))
+  ([dij-models] (write-comm-file dij-models comm-file)))
