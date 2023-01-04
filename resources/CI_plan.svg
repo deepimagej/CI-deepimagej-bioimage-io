@@ -25,14 +25,14 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="0.5"
-     inkscape:cx="340"
-     inkscape:cy="683"
+     inkscape:cx="702"
+     inkscape:cy="545"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      inkscape:pageshadow="0" /><defs
      id="defs2"><marker
        style="overflow:visible"
@@ -83,9 +83,10 @@
          d="M 0,0 5,-5 -12.5,0 5,5 Z"
          id="arrow1L-51"
          transform="scale(-0.5)" /></marker></defs><g
-     inkscape:label="Capa 1"
      inkscape:groupmode="layer"
-     id="layer1"><rect
+     id="layer2"
+     inkscape:label="fondo"
+     sodipodi:insensitive="true"><rect
        style="fill:#dedada;fill-opacity:1;stroke-width:0.263255"
        id="rect480"
        width="515.50848"
@@ -94,7 +95,10 @@
        y="8.9632235"
        inkscape:export-filename="CI_plan.png"
        inkscape:export-xdpi="44.344566"
-       inkscape:export-ydpi="44.344566" /><g
+       inkscape:export-ydpi="44.344566" /></g><g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"><g
        id="g1507"
        inkscape:export-filename="CI_plan.png"
        inkscape:export-xdpi="44.344566"
@@ -264,7 +268,7 @@
          y="133.98827"
          id="tspan4413"> ... ]</tspan></text><path
        style="fill:#000000;stroke:#000000;stroke-width:0.56385;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1L-0);stop-color:#000000"
-       d="M 194.4435,157.20484 V 146.84449"
+       d="m 194.4435,143.32043 v 10.36035"
        id="path7510-5"
        inkscape:export-filename="CI_plan.png"
        inkscape:export-xdpi="44.344566"
@@ -506,7 +510,7 @@
          y="192.20287"
          id="tspan25496" /></text><path
        style="fill:none;stroke:#000000;stroke-width:0.56385;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1L-3);stop-color:#000000"
-       d="m 274.38691,125.52112 18.96643,0"
+       d="m 274.38691,174.20445 h 18.96643"
        id="path10653-8"
        sodipodi:nodetypes="cc"
        inkscape:export-filename="CI_plan.png"
@@ -520,7 +524,7 @@
        inkscape:export-xdpi="44.344566"
        inkscape:export-ydpi="44.344566" /><g
        id="g3006"
-       transform="translate(-10.583333)"
+       transform="translate(-10.583333,48.683333)"
        inkscape:export-filename="CI_plan.png"
        inkscape:export-xdpi="44.344566"
        inkscape:export-ydpi="44.344566"><rect
@@ -1402,7 +1406,7 @@
        width="49.343357"
        height="9.2604723"
        x="331.35648"
-       y="136.10541"
+       y="184.78874"
        ry="4.6302361"
        inkscape:export-filename="CI_plan.png"
        inkscape:export-xdpi="44.344566"
@@ -1412,7 +1416,7 @@
        x="-67.46875"
        y="130.96875"
        id="text40997"
-       transform="translate(402.77597,11.475036)"
+       transform="translate(402.77597,60.158369)"
        inkscape:export-filename="CI_plan.png"
        inkscape:export-xdpi="44.344566"
        inkscape:export-ydpi="44.344566"><tspan
