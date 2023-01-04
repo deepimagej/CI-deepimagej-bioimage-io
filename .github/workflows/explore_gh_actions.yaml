@@ -63,9 +63,8 @@ jobs:
           bb -m core -u # run all unit tests
           bb "(require '[core-test]) (clojure.test/run-tests 'core-test)" # run core unit tests
           bb -m core -j pending_matrix/variety_models.json
-          tree -h --du --dirsfirst -L 3 ../test_summaries # test-summaries folder should exist
-          tree -h --du --dirsfirst -L 3 ../models # models folder should exist
-          echo -- Print contents of test summaries
-          find ../test_summaries/ -name '*.yaml' -exec head {} +
-          echo -- Print contents of comm file
-          head -n 30 ~/models_to_test.edn
+
+      - name: check that initial pipeline of CI went OK
+        run: |
+          chmod +x ./bash_scripts/check_initial_CI.sh
+          bash ./bash_scripts/check_initial_CI.sh
