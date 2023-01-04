@@ -13,3 +13,6 @@
   IntelliJ/Cursive
 - It has only available the libraries that come with Fiji (e.g clojure 1.8)
 - All babashka libraries will not be available
+- imagej libraries will be available
+
+`compare_output.clj` will be also run from fiji.
