@@ -59,7 +59,7 @@ jobs:
         working-directory: ./java_CI_scripts
         run: |
           bb --version
-          bb -m core -h
+          bb -m core.main -h
           bb -m core.main -u # run all unit tests
           bb "(require '[core.cli-test]) (clojure.test/run-tests 'core.cli-test)" # run core unit tests
           bb -m core.main -j pending_matrix/variety_models.json
