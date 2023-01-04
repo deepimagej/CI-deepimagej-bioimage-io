@@ -45,12 +45,11 @@ jobs:
         run: |
           bb --version
           bb -m core -s ${{ inputs.pending_matrix }}
-          tree -h --du --dirsfirst -L 3 ../test_summaries # test-summaries folder should exist
-          tree -h --du --dirsfirst -L 3 ../models # models folder should exist
-          echo -- Print contents of test summaries
-          find ../test_summaries/ -name '*.yaml' -exec head -n 1 {} +
-          echo -- Print contents of comm file
-          head -n 30 ~/models_to_test.edn          
+
+      - name: check that initial pipeline of CI went OK
+        run: |
+          chmod +x ./bash_scripts/check_initial_CI.sh
+          bash ./bash_scripts/check_initial_CI.sh       
 
       - name: upload the test summaries
         uses: actions/upload-artifact@v3
