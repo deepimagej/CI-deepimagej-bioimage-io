@@ -60,9 +60,9 @@ jobs:
         run: |
           bb --version
           bb -m core -h
-          bb -m core -u # run all unit tests
-          bb "(require '[core-test]) (clojure.test/run-tests 'core-test)" # run core unit tests
-          bb -m core -j pending_matrix/variety_models.json
+          bb -m core.main -u # run all unit tests
+          bb "(require '[core.cli-test]) (clojure.test/run-tests 'core.cli-test)" # run core unit tests
+          bb -m core.main -j pending_matrix/variety_models.json
 
       - name: check that initial pipeline of CI went OK
         run: |

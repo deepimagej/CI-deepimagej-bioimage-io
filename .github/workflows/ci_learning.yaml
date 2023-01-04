@@ -44,7 +44,7 @@ jobs:
         working-directory: ./java_CI_scripts
         run: |
           bb --version
-          bb -m core -s ${{ inputs.pending_matrix }}
+          bb -m core.main -s ${{ inputs.pending_matrix }}
 
       - name: check that initial pipeline of CI went OK
         run: |
