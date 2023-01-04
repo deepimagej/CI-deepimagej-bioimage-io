@@ -26,8 +26,7 @@
   [model])
 ;todo pmap to potentially download in paralell (??)
 
-; TODO fix p*processing macros (comment problematic lines)
-; TODO my-time macro
+; TODO fix p*processing macros after download (comment problematic lines)
 
 (defmacro my-time
   "Variation on clojure.core/time: https://github.com/clojure/clojure/blob/clojure-1.10.1/src/clj/clojure/core.clj#L3884

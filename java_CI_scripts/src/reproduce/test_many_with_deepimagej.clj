@@ -43,6 +43,17 @@
          (catch Exception e (println "-- Error trying to save output image")))
     (delete-model-folder fiji-home)))
 
+(defmacro my-time
+  "Variation on clojure.core/time: https://github.com/clojure/clojure/blob/clojure-1.10.1/src/clj/clojure/core.clj#L3884
+  This macro returns a map with the time taken and the return value of the expression.
+  Useful when timing side effects, no further composition is not usually needed (but still possible)"
+  [expr]
+  `(let [start# (java.time.Instant/ofEpochMilli (System/currentTimeMillis))
+         ret# ~expr ;; evaluates the argument expression
+         end# (java.time.Instant/ofEpochMilli (System/currentTimeMillis))
+         duration# (java.time.Duration/between start# end#)]
+     (hash-map :duration duration# :iso (str duration#)  :return ret#)))
+
 (defn test-one-with-deepimagej-&-info
   "Wrapper for testing a model, adding time and print information"
   [{:keys [name nickname] :as model} idx total]
@@ -50,7 +61,7 @@
         fmt-args [idx total (str nickname)]]
     (println (apply format (concat [(str "-- Testing model" fmt-str)] fmt-args)))
     (println (format "   Name: %s" name))
-    (time (test-one-with-deepimagej model))
+    (println (format "   Time taken: %s" (:iso (my-time (test-one-with-deepimagej model)))))
     (println (apply format (concat [(str "   Finished testing model" fmt-str)] fmt-args)))))
 
 (defn -main [& args]
@@ -77,4 +88,7 @@
 (println (run-tests))
 
 
-(time (-main "a" 1 "2"))
+(def total-time (:iso (my-time (-main "a" 1 "2"))))
+(println (format "   Total time taken: %s" total-time))
+; make total time taken the return value of script
+total-time

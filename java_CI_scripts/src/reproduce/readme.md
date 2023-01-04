@@ -2,6 +2,10 @@
 ````
 ~/Fiji.app/ImageJ-linux --headless --console --ij2 --run .\test_many_with_deepimagej.clj
 ````
+## on windows
+````
+ C:\Users\ivana\blank_fiji\Fiji.app\ImageJ-win64.exe --headless --console --ij2 --run .\test_many_with_deepimagej.clj
+````
 
 `test_many_with_deepimagej.clj` will be run from fiji.
 - It will run DeepImageJ over many models 
