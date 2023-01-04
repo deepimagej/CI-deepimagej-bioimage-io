@@ -3,7 +3,7 @@
             [models :refer [build-model]]
             [collection :refer [file-json->vector get-rdfs-to-test]]
             [test-setup :refer [rdf-paths load-test-paths]]
-            [clojure.test :refer [deftest is testing use-fixtures run-tests]]))
+            [clojure.test :refer :all]))
 
 (def model-records (atom nil))
 (def all-model-records (atom nil))
@@ -33,3 +33,12 @@
   (testing "All models in the collection"
     (let [separated (separate-by-dij-config @all-model-records)]
       (is (= [{:keep-testing 47} {:no-dij-config 117}] (count-dict separated))))))
+
+(deftest my-time-test
+  (let [time-map (my-time (do (Thread/sleep 1000)
+                              (apply + (take 5 (range 1 100 2)))))
+        iso-str (:iso time-map)]
+    (is (= (* 5 5) (:return time-map)))
+    (is (>= 1 (.getSeconds (:duration time-map))))
+    (is (<= (.getNano (:duration time-map)) 1e9) "time taken is 1s and a little bit more (not 2s)")
+    (is (= [iso-str "1" "0"] (re-matches #"PT(\d).(\d)[\d]{2}S" iso-str)))))
