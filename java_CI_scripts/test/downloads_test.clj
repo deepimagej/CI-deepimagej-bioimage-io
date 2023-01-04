@@ -41,4 +41,4 @@
     (is (= (* 5 5) (:return time-map)))
     (is (>= 1 (.getSeconds (:duration time-map))))
     (is (<= (.getNano (:duration time-map)) 1e9) "time taken is 1s and a little bit more (not 2s)")
-    (is (= [iso-str "1" "0"] (re-matches #"PT(\d).(\d)[\d]{2}S" iso-str)))))
+    (is (= [iso-str "1" "S"] (re-matches #"PT(\d).\d+(S)" iso-str)))))

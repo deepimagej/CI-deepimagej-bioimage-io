@@ -2,13 +2,14 @@
 <project version="4">
   <component name="CustomFileTypes">
     <file url="file://$PROJECT_DIR$/src/collection.clj" value="BABASHKA" />
-    <file url="file://$PROJECT_DIR$/src/core.clj" value="BABASHKA" />
+    <file url="file://$PROJECT_DIR$/src/core/cli.clj" value="BABASHKA" />
+    <file url="file://$PROJECT_DIR$/src/core/main.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/src/downloads.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/src/models.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/src/reproduce/communicate.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/src/summaries.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/collection_test.clj" value="BABASHKA" />
-    <file url="file://$PROJECT_DIR$/test/core_test.clj" value="BABASHKA" />
+    <file url="file://$PROJECT_DIR$/test/core/cli_test.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/downloads_test.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/models_test.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/reproduce/communicate_test.clj" value="BABASHKA" />
