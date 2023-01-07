@@ -1,5 +1,5 @@
 (ns downloads.download
-  (:require [babashka.curl :as curl]))
+  (:require [babashka [curl :as curl] [fs :as fs]]))
 
 (defmacro my-time
   "Variation on clojure.core/time: https://github.com/clojure/clojure/blob/clojure-1.10.1/src/clj/clojure/core.clj#L3884
@@ -20,3 +20,11 @@
                (assoc basic-opts :compressed false)
                basic-opts)]
     (curl/get url opts)))
+
+(defn byte-arr->file
+  "Save a byte-array as a file"
+  [b-arr path])
+
+(comment
+  "use (some->) for robust pipeline. source https://gist.github.com/philippkueng/11377226"
+  )

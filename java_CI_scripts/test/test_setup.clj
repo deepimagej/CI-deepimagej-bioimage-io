@@ -1,7 +1,7 @@
 (ns test-setup
   (:require [collection :refer [COLLECTION-ROOT file-json->vector get-rdfs-to-test]]
             [models :refer [build-model]]
-            [clojure.test :refer :all]
+            [clojure [test :refer :all] [edn :as edn]]
             [babashka.fs :as fs]))
 
 ;Initial setup, only needs the COLLECTION-ROOT
@@ -23,7 +23,7 @@
           (fs/path COLLECTION-ROOT "10.5281" "zenodo.5874741" "5874742" "rdf.yaml" ))
   (test-fn))
 
-;Setup for downloads and after, assumes collection and models already tested and working
+;Setup for 'downloads/*.clj and after, assumes 'collection and 'models already tested and working
 
 (def model-records (atom nil))
 (def all-model-records (atom nil))
@@ -34,3 +34,5 @@
     (reset! model-records (map (fn [[k v]] (build-model @v)) rdf-paths))
     (reset! all-model-records (map #(build-model %) (get-rdfs-to-test all-rdfs))))
   (test-fn))
+
+(def an-edn (edn/read-string (slurp (fs/file "test" "resources" "an.edn"))))
