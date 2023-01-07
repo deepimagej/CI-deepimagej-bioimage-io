@@ -2,9 +2,10 @@
   (:require [summaries :refer [create-summa-dir gen-summa-dict write-test-summary]]
             [collection :refer [get-rdfs-to-test file-json->vector str-json->vector]]
             [models :refer [create-model-dir build-model]]
-            [downloads :refer [separate-by-dij-config]]
+            [downloads.initial-checks :refer [separate-by-dij-config]]
             [reproduce.communicate :refer [build-dij-model write-comm-file]]
-            collection-test models-test summaries-test downloads-test reproduce.communicate-test core.cli-test
+            [downloads initial-checks-test download-test]
+            collection-test models-test summaries-test reproduce.communicate-test core.cli-test
             [core.cli :refer [validate-args exit]]
             [clojure [test :refer [run-tests]]]))
 
@@ -33,8 +34,8 @@
       (exit (if ok? 0 1) exit-message)
       (cond
         (:unit-test options)
-        (run-tests 'collection-test 'summaries-test 'models-test 'downloads-test
-                   'reproduce.communicate-test 'core.cli-test)
+        (run-tests 'collection-test 'summaries-test 'models-test 'downloads.initial-checks-test
+                   'downloads.download-test 'reproduce.communicate-test 'core.cli-test)
         (:json-string options)
         (initial-pipeline :json-string options)
         :else

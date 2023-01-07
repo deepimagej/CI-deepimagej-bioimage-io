@@ -5,6 +5,15 @@
 
 (use-fixtures :once load-test-paths load-model-records)
 
+(deftest my-time-test
+  (let [time-map (my-time (do (Thread/sleep 1000)
+                              (apply + (take 5 (range 1 100 2)))))
+        iso-str (:iso time-map)]
+    (is (= (* 5 5) (:return time-map)))
+    (is (>= 1 (.getSeconds (:duration time-map))))
+    (is (<= (.getNano (:duration time-map)) 1e9) "time taken is 1s and a little bit more (not 2s)")
+    (is (= [iso-str "1" "S"] (re-matches #"PT(\d).\d+(S)" iso-str)))))
+
 (deftest get-url->byte-arr-test
   (let [url-1 "https://yaml.org/"
         ;ulr-1 (:source (first (:weights (first @model-records)))) ; 5Mb too big for fast tests
