@@ -1,0 +1,5 @@
+{:name "an.edn"
+ :info "A file for testing"
+ :why? "The url (for a fixed commit) will not change, neither will the contents."
+ :id 22
+ :exit :ok}

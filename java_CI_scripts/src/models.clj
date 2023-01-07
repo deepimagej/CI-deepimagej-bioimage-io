@@ -47,7 +47,7 @@
    (let [keyw (keyword str-key)
          *nput-map (first (keyw rdf-dict))
          sample (first ((keyword (str "sample_" str-key)) rdf-dict))
-         ;; *inputs* in deepimagej/config are sometimes a map, sometimes a list with 1 map...
+         ;; *inputs* in config: deepimagej: are sometimes a map, sometimes a list with 1 map...
          shape (->> (get-in rdf-dict [:config :deepimagej :test_information keyw])
                     (conj []) flatten first :size)]
      (->Tensor keyw (:name *nput-map) (:axes *nput-map) sample shape))))
