@@ -13,6 +13,7 @@ unzip fiji-linux64.zip -d $fiji_home
 wget https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.15/dependencies_2115.zip
 unzip dependencies_2115.zip
 mv dependencies_2115/dependencies_2.1.15/* $fiji_home/Fiji.app/jars/
+rm -rf dependencies_2115
 
 wget https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.15/DeepImageJ_-2.1.15.jar
 #Add the -f mode to deal with the case of non existent diji instalations

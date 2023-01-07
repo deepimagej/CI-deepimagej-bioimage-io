@@ -1,6 +1,6 @@
 # Run fiji script from this directory
 ````
-~/Fiji.app/ImageJ-linux --headless --console --ij2 --run .\test_many_with_deepimagej.clj
+~/blank_fiji/Fiji.app/ImageJ-linux64 --headless --console --ij2 --run .\test_many_with_deepimagej.clj
 ````
 ## on windows
 ````
