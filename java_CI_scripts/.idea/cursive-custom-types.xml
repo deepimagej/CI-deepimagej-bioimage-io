@@ -4,7 +4,6 @@
     <file url="file://$PROJECT_DIR$/src/collection.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/src/core/cli.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/src/core/main.clj" value="BABASHKA" />
-    <file url="file://$PROJECT_DIR$/src/downloads.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/src/downloads/download.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/src/downloads/initial_checks.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/src/models.clj" value="BABASHKA" />
@@ -14,7 +13,6 @@
     <file url="file://$PROJECT_DIR$/test/core/cli_test.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/downloads/download_test.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/downloads/initial_checks_test.clj" value="BABASHKA" />
-    <file url="file://$PROJECT_DIR$/test/downloads_test.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/models_test.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/reproduce/communicate_test.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/summaries_test.clj" value="BABASHKA" />

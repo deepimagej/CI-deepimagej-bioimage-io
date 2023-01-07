@@ -1,7 +1,6 @@
 (ns reproduce.communicate-test
   (:require [reproduce.communicate :refer :all]
-            [downloads-test :refer [model-records load-model-records]]
-            [test-setup :refer [load-test-paths]]
+            [test-setup :refer [load-test-paths load-model-records model-records]]
             [clojure.test :refer :all]
             [clojure.string :as str]
             [clojure.edn :as edn]

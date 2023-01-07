@@ -1,8 +1,7 @@
 (ns summaries-test
   (:require [collection :refer [COLLECTION-ROOT]]
             [summaries :refer :all]
-            [downloads-test :refer [model-records all-model-records load-model-records]]
-            [test-setup :refer [rdf-paths load-test-paths]]
+            [test-setup :refer [rdf-paths load-test-paths load-model-records model-records all-model-records]]
             [clojure.test :refer [deftest is testing use-fixtures run-tests]]
             [clj-yaml.core :as yaml]
             [babashka.fs :as fs]))
