@@ -7,7 +7,7 @@
 (use-fixtures :once load-test-paths load-model-records)
 
 (deftest my-time-test
-  (let [time-map (my-time (do (Thread/sleep 1000)
+  (let [time-map (my-time (do (Thread/sleep 1050)
                               (apply + (take 5 (range 1 100 2)))))
         iso-str (:iso time-map)]
     (is (= (* 5 5) (:return time-map)))
