@@ -32,10 +32,21 @@
   [b-arr dir file-name]
   (copy b-arr (fs/file dir file-name)))
 
+(defn get-weights-to-download
+  "Weights with type nil are not compatible with Deepimagej (but may have a valid source url)"
+  [model-record]
+  (let [valid-weights (filter #(not (nil? (:type %))) (:weights model-record))]
+    (map :source valid-weights)))
 
+(defn get-images-to-download
+  [model-record]
+  (filter #(not (nil? %)) (map :sample (:tensors model-record))))
 
-(defn download-weights
+(defn get-urls-to-download
+  "Gets all the urls that need to be downloaded to test a model record (weights and images)"
   [model-record])
 
-(defn download-images
-      [model-record])
+(defn populate-model-folder
+  "Downloads all files from the model-record.
+  Copies the rdf and the p*processing from local folders."
+  [model-record])

@@ -69,5 +69,23 @@
     (is (= (edn/read-string (slurp (fs/file toy-dir (gen-filename :ba-1))))
            (dissoc an-edn :url)))
     (is (= "abcd" (slurp (fs/file toy-dir (gen-filename :ba-2)))))
-    (is (= 4938 (.length (fs/file toy-dir (gen-filename :ba-3)))))
-    ))
+    (is (= 4938 (.length (fs/file toy-dir (gen-filename :ba-3)))))))
+
+(deftest get-weights-to-download-test
+  (let [weight-urls (map get-weights-to-download @model-records)]
+    (testing "Model without compatible weights with DeepImageJ"
+      (is (empty? (first weight-urls))))
+    (testing "Model with 2 weight types: keras h5 (incompatible) and tensorflow (compatible)"
+      (is (= (second weight-urls)
+             ["https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/tensorflow_saved_model_bundle.zip"])))
+    (testing "Model with 2 weight types: pytorch_state_dict (incompatible) and torchscript (compatible)"
+      (is (= (nth weight-urls 2)
+             ["https://zenodo.org/api/files/a6d65a8b-4fed-453f-89f6-515a2a73a99e/weights-torchscript.pt"])))))
+
+
+(deftest get-images-to-download-test
+  (let [image-urls (map get-images-to-download @model-records)]
+    (is (empty? (first image-urls)))
+    (is (= (second image-urls)
+           ["https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/exampleImage.tif"
+            "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/resultImage.tif"]))))
