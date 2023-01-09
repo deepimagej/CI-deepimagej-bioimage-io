@@ -51,9 +51,33 @@
   [model-record]
   (concat (get-images-to-download model-record) (get-weights-to-download model-record)))
 
+(defn get-destination-folder
+  ([model-record]
+   (get-destination-folder model-record model-dir-name))
+  ([model-record model-dir-name]
+   (fs/file (get-in model-record [:paths :model-dir-path]) model-dir-name)))
+
 (defn save-file-with-info
-  "given a curl get response, and a file, saves body (byte-arr) in file verbosely"
-  [response file-name])
+  "Given a my-timed curl-get-response, and a file, saves body (byte-arr) in file verbosely
+  Returns written bytes (0 means download failed)"
+  [folder timed-response file-name]
+  (let [result-file (byte-arr->file! folder (:return timed-response) file-name)
+        written-bytes (.length result-file)]
+    (println (format "Downloaded %s (%d bytes)" result-file written-bytes))
+    (println (format "Took: %s" (:iso timed-response)))
+    written-bytes))
+
+(defn download-into-model-folder
+  ([model-record]
+   (download-into-model-folder model-record model-dir-name))
+  ([model-record model-dir-name]
+   (let [urls (get-urls-to-download model-record)
+         file-names (map get-url-filename urls)
+         timed-responses (map #(my-time (:body (get-url-response %))) urls)
+         folder-file (get-destination-folder model-record model-dir-name)]
+     ;(doall (pmap (partial byte-arr->file! folder-file) responses file-names))
+     (doall (pmap (partial save-file-with-info folder-file) timed-responses file-names))))
+  )
 
 (defn populate-model-folder
   "Downloads all needed urls from the model-record into local files.
@@ -61,12 +85,11 @@
   ([model-record]
    (populate-model-folder model-record model-dir-name))
   ([model-record model-dir-name]
-   (let [urls (get-urls-to-download model-record)
-         file-names (map get-url-filename urls)
-         responses (map #(:body (get-url-response %)) urls)
-         folder-file (fs/file (get-in model-record [:paths :model-dir-path]) model-dir-name)]
+   (let [folder-file (get-destination-folder model-record model-dir-name)]
      (fs/create-dirs folder-file)
-     (doall (pmap (partial byte-arr->file! folder-file) responses file-names))))
+     ;todo copy rdf.yaml
+     ;todo copy p*processing scripts
+     ))
   )
 
 ; (my-time (populate-model-folder (second @model-records)))

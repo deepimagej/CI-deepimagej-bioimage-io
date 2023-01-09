@@ -95,3 +95,8 @@
     (is (empty? (first downloads-list)))
     (is (= 3 (count (second downloads-list))))
     (is (= 3 (count (nth downloads-list 2))))))
+
+(deftest get-destination-folder-test
+  (is (= model-dir-name (fs/file-name (get-destination-folder (second @model-records)))))
+  (is (= "alt_model_folder"
+         (fs/file-name (get-destination-folder (last @model-records) "alt_model_folder")))))
