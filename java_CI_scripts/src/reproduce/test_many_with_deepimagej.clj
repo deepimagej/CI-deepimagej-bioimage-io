@@ -7,7 +7,7 @@
 (def comm-file (file (System/getProperty "user.home") "models_to_test.edn"))
 (def all-models "All Models in a vector, from the comm-file" (edn/read-string (slurp comm-file)))
 (def fiji-home (file (System/getProperty "user.home") "blank_fiji" ))
-(def model-dir "the_model")
+(def model-dir-name "the_model")
 (def output-name "CI_OUTPUT.tif")
 
 (defn copy-file
@@ -17,8 +17,8 @@
 (defn copy-model-folder
   "Copy each file in the model folder to Fiji.app/models"
   ([fiji-home model-folder]
-   (let [in-file (file model-folder model-dir)
-         out-file (file fiji-home "Fiji.app" "models" model-dir )
+   (let [in-file (file model-folder model-dir-name)
+         out-file (file fiji-home "Fiji.app" "models" model-dir-name)
          ls (seq (.listFiles in-file))]
      (make-parents (file out-file "a_file.txt"))
      (mapv #(copy-file in-file out-file (.getName %)) ls)))
@@ -27,7 +27,7 @@
 (defn delete-model-folder
   "Delete the model from Fiji.app/models (once inference is finished)"
   ([fiji-home]
-   (let [m-dir (file fiji-home "Fiji.app" "models" model-dir)]
+   (let [m-dir (file fiji-home "Fiji.app" "models" model-dir-name)]
      (doseq [f (reverse (file-seq m-dir))]
        (delete-file f))))
   ([] (delete-model-folder (System/getProperty "user.home"))))
@@ -35,7 +35,7 @@
 (defn test-one-with-deepimagej
   "Test one model with deepimagej"
   [{:keys [dij-arg model-folder input-img]}]
-  (let [imp (IJ/openImage (str model-folder model-dir "/" input-img))]
+  (let [imp (IJ/openImage (str model-folder model-dir-name "/" input-img))]
     (copy-model-folder fiji-home model-folder)
     (try (IJ/run imp "DeepImageJ Run" dij-arg)
          (catch Exception e (println "-- Error during deepimagej run")))

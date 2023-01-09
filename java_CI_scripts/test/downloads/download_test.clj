@@ -6,7 +6,7 @@
 
 (use-fixtures :once load-test-paths load-model-records)
 
-(deftest my-time-test
+(deftest ^:integration my-time-test
   (let [time-map (my-time (do (Thread/sleep 1050)
                               (apply + (take 5 (range 1 100 2)))))
         iso-str (:iso time-map)]
@@ -64,7 +64,7 @@
     ; create the parent folder if it doesn't exist
     (fs/create-dirs toy-dir)
     ; write byte arrays in files
-    (doall (map (fn [[k v]] (byte-arr->file! v toy-dir (gen-filename k))) arrays))
+    (doall (map (fn [[k v]] (byte-arr->file! toy-dir v (gen-filename k))) arrays))
     ; testing
     (is (= (edn/read-string (slurp (fs/file toy-dir (gen-filename :ba-1))))
            (dissoc an-edn :url)))
@@ -89,3 +89,9 @@
     (is (= (second image-urls)
            ["https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/exampleImage.tif"
             "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/resultImage.tif"]))))
+
+(deftest get-urls-to-download-test
+  (let [downloads-list (map get-urls-to-download @model-records)]
+    (is (empty? (first downloads-list)))
+    (is (= 3 (count (second downloads-list))))
+    (is (= 3 (count (nth downloads-list 2))))))
