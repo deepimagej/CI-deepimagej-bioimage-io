@@ -40,6 +40,7 @@
         (is (zero? (alength (:body response))))))
     (testing "type of arg is not string"
       (let [response (get-url->byte-arr url-4)]
+        (is (zero? (alength (:body response))))
         (is (= 3 (:exit response)))))
     (testing "An edn file from github"
       (let [body (:body (get-url->byte-arr url-5))

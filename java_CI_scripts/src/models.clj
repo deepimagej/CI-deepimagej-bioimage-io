@@ -17,7 +17,7 @@
 (def p*process-names{:preprocess :pre-p :postprocess :post-p} )
 
 (defrecord Model [paths name nickname dij-config? weights tensors p*process])
-(defrecord Paths [rdf-path summa-path model-folder-path])
+(defrecord Paths [rdf-path summa-path model-dir-path])
 (defrecord Weight [type source])
 (defrecord Tensor [type name axes sample shape])
 (defrecord PProcess [type script])

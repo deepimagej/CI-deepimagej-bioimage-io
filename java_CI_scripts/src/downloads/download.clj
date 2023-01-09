@@ -23,7 +23,14 @@
 
 (defn byte-arr->file
   "Save a byte-array as a file"
-  [b-arr path])
+  [b-arr dir file-name]
+  (spit b-arr (fs/file dir file-name)))
+
+(defn download-weights
+  [model-record])
+
+(defn download-images
+      [model-record])
 
 (comment
   "use (some->) for robust pipeline. source https://gist.github.com/philippkueng/11377226"

@@ -77,7 +77,7 @@
 (defn get-model-folder
   "Gets the model path as a string and with the file separators needed in an imageJ script"
   [model-record]
-  (-> (fs/absolutize (get-in model-record [:paths :model-folder-path]))
+  (-> (fs/absolutize (get-in model-record [:paths :model-dir-path]))
       (str fs/file-separator)
       (str/replace #"\\" "/")))
 
