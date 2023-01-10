@@ -31,8 +31,18 @@
 (defn load-model-records
   [test-fn]
   (let [all-rdfs (file-json->vector "pending_matrix/all_models.json")]
-    (reset! model-records (map (fn [[k v]] (build-model @v)) rdf-paths))
+    (reset! model-records (map (fn [[_ v]] (build-model @v)) rdf-paths))
     (reset! all-model-records (map #(build-model %) (get-rdfs-to-test all-rdfs))))
   (test-fn))
 
 (def an-edn (edn/read-string (slurp (fs/file "test" "resources" "an.edn"))))
+
+(comment
+  "For when queries to all the collection are needed"
+  (def all-rdfs (get-rdfs-to-test (file-json->vector "pending_matrix/all_models.json")))
+  (def all-parsed (mapv models/parse-model all-rdfs))
+
+  "models that have the :run_model key"
+  (filter (fn [[k v]] (not (nil? v)))
+          (map #(vector (:name %) (get-in % [:run_mode])) all-parsed))
+  )

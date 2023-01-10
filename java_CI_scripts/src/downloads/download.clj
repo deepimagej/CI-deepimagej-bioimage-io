@@ -87,6 +87,7 @@
   ([model-record model-dir-name]
    (let [folder-file (get-destination-folder model-record model-dir-name)]
      (fs/create-dirs folder-file)
+
      ;todo copy rdf.yaml
      ;todo copy p*processing scripts
      ))

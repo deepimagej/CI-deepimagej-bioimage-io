@@ -24,7 +24,7 @@ From fiji directory
 
 ## on windows
 ````
- C:\Users\ivana\blank_fiji\Fiji.app\ImageJ-win64.exe --headless --console --ij2 --run .\test_many_with_deepimagej.clj
+~\blank_fiji\Fiji.app\ImageJ-win64.exe --headless --console --ij2 --run .\test_many_with_deepimagej.clj
 ````
 
 
