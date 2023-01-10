@@ -1,0 +1,13 @@
+Model,nickname,resource_id,version_id,link to website,deepImageJ?,Framework,Use case,Status of Java CI,Pass/error,Problem
+DefCon,,,,not available,Yes,TensorFlow 1.15,No,WIP,,close statement in macro error in headless
+Cell Segmentation from Membrane Staining for Plant Tissues,humorous-owl,10.5281/zenodo.5749843,5877226,https://bioimage.io/#/?tags=humorous-owl&id=10.5281%2Fzenodo.5749843,Yes,TensorFlow 1.15,Yes,Failed,,Expected output not binarized (different from DIJ output)
+Cell Segmentation from Membrane Staining for Plant Tissues,humorous-owl,10.5281/zenodo.5749843,5888237,,Yes,TensorFlow 1.15,Yes,Failed,,Expected output not binarized (different from DIJ output)
+StarDist H&E,chatty-frog,10.5281/zenodo.6338614,6338615,https://bioimage.io/#/?tags=stardist&id=10.5281%2Fzenodo.6338614&type=model,Yes,TensorFlow 1.15,Yes,No tested,,
+HPA Cell Segmentation (DPNUnet),loyal-parrot,10.5281/zenodo.6200635,6538890,https://bioimage.io/#/?id=10.5281%2Fzenodo.6200635,Yes,Pytorch,Yes,No tested,,
+HPA Cell Segmentation (DPNUnet),loyal-parrot,10.5281/zenodo.6200635,6200636,,Yes,Pytorch,Yes,No tested,,
+HPA Nucleus Segmentation (DPNUnet),conscientious-seashell,10.5281/zenodo.6200999,6538911,https://bioimage.io/#/?id=10.5281%2Fzenodo.6200999,Yes,Pytorch,Yes,No tested,,
+HPA Nucleus Segmentation (DPNUnet),conscientious-seashell,10.5281/zenodo.6200999,6224243,,Yes,Pytorch,Yes,No tested,,
+EnhancerMitochondriaEM2D,hiding-blowfish,10.5281/zenodo.6406756,6811922,https://bioimage.io/#/?tags=mitochondria&id=10.5281%2Fzenodo.6406756&type=model,Yes,PyTorch,Yes,No tested,,
+EnhancerMitochondriaEM2D,hiding-blowfish,10.5281/zenodo.6406756,6811498,,Yes,PyTorch,Yes,No tested,,
+EnhancerMitochondriaEM2D,hiding-blowfish,10.5281/zenodo.6406756,6406757,,Yes,PyTorch,Yes,No tested,,
+Neuron Segmentation in EM (Membrane Prediction),impartial-shrimp,10.5281/zenodo.5874741,5874742,https://bioimage.io/#/?tags=impartial-shrimp&id=10.5281%2Fzenodo.5874741,Yes,PyTorch,No,Failed,,Wrong axes order. DIJ_run does not produce output
