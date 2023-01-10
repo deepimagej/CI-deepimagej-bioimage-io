@@ -12,7 +12,8 @@
   (is (= (format-axes "byxzc") "Y,X,Z,C")))
 
 (deftest format-tiles-test
-  (is (= (format-tiles "1 x 256 x 256 x 8 x 1") "256,256,8,1")))
+  (is (= (format-tiles "1 x 256 x 256 x 8 x 1") "256,256,8,1"))
+  (is (= (format-tiles "360 x 360 x 32 x 1") "360,360,32,1")))
 
 (deftest weight-format-test
   (is (= (weight-format (nth @model-records 1)) "Tensorflow"))

@@ -21,8 +21,12 @@
 
 (defn format-tiles
   "Use as tile the shape in the dij config (separated by commas, not by x's).
-  Remove the first element (it is always the batch??)"
-  [s] (->> (str/split s #" x ") rest (str/join ",")))
+  Ignore the first element if it is a 1 (it is always the batch??)"
+  [s] (->> (str/split s #" x ")
+           (map #(Integer/parseInt %))
+           (split-with (partial >= 1))
+           last
+           (str/join ",")))
 
 (defn weight-format
   "Gets the weight format from a model record"
