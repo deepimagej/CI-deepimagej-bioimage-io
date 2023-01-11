@@ -15,14 +15,14 @@
   [json-type options]
   (let [parsing-function (json-type {:json-file   file-json->vector
                                      :json-string str-json->vector})
-        rdfs (get-rdfs-to-test (parsing-function (json-type options)))
-        model-records (map build-model rdfs)
+        rdfs-paths (get-rdfs-to-test (parsing-function (json-type options)))
+        model-records (map build-model rdfs-paths)
         {:keys [no-dij-config keep-testing]} (separate-by-dij-config model-records)
         failed-dict (gen-summa-dict "failed" :initial :no-dij-config)]
     (println "Creating dirs for test summaries")
-    (mapv create-summa-dir rdfs)
+    (mapv create-summa-dir rdfs-paths)
     (println "Creating dirs for models")
-    (mapv create-model-dir rdfs)
+    (mapv create-model-dir rdfs-paths)
     (println "Creating test summaries for" (count no-dij-config) "models")
     (mapv #(write-test-summary % failed-dict) no-dij-config)
     (println "Creating comm file for" (count keep-testing) "models")
