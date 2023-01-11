@@ -23,16 +23,26 @@
           (fs/path COLLECTION-ROOT "10.5281" "zenodo.5874741" "5874742" "rdf.yaml" ))
   (test-fn))
 
-;Setup for 'downloads/*.clj and after, assumes 'collection and 'models already tested and working
+; Parsed rdfs, assumes 'collection and 'models already tested and working
+(def all-rdfs-paths (get-rdfs-to-test (file-json->vector "pending_matrix/all_models.json")))
+
+(def rdfs-parsed (atom nil))
+(def all-rdfs-parsed (atom nil))
+
+(defn load-rdfs-parsed
+  [test-fn]
+
+  (test-fn))
+
+; Built model records. needed for 'downloads/*.clj and after, assumes 'collection and 'models already tested and working
 
 (def model-records (atom nil))
 (def all-model-records (atom nil))
 
 (defn load-model-records
   [test-fn]
-  (let [all-rdfs (file-json->vector "pending_matrix/all_models.json")]
-    (reset! model-records (map (fn [[_ v]] (build-model @v)) rdf-paths))
-    (reset! all-model-records (map #(build-model %) (get-rdfs-to-test all-rdfs))))
+  (reset! model-records (map (fn [[_ v]] (build-model @v)) rdf-paths))
+  (reset! all-model-records (map #(build-model %) all-rdfs-paths))
   (test-fn))
 
 (def an-edn (edn/read-string (slurp (fs/file "test" "resources" "an.edn"))))

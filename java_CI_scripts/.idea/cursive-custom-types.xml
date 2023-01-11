@@ -12,6 +12,7 @@
     <file url="file://$PROJECT_DIR$/src/summaries.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/collection_test.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/core/cli_test.clj" value="BABASHKA" />
+    <file url="file://$PROJECT_DIR$/test/core/sandbox.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/downloads/download_test.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/downloads/initial_checks_test.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/downloads/p_process_test.clj" value="BABASHKA" />
