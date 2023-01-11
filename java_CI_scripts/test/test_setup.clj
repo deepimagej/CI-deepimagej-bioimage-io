@@ -1,6 +1,6 @@
 (ns test-setup
   (:require [collection :refer [COLLECTION-ROOT file-json->vector get-rdfs-to-test]]
-            [models :refer [build-model]]
+            [models :refer [parse-model build-model]]
             [clojure [test :refer :all] [edn :as edn]]
             [babashka.fs :as fs]))
 
@@ -31,7 +31,8 @@
 
 (defn load-rdfs-parsed
   [test-fn]
-
+  (reset! rdfs-parsed (map (fn [[_ v]] (parse-model @v)) rdf-paths))
+  (reset! all-rdfs-parsed (map parse-model all-rdfs-paths))
   (test-fn))
 
 ; Built model records. needed for 'downloads/*.clj and after, assumes 'collection and 'models already tested and working
@@ -47,12 +48,3 @@
 
 (def an-edn (edn/read-string (slurp (fs/file "test" "resources" "an.edn"))))
 
-(comment
-  "For when queries to all the collection are needed"
-  (def all-rdfs (get-rdfs-to-test (file-json->vector "pending_matrix/all_models.json")))
-  (def all-parsed (mapv models/parse-model all-rdfs))
-
-  "models that have the :run_model key"
-  (filter (fn [[k v]] (not (nil? v)))
-          (map #(vector (:name %) (get-in % [:run_mode])) all-parsed))
-  )
