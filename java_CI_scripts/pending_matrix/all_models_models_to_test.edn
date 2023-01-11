@@ -1,0 +1,381 @@
+[{:nickname nil,
+  :name "SMLM Density Map Estimation (DEFCoN)",
+  :dij-arg
+  "model=[SMLM Density Map Estimation (DEFCoN)] format=[] preprocessing=[preprocessing.txt] postprocessing=[postprocessing.txt] axes=Y,X,C tile=64,64,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/SMLMDensityMapEstimationDEFCoN/latest/",
+  :input-img "exampleImage.tif",
+  :output-img "resultImage.tif"}
+ {:nickname "hiding-blowfish",
+  :name "EnhancerMitochondriaEM2D",
+  :dij-arg
+  "model=[EnhancerMitochondriaEM2D] format=[Pytorch] preprocessing=[per_sample_scale_range.ijm] postprocessing=[no postprocessing] axes=C,Y,X tile=512,512,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811498/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "hiding-tiger",
+  :name "LiveCellSegmentationBoundaryModel",
+  :dij-arg
+  "model=[LiveCellSegmentationBoundaryModel] format=[Pytorch] preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Y,X tile=512,512,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/5869900/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "hiding-tiger",
+  :name "LiveCellSegmentationBoundaryModel",
+  :dij-arg
+  "model=[LiveCellSegmentationBoundaryModel] format=[Pytorch] preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Y,X tile=512,512,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/6647688/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "humorous-owl",
+  :name "Cell Segmentation from Membrane Staining for Plant Tissues",
+  :dij-arg
+  "model=[Cell Segmentation from Membrane Staining for Plant Tissues] format=[Tensorflow] preprocessing=[per_sample_scale_range.ijm] postprocessing=[binarize.ijm] axes=Y,X,Z,C tile=256,256,8,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5888237/",
+  :input-img "exampleImage.tif",
+  :output-img "resultImage.tif"}
+ {:nickname "humorous-owl",
+  :name "3D UNet - arabidopsis - ZeroCostDL4Mic",
+  :dij-arg
+  "model=[3D UNet - arabidopsis - ZeroCostDL4Mic] format=[Tensorflow] preprocessing=[per_sample_scale_range.ijm] postprocessing=[binarize.ijm] axes=Y,X,Z,C tile=256,256,8,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5877226/",
+  :input-img "exampleImage.tif",
+  :output-img "resultImage.tif"}
+ {:nickname "discreet-rooster",
+  :name "Pancreatic Phase Contrast Cell Segmentation (U-Net)",
+  :dij-arg
+  "model=[Pancreatic Phase Contrast Cell Segmentation (U-Net)] format=[Tensorflow] preprocessing=[preprocessing.txt] postprocessing=[postprocessing.txt] axes=Y,X,C tile=720,576,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5914248/6514446/",
+  :input-img "exampleImage.tiff",
+  :output-img "resultImage.tiff"}
+ {:nickname "discreet-rooster",
+  :name "Pancreatic Phase Contrast Cell Segmentation (U-Net)",
+  :dij-arg
+  "model=[Pancreatic Phase Contrast Cell Segmentation (U-Net)] format=[Tensorflow] preprocessing=[per_sample_scale_range.ijm] postprocessing=[binarize.ijm] axes=Y,X,C tile=720,576,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5914248/6514622/",
+  :input-img "exampleImage.tiff",
+  :output-img "resultImage.tiff"}
+ {:nickname nil,
+  :name "Masson’s Trichrome Virtual Staining (GAN)",
+  :dij-arg
+  "model=[Masson’s Trichrome Virtual Staining (GAN)] format=[Tensorflow] preprocessing=[preprocessing.txt] postprocessing=[postprocessing.txt] axes=Y,X,C tile=1224,1224,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/Mt3VirtualStaining/latest/",
+  :input-img "exampleImage.tif",
+  :output-img "resultImage.tif"}
+ {:nickname "affable-shark",
+  :name "NucleiSegmentationBoundaryModel",
+  :dij-arg
+  "model=[NucleiSegmentationBoundaryModel] format=[Pytorch] preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Y,X tile=256,256,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6647674/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "placid-llama",
+  :name
+  " B. Sutilist bacteria segmentation - Widefield microscopy - 2D UNet",
+  :dij-arg
+  "model=[ B. Sutilist bacteria segmentation - Widefield microscopy - 2D UNet] format=[] preprocessing=[per_sample_scale_range.ijm] postprocessing=[no postprocessing] axes=X,Y,C tile=256,256,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.7261974/7261975/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname nil,
+  :name
+  "NIH 3T3 Fibroblast Phase Contrast Segmentation (Usiigaci-Mask R-CNN)",
+  :dij-arg
+  "model=[NIH 3T3 Fibroblast Phase Contrast Segmentation (Usiigaci-Mask R-CNN)] format=[Tensorflow] preprocessing=[preprocessing.ijm] postprocessing=[no postprocessing] axes=X,Y,C tile=1024,1024,3,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/Usiigaci/latest/",
+  :input-img "exampleImage.tif",
+  :output-img "MAX_finalMask.tif"}
+ {:nickname "discreet-rooster",
+  :name "Pancreatic Phase Contrast Cell Segmentation (U-Net)",
+  :dij-arg
+  "model=[Pancreatic Phase Contrast Cell Segmentation (U-Net)] format=[Tensorflow] preprocessing=[per_sample_scale_range.ijm] postprocessing=[binarize.ijm] axes=Y,X,C tile=576,720 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5914248/5914249/",
+  :input-img "exampleImage.tif",
+  :output-img "resultImage.tif"}
+ {:nickname nil,
+  :name
+  "Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)",
+  :dij-arg
+  "model=[Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)] format=[Tensorflow] preprocessing=[preprocessing.txt] postprocessing=[postprocessing.txt] axes=Y,X,C tile=2048,2048,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/FRUNet2DsEVSegmentation/latest/",
+  :input-img "exampleImage.tiff",
+  :output-img "resultImage.tiff"}
+ {:nickname "naked-microbe",
+  :name
+  "Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)",
+  :dij-arg
+  "model=[Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)] format=[Tensorflow] preprocessing=[preprocessing.txt] postprocessing=[postprocessing.txt] axes=Y,X,C tile=2048,2048,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6559474/6559475/",
+  :input-img "exampleImage.tiff",
+  :output-img "resultImage.tiff"}
+ {:nickname "organized-badger",
+  :name "PlatynereisEMnucleiSegmentationBoundaryModel",
+  :dij-arg
+  "model=[PlatynereisEMnucleiSegmentationBoundaryModel] format=[Pytorch] preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Z,Y,X tile=256,256,32,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028097/6028098/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname nil,
+  :name "Widefield Super-resolution (GAN - TxRed)",
+  :dij-arg
+  "model=[Widefield Super-resolution (GAN - TxRed)] format=[Tensorflow] preprocessing=[preprocessing.txt] postprocessing=[postprocessing.txt] axes=Y,X,C tile=1024,1024,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/WidefieldTxredSuperResolution/latest/",
+  :input-img "exampleImage.tiff",
+  :output-img "resultImage.tiff"}
+ {:nickname "powerful-chipmunk",
+  :name "CovidIFCellSegmentationBoundaryModel",
+  :dij-arg
+  "model=[CovidIFCellSegmentationBoundaryModel] format=[Pytorch] preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Y,X tile=512,512,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5847355/6647683/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "non-judgemental-eagle",
+  :name "Arabidopsis Leaf Segmentation",
+  :dij-arg
+  "model=[Arabidopsis Leaf Segmentation] format=[Tensorflow] preprocessing=[per_sample_scale_range.ijm] postprocessing=[no postprocessing] axes=X,Y,Z,C tile=256,256,8,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348728/6348729/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "willing-hedgehog",
+  :name "PlatynereisEMcellsSegmentationBoundaryModel",
+  :dij-arg
+  "model=[PlatynereisEMcellsSegmentationBoundaryModel] format=[Pytorch] preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Z,Y,X tile=256,256,32,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028280/6647695/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "impartial-shark",
+  :name "Cells and gland Segmentation (FRUNet)",
+  :dij-arg
+  "model=[Cells and gland Segmentation (FRUNet)] format=[] preprocessing=[per_sample_scale_range.ijm] postprocessing=[binarize.ijm] axes=Y,X,C tile=256,256 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6865412/6919253/",
+  :input-img "exampleImage.tif",
+  :output-img "resultImage.tif"}
+ {:nickname "creative-panda",
+  :name "Neuron Segmentation in 2D EM (Membrane)",
+  :dij-arg
+  "model=[Neuron Segmentation in 2D EM (Membrane)] format=[Tensorflow] preprocessing=[per_sample_scale_range.ijm] postprocessing=[binarize.ijm] axes=X,Y,C tile=512,512,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5817052/5906839/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "creative-panda",
+  :name "Mitochondria segmentation - TEM - 2D U-Net - ZeroCostDL4Mic",
+  :dij-arg
+  "model=[Mitochondria segmentation - TEM - 2D U-Net - ZeroCostDL4Mic] format=[Tensorflow] preprocessing=[per_sample_scale_range.ijm] postprocessing=[binarize.ijm] axes=X,Y,C tile=512,512,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5817052/5850574/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "determined-chipmunk",
+  :name "EM3DBoundaryEnhancer",
+  :dij-arg
+  "model=[EM3DBoundaryEnhancer] format=[Pytorch] preprocessing=[per_sample_scale_range.ijm] postprocessing=[no postprocessing] axes=C,Z,Y,X tile=256,256,32,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6808325/6808413/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "fearless-crab",
+  :name "StarDist Fluorescence Nuclei Segmentation",
+  :dij-arg
+  "model=[StarDist Fluorescence Nuclei Segmentation] format=[Tensorflow] preprocessing=[per_sample_scale_range.ijm] postprocessing=[no postprocessing] axes=Y,X,C tile=384,384,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348084/6348085/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "willing-hedgehog",
+  :name "PlatynereisEMcellsSegmentationBoundaryModel",
+  :dij-arg
+  "model=[PlatynereisEMcellsSegmentationBoundaryModel] format=[Pytorch] preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Z,Y,X tile=256,256,32,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028280/6028281/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "independent-shrimp",
+  :name "EnhancerMitochondriaEM3D",
+  :dij-arg
+  "model=[EnhancerMitochondriaEM3D] format=[Pytorch] preprocessing=[per_sample_scale_range.ijm] postprocessing=[no postprocessing] axes=C,Z,Y,X tile=256,256,32,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6811491/6811492/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname nil,
+  :name "Widefield Super-resolution (GAN - DAPI)",
+  :dij-arg
+  "model=[Widefield Super-resolution (GAN - DAPI)] format=[Tensorflow] preprocessing=[preprocessing.txt] postprocessing=[postprocessing.txt] axes=Y,X,C tile=1024,1024,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/WidefieldDapiSuperResolution/latest/",
+  :input-img "exampleImage.tiff",
+  :output-img "resultImage.tiff"}
+ {:nickname "affable-shark",
+  :name "NucleiSegmentationBoundaryModel",
+  :dij-arg
+  "model=[NucleiSegmentationBoundaryModel] format=[Pytorch] preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Y,X tile=256,256,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6322939/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "conscientious-seashell",
+  :name "HPA Nucleus Segmentation (DPNUnet)",
+  :dij-arg
+  "model=[HPA Nucleus Segmentation (DPNUnet)] format=[Pytorch] preprocessing=[fixed_zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Y,X tile=512,512,1,3 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6200999/6538911/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname nil,
+  :name "Glial Cell SMLM (DeepSTORM - ZeroCostDL4Mic)",
+  :dij-arg
+  "model=[Glial Cell SMLM (DeepSTORM - ZeroCostDL4Mic)] format=[Tensorflow] preprocessing=[preprocessing.ijm] postprocessing=[postprocessing_LocalMaximaSMLM.ijm] axes=Y,X,C tile=256,256,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/DeepSTORMZeroCostDL4Mic/latest/",
+  :input-img "exampleImage.tiff",
+  :output-img "resultImage.tiff"}
+ {:nickname "powerful-chipmunk",
+  :name "CovidIFCellSegmentationBoundaryModel",
+  :dij-arg
+  "model=[CovidIFCellSegmentationBoundaryModel] format=[Pytorch] preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Y,X tile=512,512,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5847355/6322908/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "conscientious-seashell",
+  :name "HPA Nucleus Segmentation (DPNUnet)",
+  :dij-arg
+  "model=[HPA Nucleus Segmentation (DPNUnet)] format=[Pytorch] preprocessing=[fixed_zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Y,X tile=512,512,1,3 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6200999/6224243/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname nil,
+  :name "Widefield Super-resolution (GAN - FITC)",
+  :dij-arg
+  "model=[Widefield Super-resolution (GAN - FITC)] format=[Tensorflow] preprocessing=[preprocessing.txt] postprocessing=[postprocessing.txt] axes=Y,X,C tile=1024,1024,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/WidefieldFitcSuperResolution/latest/",
+  :input-img "exampleImage.tiff",
+  :output-img "resultImage.tiff"}
+ {:nickname nil,
+  :name "HeLa DIC Cell Segmentation (U-Net)",
+  :dij-arg
+  "model=[HeLa DIC Cell Segmentation (U-Net)] format=[Tensorflow] preprocessing=[preprocessing.txt] postprocessing=[postprocessing.txt] axes=Y,X,C tile=256,256,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/UNet2DHeLaSegmentation/latest/",
+  :input-img "exampleImage.tiff",
+  :output-img "resultImage.tiff"}
+ {:nickname nil,
+  :name
+  "Pancreatic Cell Phase Contrast Segmentation (DeepWater - CTC submission)",
+  :dij-arg
+  "model=[Pancreatic Cell Phase Contrast Segmentation (DeepWater - CTC submission)] format=[Tensorflow] preprocessing=[preprocessing.txt] postprocessing=[postprocessing.txt] axes=Y,X,C tile=720,576,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/MU-Lux_CTC_PhC-C2DL-PSC/latest/",
+  :input-img "exampleImage.tiff",
+  :output-img "resultImage.tiff"}
+ {:nickname "shivering-raccoon",
+  :name "MitchondriaEMSegmentation2D",
+  :dij-arg
+  "model=[MitchondriaEMSegmentation2D] format=[Pytorch] preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Y,X tile=512,512,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406803/6406804/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "chatty-frog",
+  :name "StarDist H&E Nuclei Segmentation",
+  :dij-arg
+  "model=[StarDist H&E Nuclei Segmentation] format=[Tensorflow] preprocessing=[per_sample_scale_range.ijm] postprocessing=[no postprocessing] axes=Y,X,C tile=512,304,1,3 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6338614/6338615/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname nil,
+  :name "Jones Virtual Staining (GAN)",
+  :dij-arg
+  "model=[Jones Virtual Staining (GAN)] format=[Tensorflow] preprocessing=[preprocessing.txt] postprocessing=[postprocessing.txt] axes=Y,X,C tile=1224,1224,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/JonesVirtualStaining/latest/",
+  :input-img "exampleImage.tif",
+  :output-img "resultImage.tif"}
+ {:nickname nil,
+  :name "Skin lesions classification",
+  :dij-arg
+  "model=[Skin lesions classification] format=[] preprocessing=[preprocessing.ijm] postprocessing=[post.ijm] axes=C,Y,X tile=316,224,3,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/SkinLesionClassification/latest/",
+  :input-img "0066.tif",
+  :output-img "lesion.csv"}
+ {:nickname nil,
+  :name "Glioblastoma Phase Contrast Cell Segmentation (U-Net)",
+  :dij-arg
+  "model=[Glioblastoma Phase Contrast Cell Segmentation (U-Net)] format=[Tensorflow] preprocessing=[preprocessing.txt] postprocessing=[postprocessing.txt] axes=Y,X,C tile=348,260,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/UNet2DGlioblastomaSegmentation/latest/",
+  :input-img "exampleImage.tiff",
+  :output-img "resultImage.tiff"}
+ {:nickname "kind-seashell",
+  :name "Mitochondria Segmentation for EM",
+  :dij-arg
+  "model=[Mitochondria Segmentation for EM] format=[Pytorch] preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Z,Y,X tile=256,256,32,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/5874842/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "hiding-blowfish",
+  :name "EnhancerMitochondriaEM2D",
+  :dij-arg
+  "model=[EnhancerMitochondriaEM2D] format=[Pytorch] preprocessing=[per_sample_scale_range.ijm] postprocessing=[no postprocessing] axes=C,Y,X tile=512,512,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811922/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "kind-seashell",
+  :name "MitochondriaEMSegmentationBoundaryModel",
+  :dij-arg
+  "model=[MitochondriaEMSegmentationBoundaryModel] format=[Pytorch] preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Z,Y,X tile=256,256,32,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/6630266/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "hiding-tiger",
+  :name "LiveCellSegmentationBoundaryModel",
+  :dij-arg
+  "model=[LiveCellSegmentationBoundaryModel] format=[Pytorch] preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Y,X tile=512,512,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/6321179/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "impartial-shrimp",
+  :name "Neuron Segmentation in EM (Membrane Prediction)",
+  :dij-arg
+  "model=[Neuron Segmentation in EM (Membrane Prediction)] format=[Pytorch] preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Z,Y,X tile=360,360,32,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874741/5874742/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "hiding-blowfish",
+  :name "EnhancerMitochondriaEM2D",
+  :dij-arg
+  "model=[EnhancerMitochondriaEM2D] format=[Pytorch] preprocessing=[per_sample_scale_range.ijm] postprocessing=[no postprocessing] axes=C,Y,X tile=512,512,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6406757/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}]

@@ -1,0 +1,17 @@
+[{:nickname "placid-llama",
+  :name
+  " B. Sutilist bacteria segmentation - Widefield microscopy - 2D UNet",
+  :dij-arg
+  "model=[ B. Sutilist bacteria segmentation - Widefield microscopy - 2D UNet] format=[] preprocessing=[per_sample_scale_range.ijm] postprocessing=[no postprocessing] axes=X,Y,C tile=256,256,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.7261974/7261975/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname nil,
+  :name "Glial Cell SMLM (DeepSTORM - ZeroCostDL4Mic)",
+  :dij-arg
+  "model=[Glial Cell SMLM (DeepSTORM - ZeroCostDL4Mic)] format=[Tensorflow] preprocessing=[preprocessing.ijm] postprocessing=[postprocessing_LocalMaximaSMLM.ijm] axes=Y,X,C tile=256,256,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/DeepSTORMZeroCostDL4Mic/latest/",
+  :input-img "exampleImage.tiff",
+  :output-img "resultImage.tiff"}]
