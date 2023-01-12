@@ -16,12 +16,6 @@
   (let [run-mode-value (get-in model-rp [:parsed-rdf :run_mode])]
     (or (nil? run-mode-value) (not= (:name run-mode-value) "deepimagej"))))
 
-;todo remove and use generic approach
-(defn separate-by-dij-config
-  "DEPRECATED Separates models into the ones that have or not-have deepimagej config field in the rdf"
-  [models]
-  (clojure.set/rename-keys (group-by :dij-config? models) {true :keep-testing false :no-dij-config}))
-
 (defn any-compatible-weight?
   "Tells if a model has any compatible weights (checks model record)"
   [model-rp])
@@ -54,8 +48,15 @@
 
 (defn separate-by-error
   "Discriminative function should return true to keep testing, false if error occurred
-  Data structure: {:keep-testing [list of model-rp] :error-found {:error-key1 [list of model-rp]} :error-key2 [list of model-rp]}}"
-  [error-fns models-rp-list]
-  ;old implementation (rename-keys (group-by disc-function models-rp-list) {true :keep-testing false error-key})
-  (reduce check-error {:keep-testing models-rp-list} error-functions)
-  )
+  After an error happens, no more error checks are made for a model"
+  ([models-rp-list]
+   (separate-by-error models-rp-list error-functions))
+  ([models-rp-list error-fns]
+   (reduce check-error {:keep-testing models-rp-list} error-fns)))
+
+;todo remove and use generic approach (remove after use in core)
+(defn separate-by-dij-config
+  "DEPRECATED Separates models into the ones that have or not-have deepimagej config field in the rdf.
+  Deprecated by using generic approach to all error types"
+  [models]
+  (clojure.set/rename-keys (group-by :dij-config? models) {true :keep-testing false :no-dij-config}))
