@@ -1,22 +1,20 @@
 (ns downloads.initial-checks
-  (:require [clojure.set :refer [rename-keys]]))
+  "Initial checks to see failed models before downloads and inference"
+  (:require [clojure.set :refer [rename-keys]]
+            [summaries.errors :refer [initial-errors]]))
 
-; Initial checks to the models to see "fails" before inference and prevent downloads
-; Input = model-rp: a dictionary of {:model-record <> : parsed-rdf} for each model
-; - no deepimagej config
-; - not available sample images
-; - no compatible weights
-; - not available specified p*processing
-; - key run_mode exists (?) needs complete parsed-rdf
-; - key format_version compatible (?) needs complete parsed-rdf
+; Input for these checks needs the model record and the parsed rdf
+(defrecord ModelRP [model-record parsed-rdf])
 
+; todo remove and use map->ModelRP
 (defn build-model-rp
   "Given a model record, and a parsed-rdf, returns the model-rp dictionary"
   [model-record parsed-rdf]
   (hash-map :model-record model-record :parsed-rdf parsed-rdf))
 
 (defn separate-by
- "Discriminative function should return true to keep testing, false if error occurred"
+ "Discriminative function should return true to keep testing, false if error occurred
+ Data structure: {:keep-testing [list of model-rp] :error-found {:error-key1 [list of model-rp]} :error-key2 [list of model-rp]}"
   [[error-key disc-function] models-rp]
   (rename-keys (group-by disc-function models-rp) {true :keep-testing false error-key}))
 
@@ -25,6 +23,13 @@
   [model-rp]
   (get-in model-rp [:model-record :dij-config?]))
 
+(defn no-run-mode?
+  "Checks if the rdf does not have a run_mode key (or if is empty of found)"
+  [model-rp]
+  (let [run-mode-value (get-in model-rp [:parsed-rdf :run_mode])]
+    (or (nil? run-mode-value) (not= (:name run-mode-value) "deepimagej"))))
+
+;todo remove and use generic approach
 (defn separate-by-dij-config
   "Separates models into the ones that have or not-have deepimagej config field in the rdf"
   [models]
@@ -38,6 +43,10 @@
   "Tells if input and output tiff sample images are in the rdf.yaml"
   [])
 
-(def possible-initial-errors
-  {:no-dij-config {:fun dij-config? :msg "rdf does not have keys for config: deepimagej:"}
+(def error-functions
+  "Associate discrimination function to each possible initial error"
+  {:no-dij-config         dij-config?
+   :no-sample-images      #(true)                           ;temporary
+   :no-compatible-weights #(true)                           ;temporary
+   :key-run-mode          no-run-mode?
    })
