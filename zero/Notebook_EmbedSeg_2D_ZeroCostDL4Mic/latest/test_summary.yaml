@@ -1,5 +1,5 @@
 bioimageio_spec_version: unknown
 bioimageio_core_version: unknown
-error: rdf does not have keys for config:deepimagej
+error: rdf does not have keys for :config :deepimagej
 status: failed
 name: initial compatibility checks with deepimagej
