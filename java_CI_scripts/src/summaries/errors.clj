@@ -18,3 +18,10 @@
 ; To add another initial error
 ; 1. add a key and error message to this dict
 ; 2. add a key and discrimination function in downloads.initial-checks
+
+
+; errors can also happen:
+; - while downloading images
+; - while downloading weights
+; - while running dij headless (e.g. a preprocess macro)
+; - test output != expected output

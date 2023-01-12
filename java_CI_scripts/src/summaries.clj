@@ -1,5 +1,6 @@
 (ns summaries
   (:require [collection :refer [COLLECTION-ROOT]]
+            [summaries.errors]
             [clj-yaml.core :as yaml]
             [babashka.fs :as fs]))
 
@@ -32,17 +33,6 @@
    :bioimageio_core_version "unknown"})
 ; maybe more fields are obligatory ¯\_(ü)_/¯
 
-; todo use the ones in summaries.errors
-(def error-names
-  {:no-dij-config         "rdf does not have keys for config:deepimagej"
-   :no-sample-images      "rdf does not have keys for sample images"
-   :no-compatible-weights "rdf does not have a compatible weight format"})
-; errors can also happen:
-; - while downloading images
-; - while downloading weights
-; - while running dij headless (e.g. a preprocess macro)
-; - test output != expected output
-
 (defn gen-summa-dict
   "Add additional fields to default summary dictionary to generate a valid test summary
   Without args, generates summary for passed model"
@@ -56,7 +46,7 @@
          name (get valid-names name-k)
          dict (if (empty? error-k)
                 default-summa-dict
-                (assoc default-summa-dict :error ((first error-k) error-names)))]
+                (assoc default-summa-dict :error ((first error-k) summaries.errors/initial-errors)))]
      (assoc dict :status status :name name))))
 
 (defn write-test-summary!
@@ -68,7 +58,7 @@
     (spit out-file yaml-str)))
 
 (defn write-summaries-from-error!
-  "Writes the test summaries for the models with errors (from a discriminated-models dictionary)"
+  "Writes the test summaries for the models with errors (entry from a discriminated-models dictionary)"
   [[error-key models-rp]]
   (let [summa-dict (gen-summa-dict "failed" :initial error-key)]
     (mapv #(write-test-summary! (:model-record %) summa-dict) models-rp)

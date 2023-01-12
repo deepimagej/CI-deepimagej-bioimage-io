@@ -16,8 +16,8 @@
 
 (comment
   "models that have the :run_model key"
-  (filter (fn [[n [k v]]] (not (nil? v)))
-          (map-indexed #(vector (:name %) (get-in % [:run_mode])) @all-rdfs-parsed))
+  (filter (fn [[k v]] (not (nil? v)))
+          (map #(vector (:name %) (get-in % [:run_mode])) @all-rdfs-parsed))
   )
 
 ; paths parsed and records of models in use-cases
