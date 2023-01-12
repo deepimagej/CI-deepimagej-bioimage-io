@@ -1,8 +1,8 @@
 (ns core.main
   (:require [summaries :refer [create-summa-dir gen-summa-dict write-test-summary]]
             [collection :refer [get-rdfs-to-test file-json->vector str-json->vector]]
-            [models :refer [create-model-dir build-model]]
-            [downloads.initial-checks :refer [separate-by-dij-config]]
+            [models :refer [create-model-dir build-model parse-model]]
+            [downloads.initial-checks :as initial-checks :refer [separate-by-dij-config]]
             [reproduce.communicate :refer [build-dij-model write-comm-file]]
             [downloads initial-checks-test download-test p-process-test]
             collection-test models-test summaries-test reproduce.communicate-test core.cli-test
@@ -17,6 +17,8 @@
                                      :json-string str-json->vector})
         rdfs-paths (get-rdfs-to-test (parsing-function (json-type options)))
         model-records (map build-model rdfs-paths)
+        rdfs-parsed (map parse-model rdfs-paths)
+        models-rp (map #(initial-checks/map->ModelRP {:model-record %1 :parsed-rdf %2}) model-records rdfs-parsed)
         {:keys [no-dij-config keep-testing]} (separate-by-dij-config model-records)
         failed-dict (gen-summa-dict "failed" :initial :no-dij-config)]
     (println "Creating dirs for test summaries")

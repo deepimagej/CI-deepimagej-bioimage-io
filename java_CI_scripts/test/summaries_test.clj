@@ -48,7 +48,11 @@
           :bioimageio_core_version "unknown",
           :error "rdf does not have keys for config:deepimagej",
           :status "failed",
-          :name "initial compatibility checks with deepimagej"})))
+          :name "initial compatibility checks with deepimagej"}))
+  (is (= (gen-summa-dict) {:bioimageio_spec_version "unknown",
+                           :bioimageio_core_version "unknown",
+                           :status "passed",
+                           :name "reproduce test outputs with deepimagej headless"})))
 
 (defn no-pp [m]
   "finds model records without preprocessing (but with dij config)"
