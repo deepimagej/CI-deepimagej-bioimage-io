@@ -1,6 +1,7 @@
 (ns test-setup
   (:require [collection :refer [COLLECTION-ROOT file-json->vector get-rdfs-to-test]]
             [models :refer [parse-model build-model]]
+            [downloads.initial-checks :as initial-checks]
             [clojure [test :refer :all] [edn :as edn]]
             [babashka.fs :as fs]))
 
@@ -44,6 +45,21 @@
   [test-fn]
   (reset! model-records (map (fn [[_ v]] (build-model @v)) rdf-paths))
   (reset! all-model-records (map #(build-model %) all-rdfs-paths))
+  (test-fn))
+
+(def model-rp's
+  "list of records and parsed rdf for every tests model"
+  (atom nil))
+(def all-model-rp's
+  "list of records and parsed rdf for all models"
+  (atom nil))
+
+(defn load-model-rp's
+  [test-fn]
+  (reset! model-rp's (map #(initial-checks/map->ModelRP {:model-record %1 :parsed-rdf %2})
+                          @model-records @rdfs-parsed))
+  (reset! all-model-rp's (map #(initial-checks/map->ModelRP {:model-record %1 :parsed-rdf %2})
+                              @all-model-records @all-rdfs-parsed))
   (test-fn))
 
 (def an-edn (edn/read-string (slurp (fs/file "test" "resources" "an.edn"))))

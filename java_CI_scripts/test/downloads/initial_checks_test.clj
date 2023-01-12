@@ -3,19 +3,6 @@
             [test-setup :refer :all]
             [clojure.test :refer :all]))
 
-(def model-rp's
-  "list of records and parsed rdf for every tests model"
-  (atom nil))
-(def all-model-rp's
-  "list of records and parsed rdf for all models"
-  (atom nil))
-
-(defn load-model-rp's
-  [test-fn]
-  (reset! model-rp's (map #(map->ModelRP {:model-record %1 :parsed-rdf %2}) @model-records @rdfs-parsed))
-  (reset! all-model-rp's (map #(map->ModelRP {:model-record %1 :parsed-rdf %2}) @all-model-records @all-rdfs-parsed))
-  (test-fn))
-
 (use-fixtures :once load-test-paths load-rdfs-parsed load-model-records load-model-rp's)
 
 (defn count-dict

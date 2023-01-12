@@ -1,12 +1,14 @@
 (ns summaries-test
   (:require [collection :refer [COLLECTION-ROOT]]
             [summaries :refer :all]
-            [test-setup :refer [rdf-paths load-test-paths load-model-records model-records all-model-records]]
-            [clojure.test :refer [deftest is testing use-fixtures run-tests]]
+            [downloads.initial-checks :as initial-checks]
+            [test-setup :refer :all]
+            [clojure.test :refer :all]
             [clj-yaml.core :as yaml]
             [babashka.fs :as fs]))
 
-(use-fixtures :once load-test-paths load-model-records)
+
+(use-fixtures :once load-test-paths load-rdfs-parsed load-model-records load-model-rp's)
 
 (deftest get-parent-components-test
   (testing "Using 2 arguments on a generic path"
@@ -72,9 +74,16 @@
              (fs/absolutize (create-summa-dir (get-in model [:paths :rdf-path]))))
           "Need absolute paths, in linux the absolute path is returned after creation"))
     (testing "List the directory to see the summary test was created"
-      (write-test-summary model summa-dict)
+      (write-test-summary! model summa-dict)
       (is (= (fs/path expected-file) (first (fs/list-dir summa-path)))))
     (testing "See that the contents of the test summery are correct (parse yaml)"
       (is (= (yaml/parse-string (slurp expected-file)) summa-dict)))
     (testing "After the tests, delete the file"
       (is (fs/delete-if-exists expected-file)))))
+
+(deftest write-summaries-from--error!-test
+  (let [{:keys [keep-testing error-found]} (initial-checks/separate-by-error @model-rp's)
+        one-error-k (first (select-keys error-found [:no-dij-config]))]
+    (write-summaries-from-error! one-error-k)
+    )
+  )

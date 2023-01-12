@@ -1,5 +1,5 @@
 (ns core.main
-  (:require [summaries :refer [create-summa-dir gen-summa-dict write-test-summary]]
+  (:require [summaries :refer [create-summa-dir gen-summa-dict write-test-summary!]]
             [collection :refer [get-rdfs-to-test file-json->vector str-json->vector]]
             [models :refer [create-model-dir build-model parse-model]]
             [downloads.initial-checks :as initial-checks :refer [separate-by-dij-config]]
@@ -26,7 +26,7 @@
     (println "Creating dirs for models")
     (mapv create-model-dir rdfs-paths)
     (println "Creating test summaries for" (count no-dij-config) "models")
-    (mapv #(write-test-summary % failed-dict) no-dij-config)
+    (mapv #(write-test-summary! % failed-dict) no-dij-config)
     (println "Creating comm file for" (count keep-testing) "models")
     (write-comm-file (map build-dij-model keep-testing))))
 
