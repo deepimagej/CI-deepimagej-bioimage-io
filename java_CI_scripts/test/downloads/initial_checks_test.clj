@@ -20,10 +20,10 @@
 
 (defn count-dict
   "counts dictionary entries that are seqs"
-  [d] (map (fn [[k v]] {k (count v)}) d))
+  [d] (reduce (fn [m [k v]] (assoc m k (count v))) {}  d))
 
 (deftest count-dict-test
-  (is (= (count-dict {:a [1 2] :b [4 5 6]}) [{:a 2} {:b 3}])))
+  (is (= (count-dict {:a [1 2] :b [4 5 6]}) {:a 2 :b 3})))
 
 ; todo: raplace this with generalized version
 (deftest separate-by-dij-config-test
@@ -34,7 +34,7 @@
       (is (= 1 (count (:no-dij-config separated))))))
   (testing "All models in the collection"
     (let [separated (separate-by-dij-config @all-model-records)]
-      (is (= [{:keep-testing 47} {:no-dij-config 117}] (count-dict separated))))))
+      (is (= {:keep-testing 47 :no-dij-config 117} (count-dict separated))))))
 
 
 (deftest dij-config?-test
@@ -47,4 +47,8 @@
     (is (= 4 (count with-rm)))
     (is (= (repeat 4 "deepimagej")
            (mapv #(get-in % [:parsed-rdf :run_mode :name]) with-rm))))
+  )
+
+(deftest check-error-test
+  (let [discriminated (check-error {:keep-testing @model-records} (first error-functions))])
   )

@@ -32,6 +32,7 @@
    :bioimageio_core_version "unknown"})
 ; maybe more fields are obligatory ¯\_(ü)_/¯
 
+; todo use the ones in summaries.errors
 (def error-names
   {:no-dij-config         "rdf does not have keys for config:deepimagej"
    :no-sample-images      "rdf does not have keys for sample images"
