@@ -36,6 +36,11 @@
     (is (= (repeat 4 "deepimagej")
            (mapv #(get-in % [:parsed-rdf :run_mode :name]) with-rm)))))
 
+(deftest error-functions-test
+  (let [initial-error? (partial contains? (set (keys summaries.errors/initial-errors)))]
+    (testing "errors correspond to the same ones in summaries.errors"
+      (is (->> (keys error-functions) (map initial-error?) and)))))
+
 (deftest check-error-test
   (let [discd-models (check-error {:keep-testing @model-rp's}
                                   (first (select-keys error-functions [:no-dij-config])))
@@ -69,7 +74,7 @@
       (is (= (count-dict (:error-found all-models-discriminated))
              {:key-run-mode 4 :no-dij-config 117})))))
 
-; this has been replaced by more general version
+; this has been replaced by more general version, but test can stay
 (deftest separate-by-dij-config-test
   (testing "The 3 models tf, pt and state-dict (incompatible with dij)"
     (let [separated (separate-by-dij-config @model-records)]
