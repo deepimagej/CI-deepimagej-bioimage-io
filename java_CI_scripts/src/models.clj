@@ -1,6 +1,6 @@
 (ns models
   (:require [collection :refer [COLLECTION-ROOT]]
-            [summaries :refer [new-root-path gen-summa-path]]
+            [summary :refer [new-root-path gen-summa-path]]
             [clj-yaml.core :as yaml]
             [babashka.fs :as fs]))
 

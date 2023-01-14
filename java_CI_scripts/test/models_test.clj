@@ -1,6 +1,6 @@
 (ns models-test
   (:require [models :refer :all]
-            [summaries :refer [SUMMA-ROOT]]
+            [summary :refer [SUMMA-ROOT]]
             [collection :refer [COLLECTION-ROOT]]
             [test-setup :refer [rdf-paths load-test-paths]]
             [clojure.test :refer [deftest is testing use-fixtures run-tests]]

@@ -1,11 +1,11 @@
 (ns core.main
-  (:require [summaries :refer [create-summa-dir gen-summa-dict write-test-summary! write-summaries-from-error!]]
+  (:require [summary :refer [create-summa-dir gen-summa-dict write-test-summary! write-summaries-from-error!]]
             [collection :refer [get-rdfs-to-test file-json->vector str-json->vector]]
             [models :refer [create-model-dir build-model parse-model]]
             [downloads.initial-checks :as initial-checks :refer [separate-by-dij-config]]
             [reproduce.communicate :refer [build-dij-model write-comm-file]]
             [downloads initial-checks-test download-test p-process-test]
-            collection-test models-test summaries-test reproduce.communicate-test core.cli-test
+            collection-test models-test summary-test reproduce.communicate-test core.cli-test
             [core.cli :refer [validate-args exit]]
             [clojure [test :refer [run-tests]]]))
 
@@ -40,7 +40,7 @@
       (exit (if ok? 0 1) exit-message)
       (cond
         (:unit-test options)
-        (run-tests 'collection-test 'summaries-test 'models-test
+        (run-tests 'collection-test 'summary-test 'models-test
                    'downloads.initial-checks-test 'downloads.download-test
                    'downloads.p-process-test 'reproduce.communicate-test 'core.cli-test)
         (:json-string options)
