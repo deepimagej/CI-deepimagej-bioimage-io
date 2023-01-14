@@ -1,7 +1,7 @@
 (ns core.main
-  (:require [summary :refer [create-summa-dir gen-summa-dict write-test-summary! write-summaries-from-error!]]
-            [collection :refer [get-rdfs-to-test file-json->vector str-json->vector]]
+  (:require [collection :refer [get-rdfs-to-test file-json->vector str-json->vector]]
             [models :refer [create-model-dir build-model parse-model]]
+            [summaries.summary :as summary]
             [downloads.initial-checks :as initial-checks :refer [separate-by-dij-config]]
             [reproduce.communicate :refer [build-dij-model write-comm-file]]
             [downloads initial-checks-test download-test p-process-test]
@@ -21,16 +21,16 @@
         models-rp (map #(initial-checks/map->ModelRP {:model-record %1 :parsed-rdf %2}) model-records rdfs-parsed)
         {:keys [keep-testing error-found]} (initial-checks/separate-by-error models-rp)
         ;{:keys [no-dij-config keep-testing]} (separate-by-dij-config model-records)
-        failed-dict (gen-summa-dict "failed" :initial :no-dij-config)]
+        failed-dict (summary/gen-summa-dict "failed" :initial :no-dij-config)]
     (println "Creating dirs for test summaries")
-    (mapv create-summa-dir rdfs-paths)
+    (mapv summary/create-summa-dir rdfs-paths)
     (println "Creating dirs for models")
     (mapv create-model-dir rdfs-paths)
 
     ;(println "Creating test summaries for" (count no-dij-config) "models")
-    ;(mapv #(write-test-summary! % failed-dict) no-dij-config)
+    ;(mapv #(summary/write-test-summary! % failed-dict) no-dij-config)
 
-    (mapv write-summaries-from-error! error-found)
+    (mapv summary/write-summaries-from-error! error-found)
     (println "Creating comm file for" (count keep-testing) "models")
     (write-comm-file (map build-dij-model (:model-record keep-testing)))))
 

@@ -1,12 +1,11 @@
 (ns summary-test
   (:require [collection :refer [COLLECTION-ROOT]]
-            [summary :refer :all]
+            [summaries.summary :refer :all]
             [downloads.initial-checks :as initial-checks]
             [test-setup :refer :all]
             [clojure.test :refer :all]
             [clj-yaml.core :as yaml]
             [babashka.fs :as fs]))
-
 
 (use-fixtures :once load-test-paths load-rdfs-parsed load-model-records load-model-rp's)
 

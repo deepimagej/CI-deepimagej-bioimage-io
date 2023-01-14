@@ -1,4 +1,4 @@
-(ns summary
+(ns summaries.summary
   (:require [collection :refer [COLLECTION-ROOT]]
             [summaries.errors]
             [clj-yaml.core :as yaml]

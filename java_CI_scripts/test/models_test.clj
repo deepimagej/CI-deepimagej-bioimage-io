@@ -1,9 +1,9 @@
 (ns models-test
   (:require [models :refer :all]
-            [summary :refer [SUMMA-ROOT]]
+            [summaries.summary :refer [SUMMA-ROOT]]
             [collection :refer [COLLECTION-ROOT]]
             [test-setup :refer [rdf-paths load-test-paths]]
-            [clojure.test :refer [deftest is testing use-fixtures run-tests]]
+            [clojure.test :refer :all]
             [clojure.java.io :refer [as-url]]
             [babashka.fs :as fs]))
 
