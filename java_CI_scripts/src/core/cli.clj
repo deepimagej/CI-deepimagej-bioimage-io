@@ -8,9 +8,9 @@
 (defn valid-json? [s]
   (try (json/parse-string s)
        (catch Exception e false))) ;JsonParseException
-; TODO multimethod, dispatch on string content
+; TODO? multimethod, dispatch on string content
 
-; TODO actions
+; TODO? actions
 ; initial: creates folders and test summaries for incompatible (avoid downloads)
 ; download: populates model folders (downloads files)
 ; reproduce: write test summaries (from outputs of tested headless dij)
@@ -21,7 +21,7 @@
    ["-j" "--json-file FILE" "Read input from json FILE"
     :default "./pending_matrix/two_models.json"
     :validate [#(fs/exists? %) "File must exist"
-               #(valid-json? (slurp %)) "File must be valid json"]]
+               #(valid-json? (slurp %)) "File must contain valid json"]]
    ["-s" "--json-string STRING" "Read input from raw json STRING"
     ; not given a default value, to make it incompatible with -j
     :validate [#(valid-json? %) "String must be valid json"]]

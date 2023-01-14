@@ -36,6 +36,6 @@
       (is (= (validate-args ["-j" "./a.txt"])
              {:exit-message (str error-title "Failed to validate \"-j ./a.txt\": File must exist")}))
       (is (= (validate-args ["-j" "Readme.md"])
-             {:exit-message (str error-title "Failed to validate \"-j Readme.md\": File must be valid json")}))
+             {:exit-message (str error-title "Failed to validate \"-j Readme.md\": File must contain valid json")}))
       (is (= (validate-args ["-j" "pending_matrix/two_models.json"])
              (assoc-in default-dict [:options :json-file] "pending_matrix/two_models.json"))))))

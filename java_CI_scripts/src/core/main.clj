@@ -1,40 +1,36 @@
 (ns core.main
-  (:require [collection :refer [get-rdfs-to-test file-json->vector str-json->vector]]
-            [models :refer [create-model-dir build-model parse-model]]
+  (:require collection
+            models
             [summaries.summary :as summary]
-            [downloads.initial-checks :as initial-checks :refer [separate-by-dij-config]]
-            [reproduce.communicate :refer [build-dij-model write-comm-file]]
-            [core [cli :refer [validate-args exit]] unit-tests]))
+            [downloads.initial-checks :as initial-checks]
+            [reproduce.communicate :as comm]
+            [core cli unit-tests]))
 
-;TODO refactor on actions (?)
+;TODO refactor on actions (if implemented in core.cli?)
 (defn initial-pipeline
   "Creates the folders corresponding to test input json"
   [json-type options]
-  (let [parsing-function (json-type {:json-file   file-json->vector
-                                     :json-string str-json->vector})
-        rdfs-paths (get-rdfs-to-test (parsing-function (json-type options)))
-        model-records (map build-model rdfs-paths)
-        rdfs-parsed (map parse-model rdfs-paths)
-        models-rp (map #(initial-checks/map->ModelRP {:model-record %1 :parsed-rdf %2}) model-records rdfs-parsed)
-        {:keys [keep-testing error-found]} (initial-checks/separate-by-error models-rp)
-        ;{:keys [no-dij-config keep-testing]} (separate-by-dij-config model-records)
-        failed-dict (summary/gen-summa-dict "failed" :initial :no-dij-config)]
+  (let [parsing-function (json-type {:json-file   collection/file-json->vector
+                                     :json-string collection/str-json->vector})
+        rdfs-paths (collection/get-rdfs-to-test (parsing-function (json-type options)))
+        model-records (map models/build-model rdfs-paths)
+        rdfs-parsed (map models/parse-model rdfs-paths)
+        models-rp (map #(initial-checks/map->ModelRP {:model-record %1 :parsed-rdf %2})
+                       model-records rdfs-parsed)
+        {:keys [keep-testing error-found]} (initial-checks/separate-by-error models-rp)]
     (println "Creating dirs for test summaries")
     (mapv summary/create-summa-dir rdfs-paths)
     (println "Creating dirs for models")
-    (mapv create-model-dir rdfs-paths)
-
-    ;(println "Creating test summaries for" (count no-dij-config) "models")
-    ;(mapv #(summary/write-test-summary! % failed-dict) no-dij-config)
+    (mapv models/create-model-dir rdfs-paths)
 
     (mapv summary/write-summaries-from-error! error-found)
     (println "Creating comm file for" (count keep-testing) "models")
-    (write-comm-file (map build-dij-model (:model-record keep-testing)))))
+    (comm/write-comm-file (map comm/build-dij-model (:model-record keep-testing)))))
 
 (defn -main [& args]
-  (let [{:keys [action options exit-message ok?]} (validate-args args)]
+  (let [{:keys [action options exit-message ok?]} (core.cli/validate-args args)]
     (if exit-message
-      (exit (if ok? 0 1) exit-message)
+      (core.cli/exit (if ok? 0 1) exit-message)
       (cond
         (:unit-test options)
         (core.unit-tests/run-all-tests)
