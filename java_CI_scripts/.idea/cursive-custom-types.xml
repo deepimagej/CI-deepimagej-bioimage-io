@@ -19,7 +19,7 @@
     <file url="file://$PROJECT_DIR$/test/downloads/p_process_test.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/models_test.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/reproduce/communicate_test.clj" value="BABASHKA" />
-    <file url="file://$PROJECT_DIR$/test/summary_test.clj" value="BABASHKA" />
+    <file url="file://$PROJECT_DIR$/test/summaries/summary_test.clj" value="BABASHKA" />
     <file url="file://$PROJECT_DIR$/test/test_setup.clj" value="BABASHKA" />
   </component>
 </project>

@@ -1,4 +1,4 @@
-(ns summary-test
+(ns summaries.summary-test
   (:require [collection :refer [COLLECTION-ROOT]]
             [summaries.summary :refer :all]
             [downloads.initial-checks :as initial-checks]
