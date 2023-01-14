@@ -4,12 +4,7 @@
             [summaries.summary :as summary]
             [downloads.initial-checks :as initial-checks :refer [separate-by-dij-config]]
             [reproduce.communicate :refer [build-dij-model write-comm-file]]
-    ; require test namespaces for unit test run
-            [summaries summary-test]
-            [downloads initial-checks-test download-test p-process-test]
-            collection-test models-test reproduce.communicate-test core.cli-test
-            [core.cli :refer [validate-args exit]]
-            [clojure [test :refer [run-tests]]]))
+            [core [cli :refer [validate-args exit]] unit-tests]))
 
 ;TODO refactor on actions (?)
 (defn initial-pipeline
@@ -42,9 +37,7 @@
       (exit (if ok? 0 1) exit-message)
       (cond
         (:unit-test options)
-        (run-tests 'collection-test 'summaries.summary-test 'models-test
-                   'downloads.initial-checks-test 'downloads.download-test
-                   'downloads.p-process-test 'reproduce.communicate-test 'core.cli-test)
+        (core.unit-tests/run-all-tests)
         (:json-string options)
         (initial-pipeline :json-string options)
         :else
