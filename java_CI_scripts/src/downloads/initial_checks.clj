@@ -25,11 +25,12 @@
        not))
 
 (defn available-sample-images?
-  "Tells if input and output tiff sample images are in the rdf.yaml (look at local numpy_tiff folder"
+  "Tells if input and output tiff sample images are in the rdf.yaml (look at local numpy_tiff folder)"
   [])
 
 (def error-functions
-  "Associate discrimination function to each possible initial error"
+  "Association of each possible initial error with a discrimination function.
+  Order of errors here affects order on how errors are checked"
   {:no-compatible-weights any-compatible-weight?
    :no-dij-config         dij-config?
    :no-sample-images      (fn [_] true)                           ;temporary
