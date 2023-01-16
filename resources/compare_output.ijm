@@ -14,6 +14,7 @@ rename("JPEG");
 imageCalculator("Subtract create 32-bit", "Original","JPEG");
 run("Out [-]");
 rename("Difference");
+getStatistics(area, mean, min, max, std);
 
 // display windows side by side
 run("Tile");
