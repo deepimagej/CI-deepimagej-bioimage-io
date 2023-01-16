@@ -100,3 +100,13 @@
   ([dij-models file]
    (spit file (with-out-str (ppr/pprint (mapv #(into {} %) dij-models)))))
   ([dij-models] (write-comm-file dij-models comm-file)))
+
+(defn write-rdfs
+  "Write a list of paths to the rdfs to test
+  Communicate to python script to generate tiff from numpy"
+  ([model-records]
+   (write-rdfs model-records (fs/file ".." "numpy-tiff-deepimagej" "resources" "rdfs_to_test.txt")))
+  ([model-records file]
+   (->> (map #(str (fs/absolutize (get-in % [:paths :rdf-path]))) model-records)
+        (str/join \newline)
+        (spit file ))))
