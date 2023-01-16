@@ -9,7 +9,9 @@ test_summaries/
 toy_test_summaries/
 # dir for models
 models/
-#
+# dir for tiff test images
+numpy-tiff-deepimagej/
+
 output.txt
 # all zip files
 *.zip
