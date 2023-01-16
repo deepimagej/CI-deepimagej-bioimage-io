@@ -25,7 +25,7 @@
 
     (mapv summary/write-summaries-from-error! error-found)
     (println "Creating comm file for" (count keep-testing) "models")
-    (comm/write-comm-file (map comm/build-dij-model (:model-record keep-testing)))))
+    (comm/write-comm-file (map #(comm/build-dij-model (:model-record %)) keep-testing))))
 
 (defn -main [& args]
   (let [{:keys [action options exit-message ok?]} (core.cli/validate-args args)]
