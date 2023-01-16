@@ -1,0 +1,16 @@
+[{:nickname "humorous-owl",
+  :name "Cell Segmentation from Membrane Staining for Plant Tissues",
+  :dij-arg
+  "model=[Cell Segmentation from Membrane Staining for Plant Tissues] format=[Tensorflow] preprocessing=[per_sample_scale_range.ijm] postprocessing=[binarize.ijm] axes=Y,X,Z,C tile=256,256,8,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5888237/",
+  :input-img "exampleImage.tif",
+  :output-img "resultImage.tif"}
+ {:nickname "impartial-shrimp",
+  :name "Neuron Segmentation in EM (Membrane Prediction)",
+  :dij-arg
+  "model=[Neuron Segmentation in EM (Membrane Prediction)] format=[Pytorch] preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Z,Y,X tile=360,360,32,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874741/5874742/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}]

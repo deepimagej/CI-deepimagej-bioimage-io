@@ -1,6 +1,6 @@
 (ns collection-test
-  (:require [clojure.test :refer [deftest is testing use-fixtures run-tests run-test]]
-            [collection :refer :all]
+  (:require [collection :refer :all]
+            [clojure.test :refer [deftest is testing]]
             [babashka.fs :as fs]))
 
 (deftest collection-root-test
@@ -32,9 +32,6 @@
      (is (= resource_id "deepimagej/DeepSTORMZeroCostDL4Mic"))
      (is (= version_id "latest")))))
 
-(deftest -main-test
-  (is (= '("a" "1" 2) (-main "a" "1" 2))))
-
 (deftest filter-rdfs-test
   (let [all-rdfs (fs/glob COLLECTION-ROOT "**")
         some-rdfs (fs/glob (fs/path COLLECTION-ROOT "10.5281/zenodo.5749843") "**")]
@@ -64,5 +61,4 @@
     (testing "Resource vector has 2 maps"
       (is (= (map #(fs/file-name (fs/parent %)) r-b) ["7261975" "latest"])))
     (testing "Resource vector has 1 map, but version globbing"
-      (is (= (map #(fs/file-name (fs/parent %)) r-c) ["5888237" "5877226"])))
-    ))
+      (is (= (map #(fs/file-name (fs/parent %)) r-c) ["5888237" "5877226"])))))

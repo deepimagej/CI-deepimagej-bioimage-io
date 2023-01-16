@@ -1,0 +1,7 @@
+{:name "an.edn"
+ :info "A file for testing"
+ :why? "The url (for a fixed commit) will not change, neither will the contents."
+ :id 22
+ :exit :ok
+ :url "https://raw.githubusercontent.com/ivan-ea/CI-deepimagej-bioimage-io/ee37412bcc9dd9639ec93f6411c7f7a602370da5/java_CI_scripts/test/resources/an.edn"
+ }

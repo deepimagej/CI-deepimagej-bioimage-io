@@ -1,0 +1,32 @@
+[{:nickname "humorous-owl",
+  :name "Cell Segmentation from Membrane Staining for Plant Tissues",
+  :dij-arg
+  "model=[Cell Segmentation from Membrane Staining for Plant Tissues] format=[Tensorflow] preprocessing=[per_sample_scale_range.ijm] postprocessing=[binarize.ijm] axes=Y,X,Z,C tile=256,256,8,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5888237/",
+  :input-img "exampleImage.tif",
+  :output-img "resultImage.tif"}
+ {:nickname "conscientious-seashell",
+  :name "HPA Nucleus Segmentation (DPNUnet)",
+  :dij-arg
+  "model=[HPA Nucleus Segmentation (DPNUnet)] format=[Pytorch] preprocessing=[fixed_zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Y,X tile=512,512,1,3 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6200999/6538911/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "chatty-frog",
+  :name "StarDist H&E Nuclei Segmentation",
+  :dij-arg
+  "model=[StarDist H&E Nuclei Segmentation] format=[Tensorflow] preprocessing=[per_sample_scale_range.ijm] postprocessing=[no postprocessing] axes=Y,X,C tile=512,304,1,3 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6338614/6338615/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}
+ {:nickname "hiding-blowfish",
+  :name "EnhancerMitochondriaEM2D",
+  :dij-arg
+  "model=[EnhancerMitochondriaEM2D] format=[Pytorch] preprocessing=[per_sample_scale_range.ijm] postprocessing=[no postprocessing] axes=C,Y,X tile=512,512,1,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811922/",
+  :input-img "sample_input_0.tif",
+  :output-img "sample_output_0.tif"}]

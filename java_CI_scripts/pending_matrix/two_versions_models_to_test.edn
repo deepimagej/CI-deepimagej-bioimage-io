@@ -1,0 +1,16 @@
+[{:nickname "humorous-owl",
+  :name "Cell Segmentation from Membrane Staining for Plant Tissues",
+  :dij-arg
+  "model=[Cell Segmentation from Membrane Staining for Plant Tissues] format=[Tensorflow] preprocessing=[per_sample_scale_range.ijm] postprocessing=[binarize.ijm] axes=Y,X,Z,C tile=256,256,8,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5888237/",
+  :input-img "exampleImage.tif",
+  :output-img "resultImage.tif"}
+ {:nickname "humorous-owl",
+  :name "3D UNet - arabidopsis - ZeroCostDL4Mic",
+  :dij-arg
+  "model=[3D UNet - arabidopsis - ZeroCostDL4Mic] format=[Tensorflow] preprocessing=[per_sample_scale_range.ijm] postprocessing=[binarize.ijm] axes=Y,X,Z,C tile=256,256,8,1 logging=Normal",
+  :model-folder
+  "C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5877226/",
+  :input-img "exampleImage.tif",
+  :output-img "resultImage.tif"}]

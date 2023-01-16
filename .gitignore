@@ -1,5 +1,6 @@
 # annoying vim swap files
 *.swp
+*.kate-swp
 # checked out repo of models
 bioimageio-gh-pages/
 # dir for test summaries
@@ -8,5 +9,11 @@ test_summaries/
 toy_test_summaries/
 # dir for models
 models/
-#
+# dir for tiff test images
+numpy-tiff-deepimagej/
+
 output.txt
+# all zip files
+*.zip
+# uziped folder
+bash_scripts/dependencies_2115/

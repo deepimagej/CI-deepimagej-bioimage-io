@@ -10,9 +10,10 @@ on:
       pending_matrix:
         description: 'json encoded gh matrix of pending validations for new or updated resources (default: test on all resources)'
         required: true
-        #default: '{"include": [{"resource_id": "**", "version_id": "**"}]}'
-        default: '''{"include": [{"resource_id": "10.5281/zenodo.7261974","version_id": "7261975"},
-        {"resource_id": "deepimagej","version_id": "DeepSTORMZeroCostDL4Mic/latest"}]	}'''
+        default: '''{"include": [{"resource_id": "**", "version_id": "**"}]}'''
+        #default: '''{"include": [{"resource_id": "10.5281/zenodo.7261974","version_id": "7261975"},
+        #{"resource_id": "deepimagej","version_id": "DeepSTORMZeroCostDL4Mic/latest"},
+        #{"resource_id": "10.5281/zenodo.6334881","version_id": "6346477"}]}'''
         type: string
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -29,6 +30,11 @@ jobs:
           repository: bioimage-io/collection-bioimage-io
           ref: gh-pages
           path: bioimageio-gh-pages
+      - uses: actions/checkout@v3
+        with:
+          repository: ivan-ea/numpy-tiff-deepimagej
+          ref: master
+          path: numpy-tiff-deepimagej
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
@@ -37,14 +43,18 @@ jobs:
       - name: setup babashka
         uses: turtlequeue/setup-babashka@v1.5.0
         with:
-          babashka-version: 1.0.168
+          babashka-version: 1.0.169
 
       - name: run scripts
         working-directory: ./java_CI_scripts
         run: |
           bb --version
-          bb -m core
-          tree ../test_summaries -L 3 -h --du --dirsfirst # test-summaries folder should exist
+          bb -m core.main -s ${{ inputs.pending_matrix }}
+
+      - name: check that initial pipeline of CI went OK
+        run: |
+          chmod +x ./bash_scripts/check_initial_CI.sh
+          bash ./bash_scripts/check_initial_CI.sh       
 
       - name: upload the test summaries
         uses: actions/upload-artifact@v3
@@ -61,7 +71,7 @@ jobs:
     - uses: actions/download-artifact@v3
       with:
         name: test-summaries
-        path: .
+        path: ./test_summaries/
 
     - name: exploratory commands
       run: |
