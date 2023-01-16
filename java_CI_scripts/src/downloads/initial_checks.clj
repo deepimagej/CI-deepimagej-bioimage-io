@@ -18,17 +18,21 @@
 
 (defn any-compatible-weight?
   "Tells if a model has any compatible weights (checks model record)"
-  [model-rp])
+  [model-rp]
+  (->> (get-in model-rp [:model-record :weights])
+       (filter #(not= nil (:type %)))
+       empty?
+       not))
 
 (defn available-sample-images?
-  "Tells if input and output tiff sample images are in the rdf.yaml"
+  "Tells if input and output tiff sample images are in the rdf.yaml (look at local numpy_tiff folder"
   [])
 
 (def error-functions
   "Associate discrimination function to each possible initial error"
-  {:no-dij-config         dij-config?
+  {:no-compatible-weights any-compatible-weight?
+   :no-dij-config         dij-config?
    :no-sample-images      (fn [_] true)                           ;temporary
-   :no-compatible-weights (fn [_] true)                           ;temporary
    :key-run-mode          no-run-mode?
    })
 
@@ -54,7 +58,7 @@
   ([models-rp-list error-fns]
    (reduce check-error {:keep-testing models-rp-list} error-fns)))
 
-;todo remove and use generic approach (remove after use in core)
+; Deprecated, but not deleted. It can clarify how things worked initially
 (defn separate-by-dij-config
   "DEPRECATED Separates models into the ones that have or not-have deepimagej config field in the rdf.
   Deprecated by using generic approach to all error types"
