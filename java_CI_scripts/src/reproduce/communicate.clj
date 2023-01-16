@@ -107,6 +107,8 @@
   ([model-records]
    (write-rdfs model-records (fs/file ".." "numpy-tiff-deepimagej" "resources" "rdfs_to_test.txt")))
   ([model-records file]
-   (->> (map #(str (fs/absolutize (get-in % [:paths :rdf-path]))) model-records)
-        (str/join \newline)
-        (spit file ))))
+   (as-> model-records s
+         (map #(str (fs/absolutize (get-in % [:paths :rdf-path]))) s)
+         (str/join \newline s)
+         (str/replace s #"\\" "/")
+         (spit file s))))

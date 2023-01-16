@@ -30,6 +30,11 @@ jobs:
           repository: bioimage-io/collection-bioimage-io
           ref: gh-pages
           path: bioimageio-gh-pages
+      - uses: actions/checkout@v3
+        with:
+          repository: ivan-ea/numpy-tiff-deepimagej
+          ref: master
+          path: numpy-tiff-deepimagej
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
