@@ -36,8 +36,9 @@
 
 
 (deftest p*process-in-attachment?-test
-
-  )
+  (is (not (p*process-in-attachment?
+             (assoc-in (last @model-rp's) [:model-record :attach] []))))
+  (is (p*process-in-attachment? (second @model-rp's))))
 
 (deftest error-functions-test
   (let [initial-error? (partial contains? (set (keys summaries.errors/initial-errors)))]
