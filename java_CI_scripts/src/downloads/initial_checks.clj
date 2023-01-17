@@ -37,7 +37,7 @@
   [model-rp]
   (let [attach-list (get-in model-rp [:model-record :attach])
         attach-names (set (map downloads.download/get-url-filename attach-list))
-        p*p-names (map :script (get-in model-rp [:model-record :p*process]))]
+        p*p-names (filter #(not (nil? %)) (map :script (get-in model-rp [:model-record :p*process])))]
     (every? (partial contains? attach-names) p*p-names)))
 
 (def error-functions
