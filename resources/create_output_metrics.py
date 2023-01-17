@@ -1,10 +1,9 @@
 from ij import IJ
 from ij.plugin import ImageCalculator
 
-imp1 = IJ.openImage("/home/cia/Escritorio/46.JPG");
-imp2 = IJ.openImage("/home/cia/Escritorio/46.JPG");
+imp1 = IJ.openImage("/home/cia/Documentos/EPFL/numpy-tiff-deepimagej/10.5281/zenodo.5749843/5888237/sample_output_0.tif");
+imp2 = IJ.openImage("/home/cia/Documentos/EPFL/numpy-tiff-deepimagej/10.5281/zenodo.5749843/5888237/sample_input_0.tif");
 imp3 = ImageCalculator.run(imp1, imp2, "Subtract create 32-bit");
-imp3.show();
 imp4 = ImageCalculator.run(imp3, imp3, "Multiply create 32-bit");
 
 width = imp4.getWidth();
