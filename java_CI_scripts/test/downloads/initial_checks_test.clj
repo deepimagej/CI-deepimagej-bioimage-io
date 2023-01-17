@@ -30,6 +30,11 @@
   (testing "all models in collection with compatible weights"
     (is (= 46 (count (filter any-compatible-weight? @all-model-rp's))))))
 
+
+(deftest available-sample-images?-test
+  (is (= 2 (count (filter available-sample-images? @model-rp's))))
+  (is (= 29 (count (filter available-sample-images? @all-model-rp's)))))
+
 (deftest error-functions-test
   (let [initial-error? (partial contains? (set (keys summaries.errors/initial-errors)))]
     (testing "errors correspond to the same ones in summaries.errors"
@@ -78,5 +83,7 @@
   (testing "All models in the collection"
     (let [separated (separate-by-dij-config @all-model-records)]
       (is (= {:keep-testing 47 :no-dij-config 117} (count-dict separated))))))
+
+
 
 

@@ -57,7 +57,7 @@
                   :logging        "Normal"})))
 
 (defn bracketize
-  "Surround a string with [brackets] (all dij args need this)"
+  "Surround a string with [brackets] (some dij args need this)"
   [s] (str "[" s "]"))
 
 (defn dij-arg-str

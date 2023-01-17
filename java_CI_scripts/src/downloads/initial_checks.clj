@@ -1,6 +1,8 @@
 (ns downloads.initial-checks
   "Initial checks to see failed models before downloads and inference"
-  (:require [summaries.errors :refer [initial-errors]]))
+  (:require
+    [babashka.fs :as fs]
+    [summaries.errors :refer [initial-errors]]))
 
 ; Input for these checks needs the model record and the parsed rdf
 (defrecord ModelRP [model-record parsed-rdf])
@@ -25,15 +27,17 @@
        not))
 
 (defn available-sample-images?
-  "Tells if input and output tiff sample images are in the rdf.yaml (look at local numpy_tiff folder)"
-  [])
+  "Tells if input and output tiff sample images are in the local numpy_tiff folder"
+  [model-rp]
+  (let [samples-path (get-in model-rp [:model-record :paths :samples-path])]
+    (and (fs/exists? samples-path) (= 4 (count (fs/list-dir samples-path))))))
 
 (def error-functions
   "Association of each possible initial error with a discrimination function.
   Order of errors here affects order on how errors are checked"
   {:no-compatible-weights any-compatible-weight?
    :no-dij-config         dij-config?
-   :no-sample-images      (fn [_] true)                           ;temporary
+   :no-sample-images      available-sample-images?
    :key-run-mode          no-run-mode?
    })
 

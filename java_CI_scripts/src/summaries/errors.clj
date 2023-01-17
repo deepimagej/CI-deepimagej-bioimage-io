@@ -13,6 +13,7 @@
    :no-sample-images      "sample image tiffs have not been generated from numpy tests files"
    :no-compatible-weights "rdf does not have a compatible weight format"
    :key-run-mode          "rdf contains the key run_mode with value deepimagej"
+   :no-p*process          "no needed p*processing file in the attachments"
    })
 
 ; To add another initial error

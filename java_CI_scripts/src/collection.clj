@@ -36,10 +36,3 @@
   If only 1 argument is given, uses COLLECTION-ROOT as root path"
   ([root resources-vector] (set (flatten (map #(resource->paths root %) resources-vector))))
   ([resources-vector] (get-rdfs-to-test COLLECTION-ROOT resources-vector)))
-
-(defn write-paths-in-file
-  "Writes a list of rdf paths into a file,"
-  [paths-list filename])
-;TODO ?
-; make newline separated string from paths-list (optional absolutize)
-; parse rdfs them -> get all models
