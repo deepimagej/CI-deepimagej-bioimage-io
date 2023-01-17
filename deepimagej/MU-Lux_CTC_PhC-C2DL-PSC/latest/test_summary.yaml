@@ -1,5 +1,5 @@
 bioimageio_spec_version: unknown
 bioimageio_core_version: unknown
-error: rdf contains the key run_mode with value deepimagej
+error: sample image tiffs have not been generated from numpy tests files
 status: failed
 name: initial compatibility checks with deepimagej
