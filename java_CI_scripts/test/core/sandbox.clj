@@ -21,3 +21,11 @@
   )
 
 ; paths parsed and records of models in use-cases
+
+
+; try-catch inside let
+
+(comment
+  (let [a (try (/ 4 0) (catch Exception e nil))]
+    a)
+  )
