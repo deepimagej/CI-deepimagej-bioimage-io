@@ -101,12 +101,14 @@
         paths (get-paths-info test-rdf)
         components '("10.5281" "zenodo.5874741" "5874742")
         s-path (apply fs/path (conj components SUMMA-ROOT))
-        m-path (apply fs/path (conj components MODEL-ROOT))]
-    (is (= [:rdf-path :summa-path :model-dir-path] (keys paths)))
+        m-path (apply fs/path (conj components MODEL-ROOT))
+        sample-path (apply fs/path (conj components SAMPLE-ROOT))]
+    (is (= [:rdf-path :summa-path :model-dir-path :samples-path] (keys paths)))
     (is (= (:rdf-path paths) test-rdf))
     (is (= (str s-path) (str (:summa-path paths))))
     (is (= (str m-path) (str (:model-dir-path paths))))
-    (is (= paths (->Paths test-rdf s-path m-path))) "Equality regardless different references"))
+    (is (= (str sample-path) (str (:samples-path paths))))
+    (is (= paths (->Paths test-rdf s-path m-path sample-path))) "Equality regardless different references"))
 
 (deftest build-model-test
   (testing "Only the new fields (record fields already tested"

@@ -5,6 +5,7 @@
             [babashka.fs :as fs]))
 
 (def MODEL-ROOT "path to the models" (fs/path ".." "models"))
+(def SAMPLE-ROOT "path to the tiff files" (fs/path ".." "numpy-tiff-deepimagej"))
 
 (defn parse-model
   "Takes the path of an rdf.yaml and parses it into an ordered dictionary"
@@ -17,7 +18,7 @@
 (def p*process-names{:preprocess :pre-p :postprocess :post-p} )
 
 (defrecord Model [paths name nickname dij-config? weights tensors p*process])
-(defrecord Paths [rdf-path summa-path model-dir-path])
+(defrecord Paths [rdf-path summa-path model-dir-path samples-path])
 (defrecord Weight [type source])
 (defrecord Tensor [type name axes sample shape])
 (defrecord PProcess [type script])
@@ -57,6 +58,11 @@
   ([coll-root model-root rdf-path] (new-root-path coll-root model-root rdf-path))
   ([rdf-path] (gen-model-path COLLECTION-ROOT MODEL-ROOT rdf-path)))
 
+(defn gen-sample-path
+  "Gets the path corresponding to the model directory of an rdf-path"
+  ([coll-root sample-root rdf-path] (new-root-path coll-root sample-root rdf-path))
+  ([rdf-path] (gen-model-path COLLECTION-ROOT SAMPLE-ROOT rdf-path)))
+
 (defn create-model-dir
   "Creates directory for the model given the path to an rdf"
   ([coll-root model-root rdf-path]
@@ -67,7 +73,7 @@
 (defn get-paths-info
   "Gets the different paths the model uses"
   [rdf-path]
-  (->Paths rdf-path (gen-summa-path rdf-path) (gen-model-path rdf-path)))
+  (->Paths rdf-path (gen-summa-path rdf-path) (gen-model-path rdf-path) (gen-sample-path rdf-path)))
 
 (defn build-model
   "Generates a Model record, data structure with the information needed for testing a model"

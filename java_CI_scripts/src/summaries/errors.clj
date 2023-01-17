@@ -10,7 +10,7 @@
 
 (def initial-errors
   {:no-dij-config         "rdf does not have keys for :config :deepimagej"
-   :no-sample-images      "rdf does not have keys for sample images"
+   :no-sample-images      "sample image tiffs have not been generated from numpy tests files"
    :no-compatible-weights "rdf does not have a compatible weight format"
    :key-run-mode          "rdf contains the key run_mode with value deepimagej"
    })
