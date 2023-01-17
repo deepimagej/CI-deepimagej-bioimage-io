@@ -68,9 +68,10 @@
                                                                  [:no-dij-config :key-run-mode]))]
     (testing "Variety models"
       (is (= (count-dict models-discriminated)
-             {:error-found 4, :keep-testing 2}))
+             {:error-found 5, :keep-testing 2}))
       (is (= (count-dict (:error-found models-discriminated))
-             {:no-dij-config 0, :no-sample-images 0, :no-compatible-weights 1, :key-run-mode 0})))
+             {:no-dij-config 0, :no-sample-images 0, :no-compatible-weights 1,
+              :key-run-mode 0, :no-p*process 0})))
     (testing "All models, with only no-dij-config and key-run-mode errors"
       (is (= (count-dict all-models-discriminated)
              {:error-found 2, :keep-testing 43}))

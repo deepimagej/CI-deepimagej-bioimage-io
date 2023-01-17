@@ -38,7 +38,7 @@
   (let [attach-list (get-in model-rp [:model-record :attach])
         attach-names (set (map downloads.download/get-url-filename attach-list))
         p*p-names (map :script (get-in model-rp [:model-record :p*process]))]
-    (every? identity (map (partial contains? attach-names) p*p-names))))
+    (every? (partial contains? attach-names) p*p-names)))
 
 (def error-functions
   "Association of each possible initial error with a discrimination function.
