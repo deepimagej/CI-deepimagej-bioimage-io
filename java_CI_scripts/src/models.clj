@@ -17,7 +17,7 @@
                    :tensorflow_saved_model_bundle "Tensorflow"})
 (def p*process-names{:preprocess :pre-p :postprocess :post-p} )
 
-(defrecord Model [paths name nickname dij-config? weights tensors p*process])
+(defrecord Model [paths name nickname dij-config? weights tensors p*process attach])
 (defrecord Paths [rdf-path summa-path model-dir-path samples-path])
 (defrecord Weight [type source])
 (defrecord Tensor [type name axes sample shape])
@@ -85,4 +85,5 @@
                  :paths (get-paths-info rdf-path)
                  :weights (get-weight-info rdf-dict)
                  :tensors (get-tensor-info rdf-dict)
-                 :p*process (get-p*process-info rdf-dict)})))
+                 :p*process (get-p*process-info rdf-dict)
+                 :attach (get-in rdf-dict [:attachments :files])})))

@@ -1,12 +1,12 @@
 (ns models-test
   (:require [models :refer :all]
             [summaries.summary :refer [SUMMA-ROOT]]
-            [collection :refer [COLLECTION-ROOT]]
             [test-setup :refer [rdf-paths load-test-paths]]
             [clojure.test :refer :all]
             [clojure.java.io :refer [as-url]]
             [babashka.fs :as fs]))
 
+; TODO use rdf-parsed from test-setup
 (def model-dicts {:a-model (atom nil) :tf-model (atom nil) :pt-model (atom nil)})
 
 (defn load-test-models
@@ -112,8 +112,14 @@
 
 (deftest build-model-test
   (testing "Only the new fields (record fields already tested"
-    (let [the-keys [:name :nickname :dij-config?]
+    (let [the-keys [:name :nickname :dij-config? :attach]
           vals-model-0 (map #(% (build-model @(:an-rdf rdf-paths))) the-keys)
           vals-model-tf (map #(% (build-model @(:tf-rdf rdf-paths))) the-keys)]
-      (is (= vals-model-0 ["2D UNet Arabidopsis Apical Stem Cells" "laid-back-lobster" false]))
-      (is (= vals-model-tf ["Cell Segmentation from Membrane Staining for Plant Tissues" "humorous-owl" true])))))
+      (is (= (butlast vals-model-0) ["2D UNet Arabidopsis Apical Stem Cells" "laid-back-lobster" false]))
+      (is (nil? (last vals-model-0)))
+      (is (= (butlast vals-model-tf) ["Cell Segmentation from Membrane Staining for Plant Tissues" "humorous-owl" true]))
+      (is (last vals-model-tf) ["https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/exampleImage.tif"
+                                "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/resultImage.tif"
+                                "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/per_sample_scale_range.ijm"
+                                "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/binarize.ijm"
+                                "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/params.csv"]))))
