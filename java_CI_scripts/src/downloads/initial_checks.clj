@@ -1,6 +1,6 @@
 (ns downloads.initial-checks
   "Initial checks to see failed models before downloads and inference"
-  (:require
+  (:require [downloads.download :only [get-url-filename]]
     [babashka.fs :as fs]
     [summaries.errors :refer [initial-errors]]))
 
@@ -32,6 +32,14 @@
   (let [samples-path (get-in model-rp [:model-record :paths :samples-path])]
     (and (fs/exists? samples-path) (= 4 (count (fs/list-dir samples-path))))))
 
+(defn p*process-in-attachment?
+  "Tells if the p*processing files needed are to be downloaded (are in the attachments)"
+  [model-rp]
+  (let [attach-list (get-in model-rp [:model-record :attach])
+        attach-names (set (map downloads.download/get-url-filename attach-list))
+        p*p-names (map :script (get-in model-rp [:model-record :p*process]))]
+    (every? identity (map (partial contains? attach-names) p*p-names))))
+
 (def error-functions
   "Association of each possible initial error with a discrimination function.
   Order of errors here affects order on how errors are checked"
@@ -39,6 +47,7 @@
    :no-dij-config         dij-config?
    :no-sample-images      available-sample-images?
    :key-run-mode          no-run-mode?
+   :no-p*process          (fn [_] true)
    })
 
 ;  DATA STRUCTURE FOR DISCRIMINATED MODELS

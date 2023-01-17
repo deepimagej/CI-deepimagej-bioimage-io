@@ -1,11 +1,7 @@
-(ns summaries.errors)
+(ns summaries.errors "Error keys and messages for the different possible failed test summaries")
 
 ; possible initial errors
-; - no deepimagej config
-; - not available sample images
-; - no compatible weights
-; - not available specified p*processing
-; - key run_mode exists (?) needs complete parsed-rdf
+
 ; - key format_version compatible (?) needs complete parsed-rdf
 
 (def initial-errors
@@ -21,8 +17,12 @@
 ; 2. add a key and discrimination function in downloads.initial-checks
 
 
+
 ; errors can also happen:
-; - while downloading images
-; - while downloading weights
-; - while running dij headless (e.g. a preprocess macro)
-; - test output != expected output
+; - while downloading [weights, attachments]
+
+
+(def reproduce-errors "errors that happen trying to reproduce output with deepimagej"
+  {:dij-headless "Error while running deepimagej headless (CI did not produce an output image)"
+   :comparison   "CI output and Expected output are different (CI produced an output image)"
+   })
