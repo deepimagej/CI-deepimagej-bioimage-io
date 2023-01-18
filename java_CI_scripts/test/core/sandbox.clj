@@ -14,6 +14,9 @@
 (deftest dummy-test
   (testing "dummy test to load everything form test-setup"))
 
+; run all tests to load the data from test-setup
+(run-tests)
+
 (comment
   "models that have the :run_model key"
   (filter (fn [[k v]] (not (nil? v)))

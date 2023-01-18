@@ -4,7 +4,8 @@
             [summaries.summary :as summary]
             [downloads.initial-checks :as initial-checks]
             [reproduce.communicate :as comm]
-            [core cli unit-tests]))
+            [core cli unit-tests]
+            [babashka.fs :as fs]))
 
 ;TODO refactor on actions (if implemented in core.cli?)
 (defn initial-pipeline
@@ -26,7 +27,12 @@
     (mapv summary/write-summaries-from-error! error-found)
     (println "Creating comm file for" (count keep-testing) "models")
     (comm/write-comm-file (map #(comm/build-dij-model (:model-record %)) keep-testing))
-    ;(comm/write-rdfs (map #(:model-record %) keep-testing))
+    (comment
+      ; input to numpy-tiff repo, needs that the :no-sample-images error is not checked during initial checks
+      (comm/write-absolute-paths (map #(:model-record %) keep-testing) :rdf-path
+                                 (fs/file ".." "numpy-tiff-deepimagej" "resources" "rdfs_to_test.txt")))
+    (comm/write-absolute-paths (map #(:model-record %) keep-testing) :model-dir-path
+                               (fs/file ".." "resources" "models_to_test.txt"))
     ))
 
 (defn -main [& args]
