@@ -1,5 +1,6 @@
 (ns downloads.download
-  (:require [clojure.java.io :refer [as-url copy]]
+  (:require [clojure.java.io :as io]
+            [clojure.string :as str]
             [babashka [curl :as curl] [fs :as fs]]))
 
 (def model-dir-name "the_model")
@@ -27,13 +28,13 @@
 (defn get-url-filename
   "Gets the filename from a url"
   [^String url]
-  (->> (as-url url) (.getPath) fs/path fs/file-name))
+  (->> (io/as-url url) (.getPath) fs/path fs/file-name))
 
 (defn byte-arr->file!
   "Save a byte-array as a file. Ref source https://gist.github.com/philippkueng/11377226"
   [dir b-arr file-name]
   (let [dest-file (fs/file dir file-name)]
-    (copy b-arr (fs/file dir file-name))
+    (io/copy b-arr (fs/file dir file-name))
     dest-file))
 
 (defn get-weights-to-download
@@ -46,10 +47,17 @@
   [model-record]
   (filter #(not (nil? %)) (map :sample (:tensors model-record))))
 
+(defn get-attachments-to-download
+  "Chooses the preprocessing files to download from the links in the attachments"
+  [model-record]
+  (filter #(str/ends-with? % "ijm") (:attach model-record) ))
+
 (defn get-urls-to-download
   "Gets all the urls that need to be downloaded to test a model record (weights and images)"
   [model-record]
-  (concat (get-images-to-download model-record) (get-weights-to-download model-record)))
+  (concat  (get-weights-to-download model-record)
+           ;(get-images-to-download model-record)
+           (get-attachments-to-download model-record)))
 
 (defn get-destination-folder
   ([model-record]

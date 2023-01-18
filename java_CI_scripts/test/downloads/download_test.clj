@@ -82,13 +82,19 @@
       (is (= (nth weight-urls 2)
              ["https://zenodo.org/api/files/a6d65a8b-4fed-453f-89f6-515a2a73a99e/weights-torchscript.pt"])))))
 
-
 (deftest get-images-to-download-test
   (let [image-urls (map get-images-to-download @model-records)]
     (is (empty? (first image-urls)))
     (is (= (second image-urls)
            ["https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/exampleImage.tif"
             "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/resultImage.tif"]))))
+
+(deftest get-attachments-to-download-test
+  (let [links (map get-attachments-to-download @model-records)]
+    (is (= (first links) []))
+    (is (= (second links) ["https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/per_sample_scale_range.ijm"
+                           "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/binarize.ijm"]))
+    (is (= (last links) ["https://zenodo.org/api/files/a6d65a8b-4fed-453f-89f6-515a2a73a99e/zero_mean_unit_variance.ijm"]))))
 
 (deftest get-urls-to-download-test
   (let [downloads-list (map get-urls-to-download @model-records)]
@@ -100,3 +106,5 @@
   (is (= model-dir-name (fs/file-name (get-destination-folder (second @model-records)))))
   (is (= "alt_model_folder"
          (fs/file-name (get-destination-folder (last @model-records) "alt_model_folder")))))
+
+

@@ -9,6 +9,7 @@ test_summaries/
 toy_test_summaries/
 # dir for models
 models/
+models_downloaded/
 # dir for tiff test images
 numpy-tiff-deepimagej/
 
