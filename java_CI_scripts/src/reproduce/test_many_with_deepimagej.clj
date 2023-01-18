@@ -35,14 +35,17 @@
 (defn test-one-with-deepimagej
   "Test one model with deepimagej"
   [{:keys [dij-arg model-folder input-img]}]
-  (let [imp (try (IJ/openImage (str model-folder model-dir-name "/" input-img))
-                 (catch Exception e nil))]
+  (with-open [imp (try (IJ/openImage (str model-folder model-dir-name "/" input-img))
+                 (catch Exception e (println "-- Error trying to open sample input image")))]
     (if (not (nil? imp))
       (do (copy-model-folder fiji-home model-folder)
           (try (IJ/run imp "DeepImageJ Run" dij-arg)
                (catch Exception e (println "-- Error during deepimagej run")))
           (try (IJ/saveAs "Tiff" (str model-folder output-name))
                (catch Exception e (println "-- Error trying to save output image")))
+          ; headless error - There are no images open
+          (try (IJ/run "Close All" "")
+               (catch Exception e (println "-- Error while trying to close all images")))
           (delete-model-folder fiji-home)))))
 
 (defmacro my-time
