@@ -1,13 +1,20 @@
-Model,nickname,resource_id,version_id,link to website,deepImageJ?,Framework,Use case,Status of Java CI,Pass/error,Problem
-DefCon,,,,not available,Yes,TensorFlow 1.15,No,WIP,,"Error in headless, close statement in macro"
-Cell Segmentation from Membrane Staining for Plant Tissues,humorous-owl,10.5281/zenodo.5749843,5888237,https://bioimage.io/#/?tags=humorous-owl&id=10.5281%2Fzenodo.5749843,Yes,TensorFlow 1.15,Yes,Failed,,Expected output not binarized (different from DIJ output)
-Cell Segmentation from Membrane Staining for Plant Tissues,humorous-owl,10.5281/zenodo.5749843,5877226,,Yes,TensorFlow 1.15,Yes,Failed,,Expected output not binarized (different from DIJ output)
-StarDist H&E Nuclei Segmentation,chatty-frog,10.5281/zenodo.6338614,6338615,https://bioimage.io/#/?tags=stardist&id=10.5281%2Fzenodo.6338614&type=model,Yes,TensorFlow 1.15,Yes,No tested,,
-HPA Cell Segmentation (DPNUnet),loyal-parrot,10.5281/zenodo.6200635,6538890,https://bioimage.io/#/?id=10.5281%2Fzenodo.6200635,No,Pytorch,Yes,,,
-HPA Cell Segmentation (DPNUnet),loyal-parrot,10.5281/zenodo.6200635,6200636,,No,Pytorch,Yes,,,
-HPA Nucleus Segmentation (DPNUnet),conscientious-seashell,10.5281/zenodo.6200999,6538911,https://bioimage.io/#/?id=10.5281%2Fzenodo.6200999,Yes,Pytorch,Yes,Failed,,DIJ_run does not produce output. DeepImageJ run says that the rdf is malformed
-HPA Nucleus Segmentation (DPNUnet),conscientious-seashell,10.5281/zenodo.6200999,6224243,,Yes,Pytorch,Yes,Failed,,DIJ_run does not produce output. DeepImageJ run says that the rdf is malformed
-EnhancerMitochondriaEM2D,hiding-blowfish,10.5281/zenodo.6406756,6811922,https://bioimage.io/#/?tags=mitochondria&id=10.5281%2Fzenodo.6406756&type=model,Yes,PyTorch,Yes,No tested,,
-EnhancerMitochondriaEM2D,hiding-blowfish,10.5281/zenodo.6406756,6811498,,Yes,PyTorch,Yes,No tested,,
-EnhancerMitochondriaEM2D,hiding-blowfish,10.5281/zenodo.6406756,6406757,,Yes,PyTorch,Yes,No tested,,
-Neuron Segmentation in EM (Membrane Prediction),impartial-shrimp,10.5281/zenodo.5874741,5874742,https://bioimage.io/#/?tags=impartial-shrimp&id=10.5281%2Fzenodo.5874741,Yes,PyTorch,No,Failed,,DIJ_run does not produce output. Wrong axes order.
+Model,nickname,resource_id,version_id,link to website,conifg: deepImageJ:,Framework,Use case,Status of automatic CI,Manual test,Pass/error,Manual Outcome
+DefCon,,,,not available,Yes,TensorFlow 1.15,No,WIP,,,"Error in headless, close statement in macro"
+Cell Segmentation from Membrane Staining for Plant Tissues,humorous-owl,10.5281/zenodo.5749843,5888237,https://bioimage.io/#/?tags=humorous-owl&id=10.5281%2Fzenodo.5749843,Yes,TensorFlow 1.15,Yes,Failed,tested,,Expected output not binarized (different from DIJ output)
+Cell Segmentation from Membrane Staining for Plant Tissues,humorous-owl,10.5281/zenodo.5749843,5877226,,Yes,TensorFlow 1.15,Yes,Failed,tested,,Expected output not binarized (different from DIJ output)
+StarDist H&E Nuclei Segmentation,chatty-frog,10.5281/zenodo.6338614,6338615,https://bioimage.io/#/?tags=stardist&id=10.5281%2Fzenodo.6338614&type=model,Yes,TensorFlow 1.15,Yes,WIP,tested,,Tiffs are different images from numpy inputs
+HPA Cell Segmentation (DPNUnet),loyal-parrot,10.5281/zenodo.6200635,6538890,https://bioimage.io/#/?id=10.5281%2Fzenodo.6200635,No,Pytorch,Yes,completed,tested,,
+HPA Cell Segmentation (DPNUnet),loyal-parrot,10.5281/zenodo.6200635,6200636,,No,Pytorch,Yes,completed,tested,,
+HPA Nucleus Segmentation (DPNUnet),conscientious-seashell,10.5281/zenodo.6200999,6538911,https://bioimage.io/#/?id=10.5281%2Fzenodo.6200999,Yes,Pytorch,Yes,WIP,tested,,DIJ_run does not produce output. DeepImageJ run says that the rdf is malformed
+HPA Nucleus Segmentation (DPNUnet),conscientious-seashell,10.5281/zenodo.6200999,6224243,,Yes,Pytorch,Yes,WIP,tested,,DIJ_run does not produce output. DeepImageJ run says that the rdf is malformed
+EnhancerMitochondriaEM2D,hiding-blowfish,10.5281/zenodo.6406756,6811922,https://bioimage.io/#/?tags=mitochondria&id=10.5281%2Fzenodo.6406756&type=model,Yes,PyTorch,Yes,WIP,tested,,
+EnhancerMitochondriaEM2D,hiding-blowfish,10.5281/zenodo.6406756,6811498,,Yes,PyTorch,Yes,WIP,tested,,
+EnhancerMitochondriaEM2D,hiding-blowfish,10.5281/zenodo.6406756,6406757,,Yes,PyTorch,Yes,WIP,tested,,
+Neuron Segmentation in EM (Membrane Prediction),impartial-shrimp,10.5281/zenodo.5874741,5874742,https://bioimage.io/#/?tags=impartial-shrimp&id=10.5281%2Fzenodo.5874741,Yes,PyTorch,No,WIP,tested,,DIJ_run does not produce output. Wrong axes order. -> axes fixed with new numpy tiff repo
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+,,,,,,,,,,,
+Test summaries generated: ,,,,,,,,,,,
+135/164 (29 resources/versions left to test automatically by CI),,,,,,,,,,,

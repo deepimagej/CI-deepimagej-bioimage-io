@@ -1,11 +1,15 @@
 # Table with status of models.
-Local backup.
 
-## link google spreadsheet
+## Link google spreadsheet
 https://docs.google.com/spreadsheets/d/1AsTPSlum3HH_11_SxEKFdjoWt9-1Xx542pZSxicDx-g/edit#gid=0
 
+## Local csv
+Model_status_CI_Java - Sheet1.csv
+
+
+
 # Shapes of numpy test inputs for use-cases
-- important becaues this is the tile-size argument for testing in deepimagej
+- important because this is the tile-size argument for testing in deepimagej
 - easy to do in python, impossible or very hard to do in java
 
 ````python
@@ -24,5 +28,4 @@ c.shape
 d=np.load('/home/deck/Fiji.app/models/HPA Nucleus Segmentation (DPNUnet)_13012023_213325/test_nuclei_input.npy')
 d.shape
 (1, 3, 512, 512)
-
 ````

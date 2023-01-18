@@ -12,5 +12,5 @@ Scripts and gh workflows for testing the models of the bioimage model zoo in Dee
 - change directory to `java_CI_scripts`
 - follow the instructions from the Readme there
 
-# Diagram
-![CI_plan](resources/CI_plan.png)
+# CI Plan Diagram
+![CI_plan](resources/ci_plan_diagram/CI_plan.png)
