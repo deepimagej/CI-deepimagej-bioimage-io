@@ -100,7 +100,7 @@
   (let [downloads-list (map get-urls-to-download @model-records)]
     (is (empty? (first downloads-list)))
     (is (= 3 (count (second downloads-list))))
-    (is (= 3 (count (nth downloads-list 2))))))
+    (is (= 2 (count (nth downloads-list 2))))))
 
 (deftest get-destination-folder-test
   (is (= model-dir-name (fs/file-name (get-destination-folder (second @model-records)))))

@@ -32,5 +32,6 @@
    :reproduce "Reproduce test outputs with DeepImageJ headless"})
 
 (def ci-stages-errors "different errors can be detected at different stages of the CI"
-
-  )
+  {:initial (set (keys initial-errors))
+   :download (set (keys download-errors))
+   :reproduce (set (keys reproduce-errors))})

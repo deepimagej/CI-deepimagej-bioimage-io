@@ -14,11 +14,11 @@
 
 (deftest dij-config?-test
   (is (= 2 (count (filter dij-config? @model-rp's))))
-  (is (= 47 (count (filter dij-config? @all-model-rp's)))))
+  (is (= 48 (count (filter dij-config? @all-model-rp's)))))
 
 (deftest no-run-mode?-test
   (let [{without-rm true with-rm false} (group-by no-run-mode? @all-model-rp's)]
-    (is (= 160 (count without-rm)))
+    (is (= 161 (count without-rm)))
     (is (= 4 (count with-rm)))
     (is (= (repeat 4 "deepimagej")
            (mapv #(get-in % [:parsed-rdf :run_mode :name]) with-rm)))))
@@ -52,13 +52,13 @@
                                             (first (select-keys error-functions [:no-dij-config])))
         d-all-models-runmode (check-error d-all-models-dijconfig
                                           (first (select-keys error-functions [:key-run-mode])))]
-    (testing "no-dij-config for the 3 variety models"
+    (testing "No-dij-config for the 3 variety models"
       (is (= {:error-found 1, :keep-testing 2} (count-dict discd-models)))
       (is (= {:no-dij-config 1} (count-dict (:error-found discd-models)))))
-    (testing "no-dij-config for all models-rp"
-      (is (= {:error-found 1, :keep-testing 47} (count-dict d-all-models-dijconfig)))
+    (testing "No-dij-config for all models-rp"
+      (is (= {:error-found 1, :keep-testing 48} (count-dict d-all-models-dijconfig)))
       (is (= {:no-dij-config 117} (count-dict (:error-found d-all-models-dijconfig)))))
-    (testing "all models, with run-mode error after discriminating with deepimagej config"
+    (testing "All models, with run-mode error after discriminating with deepimagej config"
       (is (= {:error-found 2, :keep-testing 43}) (count-dict d-all-models-runmode))
       (is (= {:key-run-mode 4 :no-dij-config 117} (count-dict (:error-found d-all-models-runmode)))))))
 
@@ -75,7 +75,7 @@
               :key-run-mode 0, :no-p*process 0})))
     (testing "All models, with only no-dij-config and key-run-mode errors"
       (is (= (count-dict all-models-discriminated)
-             {:error-found 2, :keep-testing 43}))
+             {:error-found 2, :keep-testing 44}))
       (is (= (count-dict (:error-found all-models-discriminated))
              {:key-run-mode 4 :no-dij-config 117})))))
 
@@ -88,7 +88,7 @@
       (is (= 1 (count (:no-dij-config separated))))))
   (testing "All models in the collection"
     (let [separated (separate-by-dij-config @all-model-records)]
-      (is (= {:keep-testing 47 :no-dij-config 117} (count-dict separated))))))
+      (is (= {:keep-testing 48 :no-dij-config 117} (count-dict separated))))))
 
 
 

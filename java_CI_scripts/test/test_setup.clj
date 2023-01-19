@@ -1,6 +1,6 @@
 (ns test-setup
-  (:require [collection :refer [COLLECTION-ROOT file-json->vector get-rdfs-to-test]]
-            [models :refer [parse-model build-model]]
+  (:require [collection :refer [COLLECTION-ROOT]]
+            models
             [downloads.initial-checks :as initial-checks]
             [clojure [test :refer :all] [edn :as edn]]
             [babashka.fs :as fs]))
@@ -24,16 +24,17 @@
           (fs/path COLLECTION-ROOT "10.5281" "zenodo.5874741" "5874742" "rdf.yaml" ))
   (test-fn))
 
-; Parsed rdfs, assumes 'collection and 'models already tested and working
-(def all-rdfs-paths (get-rdfs-to-test (file-json->vector "pending_matrix/all_models.json")))
+(def all-rdfs-paths (collection/get-rdfs-to-test
+                      (collection/file-json->vector "pending_matrix/all_models.json")))
 
+; Parsed rdfs, assumes 'collection and 'models already tested and working
 (def rdfs-parsed (atom nil))
 (def all-rdfs-parsed (atom nil))
 
 (defn load-rdfs-parsed
   [test-fn]
-  (reset! rdfs-parsed (map (fn [[_ v]] (parse-model @v)) rdf-paths))
-  (reset! all-rdfs-parsed (map parse-model all-rdfs-paths))
+  (reset! rdfs-parsed (map (fn [[_ v]] (models/parse-model @v)) rdf-paths))
+  (reset! all-rdfs-parsed (map models/parse-model all-rdfs-paths))
   (test-fn))
 
 ; Built model records. needed for 'downloads/*.clj and after, assumes 'collection and 'models already tested and working
@@ -43,8 +44,8 @@
 
 (defn load-model-records
   [test-fn]
-  (reset! model-records (map (fn [[_ v]] (build-model @v)) rdf-paths))
-  (reset! all-model-records (map #(build-model %) all-rdfs-paths))
+  (reset! model-records (map (fn [[_ v]] (models/build-model @v)) rdf-paths))
+  (reset! all-model-records (map #(models/build-model %) all-rdfs-paths))
   (test-fn))
 
 (def model-rp's
