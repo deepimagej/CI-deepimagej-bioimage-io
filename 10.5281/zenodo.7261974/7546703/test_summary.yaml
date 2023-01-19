@@ -1,5 +1,5 @@
 bioimageio_spec_version: unknown
 bioimageio_core_version: unknown
-error: rdf contains the key run_mode with value deepimagej
+error: rdf does not have a compatible weight format
 status: failed
 name: initial compatibility checks with deepimagej
