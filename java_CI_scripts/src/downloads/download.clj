@@ -94,13 +94,14 @@
    (populate-model-folder model-record MODEL-DIR))
   ([model-record model-dir-name]
    (let [folder-file (get-destination-folder model-record model-dir-name)
-         sample-ims (fs/glob (get-in model-record [:paths :samples-path]) "*.tif")]
+         sample-ims (fs/glob (get-in model-record [:paths :samples-path]) "*.tif")
+         copy-opts {:replace-existing true}]
      ; create folder if it didn't exist
      (fs/create-dirs folder-file)
      ; copy rdf.yaml
-     (fs/copy (get-in model-record [:paths :rdf-path]) (fs/file folder-file "rdf.yaml"))
+     (fs/copy (get-in model-record [:paths :rdf-path]) (fs/file folder-file "rdf.yaml") copy-opts)
      ;copy tiff images
-     (doall (map #(fs/copy % (fs/file folder-file (fs/file-name %))) sample-ims)))))
+     (doall (map #(fs/copy % (fs/file folder-file (fs/file-name %)) copy-opts) sample-ims)))))
 
 ; (my-time (populate-model-folder (second @model-records)))
 ; with (doall (map
