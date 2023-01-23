@@ -11,7 +11,7 @@
 ;TODO refactor on actions (if implemented in core.cli?)
 (defn initial-pipeline
   "Creates the folders corresponding to test input json"
-  [json-type options]
+  [json-type options ini-return]
   (let [parsing-function (json-type {:json-file   collection/file-json->vector
                                      :json-string collection/str-json->vector})
         rdfs-paths (collection/get-rdfs-to-test (parsing-function (json-type options)))
@@ -24,23 +24,23 @@
     (println "Creating dirs for test summaries")
     (mapv summary/create-summa-dir rdfs-paths)
     (println "Creating dirs for models")
-    (mapv models/create-model-dir rdfs-paths)
+    (mapv models/create-model-dir (map #(get-in % [:paths :rdf-path]) model-records-keep))
 
     (mapv summary/write-summaries-from-error! error-found)
     (println "Creating comm file for" (count keep-testing) "models")
-    (comm/write-comm-file (map #(comm/build-dij-model (:model-record %)) keep-testing))
+    (comm/write-comm-file (map comm/build-dij-model model-records-keep))
     (comment
       ; input to numpy-tiff repo, needs that the :no-sample-images error is not checked during initial checks
       (comm/write-absolute-paths model-records-keep :rdf-path
                                  (fs/file ".." "numpy-tiff-deepimagej" "resources" "rdfs_to_test.txt")))
     (comm/write-absolute-paths model-records-keep :model-dir-path
                                (fs/file ".." "resources" "models_to_test.txt"))
-    model-records-keep))
+    (if ini-return model-records-keep)))
 
 (defn download-pipeline
   "Downloads files necessary for testing the models"
   [json-type options]
-  (let [model-records-keep (initial-pipeline json-type options)]
+  (let [model-records-keep (initial-pipeline json-type options true)]
     (printf "Populating model folders for %d models \n" (count model-records-keep))
     (doall (map download/populate-model-folder model-records-keep))
     (printf "Downloading files (this could take some minutes) \n")
