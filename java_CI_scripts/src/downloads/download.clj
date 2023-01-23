@@ -85,9 +85,7 @@
          timed-responses (map #(my-time (:body (get-url-response %))) urls)
          folder-file (get-destination-folder model-record model-dir-name)]
      ;(doall (pmap (partial byte-arr->file! folder-file) responses file-names))
-     (doall (pmap (partial save-file-with-info folder-file) timed-responses file-names))))
-  )
-
+     (doall (pmap (partial save-file-with-info folder-file) timed-responses file-names)))))
 
 (defn populate-model-folder
   "Downloads all needed urls from the model-record into local files.
@@ -102,12 +100,10 @@
      ; copy rdf.yaml
      (fs/copy (get-in model-record [:paths :rdf-path]) (fs/file folder-file "rdf.yaml"))
      ;copy tiff images
-     (doall (map #(fs/copy % (fs/file folder-file (fs/file-name %))) sample-ims))
-     ))
-  )
+     (doall (map #(fs/copy % (fs/file folder-file (fs/file-name %))) sample-ims)))))
 
 ; (my-time (populate-model-folder (second @model-records)))
 ; with (doall (map
-; => :iso "PT1M24.215S"
+; => :return (117802198 4355 699), :iso "PT39.381S"
 ; with (doall (pmap
-; => :iso "PT54.442S"
+; => :return (117802198 4355 699), :iso "PT33.944S"

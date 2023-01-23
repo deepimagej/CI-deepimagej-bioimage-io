@@ -107,4 +107,12 @@
   (is (= "alt_model_folder"
          (fs/file-name (get-destination-folder (last @model-records) "alt_model_folder")))))
 
-
+(deftest populate-model-folder-test
+  (let [alt-name "alt_model_folder"
+        alt-path (fs/path (get-in (second @model-records) [:paths :model-dir-path]) alt-name)]
+    (fs/delete-tree alt-path)
+    (populate-model-folder (second @model-records) alt-name)
+    (testing "populating folder for humorous owl"
+      (is (contains? (set (fs/list-dir (fs/parent alt-path))) alt-path))
+      (is (= (map fs/file-name (fs/list-dir alt-path))
+             ["rdf.yaml" "sample_input_0.tif" "sample_output_0.tif"])))))
