@@ -103,7 +103,7 @@
     (is (= 2 (count (nth downloads-list 2))))))
 
 (deftest get-destination-folder-test
-  (is (= model-dir-name (fs/file-name (get-destination-folder (second @model-records)))))
+  (is (= MODEL-DIR (fs/file-name (get-destination-folder (second @model-records)))))
   (is (= "alt_model_folder"
          (fs/file-name (get-destination-folder (last @model-records) "alt_model_folder")))))
 

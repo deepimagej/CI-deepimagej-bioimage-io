@@ -3,7 +3,7 @@
             [clojure.string :as str]
             [babashka [curl :as curl] [fs :as fs]]))
 
-(def model-dir-name "the_model")
+(def MODEL-DIR "the_model")
 
 (defmacro my-time
   "Variation on clojure.core/time: https://github.com/clojure/clojure/blob/clojure-1.10.1/src/clj/clojure/core.clj#L3884
@@ -60,8 +60,9 @@
            (get-attachments-to-download model-record)))
 
 (defn get-destination-folder
+  "Gets the file corresponding to the model folder for a given rdf"
   ([model-record]
-   (get-destination-folder model-record model-dir-name))
+   (get-destination-folder model-record MODEL-DIR))
   ([model-record model-dir-name]
    (fs/file (get-in model-record [:paths :model-dir-path]) model-dir-name)))
 
@@ -77,7 +78,7 @@
 
 (defn download-into-model-folder
   ([model-record]
-   (download-into-model-folder model-record model-dir-name))
+   (download-into-model-folder model-record MODEL-DIR))
   ([model-record model-dir-name]
    (let [urls (get-urls-to-download model-record)
          file-names (map get-url-filename urls)
@@ -87,17 +88,21 @@
      (doall (pmap (partial save-file-with-info folder-file) timed-responses file-names))))
   )
 
+
 (defn populate-model-folder
   "Downloads all needed urls from the model-record into local files.
-  Copies the rdf and the p*processing from local folders."
+  Copies the rdf and the tiffs from local folders."
   ([model-record]
-   (populate-model-folder model-record model-dir-name))
+   (populate-model-folder model-record MODEL-DIR))
   ([model-record model-dir-name]
-   (let [folder-file (get-destination-folder model-record model-dir-name)]
+   (let [folder-file (get-destination-folder model-record model-dir-name)
+         sample-ims (fs/glob (get-in model-record [:paths :samples-path]) "*.tif")]
+     ; create folder if it didn't exist
      (fs/create-dirs folder-file)
-
-     ;todo copy rdf.yaml
-     ;todo copy p*processing scripts
+     ; copy rdf.yaml
+     (fs/copy (get-in model-record [:paths :rdf-path]) (fs/file folder-file "rdf.yaml"))
+     ;copy tiff images
+     (doall (map #(fs/copy % (fs/file folder-file (fs/file-name %))) sample-ims))
      ))
   )
 
