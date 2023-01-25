@@ -12,6 +12,10 @@ def gen_path_to(img_name, model_dir_name=model_dir_name):
 imp1 = IJ.openImage(gen_path_to("sample_output_0.tif"))
 imp2 = IJ.openImage(folder+"/"+output_name)
 
+# debug
+# imp1 = IJ.openImage("/home/cia/Documentos/EPFL/numpy-tiff-deepimagej/10.5281/zenodo.5749843/5888237/sample_output_0.tif");
+# imp2 = IJ.openImage("/home/cia/Documentos/EPFL/numpy-tiff-deepimagej/10.5281/zenodo.5749843/5888237/sample_input_0.tif");
+
 if imp2 is None:
     os._exit(1)
 
