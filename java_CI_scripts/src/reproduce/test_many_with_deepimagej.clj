@@ -16,14 +16,15 @@
   (copy (file in-dir filename) (file out-dir filename)))
 
 (defn copy-model-folder
-  "Copy each file in the model folder to Fiji.app/models"
+  "Copy each file in the model folder to Fiji.app/models
+  If only 1 arg, consider Fiji.app in the system home foler"
   ([fiji-home model-folder]
    (let [in-file (file model-folder MODEL-DIR-NAME)
          out-file (file fiji-home "Fiji.app" "models" MODEL-DIR-NAME)
          ls (seq (.listFiles in-file))]
      (make-parents (file out-file "a_file.txt"))
      (mapv #(copy-file in-file out-file (.getName %)) ls)))
-  ([dij-model] (copy-model-folder (System/getProperty "user.home") dij-model)))
+  ([model-folder] (copy-model-folder (System/getProperty "user.home") model-folder)))
 
 (defn delete-model-folder
   "Delete the model from Fiji.app/models (once inference is finished)"
