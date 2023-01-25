@@ -45,13 +45,13 @@
 
 (deftest gen-summa-dict-test
   (is (= (gen-summa-dict "failed" :initial :no-dij-config)
-         {:bioimageio_spec_version "unknown",
-          :bioimageio_core_version "unknown",
+         {:bioimageio_spec_version "0.4.8post1",
+          :bioimageio_core_version "0.5.7",
           :error "rdf does not have keys for :config :deepimagej",
           :status "failed",
           :name "initial compatibility checks with deepimagej"}))
-  (is (= (gen-summa-dict) {:bioimageio_spec_version "unknown",
-                           :bioimageio_core_version "unknown",
+  (is (= (gen-summa-dict) {:bioimageio_spec_version "0.4.8post1",
+                           :bioimageio_core_version "0.5.7",
                            :status "passed",
                            :name "reproduce test outputs with deepimagej headless"})))
 

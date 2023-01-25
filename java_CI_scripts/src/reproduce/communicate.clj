@@ -1,5 +1,8 @@
 (ns reproduce.communicate
-  (:require [clojure [string :as str] [pprint :as ppr]]
+  "Creates files with information for the fiji scripts that will do the testing.
+  Assumes model folders are populated"
+
+  (:require [clojure [string :as str] [pprint :as ppr] [edn :as edn]]
             [clojure.java [io :refer [as-url]]]
             [babashka.fs :as fs]))
 
@@ -8,6 +11,8 @@
 (def comm-file
   "File with the data structures of the models to test with DIJ headless"
   (fs/file COMM-ROOT "models_to_test.edn"))
+
+(def dij-filename "filename with the dij arguments information" "dij_args.edn")
 
 (defrecord DijArg [model format preprocessing postprocessing axes tile logging])
 (defrecord DijModel [nickname name dij-arg model-folder input-img output-img])
@@ -19,14 +24,27 @@
         str/upper-case
        (str/join ",")))
 
+(defn get-input-shape
+  "The tile will be the original shape of the input image (without the initial batch).
+  This information comes from the numpy, is stored in the file input_shape.edn"
+  [model-record]
+  (let [{{path :samples-path} :paths} model-record]
+    (edn/read-string (slurp (fs/file path "input_shape.edn")))))
+
+(defn format-tiles-str
+  "String: Use as tile the shape in the dij config (separated by commas, not by x's).
+  Ignore the first element if it is a 1 (it is always the batch) (but order messed up in the yaml)"
+  [s]
+  (->> (str/split s #" x ")
+       (map #(Integer/parseInt %))
+       (split-with (partial >= 1))
+       last
+       (str/join ",")))
+
 (defn format-tiles
-  "Use as tile the shape in the dij config (separated by commas, not by x's).
-  Ignore the first element if it is a 1 (it is always the batch??)"
-  [s] (->> (str/split s #" x ")
-           (map #(Integer/parseInt %))
-           (split-with (partial >= 1))
-           last
-           (str/join ",")))
+  "Vector: remove the first element (batch)"
+  [vec-shape]
+  (str/join "," (rest vec-shape)))
 
 (defn weight-format
   "Gets the weight format from a model record"
@@ -35,7 +53,7 @@
         w-types (filter #(not (nil? (:type %))) w-list)]
     (:type (first w-types))))
 
-(defn get-pprocess
+(defn get-p*process
   [k model-record]
   (let [not-found {:pre-p  "no preprocessing"
                    :post-p "no postprocessing"}
@@ -50,10 +68,11 @@
   (let [input-tensor (first (filter #(= (:type %)) (:tensors model-record)))]
     (map->DijArg {:model          (:name model-record)
                   :format         (weight-format model-record)
-                  :preprocessing  (get-pprocess :pre-p model-record)
-                  :postprocessing (get-pprocess :post-p model-record)
+                  :preprocessing  (get-p*process :pre-p model-record)
+                  :postprocessing (get-p*process :post-p model-record)
                   :axes           (format-axes (:axes input-tensor))
-                  :tile           (format-tiles (:shape input-tensor))
+                  ;:tile           (format-tiles-str (:shape input-tensor))
+                  :tile           (format-tiles (get-input-shape model-record))
                   :logging        "Normal"})))
 
 (defn bracketize
@@ -86,14 +105,23 @@
       (str/replace #"\\" "/")))
 
 (defn build-dij-model
+  "Note: the name of the test images will no longer be the one in the yaml,
+  because all tiffs generated from numpy have the same name."
   [model-record]
   (let [{:keys [inputs outputs]} (get-test-images model-record)]
     (map->DijModel {:nickname     (:nickname model-record)
                     :name         (:name model-record)
                     :dij-arg      (dij-arg-str model-record)
                     :model-folder (get-model-folder model-record)
-                    :input-img    inputs
-                    :output-img   outputs})))
+                    :input-img    "sample_input_0.tif"
+                    :output-img   "sample_output_0.tif"})))
+
+(defn write-dij-model
+  "Writes the serialized dij model in the model folder"
+  [model-record]
+  (let [folder (get-in model-record [:paths :model-dir-path])
+        content (with-out-str (ppr/pprint (into {} (build-dij-model model-record))))]
+    (spit (fs/file folder dij-filename) content)))
 
 (defn write-comm-file
   "Writes the edn file. Communication file between this CI and the fiji script to run dij headless"
@@ -102,8 +130,8 @@
   ([dij-models] (write-comm-file dij-models comm-file)))
 
 (defn write-absolute-paths
-  "Write a list of paths to the rdfs to test
-  Communicate to python script to generate tiff from numpy"
+  "Write a list of paths to test (path type chosen as arg: rdf, model-dir...)
+  Communicate to python script to generate tiff from numpy with rdf paths"
   ([model-records path-k]
    (write-absolute-paths model-records path-k (fs/file COMM-ROOT "absolute_paths.txt")))
   ([model-records path-k file]

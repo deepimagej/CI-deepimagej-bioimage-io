@@ -35,6 +35,7 @@
                                  (fs/file ".." "numpy-tiff-deepimagej" "resources" "rdfs_to_test.txt")))
     (comm/write-absolute-paths model-records-keep :model-dir-path
                                (fs/file ".." "resources" "models_to_test.txt"))
+    (mapv comm/write-dij-model model-records-keep)
     (if ini-return model-records-keep)))
 
 (defn download-pipeline

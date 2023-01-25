@@ -11,18 +11,24 @@
 (deftest format-axes-test
   (is (= (format-axes "byxzc") "Y,X,Z,C")))
 
+(deftest get-input-shape-test
+  (is (thrown? java.io.FileNotFoundException (get-input-shape (first @model-records))))
+  (is (= [1 256 256 8 1] (get-input-shape (second @model-records))))
+  (is (= [1 1 32 360 360] (get-input-shape (last @model-records)))))
+
 (deftest format-tiles-test
-  (is (= (format-tiles "1 x 256 x 256 x 8 x 1") "256,256,8,1"))
-  (is (= (format-tiles "360 x 360 x 32 x 1") "360,360,32,1")))
+  (is (= (format-tiles-str "1 x 256 x 256 x 8 x 1") "256,256,8,1"))
+  (is (= (format-tiles-str "360 x 360 x 32 x 1") "360,360,32,1"))
+  (is (= (format-tiles [1 256 256 8 1]) "256,256,8,1")))
 
 (deftest weight-format-test
   (is (= (weight-format (nth @model-records 1)) "Tensorflow"))
   (is (= (weight-format (nth @model-records 2)) "Pytorch"))
   (is (= (weight-format (nth @model-records 0)) nil)))
 
-(deftest get-pprocess-test
-  (is (= (get-pprocess :post-p (nth @model-records 2)) "no postprocessing"))
-  (is (= (get-pprocess :pre-p (nth @model-records 1)) "per_sample_scale_range.ijm")))
+(deftest get-p*process-test
+  (is (= (get-p*process :post-p (nth @model-records 2)) "no postprocessing"))
+  (is (= (get-p*process :pre-p (nth @model-records 1)) "per_sample_scale_range.ijm")))
 
 (deftest build-dij-arg-test
   (is (= (build-dij-arg (nth @model-records 1))
@@ -76,3 +82,4 @@
     (testing "After test, delete existing file"
       (is (fs/delete-if-exists c-file))
       (is (c-file-not-in-dir? "." c-name)))))
+

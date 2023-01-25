@@ -29,8 +29,8 @@
    (create-summa-dir COLLECTION-ROOT SUMMA-ROOT rdf-path)))
 
 (def default-summa-dict
-  {:bioimageio_spec_version "unknown"
-   :bioimageio_core_version "unknown"})
+  {:bioimageio_spec_version "0.4.8post1"
+   :bioimageio_core_version "0.5.7"})
 ; maybe more fields are obligatory ¯\_(ü)_/¯
 
 (defn gen-summa-dict
