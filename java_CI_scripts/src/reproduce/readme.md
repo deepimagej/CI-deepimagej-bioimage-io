@@ -7,8 +7,6 @@
 - All babashka libraries will not be available
 - Imagej libraries will be available
 
-`compare_output.clj` will be also run from fiji.
-
 # Run script from fiji (with DeepImageJ installed)
 
 From this directory
@@ -26,5 +24,13 @@ From fiji directory
 ````
 ~\blank_fiji\Fiji.app\ImageJ-win64.exe --headless --console --ij2 --run .\test_many_with_deepimagej.clj
 ````
+
+# create_output_metrics.py
+
+## on windows
+````
+C:\Users\hestevez\blank_fiji\Fiji.app\ImageJ-win64.exe --headless --ij2 --console --run .\create_output_metrics.py "folder='C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5888237'"
+````
+
 
 
