@@ -29,7 +29,7 @@
      showgrid="false"
      inkscape:zoom="0.5"
      inkscape:cx="505"
-     inkscape:cy="708"
+     inkscape:cy="706"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
@@ -573,7 +573,7 @@
          x="-113.46391"
          y="239.36131"
          id="tspan10858">Set up DeepimageJ</tspan></text><rect
-       style="fill:#fef9ee;fill-opacity:1;stroke:#937214;stroke-width:0.64639;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
+       style="fill:#f9e9bd;fill-opacity:1;stroke:#937214;stroke-width:0.64639;stroke-dasharray:none;stroke-opacity:1;stop-color:#000000"
        id="rect10860"
        width="93.003479"
        height="28.893192"
@@ -1550,7 +1550,7 @@
        id="text5416"><tspan
          sodipodi:role="line"
          id="tspan5414"
-         style="stroke-width:0.5"></tspan></text><text
+         style="stroke-width:0.5" /></text><text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.35px;line-height:normal;font-family:D-DIN;-inkscape-font-specification:D-DIN;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:pre;shape-padding:0;shape-margin:0;inline-size:0;vector-effect:none;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.56385;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;marker-end:url(#Arrow1L);stop-color:#000000"
        x="-67.46875"
