@@ -4,7 +4,7 @@
   {:no-dij-config         "rdf does not have keys for :config :deepimagej"
    :no-sample-images      "sample image tiffs have not been generated from numpy tests files"
    :no-compatible-weights "rdf does not have a compatible weight format"
-   :key-run-mode          "rdf contains the key run_mode with value deepimagej"
+   :key-run-mode          "test not yet available: rdf contains the key run_mode with value deepimagej"
    :no-p*process          "needed p*processing file is not in the attachments (cannot be downloaded)"
    :not-a-model           "rdf type is not a DL model"
    :incompatible-spec     "version of the rdf is incompatible with DeepImageJ"})
@@ -12,7 +12,6 @@
 ; To add another initial error
 ; 1. add a key and error message to this dict
 ; 2. add a key and discrimination function in downloads.initial-checks
-
 
 
 ; errors can also happen:

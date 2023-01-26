@@ -46,12 +46,10 @@
 (deftest gen-summa-dict-test
   (is (= (gen-summa-dict "failed" :initial :no-dij-config)
          {:bioimageio_spec_version "0.4.8post1",
-          :bioimageio_core_version "0.5.7",
           :error "rdf does not have keys for :config :deepimagej",
           :status "failed",
           :name "initial compatibility checks with deepimagej"}))
   (is (= (gen-summa-dict) {:bioimageio_spec_version "0.4.8post1",
-                           :bioimageio_core_version "0.5.7",
                            :status "passed",
                            :name "reproduce test outputs with deepimagej headless"})))
 
@@ -83,6 +81,4 @@
 (deftest write-summaries-from--error!-test
   (let [{:keys [keep-testing error-found]} (initial-checks/separate-by-error @model-rp's)
         one-error-k (first (select-keys error-found [:no-dij-config]))]
-    (write-summaries-from-error! one-error-k)
-    )
-  )
+    (write-summaries-from-error! one-error-k)))

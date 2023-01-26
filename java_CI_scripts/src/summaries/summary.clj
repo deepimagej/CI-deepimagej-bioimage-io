@@ -30,8 +30,8 @@
 
 (def default-summa-dict
   {:bioimageio_spec_version "0.4.8post1"
-   :bioimageio_core_version "0.5.7"})
-; maybe more fields are obligatory ¯\_(ü)_/¯
+   ; :bioimageio_core_version "0.5.7" ; Finn suggested that the core version is not needed
+   })
 
 (defn gen-summa-dict
   "Add additional fields to default summary dictionary to generate a valid test summary
