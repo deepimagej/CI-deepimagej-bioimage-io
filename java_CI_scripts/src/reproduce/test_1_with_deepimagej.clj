@@ -10,7 +10,7 @@
   (:import [ij IJ])
   )
 
-(println "The folder is:" user/folder)                      ; debug
+(println "   The folder is:" user/folder)                      ; debug
 
 (def COMM-FILE (file user/folder "dij_args.edn"))
 (def DIJ-MODEL (edn/read-string (slurp COMM-FILE)))

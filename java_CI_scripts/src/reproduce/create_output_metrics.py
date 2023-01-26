@@ -3,7 +3,7 @@ from ij import IJ
 from ij.plugin import ImageCalculator
 import os
 
-print("The folder is: " + folder) # debug
+print("   The folder is: " + folder) # debug
 
 model_dir_name = "the_model"
 output_name = "CI_OUTPUT.tif"
@@ -47,6 +47,6 @@ for c in range(0,channels):
 mse = sum_mse / (width*height)
 mae = sum_mae / (width*height)
 
-print("The MSE is " + str(mse) + " and the MAE is " + str(mae))
+print("   The MSE is " + str(mse) + " and the MAE is " + str(mae))
 
 # TODO write metrics in a file (in folder)
