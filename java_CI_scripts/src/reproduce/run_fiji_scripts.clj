@@ -41,8 +41,9 @@
        script-name " " (quote-arg model-folder)))
 
 ; TODO  print info: model number
+; todo total time taken
 (defn -main
   "Loops over models to test and the 2 scripts (inference and comparison)"
   []
-  (pr/shell (str fiji-executable " " (str/join " " flags)) (first script-names) (first model-folders))
-  )
+  (pr/shell (build-command (first script-names) (first model-folders)))
+  (pr/shell (build-command (second script-names) (first model-folders))))

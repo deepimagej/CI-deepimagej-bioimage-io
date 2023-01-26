@@ -71,14 +71,10 @@
   (println (format "-- Testing model: %s" nickname))
   (println (format "   Name: %s" name))
   (println (format "   Time taken: %s" (:iso (my-time (test-one-with-deepimagej model)))))
-  (println (apply format "Finished testing model: %s" nickname)))
+  (println (format "-- Finished testing model: %s" nickname)))
 
 (defn -main [& args]
   (println "--")
-  (test-one-with-deepimagej-&-info DIJ-MODEL)
-  (println "-- Finished execution of test_1_with_deepimagej.clj"))
+  (test-one-with-deepimagej-&-info DIJ-MODEL))
 
-(def total-time (:iso (my-time (-main "a" 1 "2"))))
-(println (format "   Total time taken: %s" total-time))
-; make total time taken the return value of script
-total-time
+(-main)
