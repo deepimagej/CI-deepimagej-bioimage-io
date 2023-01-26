@@ -21,6 +21,7 @@ imp2 = IJ.openImage(folder+"/"+output_name)
 if imp2 is None:
     os._exit(1)
 
+# TODO sanity checks to see if the 2 images have the same dimensions and shapes
 
 imp3 = ImageCalculator.run(imp1, imp2, "Subtract create 32-bit stack")
 imp4 = ImageCalculator.run(imp3, imp3, "Multiply create 32-bit stack")
