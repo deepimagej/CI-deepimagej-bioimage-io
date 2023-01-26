@@ -1,14 +1,14 @@
 (ns reproduce.run-fiji-scripts
   "Run the 2 scripts: inference with DeepImageJ and comparison with Fiji.
   Use bb instead of bash for windows compatibility"
-  (:require [clojure.java.io :as io]
+  (:require [downloads.download :refer [my-time]]
+            [clojure.java.io :as io]
             [clojure.string :as str]
             [clojure.set :as set]
             [clojure.java.shell :as shell]
-            [babashka.fs :as fs]
-            [babashka.process :as pr]))
+            [babashka.fs :as fs]))
 
-; use shell instead of process due to weird escaping of quoted args \" \' ...
+; use shell instead of bb.process due to weird escaping of quoted args \" \' ...
 
 (def LOG-FILE (fs/file ".." "test_summaries" "complete_fiji_log.txt"))
 (def COMM-FILE (fs/file ".." "resources" "models_to_test.txt"))
@@ -21,8 +21,8 @@
        (map #(fs/file "src" "reproduce" %))
        (map #(str (fs/absolutize %)))))
 
-(def script-prints [(format "TESTING WITH DEEPIMAGEJ HEADLESS\n")
-                    (format "COMPARING WITH EXPECTED OUTPUT\n")])
+(def script-prints [(format "- Script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS\n")
+                    (format "- Script 2/2: COMPARING WITH EXPECTED OUTPUT\n")])
 
 (defn read-lines
   "Reads every line on a file, returns a vector of strings"
@@ -51,8 +51,8 @@
   "Prints a string message and logs it on a file"
   [log-file msg]
   (print msg)
+  (flush)
   (spit log-file msg :append true))
-
 
 (defn run-script-&-info
   [log-file script-name msg model-folder idx total ]
@@ -61,21 +61,24 @@
         output-map (run-command script-name model-folder)]
     (print-and-log log-file (:out output-map))))
 
-; todo total time taken
 (defn -main
   "Loops over models to test and the 2 scripts (inference and comparison)
   Prints info on screen and appends to log"
   ([] (-main LOG-FILE))
   ([log-path]
    (let [log-file (fs/file log-path)
-         m-start (format "STARTED TESTING THE %d MODELS ON FIJI\n" (count model-folders))
-         m-final (format "FINISHED TESTING THE %d MODELS ON FIJI\nLogs are in: %s"
-                         (count model-folders) (str (fs/absolutize log-file)))]
-     (spit log-file "")
-     (print-and-log log-file m-start)
-     ;todo loop over models
-     (run-script-&-info log-file (first script-names) (first script-prints) (first model-folders) 1 2)
-     (run-script-&-info log-file (second script-names) (second script-prints) (first model-folders) 1 2)
+         _ (spit log-file "")
+         m-start (format "STARTED TESTING THE %d MODELS WITH DEEPIMAGEJ IN FIJI\n\n" (count model-folders))
+         _ (print-and-log log-file m-start)
+         timed (my-time
+                 (doall
+                   (map-indexed
+                     (fn [i x]
+                       (run-script-&-info log-file (first script-names) (first script-prints) x (inc i) (count model-folders))
+                       (run-script-&-info log-file (second script-names) (second script-prints) x (inc i) (count model-folders)))
+                     model-folders)))
+         m-final (format "FINISHED TESTING THE %d MODELS IN FIJI\nLogs are in: %s\nTotal time taken: %s"
+                         (count model-folders) (str (fs/absolutize log-file)) (:iso timed))]
      (print-and-log log-file m-final)
      (System/exit 0))))
 

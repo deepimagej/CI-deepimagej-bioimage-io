@@ -47,6 +47,6 @@ for c in range(0,channels):
 mse = sum_mse / (width*height)
 mae = sum_mae / (width*height)
 
-print("The MSE is " + str(mse) + "and the MAE is " + str(mae))
+print("The MSE is " + str(mse) + " and the MAE is " + str(mae))
 
 # TODO write metrics in a file (in folder)
