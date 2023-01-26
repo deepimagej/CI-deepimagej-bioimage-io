@@ -3,7 +3,7 @@ from ij import IJ
 from ij.plugin import ImageCalculator
 import os
 
-print("The folder is" + folder) # debug
+print("The folder is: " + folder) # debug
 
 model_dir_name = "the_model"
 output_name = "CI_OUTPUT.tif"

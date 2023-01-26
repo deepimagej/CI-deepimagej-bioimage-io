@@ -10,7 +10,7 @@
   (:import [ij IJ])
   )
 
-(println "the folder is" user/folder)
+(println "The folder is:" user/folder)                      ; debug
 
 (def COMM-FILE (file user/folder "dij_args.edn"))
 (def DIJ-MODEL (edn/read-string (slurp COMM-FILE)))
@@ -68,7 +68,7 @@
 (defn test-one-with-deepimagej-&-info
   "Wrapper for testing a model, adding time and print information"
   [{:keys [name nickname] :as model}]
-  (println (format "-- Testing model: %s" nickname))
+  (println (format "-- Started testing model: %s" nickname))
   (println (format "   Name: %s" name))
   (println (format "   Time taken: %s" (:iso (my-time (test-one-with-deepimagej model)))))
   (println (format "-- Finished testing model: %s" nickname)))
