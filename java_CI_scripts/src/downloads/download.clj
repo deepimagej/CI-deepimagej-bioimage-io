@@ -17,10 +17,10 @@
      (hash-map :duration duration# :iso (str duration#)  :return ret#)))
 
 (defn get-url-response
-  "Gets the response of a url as a hash map"
+  "Gets the response of a URL as a hash map"
   [^String url]
   (let [basic-opts {:as :bytes :throw false},
-        opts (if (= "Windows 10" (System/getProperty "os.name"))
+        opts (if (str/includes? (System/getProperty "os.name") "Windows")
                (assoc basic-opts :compressed false)
                basic-opts)]
     (curl/get url opts)))
