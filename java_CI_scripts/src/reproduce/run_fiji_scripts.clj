@@ -45,7 +45,7 @@
 
 (def messages
   {:start (format "STARTED TESTING THE %d MODELS WITH DEEPIMAGEJ IN FIJI\n\n" (count model-folders))
-   :end   (format "\nFINISHED TESTING THE %d MODELS IN FIJI\nLogs are in: %s\n"
+   :end   (format "\nFINISHED TESTING THE %d MODELS IN FIJI\n\nLogs are in: %s\n"
                   (count model-folders) (str (fs/absolutize LOG-FILE)))})
 
 (defn quote-arg
@@ -70,16 +70,6 @@
   [model-folder script-name]
   (str/join " " (compose-command model-folder script-name)))
 
-(defn run-command
-  "Runs a command from its vector components.
-  Note: none of the 2 options runs properly on linux"
-  [script-name model-folder]
-  (println "running the command:" (string-command model-folder script-name))
-  (let [cmd-vec (compose-command model-folder script-name)]
-    (if (str/includes? (System/getProperty "os.name") "Windows")
-      (apply shell/sh cmd-vec)
-      (apply pr/sh cmd-vec))))
-
 (defn print-and-log
   "Prints a string message and logs it on a file"
   ([msg] (print-and-log LOG-FILE msg))
@@ -93,15 +83,6 @@
   ([msg] (echo-and-log LOG-FILE msg))
   ([log-file msg]
    (str "echo " msg " | tee -a " (fs/absolutize log-file))))
-
-;todo: decomplect
-(defn run-script-&-info
-  [log-file total idx model-folder script-k]
-  (let [m1 (format "- MODEL %d/%d\n" idx total)
-        {{:keys [name msg]} script-k} script-data
-        _ (mapv (partial print-and-log log-file) [m1 msg])
-        output-map (run-command name model-folder)]
-    (print-and-log log-file (:out output-map))))
 
 (def execution-dict
   "Vector with info of the commands and prints to do at every step"
@@ -122,7 +103,7 @@
                      (print-and-log (:out return))))
         cmd-vecs script-prints)))
 
-(defn main2 []
+(defn -main []
   "Runs the commands from the execution-dict. Logs outputs"
   (spit LOG-FILE "")
   (print-and-log (:start messages))
@@ -132,27 +113,8 @@
 
 ; TODO: create bash file atomatically
 ; print and log with tee?
-; ... 2> /dev/null | tee -a $log-file
+; ... 2> err.txt | tee -a out.txt
 
-;todo: refactor main to use execution dict
-
-(defn -main
-  "Loops over models to test and the 2 scripts (inference and comparison)
-  Prints info on screen and appends to log"
-  ([] (-main LOG-FILE))
-  ([log-path]
-   (let [log-file (fs/file log-path)
-         _ (spit log-file "")
-         m-start (format "STARTED TESTING THE %d MODELS WITH DEEPIMAGEJ IN FIJI\n\n" (count model-folders))
-         _ (print-and-log log-file m-start)
-         run (partial run-script-&-info log-file (count model-folders))
-         timed (my-time (doall (map-indexed (fn [i x]
-                                              (run (inc i) x :dij-headless)
-                                              (run (inc i) x :compare))
-                                            model-folders)))
-         m-final (format "FINISHED TESTING THE %d MODELS IN FIJI\nLogs are in: %s\nTotal time taken: %s\n"
-                         (count model-folders) (str (fs/absolutize log-file)) (:iso timed))]
-     (print-and-log log-file m-final)
-     (System/exit 0)                                        ; needed if java.shell used
-     )))
-
+(defn build-bash-script
+  [bash-file]
+  (spit bash-file "#! /usr/bin/env sh\n\n"))
