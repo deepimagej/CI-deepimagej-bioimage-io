@@ -74,6 +74,7 @@
         written-bytes (.length result-file)]
     (println (format "Downloaded %s (%d bytes)" result-file written-bytes))
     (println (format "Took: %s" (:iso timed-response)))
+    (flush)
     written-bytes))
 
 (defn download-into-model-folder

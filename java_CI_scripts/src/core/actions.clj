@@ -6,7 +6,8 @@
   (:require [summaries.summary :as summary]
             [downloads [initial-checks :as initial-checks] [download :as download]]
             [reproduce.communicate :as comm]
-            [babashka.fs :as fs]))
+            [babashka.fs :as fs]
+            [babashka.process :as pr]))
 
 ;TODO refactor on actions (if implemented in core.cli?)
 (defn initial-pipeline
@@ -46,4 +47,10 @@
     (doall (map download/populate-model-folder model-records-keep))
     (printf "Downloading files (this could take some minutes) \n")
     (let [timed (download/my-time (doall (pmap download/download-into-model-folder model-records-keep)))]
-      (printf "Total time taken: %s" (:iso timed)))))
+      (printf "Total time taken: %s\n" (:iso timed)))))
+
+(defn reproduce-pipeline
+ "For the linux case, where reproduce.run-fiji-scripts fails"
+  []
+  (let [timed (download/my-time (pr/shell "../resources/models_to_test.sh"))]
+    (printf "Total time taken: %s\n" (:iso timed))))
