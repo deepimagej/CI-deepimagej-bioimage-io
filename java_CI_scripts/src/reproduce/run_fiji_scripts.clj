@@ -8,8 +8,9 @@
             [clojure.java.shell :as shell]
             [babashka.fs :as fs]
             [babashka.process :as pr]))
-; pr/tokenize removes escaped quotes \" and single quotes
+; pr/tokenize removes escaped quotes \" and single quotes (use the cmd vector, not the string)
 ; ON LINUX: java.shell and bb.process/sh fail to convey the fiji args correctly
+; CAUTION: Fiji stores the last valid argument for the variables across executions!!
 
 (def LOG-FILE (fs/file ".." "test_summaries" "complete_fiji_log.txt"))
 (def COMM-FILE (fs/file ".." "resources" "models_to_test.txt"))
@@ -23,9 +24,10 @@
        (map #(fs/file "src" "reproduce" %))
        (map #(str (fs/absolutize %)))))
 
-(def script-prints [(format "- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS\n")
-                    (format "- script 2/2: COMPARING TO EXPECTED OUTPUT\n")])
+(def script-prints [(format "-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS\n")
+                    (format "-- script 2/2: COMPARING TO EXPECTED OUTPUT\n")])
 
+;todo remove
 (def script-data
   {:dij-headless {:name (first script-names)  :msg (first script-prints)}
    :compare      {:name (second script-names) :msg (second script-prints)}})
@@ -38,6 +40,11 @@
 
 (def model-folders (read-lines COMM-FILE))
 
+(def messages
+  {:start (format "STARTED TESTING THE %d MODELS WITH DEEPIMAGEJ IN FIJI\n\n" (count model-folders))
+   :end   (format "FINISHED TESTING THE %d MODELS IN FIJI\nLogs are in: %s\n"
+                (count model-folders) (str (fs/absolutize LOG-FILE)) )})
+
 (defn quote-arg
   "Quotes the argument to fiji script correctly (different in linux and windows)"
   [model-folder]
@@ -49,7 +56,7 @@
 
 (defn compose-command
   "Creates a vector with the components of the command"
-  [script-name model-folder]
+  [model-folder script-name]
   (as-> [fiji-executable] cmd-vec
        (into cmd-vec flags)
         (into cmd-vec [script-name (quote-arg model-folder)])))
@@ -57,24 +64,28 @@
 (defn string-command
   "Builds the complete command string for a given script.
   Useful for debugging: paste partial command on terminal"
-  [script-name model-folder]
-  (str/join " " (compose-command script-name model-folder)))
+  [model-folder script-name]
+  (str/join " " (compose-command model-folder script-name)))
 
 (defn run-command
+  "Runs a command from its vector components.
+  Note: none of the 2 options runs properly on linux"
   [script-name model-folder]
-  (println "running the command:" (string-command script-name model-folder))
-  (let [cmd-vec (compose-command script-name model-folder)]
+  (println "running the command:" (string-command model-folder script-name ))
+  (let [cmd-vec (compose-command model-folder script-name )]
     (if (str/includes? (System/getProperty "os.name") "Windows")
       (apply shell/sh cmd-vec)
       (apply pr/sh cmd-vec))))
 
 (defn print-and-log
   "Prints a string message and logs it on a file"
-  [log-file msg]
-  (print msg)
-  (flush)
-  (spit log-file msg :append true))
+  ([log-file msg]
+   (print msg)
+   (flush)
+   (spit log-file msg :append true))
+  ([msg] (print-and-log LOG-FILE msg)))
 
+;todo: decomplect
 (defn run-script-&-info
   [log-file total idx model-folder script-k]
   (let [m1 (format "- MODEL %d/%d\n" idx total)
@@ -82,6 +93,29 @@
         _ (mapv (partial print-and-log log-file) [m1 msg])
         output-map (run-command name model-folder)]
     (print-and-log log-file (:out output-map))))
+
+(def execution-dict
+  "Vector with info of the commands and prints to do at every step"
+  (vec (map-indexed (fn [idx model-folder]
+                      {:message  (format "- MODEL %d/%d\n" (inc idx) (count model-folders))
+                       :cmd-vecs (mapv (partial compose-command model-folder) script-names)})
+                    model-folders)))
+; access it with (get-in execution-dict [0 :cmd-vecs 0])
+
+(defn do-exec-step
+  "Perform the commands for 1 model"
+  [{msg :message [cmd1 cmd2] :cmd-vecs}])
+
+(defn main2 []
+  (spit LOG-FILE "")
+  (print-and-log (:start messages))
+  (let [timed (my-time 1)]))
+
+; TODO: create bash file atomatically
+; print and log with tee?
+; ... 2> /dev/null | tee -a $log-file
+
+;todo: refactor main to use execution dict
 
 (defn -main
   "Loops over models to test and the 2 scripts (inference and comparison)
