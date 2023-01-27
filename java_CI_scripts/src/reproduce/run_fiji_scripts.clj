@@ -14,7 +14,8 @@
 ; CAUTION: Fiji stores the last valid argument for the variables across executions!!
 
 ; TODO: 2 log files: for :out and :err
-(def LOG-FILE (fs/file ".." "test_summaries" "complete_fiji_log.txt"))
+(def LOG-FILES {:out (fs/file ".." "test_summaries" "fiji_log_out.txt")
+                :err (fs/file ".." "test_summaries" "fiji_log_err.txt")})
 (def COMM-FILE (fs/file ".." "resources" "models_to_test.txt"))
 (def FIJI-HOME (fs/file (System/getProperty "user.home") "blank_fiji" "Fiji.app"))
 (def BASH-FILE (fs/file ".." "resources" "models_to_test.sh"))
@@ -45,8 +46,8 @@
 
 (def messages
   {:start (format "STARTED TESTING THE %d MODELS WITH DEEPIMAGEJ IN FIJI\n\n" (count model-folders))
-   :end   (format "\nFINISHED TESTING THE %d MODELS IN FIJI\n\nLogs are in: %s\n"
-                  (count model-folders) (str (fs/absolutize LOG-FILE)))})
+   :end   (format "\nFINISHED TESTING THE %d MODELS IN FIJI\n\nLogs are in: %s and %s\n"
+                  (count model-folders) (str (fs/absolutize (:out LOG-FILES))) (str (:err LOG-FILES)))})
 
 (defn quote-arg
   "Quotes the argument to fiji script correctly (different in linux and windows)"
@@ -71,18 +72,19 @@
   (str/join " " (compose-command model-folder script-name)))
 
 (defn print-and-log
-  "Prints a string message and logs it on a file"
-  ([msg] (print-and-log LOG-FILE msg))
-  ([log-file msg]
+  "Prints a string message and logs it on all log files provided"
+  ([msg] (apply print-and-log msg (vals LOG-FILES)))
+  ([msg & log-files]
    (print msg)
    (flush)
-   (spit log-file msg :append true)))
+   (mapv #(spit % msg :append true) log-files)))
 
-(defn echo-and-log
-  "Bash command corresponding to printing and logging a message"
-  ([msg] (echo-and-log LOG-FILE msg))
-  ([log-file msg]
-   (str "echo " msg " | tee -a " (fs/absolutize log-file))))
+(comment
+  (defn echo-and-log
+    "Bash command corresponding to printing and logging a message"
+    ([msg] (echo-and-log LOG-FILE msg))
+    ([log-file msg]
+     (str "echo " msg " | tee -a " (fs/absolutize log-file)))))
 
 (def execution-dict
   "Vector with info of the commands and prints to do at every step"
@@ -99,13 +101,14 @@
    (print-and-log message)
    (mapv (fn [s m] (let [return (apply pr/sh s)]
                      (print-and-log m)
-                     ;todo log :err
-                     (print-and-log (:out return))))
+                     ;(print-and-log (:err return) (:err LOG-FILES)) ; print errors?
+                     (spit (:err LOG-FILES) (:err return) :append true)
+                     (print-and-log (:out return) (:out LOG-FILES))))
         cmd-vecs script-prints)))
 
 (defn -main []
   "Runs the commands from the execution-dict. Logs outputs"
-  (spit LOG-FILE "")
+  (mapv #(spit % "") (vals LOG-FILES))
   (print-and-log (:start messages))
   (let [timed (my-time (mapv run-exec-step execution-dict))]
     (print-and-log (:end messages))
