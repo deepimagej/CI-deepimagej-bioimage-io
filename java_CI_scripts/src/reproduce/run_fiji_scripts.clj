@@ -1,20 +1,23 @@
 (ns reproduce.run-fiji-scripts
   "Run the 2 scripts: inference with DeepImageJ and comparison with Fiji.
   Use bb instead of bash for windows compatibility"
-  (:require [downloads.download :refer [my-time]]
+  (:require [babashka.fs :as fs]
+            [babashka.process :as pr]
             [clojure.java.io :as io]
-            [clojure.string :as str]
-            [clojure.set :as set]
             [clojure.java.shell :as shell]
-            [babashka.fs :as fs]
-            [babashka.process :as pr]))
+            [clojure.set :as set]
+            [clojure.string :as str]
+            [downloads.download :refer [my-time]]))
+
 ; pr/tokenize removes escaped quotes \" and single quotes (use the cmd vector, not the string)
 ; ON LINUX: java.shell and bb.process/sh fail to convey the fiji args correctly
 ; CAUTION: Fiji stores the last valid argument for the variables across executions!!
 
+; TODO: 2 log files: for :out and :err
 (def LOG-FILE (fs/file ".." "test_summaries" "complete_fiji_log.txt"))
 (def COMM-FILE (fs/file ".." "resources" "models_to_test.txt"))
 (def FIJI-HOME (fs/file (System/getProperty "user.home") "blank_fiji" "Fiji.app"))
+(def BASH-FILE (fs/file ".." "resources" "models_to_test.sh"))
 (def fiji-executable (str (first (fs/glob FIJI-HOME "ImageJ-*"))))
 (def flags ["--headless" "--ij2" "--console" "--run"])
 (def arg-name "folder")
@@ -29,7 +32,7 @@
 
 ;todo remove
 (def script-data
-  {:dij-headless {:name (first script-names)  :msg (first script-prints)}
+  {:dij-headless {:name (first script-names) :msg (first script-prints)}
    :compare      {:name (second script-names) :msg (second script-prints)}})
 
 (defn read-lines
@@ -42,8 +45,8 @@
 
 (def messages
   {:start (format "STARTED TESTING THE %d MODELS WITH DEEPIMAGEJ IN FIJI\n\n" (count model-folders))
-   :end   (format "FINISHED TESTING THE %d MODELS IN FIJI\nLogs are in: %s\n"
-                (count model-folders) (str (fs/absolutize LOG-FILE)) )})
+   :end   (format "\nFINISHED TESTING THE %d MODELS IN FIJI\nLogs are in: %s\n"
+                  (count model-folders) (str (fs/absolutize LOG-FILE)))})
 
 (defn quote-arg
   "Quotes the argument to fiji script correctly (different in linux and windows)"
@@ -58,7 +61,7 @@
   "Creates a vector with the components of the command"
   [model-folder script-name]
   (as-> [fiji-executable] cmd-vec
-       (into cmd-vec flags)
+        (into cmd-vec flags)
         (into cmd-vec [script-name (quote-arg model-folder)])))
 
 (defn string-command
@@ -71,19 +74,25 @@
   "Runs a command from its vector components.
   Note: none of the 2 options runs properly on linux"
   [script-name model-folder]
-  (println "running the command:" (string-command model-folder script-name ))
-  (let [cmd-vec (compose-command model-folder script-name )]
+  (println "running the command:" (string-command model-folder script-name))
+  (let [cmd-vec (compose-command model-folder script-name)]
     (if (str/includes? (System/getProperty "os.name") "Windows")
       (apply shell/sh cmd-vec)
       (apply pr/sh cmd-vec))))
 
 (defn print-and-log
   "Prints a string message and logs it on a file"
+  ([msg] (print-and-log LOG-FILE msg))
   ([log-file msg]
    (print msg)
    (flush)
-   (spit log-file msg :append true))
-  ([msg] (print-and-log LOG-FILE msg)))
+   (spit log-file msg :append true)))
+
+(defn echo-and-log
+  "Bash command corresponding to printing and logging a message"
+  ([msg] (echo-and-log LOG-FILE msg))
+  ([log-file msg]
+   (str "echo " msg " | tee -a " (fs/absolutize log-file))))
 
 ;todo: decomplect
 (defn run-script-&-info
@@ -100,16 +109,26 @@
                       {:message  (format "- MODEL %d/%d\n" (inc idx) (count model-folders))
                        :cmd-vecs (mapv (partial compose-command model-folder) script-names)})
                     model-folders)))
-; access it with (get-in execution-dict [0 :cmd-vecs 0])
+; can be access it with (get-in execution-dict [0 :cmd-vecs 0]), but not needed
 
-(defn do-exec-step
-  "Perform the commands for 1 model"
-  [{msg :message [cmd1 cmd2] :cmd-vecs}])
+(defn run-exec-step
+  "Perform the commands for 1 model. Keyword decides functions for :clj or :bash"
+  ([execution-step] (run-exec-step execution-step :clj))
+  ([{:keys [message cmd-vecs]} lang-k]
+   (print-and-log message)
+   (mapv (fn [s m] (let [return (apply pr/sh s)]
+                     (print-and-log m)
+                     ;todo log :err
+                     (print-and-log (:out return))))
+        cmd-vecs script-prints)))
 
 (defn main2 []
+  "Runs the commands from the execution-dict. Logs outputs"
   (spit LOG-FILE "")
   (print-and-log (:start messages))
-  (let [timed (my-time 1)]))
+  (let [timed (my-time (mapv run-exec-step execution-dict))]
+    (print-and-log (:end messages))
+    (print-and-log (format "Total Time Taken: %s\n" (:iso timed)))))
 
 ; TODO: create bash file atomatically
 ; print and log with tee?
@@ -134,5 +153,6 @@
          m-final (format "FINISHED TESTING THE %d MODELS IN FIJI\nLogs are in: %s\nTotal time taken: %s\n"
                          (count model-folders) (str (fs/absolutize log-file)) (:iso timed))]
      (print-and-log log-file m-final)
-     (System/exit 0))))
+     (System/exit 0)                                        ; needed if java.shell used
+     )))
 
