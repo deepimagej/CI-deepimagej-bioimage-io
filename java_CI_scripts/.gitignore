@@ -1,4 +1,5 @@
 .cpcache/
 # machine specific config
 java_CI_scripts.iml
+.idea/
 out/
