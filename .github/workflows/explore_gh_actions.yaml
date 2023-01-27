@@ -56,8 +56,8 @@ jobs:
 
       - name: Fake Fiji Setup
         run: |
-          mkdir -p ~/blank_fiji/Fiji.App
-          touch ~/blank_fiji/Fiji.App/ImageJ-linux64
+          mkdir -p ~/blank_fiji/Fiji.app
+          touch ~/blank_fiji/Fiji.app/ImageJ-linux64
           touch resources/models_to_test.txt
 
       - name: setup babashka
