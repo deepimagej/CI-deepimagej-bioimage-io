@@ -1,7 +1,7 @@
  
 #Remove previous installations of Fiji if they exist
 FIJI_HOME=$HOME/blank_fiji
-FIJI_APP=$FIJI_HOME/Fiji.App
+FIJI_APP=$FIJI_HOME/Fiji.app
 
 rm -rf $FIJI_HOME
 #wget https://downloads.imagej.net/fiji/archive/20221201-1017/fiji-linux64.zip

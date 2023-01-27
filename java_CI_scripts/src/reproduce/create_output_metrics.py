@@ -1,4 +1,4 @@
-#@ String folder
+#@ String(value="something wrong in args") folder
 from ij import IJ
 from ij.plugin import ImageCalculator
 import os

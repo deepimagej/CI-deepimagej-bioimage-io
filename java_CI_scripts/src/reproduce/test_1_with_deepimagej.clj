@@ -1,7 +1,7 @@
 ; command line argument for fiji scripts needs this
 ; source 1: https://imagej.net/scripting/headless
 ; source 2: https://imagej.net/scripting/parameters
-#@ String (label="", value=".") folder ; can be accessed by var user/folder
+#@ String (label="", value="something wrong in args") folder ; can be accessed by var user/folder
 
 (ns reproduce.test-1-with-deepimagej
   "Requires the information of the models to be in their model folder in the file dij_args.edn "

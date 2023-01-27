@@ -6,14 +6,16 @@
             [clojure.string :as str]
             [clojure.set :as set]
             [clojure.java.shell :as shell]
-            [babashka.fs :as fs]))
-
-; use shell instead of bb.process due to weird escaping of quoted args \" \' ...
+            [babashka.fs :as fs]
+            [babashka.process :as pr]))
+; pr/tokenize removes escaped quotes \" and single quotes
+; ON LINUX: java.shell and bb.process/sh fail to convey the fiji args correctly
 
 (def LOG-FILE (fs/file ".." "test_summaries" "complete_fiji_log.txt"))
 (def COMM-FILE (fs/file ".." "resources" "models_to_test.txt"))
-(def FIJI-HOME (fs/file (System/getProperty "user.home") "blank_fiji" "Fiji.App"))
+(def FIJI-HOME (fs/file (System/getProperty "user.home") "blank_fiji" "Fiji.app"))
 (def fiji-executable (str (first (fs/glob FIJI-HOME "ImageJ-*"))))
+(def flags ["--headless" "--ij2" "--console" "--run"])
 (def arg-name "folder")
 
 (def script-names "Absolute paths to the scripts"
@@ -41,23 +43,30 @@
   [model-folder]
   (let [quotation_marks #{\" \'},
         outer (if (str/includes? (System/getProperty "os.name") "Windows") \" \')
+        ;outer \" ;debug
         inner (first (set/difference quotation_marks #{outer}))]
     (str outer arg-name "=" inner model-folder inner outer)))
 
-(defn build-command-str
+(defn compose-command
+  "Creates a vector with the components of the command"
+  [script-name model-folder]
+  (as-> [fiji-executable] cmd-vec
+       (into cmd-vec flags)
+        (into cmd-vec [script-name (quote-arg model-folder)])))
+
+(defn string-command
   "Builds the complete command string for a given script.
   Useful for debugging: paste partial command on terminal"
   [script-name model-folder]
-  (str fiji-executable
-       " --headless" " --ij2" " --console" " --run "
-       script-name " " (quote-arg model-folder)))
+  (str/join " " (compose-command script-name model-folder)))
 
-; TODO Apply shell/sh to vector of components
 (defn run-command
   [script-name model-folder]
-  (shell/sh fiji-executable
-            "--headless" "--ij2" "--console" "--run"
-            script-name (quote-arg model-folder)))
+  (println "running the command:" (string-command script-name model-folder))
+  (let [cmd-vec (compose-command script-name model-folder)]
+    (if (str/includes? (System/getProperty "os.name") "Windows")
+      (apply shell/sh cmd-vec)
+      (apply pr/sh cmd-vec))))
 
 (defn print-and-log
   "Prints a string message and logs it on a file"
