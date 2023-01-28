@@ -79,13 +79,6 @@
    (flush)
    (mapv #(spit % msg :append true) log-files)))
 
-(comment
-  (defn echo-and-log
-    "Bash command corresponding to printing and logging a message"
-    ([msg] (echo-and-log LOG-FILE msg))
-    ([log-file msg]
-     (str "echo " msg " | tee -a " (fs/absolutize log-file)))))
-
 (def execution-dict
   "Vector with info of the commands and prints to do at every step"
   (vec (map-indexed (fn [idx model-folder]
@@ -95,16 +88,15 @@
 ; can be access it with (get-in execution-dict [0 :cmd-vecs 0]), but not needed
 
 (defn run-exec-step
-  "Perform the commands for 1 model. Keyword decides functions for :clj or :bash"
-  ([execution-step] (run-exec-step execution-step :clj))
-  ([{:keys [message cmd-vecs]} lang-k]
-   (print-and-log message)
-   (mapv (fn [s m] (let [return (apply pr/sh s)]
-                     (print-and-log m)
-                     ;(print-and-log (:err return) (:err LOG-FILES)) ; print errors?
-                     (spit (:err LOG-FILES) (:err return) :append true)
-                     (print-and-log (:out return) (:out LOG-FILES))))
-        cmd-vecs script-prints)))
+  "Perform the commands for 1 execution step (1 model, 2 scripts)"
+  [{:keys [message cmd-vecs]}]
+  (print-and-log message)
+  (mapv (fn [s m] (let [return (apply pr/sh s)]
+                    (print-and-log m)
+                    ;(print-and-log (:err return) (:err LOG-FILES)) ; print errors on stdout?
+                    (spit (:err LOG-FILES) (:err return) :append true)
+                    (print-and-log (:out return) (:out LOG-FILES))))
+        cmd-vecs script-prints))
 
 (defn -main []
   "Runs the commands from the execution-dict. Logs outputs"
@@ -114,10 +106,43 @@
     (print-and-log (:end messages))
     (print-and-log (format "Total Time Taken: %s\n" (:iso timed)))))
 
-; TODO: create bash file atomatically
-; print and log with tee?
-; ... 2> err.txt | tee -a out.txt
+;; Create bash file automatically
+
+(defn write-bash
+  "writes string in a bash script"
+  ([string] (write-bash BASH-FILE string))
+  ([bash-file string]
+   (spit bash-file string :append true)))
+
+(defn bash-and-log
+  "Returns the string corresponding to the bash command that prints and redirects stdout, and redirecting stderr"
+  ([cmd] (bash-and-log cmd (:out LOG-FILES) (:err LOG-FILES)))
+  ([cmd log-out log-err]
+   (str cmd " 2> " (fs/absolutize log-err) " | tee -a " (fs/absolutize log-out) "\n\n")))
+
+(defn echo-and-log
+  "String corresponding to the bash command that echoes a message and logs in files"
+  ([msg] (apply echo-and-log msg (vals LOG-FILES)))
+  ([msg & log-files]
+   (str "echo \"" msg "\"" " | tee -a " (str/join " " (map fs/absolutize log-files)) "\n\n")))
+
+(defn bash-exec-step
+  "Generates the bash commands for 1 execution step (1 model, 2 fiji scripts)"
+  [{:keys [message cmd-vecs]}]
+  (write-bash (echo-and-log message))
+  (mapv (fn [s m]
+          (write-bash (echo-and-log m))
+          (write-bash (bash-and-log (str/join " " s))))
+        cmd-vecs script-prints))
 
 (defn build-bash-script
-  [bash-file]
-  (spit bash-file "#! /usr/bin/env sh\n\n"))
+  ([] (build-bash-script BASH-FILE))
+  ([bash-file]
+   (spit bash-file "#! /usr/bin/env sh\n\n")
+   (write-bash "# This file was generated automatically by run-fiji-scripts.clj\n")
+   (write-bash "# This is needed in Linux for Fiji to run correctly\n\n")
+   (mapv #(write-bash (str "echo \"\" > " (fs/absolutize %) "\n\n")) (vals LOG-FILES))
+   (write-bash (echo-and-log (:start messages)))
+   (mapv bash-exec-step execution-dict)
+   (write-bash (echo-and-log (:end messages)))
+   (println "Bash script written in: " (str (fs/absolutize bash-file)))))

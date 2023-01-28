@@ -24,7 +24,7 @@
 
 (defn copy-model-folder
   "Copy each file in the model folder to Fiji.app/models
-  If only 1 arg, consider Fiji.app in the system home foler"
+  If only 1 arg, consider Fiji.app in the system home folder"
   ([fiji-home model-folder]
    (let [in-file (file model-folder MODEL-DIR-NAME)
          out-file (file fiji-home "Fiji.app" "models" MODEL-DIR-NAME)
