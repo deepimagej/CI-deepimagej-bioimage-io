@@ -13,7 +13,6 @@
 ; ON LINUX: java.shell and bb.process/sh fail to convey the fiji args correctly
 ; CAUTION: Fiji stores the last valid argument for the variables across executions!!
 
-; TODO: 2 log files: for :out and :err
 (def LOG-FILES {:out (fs/file ".." "test_summaries" "fiji_log_out.txt")
                 :err (fs/file ".." "test_summaries" "fiji_log_err.txt")})
 (def COMM-FILE (fs/file ".." "resources" "models_to_test.txt"))
@@ -31,11 +30,6 @@
 (def script-prints [(format "-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS\n")
                     (format "-- script 2/2: COMPARING TO EXPECTED OUTPUT\n")])
 
-;todo remove
-(def script-data
-  {:dij-headless {:name (first script-names) :msg (first script-prints)}
-   :compare      {:name (second script-names) :msg (second script-prints)}})
-
 (defn read-lines
   "Reads every line on a file, returns a vector of strings"
   [file]
@@ -47,7 +41,8 @@
 (def messages
   {:start (format "STARTED TESTING THE %d MODELS WITH DEEPIMAGEJ IN FIJI\n\n" (count model-folders))
    :end   (format "\nFINISHED TESTING THE %d MODELS IN FIJI\n\nLogs are in: %s and %s\n"
-                  (count model-folders) (str (fs/absolutize (:out LOG-FILES))) (str (:err LOG-FILES)))})
+                  (count model-folders) (str (fs/absolutize (:out LOG-FILES)))
+                  (fs/file-name (:err LOG-FILES)))})
 
 (defn quote-arg
   "Quotes the argument to fiji script correctly (different in linux and windows)"
@@ -91,11 +86,11 @@
   "Perform the commands for 1 execution step (1 model, 2 scripts)"
   [{:keys [message cmd-vecs]}]
   (print-and-log message)
-  (mapv (fn [s m] (let [return (apply pr/sh s)]
-                    (print-and-log m)
-                    ;(print-and-log (:err return) (:err LOG-FILES)) ; print errors on stdout?
-                    (spit (:err LOG-FILES) (:err return) :append true)
-                    (print-and-log (:out return) (:out LOG-FILES))))
+  (mapv (fn [cmd msg] (let [return (apply pr/sh cmd)]
+                        (print-and-log msg)
+                        ;(print-and-log (:err return) (:err LOG-FILES)) ; print errors on stdout?
+                        (spit (:err LOG-FILES) (:err return) :append true)
+                        (print-and-log (:out return) (:out LOG-FILES))))
         cmd-vecs script-prints))
 
 (defn -main []
@@ -130,19 +125,20 @@
   "Generates the bash commands for 1 execution step (1 model, 2 fiji scripts)"
   [{:keys [message cmd-vecs]}]
   (write-bash (echo-and-log message))
-  (mapv (fn [s m]
-          (write-bash (echo-and-log m))
-          (write-bash (bash-and-log (str/join " " s))))
+  (mapv (fn [cmd msg]
+          (write-bash (echo-and-log msg))
+          (write-bash (bash-and-log (str/join " " cmd))))
         cmd-vecs script-prints))
 
 (defn build-bash-script
   ([] (build-bash-script BASH-FILE))
   ([bash-file]
    (spit bash-file "#! /usr/bin/env sh\n\n")
-   (write-bash "# This file was generated automatically by run-fiji-scripts.clj\n")
+   (write-bash "# This file was generated automatically by run_fiji_scripts.clj\n")
    (write-bash "# This is needed in Linux for Fiji to run correctly\n\n")
    (mapv #(write-bash (str "echo \"\" > " (fs/absolutize %) "\n\n")) (vals LOG-FILES))
    (write-bash (echo-and-log (:start messages)))
    (mapv bash-exec-step execution-dict)
    (write-bash (echo-and-log (:end messages)))
-   (println "Bash script written in: " (str (fs/absolutize bash-file)))))
+   (printf "Bash script with %d lines of code written in: %s\n"
+           (count (str/split-lines (slurp bash-file))) (str (fs/absolutize bash-file)))))
