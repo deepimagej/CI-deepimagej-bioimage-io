@@ -46,6 +46,7 @@
     (printf "Populating model folders for %d models \n" (count model-records-keep))
     (doall (map download/populate-model-folder model-records-keep))
     (printf "Downloading files (this could take some minutes) \n")
+    (flush)
     (let [timed (download/my-time (doall (pmap download/download-into-model-folder model-records-keep)))]
       (printf "Total time taken: %s\n" (:iso timed)))))
 
