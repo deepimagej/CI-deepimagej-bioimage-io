@@ -9,7 +9,8 @@
    'summaries.summary-test
    'downloads.initial-checks-test 'downloads.download-test 'downloads.p-process-test
    'reproduce.communicate-test 'reproduce.run-fiji-scripts-test
-   'core.cli-test])
+   'core.cli-test
+   'config-test])
 
 ; All the namespaces need first to be required
 (apply require nss-to-test)

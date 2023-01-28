@@ -2,7 +2,7 @@
   (:require [babashka.fs :as fs]
             [cheshire.core :as json]))
 
-(def COLLECTION-ROOT "Path of the cloned repository" (fs/path ".." "bioimageio-gh-pages" "rdfs"))
+(def COLLECTION-ROOT "Path of the cloned repository" (fs/file ".." "bioimageio-gh-pages" "rdfs"))
 
 (defn str-json->vector
   "Returns the parsed list of resources/versions to test, given a raw json string"

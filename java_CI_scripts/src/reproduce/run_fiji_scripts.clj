@@ -19,8 +19,8 @@
 (def FIJI-HOME (fs/file (System/getProperty "user.home") "blank_fiji" "Fiji.app"))
 (def BASH-FILE (fs/file ".." "resources" "models_to_test.sh"))
 (def fiji-executable (str (first (fs/glob FIJI-HOME "ImageJ-*"))))
-(def flags ["--headless" "--ij2" "--console" "--run"])
-(def arg-name "folder")
+(def fiji-flags ["--headless" "--ij2" "--console" "--run"])
+(def fiji-arg-name "folder")
 
 (def script-names "Absolute paths to the scripts"
   (->> ["test_1_with_deepimagej.clj" "create_output_metrics.py"]
@@ -51,13 +51,13 @@
         outer (if (str/includes? (System/getProperty "os.name") "Windows") \" \')
         ;outer \" ;debug
         inner (first (set/difference quotation_marks #{outer}))]
-    (str outer arg-name "=" inner model-folder inner outer)))
+    (str outer fiji-arg-name "=" inner model-folder inner outer)))
 
 (defn compose-command
   "Creates a vector with the components of the command"
   [model-folder script-name]
   (as-> [fiji-executable] cmd-vec
-        (into cmd-vec flags)
+        (into cmd-vec fiji-flags)
         (into cmd-vec [script-name (quote-arg model-folder)])))
 
 (defn string-command

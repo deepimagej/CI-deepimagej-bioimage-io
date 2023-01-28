@@ -5,6 +5,6 @@
 
 (deftest quote-arg-test
   (let [expected (if (str/includes? (System/getProperty "os.name") "Windows")
-                   (str \" arg-name "=" \' 111 \' \")
-                   (str \' arg-name "=" \" 111 \" \'))]
+                   (str \" fiji-arg-name "=" \' 111 \' \")
+                   (str \' fiji-arg-name "=" \" 111 \" \'))]
     (is (= expected (quote-arg 111)))))
