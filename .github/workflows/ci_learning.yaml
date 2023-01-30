@@ -47,7 +47,9 @@ jobs:
 
       - name: Setup fiji & deepimagej
         working-directory: ./bash_scripts
-        run: sh setup_deepimagej.sh
+        run: |
+          sh setup_deepimagej.sh
+          touch ../resources/models_to_test.txt
 
       - name: run initial stage
         working-directory: ./java_CI_scripts
