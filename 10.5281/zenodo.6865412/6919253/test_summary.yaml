@@ -1,5 +1,4 @@
-bioimageio_spec_version: unknown
-bioimageio_core_version: unknown
-error: rdf contains the key run_mode with value deepimagej
+bioimageio_spec_version: 0.4.8post1
+error: 'test not yet available: rdf contains the key run_mode with value deepimagej'
 status: failed
 name: initial compatibility checks with deepimagej
