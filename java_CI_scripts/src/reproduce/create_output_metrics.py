@@ -7,6 +7,7 @@ print("   The folder is: " + folder) # debug
 
 model_dir_name = "the_model"
 output_name = "CI_OUTPUT.tif"
+output_file = "output_metrics.edn"
 
 def gen_path_to(img_name, model_dir_name=model_dir_name):
     return folder + "/" + model_dir_name + "/" + img_name
@@ -49,4 +50,10 @@ mae = sum_mae / (width*height)
 
 print("   The MSE is " + str(mse) + " and the MAE is " + str(mae))
 
-# TODO write metrics in a file (in folder)
+f = open(folder+"/"+output_file, "w")
+f.write("{\n")
+f.write(":mse {:.5f} \n".format(mse))
+f.write(":mae {:.5f} \n".format(mae))
+f.write("}")
+f.close()
+print("   Metrics written in file: {}".format(folder+"/"+output_file))
