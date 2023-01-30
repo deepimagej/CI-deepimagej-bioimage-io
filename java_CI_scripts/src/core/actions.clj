@@ -2,7 +2,7 @@
   "Define the steps for every action: init, download, and reproduce"
   (:require [config :refer [FILES]]
             [models]
-            [summaries.summary :as summary]
+            [summaries [summary :as summary] [reports :as reports]]
             [downloads [initial-checks :as initial-checks] [download :as download]]
             [reproduce [communicate :as comm] [run-fiji-scripts :as run-fiji-scripts]]
             [clojure.string :as str]
@@ -54,7 +54,8 @@
  "For the linux case, where reproduce.run-fiji-scripts fails"
   [& _]
   (if (str/includes? (System/getProperty "os.name") "Windows")
-   (run-fiji-scripts/-main)
-   (let [_ (run-fiji-scripts/build-bash-script (:bash-script FILES))
-         timed (download/my-time (pr/shell (:bash-script FILES)))]
-     (printf "Total Time Taken: %s\n" (:iso timed)))))
+    (run-fiji-scripts/-main)
+    (let [_ (run-fiji-scripts/build-bash-script (:bash-script FILES))
+          timed (download/my-time (pr/shell "sh" (:bash-script FILES)))]
+      (printf "Total Time Taken: %s\n" (:iso timed))))
+  (reports/basic-report))
