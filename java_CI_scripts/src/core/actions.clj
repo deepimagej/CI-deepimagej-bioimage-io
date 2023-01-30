@@ -3,7 +3,8 @@
   - init
   - download
   - reproduce"
-  (:require [summaries.summary :as summary]
+  (:require [models]
+            [summaries.summary :as summary]
             [downloads [initial-checks :as initial-checks] [download :as download]]
             [reproduce.communicate :as comm]
             [babashka.fs :as fs]

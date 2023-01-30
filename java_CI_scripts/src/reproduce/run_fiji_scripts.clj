@@ -113,7 +113,7 @@
   "Returns the string corresponding to the bash command that prints and redirects stdout, and redirecting stderr"
   ([cmd] (bash-and-log cmd (:out LOG-FILES) (:err LOG-FILES)))
   ([cmd log-out log-err]
-   (str cmd " 2> " (fs/absolutize log-err) " | tee -a " (fs/absolutize log-out) "\n\n")))
+   (str cmd " 2>> " (fs/absolutize log-err) " | tee -a " (fs/absolutize log-out) "\n\n")))
 
 (defn echo-and-log
   "String corresponding to the bash command that echoes a message and logs in files"

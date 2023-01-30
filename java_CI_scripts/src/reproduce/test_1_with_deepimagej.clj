@@ -38,7 +38,7 @@
   ([fiji-home]
    (let [m-dir (file fiji-home "Fiji.app" "models" MODEL-DIR-NAME)]
      (doseq [f (reverse (file-seq m-dir))]
-       (delete-file f))))
+       (delete-file f true))))
   ([] (delete-model-folder (System/getProperty "user.home"))))
 
 (defn test-one-with-deepimagej
@@ -47,7 +47,8 @@
   (with-open [imp (try (IJ/openImage (str model-folder MODEL-DIR-NAME "/" input-img))
                        (catch Exception e (println "-- Error trying to open sample input image")))]
     (if (not (nil? imp))
-      (do (copy-model-folder FIJI-HOME model-folder)
+      (do (delete-model-folder FIJI-HOME)
+          (copy-model-folder FIJI-HOME model-folder)
           (try (IJ/run imp "DeepImageJ Run" dij-arg)
                (catch Exception e (println "-- Error during deepimagej run")))
           (try (IJ/saveAs "Tiff" (str model-folder OUTPUT-NAME))
