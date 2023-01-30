@@ -45,6 +45,10 @@ jobs:
         with:
           babashka-version: 1.0.169
 
+      - name: Setup fiji & deepimagej
+        working-directory: ./bash_scripts
+        run: sh setup_deepimagej.sh
+
       - name: run initial stage
         working-directory: ./java_CI_scripts
         run: |
@@ -55,10 +59,6 @@ jobs:
         run: |
           chmod +x ./bash_scripts/check_initial_CI.sh
           bash ./bash_scripts/check_initial_CI.sh
-
-      - name: setup fiji
-        working-directory: ./bash_scripts
-        run: sh setup_deepimagej.sh
 
       - name: run reproduce pipeline
         working-directory: ./java_CI_scripts
