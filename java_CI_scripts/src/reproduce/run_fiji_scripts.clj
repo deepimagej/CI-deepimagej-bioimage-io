@@ -17,7 +17,6 @@
                 :err (fs/file ".." "test_summaries" "fiji_log_err.txt")})
 (def COMM-FILE (fs/file ".." "resources" "models_to_test.txt"))
 (def FIJI-HOME (fs/file (System/getProperty "user.home") "blank_fiji" "Fiji.app"))
-(def BASH-FILE (fs/file ".." "resources" "models_to_test.sh"))
 (def fiji-executable (str (first (fs/glob FIJI-HOME "ImageJ-*"))))
 (def fiji-flags ["--headless" "--ij2" "--console" "--run"])
 (def fiji-arg-name "folder")
