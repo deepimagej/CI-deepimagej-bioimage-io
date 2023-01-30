@@ -1,20 +1,20 @@
 (ns core.cli
-  (:require [clojure.string :as str]
+  (:require [core.actions]
+            [clojure.string :as str]
             [clojure.tools.cli :as cli]
             [cheshire.core :as json]
             [babashka.fs :as fs]))
 
+(def actions-fns "Association between actions and function that implements them"
+  {"init"     (partial core.actions/initial-pipeline false)
+   "download"  core.actions/download-pipeline
+   "reproduce" core.actions/reproduce-pipeline})
 
 (defn valid-json? [s]
   (try (json/parse-string s)
        (catch Exception e false))) ;JsonParseException
-; TODO? multimethod, dispatch on string content
+; todo? multimethod, dispatch on string content
 
-; TODO? actions
-; initial: creates folders and test summaries for incompatible (avoid downloads)
-; download: populates model folders (downloads files)
-; reproduce: write test summaries (from outputs of tested headless dij)
-; -v --verbosity
 (def cli-options
   [["-u" "--unit-test" "Run all unit tests"
     :default false]
@@ -29,12 +29,18 @@
    ["-h" "--help" "Show help"]])
 
 (defn usage [options-summary]
-  (->> ["DeepImageJ CI for models from the Bioimage Model Zoo (https://bioimage.io/)"
+  (->> ["DeepImageJ CI for models from the BioImage Model Zoo (https://bioimage.io/)"
         ""
-        "Usage: bb -m core [options] (in the java_CI_scripts working directory)"
+        "Usage: bb -m core.main [options] [action] (in the java_CI_scripts working directory)"
         ""
         "Options:"
         options-summary
+        ""
+        "Actions:"
+        " init (DEFAULT) Initial checks & generate folder structures and files for the compatible models to test."
+        " download       Populate model folders (download files). Build args for DeepImagej headless."
+        " reproduce      Run the models on Fiji with DeepImageJ headless. Create tests summaries (to-do)."
+        ""
         "Please refer to the docs page for more information:
         https://github.com/ivan-ea/CI-deepimagej-bioimage-io/blob/master/java_CI_scripts/Readme.md"]
        (str/join \newline)))
@@ -55,8 +61,15 @@
       {:exit-message (usage summary) :ok? true}
       errors ; errors => exit with description of errors
       {:exit-message (error-msg errors)}
+      ;; custom validation on arguments
+      (= 0 (count arguments))
+      {:options options :action "init"}
+      (and (>= (count arguments) 1)
+           ((set (keys actions-fns)) (first arguments)))
+      {:options options :action (first arguments)}
+      ; default behavior will be showing help message
       :else
-      {:options options :action (first arguments)})))
+      {:exit-message (usage summary) :ok? true})))
 
 (defn exit [status msg]
   (println msg)

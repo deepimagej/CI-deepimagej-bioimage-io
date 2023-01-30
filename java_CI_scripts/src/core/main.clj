@@ -4,6 +4,8 @@
             [core cli actions unit-tests]
             [babashka.fs :as fs]))
 
+
+
 (defn -main [& args]
   (let [{:keys [action options exit-message ok?]} (core.cli/validate-args args)]
     (if exit-message
@@ -12,6 +14,6 @@
         (:unit-test options)
         (core.unit-tests/run-all-tests)
         (:json-string options)
-        (core.actions/download-pipeline :json-string options)
+        ((core.cli/actions-fns action) :json-string options)
         :else
-        (core.actions/download-pipeline :json-file options)))))
+        ((core.cli/actions-fns action) :json-file options)))))

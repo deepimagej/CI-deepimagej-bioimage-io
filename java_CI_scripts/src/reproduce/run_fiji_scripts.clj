@@ -7,7 +7,7 @@
             [clojure.java.shell :as shell]
             [clojure.set :as set]
             [clojure.string :as str]
-            [downloads.download :as :download]))
+            [downloads.download :as download]))
 
 ; pr/tokenize removes escaped quotes \" and single quotes (use the cmd vector, not the string)
 ; ON LINUX: java.shell and bb.process/sh fail to convey the fiji args correctly
