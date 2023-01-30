@@ -82,11 +82,13 @@
                     model-folders)))
 ; can be access it with (get-in execution-dict [0 :cmd-vecs 0]), but not needed
 
+; NOTE: pr/sh or pr/shell escapes quotes incorrectly
+; shell/sh does it correctly but only on Windows...
 (defn run-exec-step
   "Perform the commands for 1 execution step (1 model, 2 scripts)"
   [{:keys [message cmd-vecs]}]
   (print-and-log message)
-  (mapv (fn [cmd msg] (let [return (apply pr/sh cmd)]
+  (mapv (fn [cmd msg] (let [return (apply shell/sh cmd)]
                         (print-and-log msg)
                         ;(print-and-log (:err return) (:err LOG-FILES)) ; print errors on stdout?
                         (spit (:err LOG-FILES) (:err return) :append true)
