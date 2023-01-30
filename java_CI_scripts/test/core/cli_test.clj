@@ -13,10 +13,11 @@
 (deftest validate-args-test
   (let [default-dict {:options {:unit-test false,
                                 :json-file "./pending_matrix/two_models.json"},
-                      :action nil}]
+                      :action "init"}]
     (is (= (validate-args []) default-dict))
     (is (= (validate-args ["-u"]) (assoc-in default-dict [:options :unit-test] true)))
-    (is (= (validate-args ["an-action"]) (assoc default-dict :action "an-action")))
+    (is (= (validate-args ["download"]) (assoc default-dict :action "download")))
+    (is (= (keys (validate-args ["invalid action"])) [:exit-message :ok?]))
     (is (= (validate-args ["-x"])
            {:exit-message (str error-title "Unknown option: \"-x\"")}))
     (testing "-h option"
