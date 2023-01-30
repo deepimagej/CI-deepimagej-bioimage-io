@@ -45,16 +45,26 @@ jobs:
         with:
           babashka-version: 1.0.169
 
-      - name: run scripts
+      - name: run initial stage
         working-directory: ./java_CI_scripts
         run: |
           bb --version
-          bb -m core.main -s ${{ inputs.pending_matrix }}
+          bb -m core.main -s ${{ inputs.pending_matrix }} download
 
       - name: check that initial pipeline of CI went OK
         run: |
           chmod +x ./bash_scripts/check_initial_CI.sh
-          bash ./bash_scripts/check_initial_CI.sh       
+          bash ./bash_scripts/check_initial_CI.sh
+
+      - name: setup fiji
+        working-directory: ./bash_scripts
+        run: sh setup_deepimagej.sh
+
+      - name: run reproduce pipeline
+        working-directory: ./java_CI_scripts
+        run: |
+          bb --version
+          bb -m core.main reproduce
 
       - name: upload the test summaries
         uses: actions/upload-artifact@v3
