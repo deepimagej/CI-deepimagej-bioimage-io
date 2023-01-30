@@ -29,13 +29,14 @@
    ["-h" "--help" "Show help"]])
 
 (defn usage [options-summary]
-  (->> ["DeepImageJ CI of models from the BiomageModelZoo"
+  (->> ["DeepImageJ CI for models from the Bioimage Model Zoo (https://bioimage.io/)"
         ""
         "Usage: bb -m core [options] (in the java_CI_scripts working directory)"
         ""
         "Options:"
         options-summary
-        "Please refer to the manual page for more information (TO-DO)."]
+        "Please refer to the docs page for more information:
+        https://github.com/ivan-ea/CI-deepimagej-bioimage-io/blob/master/java_CI_scripts/Readme.md"]
        (str/join \newline)))
 
 (def error-title "The following errors occurred while parsing your command:\n\n")

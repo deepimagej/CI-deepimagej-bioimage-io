@@ -3,12 +3,13 @@
   (:require [clojure [string :as str] [pprint :as ppr] [edn :as edn]]
             [babashka.fs :as fs]))
 
-; todo fill config constants (start from the run-fiji-scripts and test-1
+; todo fill config constants (start from the end: run-fiji-scripts and test-1)
 (def FILES "Configuration constants that are files"
-  {:config-file (fs/file ".." "resources" "config.edn")
+  {:config (fs/file ".." "resources" "config.edn")
    :collection-root (fs/file ".." "bioimageio-gh-pages" "rdfs")
-   :log-files {:out (fs/file ".." "test_summaries" "fiji_log_out.txt")
+   :logs {:out (fs/file ".." "test_summaries" "fiji_log_out.txt")
                :err (fs/file ".." "test_summaries" "fiji_log_err.txt")}
+   :bash-script (fs/file ".." "resources" "models_to_test.sh")
    })
 
 (def CONSTANTS "Constants that are not files"
@@ -23,7 +24,7 @@
 (defn serialize-config
   " Serialize config into an edn file
   make the files into their strings"
-  ([] (serialize-config (:config-file FILES)))
+  ([] (serialize-config (:config FILES)))
   ([config-file]
    (let [full-dict (into CONSTANTS (absolutize-nested FILES))]
      (spit config-file (with-out-str (ppr/pprint full-dict)))

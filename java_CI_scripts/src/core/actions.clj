@@ -3,10 +3,12 @@
   - init
   - download
   - reproduce"
-  (:require [models]
+  (:require [config :refer [FILES]]
+            [models]
             [summaries.summary :as summary]
             [downloads [initial-checks :as initial-checks] [download :as download]]
-            [reproduce.communicate :as comm]
+            [reproduce [communicate :as comm] [run-fiji-scripts :as run-fiji-scripts]]
+            [clojure.string :as str]
             [babashka.fs :as fs]
             [babashka.process :as pr]))
 
@@ -49,10 +51,14 @@
     (printf "Downloading files (this could take some minutes) \n")
     (flush)
     (let [timed (download/my-time (doall (pmap download/download-into-model-folder model-records-keep)))]
-      (printf "Total time taken: %s\n" (:iso timed)))))
+      (printf "Total Time Taken: %s\n" (:iso timed)))))
 
+;todo: generate test summaries for tested models
 (defn reproduce-pipeline
  "For the linux case, where reproduce.run-fiji-scripts fails"
   []
-  (let [timed (download/my-time (pr/shell "../resources/models_to_test.sh"))]
-    (printf "Total time taken: %s\n" (:iso timed))))
+  (if (str/includes? (System/getProperty "os.name") "Windows")
+   (run-fiji-scripts/-main)
+   (let [_ (run-fiji-scripts/build-bash-script (:bash-script FILES))
+         timed (download/my-time (pr/shell (:bash-script FILES)))]
+     (printf "Total Time Taken: %s\n" (:iso timed)))))

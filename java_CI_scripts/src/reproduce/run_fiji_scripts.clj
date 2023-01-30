@@ -1,13 +1,13 @@
 (ns reproduce.run-fiji-scripts
   "Run the 2 scripts: inference with DeepImageJ and comparison with Fiji.
   Use bb instead of bash for windows compatibility"
-  (:require [babashka.fs :as fs]
+  (:require [config :refer [FILES CONSTANTS]] [babashka.fs :as fs]
             [babashka.process :as pr]
             [clojure.java.io :as io]
             [clojure.java.shell :as shell]
             [clojure.set :as set]
             [clojure.string :as str]
-            [downloads.download :refer [my-time]]))
+            [downloads.download :as :download]))
 
 ; pr/tokenize removes escaped quotes \" and single quotes (use the cmd vector, not the string)
 ; ON LINUX: java.shell and bb.process/sh fail to convey the fiji args correctly
@@ -97,7 +97,7 @@
   "Runs the commands from the execution-dict. Logs outputs"
   (mapv #(spit % "") (vals LOG-FILES))
   (print-and-log (:start messages))
-  (let [timed (my-time (mapv run-exec-step execution-dict))]
+  (let [timed (download/my-time (mapv run-exec-step execution-dict))]
     (print-and-log (:end messages))
     (print-and-log (format "Total Time Taken: %s\n" (:iso timed)))))
 
@@ -105,7 +105,7 @@
 
 (defn write-bash
   "writes string in a bash script"
-  ([string] (write-bash BASH-FILE string))
+  ([string] (write-bash (:bash-script FILES) string))
   ([bash-file string]
    (spit bash-file string :append true)))
 
@@ -131,7 +131,7 @@
         cmd-vecs script-prints))
 
 (defn build-bash-script
-  ([] (build-bash-script BASH-FILE))
+  ([] (build-bash-script (:bash-script FILES)))
   ([bash-file]
    (spit bash-file "#! /usr/bin/env sh\n\n")
    (write-bash "# This file was generated automatically by run_fiji_scripts.clj\n")
