@@ -9,9 +9,10 @@
   [pattern]
   (map fs/file (fs/glob (:models-root FILES) pattern)))
 
-(def result-files
-  {:metrics  (glob-models "**/output_metrics.edn")
-   :dij-args (glob-models "**/dij_args.edn")})
+(comment "failes if no models folder exists..."
+  (def result-files
+    {:metrics  (glob-models "**/output_metrics.edn")
+     :dij-args (glob-models "**/dij_args.edn")}))
 
 (defn basic-model-info
   [metrics-file dij-file]
@@ -27,4 +28,5 @@
   ([log-file]
    (doall (map #(let [msg (basic-model-info %1 %2)]
                   (run-fiji-scripts/print-and-log msg log-file))
-               (:metrics result-files) (:dij-args result-files)))))
+               (glob-models "**/output_metrics.edn")
+               (glob-models "**/dij_args.edn")))))
