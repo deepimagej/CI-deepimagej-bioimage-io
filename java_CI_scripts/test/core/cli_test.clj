@@ -12,7 +12,7 @@
 
 (deftest validate-args-test
   (let [default-dict {:options {:unit-test false,
-                                :json-file "./pending_matrix/two_models.json"},
+                                :json-file "./pending_matrix/use_cases.json"},
                       :action "init"}]
     (is (= (validate-args []) default-dict))
     (is (= (validate-args ["-u"]) (assoc-in default-dict [:options :unit-test] true)))
