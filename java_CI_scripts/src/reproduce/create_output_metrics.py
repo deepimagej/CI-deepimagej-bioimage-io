@@ -6,20 +6,27 @@ import os
 print("   The folder is: " + folder) # debug
 
 model_dir_name = "the_model"
-output_name = "CI_OUTPUT.tif"
-output_file = "output_metrics.edn"
+ci_output_name = "CI_OUTPUT.tif"
+
+output_file_name = "output_metrics.edn"
+output_file_path = folder + "/" + output_file_name
+output_file = open(output_file_path, "w")
+output_file.write("{\n")
 
 def gen_path_to(img_name, model_dir_name=model_dir_name):
     return folder + "/" + model_dir_name + "/" + img_name
 
 imp1 = IJ.openImage(gen_path_to("sample_output_0.tif"))
-imp2 = IJ.openImage(folder+"/"+output_name)
+imp2 = IJ.openImage(folder+"/"+ci_output_name)
 
 # debug
 # imp1 = IJ.openImage("/home/cia/Documentos/EPFL/numpy-tiff-deepimagej/10.5281/zenodo.5749843/5888237/sample_output_0.tif");
 # imp2 = IJ.openImage("/home/cia/Documentos/EPFL/numpy-tiff-deepimagej/10.5281/zenodo.5749843/5888237/sample_input_0.tif");
 
-if imp2 is None:
+if (imp1 is None) or (imp2 is None):
+    output_file.write("}")
+    output_file.close()
+    print("   Empty metrics file written in: {}".format(output_file_path))
     os._exit(1)
 
 # TODO sanity checks to see if the 2 images have the same dimensions and shapes
@@ -50,10 +57,8 @@ mae = sum_mae / (width*height)
 
 print("   The MSE is " + str(mse) + " and the MAE is " + str(mae))
 
-f = open(folder+"/"+output_file, "w")
-f.write("{\n")
-f.write(":mse {:.5f} \n".format(mse))
-f.write(":mae {:.5f} \n".format(mae))
-f.write("}")
-f.close()
-print("   Metrics written in file: {}".format(folder+"/"+output_file))
+output_file.write(":mse {:.5f} \n".format(mse))
+output_file.write(":mae {:.5f} \n".format(mae))
+output_file.write("}")
+output_file.close()
+print("   Metrics file written in: {}".format(output_file_path))

@@ -19,7 +19,7 @@
   [["-u" "--unit-test" "Run all unit tests"
     :default false]
    ["-j" "--json-file FILE" "Read input from json FILE"
-    :default "./pending_matrix/two_models.json"
+    :default "./pending_matrix/use_cases.json"
     :validate [#(fs/exists? %) "File must exist"
                #(valid-json? (slurp %)) "File must contain valid json"]]
    ["-s" "--json-string STRING" "Read input from raw json STRING"
