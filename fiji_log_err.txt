@@ -8,7 +8,7 @@ STARTED TESTING THE 29 MODELS WITH DEEPIMAGEJ IN FIJI
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-Jan 30, 2023 11:22:44 PM java.util.prefs.FileSystemPreferences$1 run
+Jan 31, 2023 10:24:37 AM java.util.prefs.FileSystemPreferences$1 run
 INFO: Created user preferences directory.
 SLF4J: Class path contains multiple SLF4J bindings.
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
@@ -55,14 +55,14 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-01-30 23:28:54.805265: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-01-30 23:28:54.823453: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-01-30 23:28:54.844476: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-01-30 23:28:54.850293: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2095175000 Hz
-2023-01-30 23:28:54.850528: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f0ddc8b47a0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-01-30 23:28:54.850556: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-01-30 23:28:54.923287: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-01-30 23:28:55.280672: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 475353 microseconds.
+2023-01-31 10:30:01.437777: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-01-31 10:30:01.453697: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-01-31 10:30:01.471637: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2023-01-31 10:30:01.476562: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2793435000 Hz
+2023-01-31 10:30:01.476716: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fb4250189e0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-01-31 10:30:01.476736: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-01-31 10:30:01.532911: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-01-31 10:30:01.820311: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 382537 microseconds.
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
@@ -223,14 +223,14 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-01-30 23:33:51.111838: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-01-30 23:33:51.139379: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-01-30 23:33:51.174003: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-01-30 23:33:51.180148: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2095175000 Hz
-2023-01-30 23:33:51.180321: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f52c4dd5480 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-01-30 23:33:51.180335: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-01-30 23:33:51.316705: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-01-30 23:33:51.792951: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 681118 microseconds.
+2023-01-31 10:34:21.666653: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-01-31 10:34:21.690409: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-01-31 10:34:21.716541: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2023-01-31 10:34:21.721559: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2793435000 Hz
+2023-01-31 10:34:21.721718: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f49b4dc45e0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-01-31 10:34:21.721739: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-01-31 10:34:21.820808: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-01-31 10:34:22.200414: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 533768 microseconds.
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
@@ -251,14 +251,14 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-01-30 23:34:33.839564: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-01-30 23:34:33.866767: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-01-30 23:34:33.899569: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-01-30 23:34:33.905553: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2095175000 Hz
-2023-01-30 23:34:33.905777: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7feb9cdc76c0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-01-30 23:34:33.905804: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-01-30 23:34:34.032453: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-01-30 23:34:34.497469: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 657903 microseconds.
+2023-01-31 10:34:58.217058: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-01-31 10:34:58.239633: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-01-31 10:34:58.265615: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2023-01-31 10:34:58.270643: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2793435000 Hz
+2023-01-31 10:34:58.270823: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f17b0733d30 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-01-31 10:34:58.270845: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-01-31 10:34:58.370978: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-01-31 10:34:58.743278: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 526224 microseconds.
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
@@ -299,14 +299,14 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-01-30 23:35:32.442749: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-01-30 23:35:32.480920: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-01-30 23:35:32.529315: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-01-30 23:35:32.535773: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2095175000 Hz
-2023-01-30 23:35:32.535967: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f6fb106d990 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-01-30 23:35:32.535993: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-01-30 23:35:32.706293: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-01-30 23:35:33.252942: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 810200 microseconds.
+2023-01-31 10:35:48.772574: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-01-31 10:35:48.804042: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-01-31 10:35:48.840710: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2023-01-31 10:35:48.846136: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2793435000 Hz
+2023-01-31 10:35:48.846286: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fab21558540 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-01-31 10:35:48.846307: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-01-31 10:35:48.979735: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-01-31 10:35:49.438064: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 665498 microseconds.
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
@@ -327,14 +327,14 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-01-30 23:36:00.200457: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-01-30 23:36:00.219959: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-01-30 23:36:00.242107: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-01-30 23:36:00.247896: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2095175000 Hz
-2023-01-30 23:36:00.248147: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f28bc8b0980 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-01-30 23:36:00.248174: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-01-30 23:36:00.322663: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-01-30 23:36:00.685388: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 484932 microseconds.
+2023-01-31 10:36:12.497487: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-01-31 10:36:12.513532: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-01-31 10:36:12.531132: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2023-01-31 10:36:12.535952: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2793435000 Hz
+2023-01-31 10:36:12.536102: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f8021389880 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-01-31 10:36:12.536123: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-01-31 10:36:12.593068: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-01-31 10:36:12.880388: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 382908 microseconds.
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
@@ -395,14 +395,14 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-01-30 23:37:09.688331: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-01-30 23:37:09.739223: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-01-30 23:37:09.805446: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-01-30 23:37:09.812336: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2095175000 Hz
-2023-01-30 23:37:09.812545: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f7240d9a740 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-01-30 23:37:09.812572: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-01-30 23:37:10.062211: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-01-30 23:37:11.020957: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 1332628 microseconds.
+2023-01-31 10:37:11.128425: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-01-31 10:37:11.170165: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-01-31 10:37:11.220964: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2023-01-31 10:37:11.226881: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2793435000 Hz
+2023-01-31 10:37:11.227062: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fa7949aea80 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-01-31 10:37:11.227086: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-01-31 10:37:11.429247: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-01-31 10:37:12.203702: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 1075283 microseconds.
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
@@ -463,14 +463,14 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-01-30 23:38:15.700110: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-01-30 23:38:15.702481: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-01-30 23:38:15.705189: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-01-30 23:38:15.710389: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2095175000 Hz
-2023-01-30 23:38:15.710573: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f307c8b05d0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-01-30 23:38:15.710589: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-01-30 23:38:15.722111: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-01-30 23:38:15.773005: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 72906 microseconds.
+2023-01-31 10:38:08.239804: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-01-31 10:38:08.241826: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-01-31 10:38:08.244165: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2023-01-31 10:38:08.248592: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2793435000 Hz
+2023-01-31 10:38:08.248755: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f69ad5e1980 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-01-31 10:38:08.248776: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-01-31 10:38:08.257854: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-01-31 10:38:08.298617: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 58819 microseconds.
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
@@ -747,14 +747,14 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-01-30 23:41:19.694328: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-01-30 23:41:19.696722: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-01-30 23:41:19.699383: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-01-30 23:41:19.704509: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2095175000 Hz
-2023-01-30 23:41:19.704736: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f0a988b0710 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-01-30 23:41:19.704761: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-01-30 23:41:19.715723: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-01-30 23:41:19.763665: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 69345 microseconds.
+2023-01-31 10:40:42.854579: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-01-31 10:40:42.856626: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-01-31 10:40:42.858790: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2023-01-31 10:40:42.863429: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2793435000 Hz
+2023-01-31 10:40:42.863596: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f7f9913c560 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-01-31 10:40:42.863618: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-01-31 10:40:42.872797: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-01-31 10:40:42.913778: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 59210 microseconds.
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0

@@ -81,13 +81,13 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT5M13.489S
+   Time taken: PT4M36.234S
 -- Finished testing model: kind-seashell
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/5874842
    The MSE is 0.0622590482291 and the MAE is 0.300563673937
-   Metrics written in file: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/5874842/output_metrics.edn
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/5874842/output_metrics.edn
 - MODEL 2/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -140,6 +140,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811922
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811922/output_metrics.edn
 - MODEL 3/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -220,6 +221,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/FRUNet2DsEVSegmentation/latest
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/FRUNet2DsEVSegmentation/latest/output_metrics.edn
 - MODEL 4/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -272,6 +274,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/6630266
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/6630266/output_metrics.edn
 - MODEL 5/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -324,6 +327,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/6321179
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/6321179/output_metrics.edn
 - MODEL 6/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -398,13 +402,13 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT2M4.276S
+   Time taken: PT1M52.771S
 -- Finished testing model: impartial-shrimp
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874741/5874742
    The MSE is 0.458272094035 and the MAE is 0.772956065576
-   Metrics written in file: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874741/5874742/output_metrics.edn
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874741/5874742/output_metrics.edn
 - MODEL 7/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -457,6 +461,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6406757
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6406757/output_metrics.edn
 - MODEL 8/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -509,6 +514,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811498
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811498/output_metrics.edn
 - MODEL 9/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -561,6 +567,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/5869900
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/5869900/output_metrics.edn
 - MODEL 10/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -613,6 +620,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/6647688
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/6647688/output_metrics.edn
 - MODEL 11/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -682,13 +690,13 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT21.801S
+   Time taken: PT18.844S
 -- Finished testing model: humorous-owl
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5888237
    The MSE is 24422.4596173 and the MAE is 96.4106932673
-   Metrics written in file: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5888237/output_metrics.edn
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5888237/output_metrics.edn
 - MODEL 12/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -758,13 +766,13 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT22.314S
+   Time taken: PT19.236S
 -- Finished testing model: humorous-owl
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5877226
    The MSE is 24422.4596173 and the MAE is 96.4106932673
-   Metrics written in file: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5877226/output_metrics.edn
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5877226/output_metrics.edn
 - MODEL 13/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -817,6 +825,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6647674
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6647674/output_metrics.edn
 - MODEL 14/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -886,13 +895,13 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT6.969S
+   Time taken: PT5.59S
 -- Finished testing model: discreet-rooster
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5914248/5914249
    The MSE is 7154.80517699 and the MAE is 28.1673490548
-   Metrics written in file: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5914248/5914249/output_metrics.edn
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5914248/5914249/output_metrics.edn
 - MODEL 15/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -973,6 +982,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6559474/6559475
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6559474/6559475/output_metrics.edn
 - MODEL 16/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -1025,6 +1035,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028097/6028098
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028097/6028098/output_metrics.edn
 - MODEL 17/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -1077,6 +1088,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5847355/6647683
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5847355/6647683/output_metrics.edn
 - MODEL 18/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -1142,13 +1154,13 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT12.605S
+   Time taken: PT10.62S
 -- Finished testing model: non-judgemental-eagle
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348728/6348729
    The MSE is 0.02585944878 and the MAE is 0.20951109468
-   Metrics written in file: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348728/6348729/output_metrics.edn
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348728/6348729/output_metrics.edn
 - MODEL 19/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -1201,6 +1213,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028280/6647695
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028280/6647695/output_metrics.edn
 - MODEL 20/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -1253,6 +1266,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6808325/6808413
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6808325/6808413/output_metrics.edn
 - MODEL 21/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -1321,13 +1335,13 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT11.021S
+   Time taken: PT8.094S
 -- Finished testing model: fearless-crab
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348084/6348085
    The MSE is 52.1268050175 and the MAE is 8.55188495224
-   Metrics written in file: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348084/6348085/output_metrics.edn
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348084/6348085/output_metrics.edn
 - MODEL 22/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -1380,6 +1394,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028280/6028281
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028280/6028281/output_metrics.edn
 - MODEL 23/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -1432,6 +1447,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6811491/6811492
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6811491/6811492/output_metrics.edn
 - MODEL 24/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -1484,6 +1500,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6322939
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6322939/output_metrics.edn
 - MODEL 25/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -1547,6 +1564,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6200999/6538911
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6200999/6538911/output_metrics.edn
 - MODEL 26/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -1599,6 +1617,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5847355/6322908
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5847355/6322908/output_metrics.edn
 - MODEL 27/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -1662,6 +1681,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6200999/6224243
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6200999/6224243/output_metrics.edn
 - MODEL 28/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -1714,6 +1734,7 @@ There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406803/6406804
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406803/6406804/output_metrics.edn
 - MODEL 29/29
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
@@ -1784,13 +1805,13 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT15.228S
+   Time taken: PT11.725S
 -- Finished testing model: chatty-frog
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6338614/6338615
    The MSE is 30.671651156 and the MAE is 12.2263419899
-   Metrics written in file: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6338614/6338615/output_metrics.edn
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6338614/6338615/output_metrics.edn
 
 FINISHED TESTING THE 29 MODELS IN FIJI
 
