@@ -1,12 +1,25 @@
 Project directory for the CI scripts.
 
-# Info
-- [Bioimageio Wiki](https://github.com/bioimage-io/bioimage.io/wiki/Contribute-community-partner-specific-test-summaries)
-- [Issue](https://github.com/bioimage-io/collection-bioimage-io/issues/515)
-
-# Run usage (-h flag for)
+# Run usage (-h flag)
 ````
 bb -m core.main -h
+````
+The output should be something like this:
+````
+DeepImageJ CI for models from the BioImage Model Zoo (https://bioimage.io/)
+
+Usage: bb -m core.main [options] [action] (in the java_CI_scripts working directory)
+
+Options:
+  -u, --unit-test           false                            Run all unit tests
+  -j, --json-file FILE      ./pending_matrix/use_cases.json  Read input from json FILE
+  -s, --json-string STRING                                   Read input from raw json STRING
+  -h, --help                                                 Show help
+
+Actions:
+ init (DEFAULT) Initial checks & generate folder structures and files for the compatible models to test.
+ download       Populate model folders (download files). Build args for DeepImagej headless.
+ reproduce      Run the models on Fiji with DeepImageJ headless. Create tests summaries (to-do).
 ````
 
 # Run actions
