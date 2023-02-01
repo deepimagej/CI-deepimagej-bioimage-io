@@ -15,11 +15,6 @@
 
 (def LOG-FILES {:out (fs/file ".." "test_summaries" "fiji_log_out.txt")
                 :err (fs/file ".." "test_summaries" "fiji_log_err.txt")})
-(def COMM-FILE (fs/file ".." "resources" "models_to_test.txt"))
-(def FIJI-HOME (fs/file (System/getProperty "user.home") "blank_fiji" "Fiji.app"))
-(def fiji-executable (str (first (fs/glob FIJI-HOME "ImageJ-*"))))
-(def fiji-flags ["--headless" "--ij2" "--console" "--run"])
-(def fiji-arg-name "folder")
 
 (def script-names "Absolute paths to the scripts"
   (->> ["test_1_with_deepimagej.clj" "create_output_metrics.py"]
@@ -35,11 +30,9 @@
   (with-open [rdr (io/reader file)]
     (into [] (line-seq rdr))))
 
-(def model-folders (read-lines COMM-FILE))
-
 (defn gen-model-folders
   "Reads the comm file and creates the vector with the string paths of the models folders to test"
-  ([] (gen-model-folders (:model-folders FILES)))
+  ([] (gen-model-folders (:models-listed FILES)))
   ([comm-file]
    (read-lines comm-file)))
 
@@ -69,13 +62,13 @@
         outer (if (str/includes? (System/getProperty "os.name") "Windows") \" \')
         ;outer \" ;debug
         inner (first (set/difference quotation_marks #{outer}))]
-    (str outer fiji-arg-name "=" inner model-folder inner outer)))
+    (str outer (:fiji-scripts-arg-name CONSTANTS) "=" inner model-folder inner outer)))
 
 (defn compose-command
   "Creates a vector with the components of the command"
   [model-folder script-name]
-  (as-> [fiji-executable] cmd-vec
-        (into cmd-vec fiji-flags)
+  (as-> [(:fiji-executable CONSTANTS)] cmd-vec
+        (into cmd-vec (:fiji-flags CONSTANTS))
         (into cmd-vec [script-name (quote-arg model-folder)])))
 
 (defn string-command
@@ -92,13 +85,16 @@
    (flush)
    (mapv #(spit % msg :append true) log-files)))
 
-(def execution-dict
-  "Vector with info of the commands and prints to do at every step"
-  (vec (map-indexed (fn [idx model-folder]
-                      {:message  (format "- MODEL %d/%d\n" (inc idx) (count model-folders))
-                       :cmd-vecs (mapv (partial compose-command model-folder) script-names)})
-                    model-folders)))
-; can be access it with (get-in execution-dict [0 :cmd-vecs 0]), but not needed
+(defn gen-execution-dict
+  "Generates a vector with a dict for every step. It has the commands and prints"
+  ; can be access it with (get-in execution-dict [0 :cmd-vecs 0]), but not needed
+  ([] (gen-execution-dict (:models-listed FILES)))
+  ([comm-file]
+   (vec (map-indexed
+          (fn [idx model-folder]
+            {:message  (format "- MODEL %d/%d\n" (inc idx) (count (gen-model-folders comm-file)))
+             :cmd-vecs (mapv (partial compose-command model-folder) script-names)})
+          (gen-model-folders comm-file)))))
 
 ; NOTE: pr/sh or pr/shell escapes quotes incorrectly
 ; shell/sh does it correctly but only on Windows...
@@ -117,7 +113,7 @@
   "Runs the commands from the execution-dict. Logs outputs"
   (mapv #(spit % "") (vals LOG-FILES))
   (print-and-log (gen-messages (gen-model-folders) :start))
-  (let [timed (download/my-time (mapv run-exec-step execution-dict))]
+  (let [timed (download/my-time (mapv run-exec-step (gen-execution-dict)))]
     (print-and-log (gen-messages (gen-model-folders) :end))
     (print-and-log (format "Total Time Taken: %s\n" (:iso timed)))))
 
@@ -158,7 +154,7 @@
    (write-bash "# This is needed in Linux for Fiji to run correctly\n\n")
    (mapv #(write-bash (str "echo \"\" > " (fs/absolutize %) "\n\n")) (vals LOG-FILES))
    (write-bash (echo-and-log (gen-messages (gen-model-folders) :start)))
-   (mapv bash-exec-step execution-dict)
+   (mapv bash-exec-step (gen-execution-dict))
    (write-bash (echo-and-log (gen-messages (gen-model-folders) :end)))
    (printf "Bash script with %d lines of code written in: %s\n"
            (count (str/split-lines (slurp bash-file))) (str (fs/absolutize bash-file)))))

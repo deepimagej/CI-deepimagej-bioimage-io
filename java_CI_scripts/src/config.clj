@@ -12,7 +12,7 @@
                      :err (fs/file ".." "test_summaries" "fiji_log_err.txt")}
    :report          (fs/file ".." "test_summaries" "report.md")
    :bash-script     (fs/file ".." "resources" "models_to_test.sh")
-   :model-folders  (fs/file ".." "resources" "models_to_test.txt")
+   :models-listed   (fs/file ".." "resources" "models_to_test.txt")
    :fiji-home       (fs/file (System/getProperty "user.home") "blank_fiji" "Fiji.app")
    })
 
