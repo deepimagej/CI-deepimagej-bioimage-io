@@ -85,9 +85,11 @@
 
 
 (deftest write-dij-model-test
-  (mapv write-dij-model (rest @model-records))
-  (let [dij-models (map #(into {} (build-dij-model %)) (rest @model-records))
-        files (map #(fs/file (get-in % [:paths :model-dir-path]) "dij_args.edn")  (rest @model-records))
-        parsed-dicts (map #(edn/read-string (slurp %)) files)]
-    (is (= (first parsed-dicts) (first dij-models)))
-    (is (= (last parsed-dicts) (last dij-models)))))
+  (let [model-folders (map #(get-in % [:paths :model-dir-path]) (rest @model-records))]
+    (mapv fs/create-dirs model-folders)
+    (mapv write-dij-model (rest @model-records))
+    (let [dij-models (map #(into {} (build-dij-model %)) (rest @model-records))
+          files (map #(fs/file (get-in % [:paths :model-dir-path]) "dij_args.edn") (rest @model-records))
+          parsed-dicts (map #(edn/read-string (slurp %)) files)]
+      (is (= (first parsed-dicts) (first dij-models)))
+      (is (= (last parsed-dicts) (last dij-models))))))
