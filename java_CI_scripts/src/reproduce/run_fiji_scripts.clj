@@ -38,7 +38,8 @@
 (def model-folders (read-lines COMM-FILE))
 
 (def messages
-  {:start (format "STARTED TESTING THE %d MODELS WITH DEEPIMAGEJ IN FIJI\n\n" (count model-folders))
+  {:start (format "STARTED TESTING THE %d MODELS WITH DEEPIMAGEJ IN FIJI\n\n"
+                  (count model-folders))
    :end   (format "\nFINISHED TESTING THE %d MODELS IN FIJI\n\nLogs are in: %s and %s\n"
                   (count model-folders) (str (fs/absolutize (:out LOG-FILES)))
                   (fs/file-name (:err LOG-FILES)))})

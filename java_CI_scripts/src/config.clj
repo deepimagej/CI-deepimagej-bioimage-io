@@ -12,6 +12,8 @@
           :err (fs/file ".." "test_summaries" "fiji_log_err.txt")}
    :report (fs/file ".." "test_summaries" "report.md")
    :bash-script (fs/file ".." "resources" "models_to_test.sh")
+   :models-list (fs/file ".." "resources" "models_to_test.txt")
+   :fiji-home (fs/file (System/getProperty "user.home") "blank_fiji" "Fiji.app")
    })
 
 (def CONSTANTS "Constants that are not files"

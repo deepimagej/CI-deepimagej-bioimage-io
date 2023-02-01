@@ -14,9 +14,8 @@ output_file_path = folder + "/" + output_file_name
 output_file = open(output_file_path, "w")
 output_file.write("{\n")
 
-
-imp1 = IJ.openImage(folder + "/" + ci_output_name)
-imp2 = IJ.openImage(folder + "/" + model_dir_name + "/" + "sample_output_0.tif")
+imp1 = IJ.openImage(folder + "/" + model_dir_name + "/" + "sample_output_0.tif")
+imp2 = IJ.openImage(folder + "/" + ci_output_name)
 
 # debug in Lucia laptop
 # imp1 = IJ.openImage("/home/cia/Documentos/EPFL/numpy-tiff-deepimagej/10.5281/zenodo.5749843/5888237/sample_output_0.tif");

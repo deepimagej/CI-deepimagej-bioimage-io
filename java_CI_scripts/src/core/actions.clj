@@ -57,5 +57,6 @@
     (run-fiji-scripts/-main)
     (let [_ (run-fiji-scripts/build-bash-script (:bash-script FILES))
           timed (download/my-time (pr/shell "sh" (:bash-script FILES)))]
-      (printf "Total Time Taken: %s\n" (:iso timed))))
+      (printf "Total Time Taken: %s\n" (:iso timed))
+      (flush)))
   (reports/basic-report))
