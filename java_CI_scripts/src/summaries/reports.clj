@@ -17,8 +17,9 @@
 (defn basic-model-info
   [metrics-file dij-file]
   (let [{:keys [name nickname model-folder]} (edn/read-string (slurp dij-file))
-        {:keys [mse mae]} (edn/read-string (slurp metrics-file))]
-    (format "# %s\n%s\n- (%s) \n- mse: %.5f \n- mae: %.5f\n\n" name model-folder nickname mse mae)))
+        {:keys [mse mae max_val]} (edn/read-string (slurp metrics-file))]
+    (format "# %s\n%s\n- (%s) \n- mse: %.5f \n- mae: %.5f\n- max_val: %.5f\n\n"
+            name model-folder nickname mse mae max_val)))
 
 (defn basic-report
   "print basic report with results of CI"

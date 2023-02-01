@@ -1,4 +1,4 @@
-name: CI - test BioImage.IO resources with DeepImageJ
+name: CI - test use-cases only
 
 # Controls when the workflow will run
 on:
@@ -8,10 +8,12 @@ on:
       pending_matrix:
         description: 'json encoded gh matrix of pending validations for new or updated resources (default: test on all resources)'
         required: true
-        default: '''{"include": [{"resource_id": "**", "version_id": "**"}]}'''
-        #default: '''{"include": [{"resource_id": "10.5281/zenodo.7261974","version_id": "7261975"},
-        #{"resource_id": "deepimagej","version_id": "DeepSTORMZeroCostDL4Mic/latest"},
-        #{"resource_id": "10.5281/zenodo.6334881","version_id": "6346477"}]}'''
+        #default: '''{"include": [{"resource_id": "**", "version_id": "**"}]}'''
+        default: '''{"include": [
+		    {"resource_id": "10.5281/zenodo.5749843","version_id": "5888237"},
+		    {"resource_id": "10.5281/zenodo.6338614","version_id": "6338615"},
+		    {"resource_id": "10.5281/zenodo.6200999","version_id": "6538911"},
+		    {"resource_id": "10.5281/zenodo.6406756","version_id": "6811922"}]}'''
         type: string
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -47,7 +49,6 @@ jobs:
         working-directory: ./bash_scripts
         run: |
           sh setup_deepimagej.sh
-          touch ../resources/models_to_test.txt
 
       - name: run initial stage
         working-directory: ./java_CI_scripts
