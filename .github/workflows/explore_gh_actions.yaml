@@ -54,11 +54,11 @@ jobs:
           ls
           cat output.txt
 
-      - name: Fake Fiji Setup
-        run: |
-          mkdir -p ~/blank_fiji/Fiji.app
-          touch ~/blank_fiji/Fiji.app/ImageJ-linux64
-          touch resources/models_to_test.txt
+      # - name: Fake Fiji Setup
+      #   run: |
+      #     mkdir -p ~/blank_fiji/Fiji.app
+      #     touch ~/blank_fiji/Fiji.app/ImageJ-linux64
+      #     touch resources/models_to_test.txt
 
       - name: setup babashka
         uses: turtlequeue/setup-babashka@v1.5.0
