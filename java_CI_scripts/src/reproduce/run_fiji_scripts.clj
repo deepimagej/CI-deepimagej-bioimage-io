@@ -37,12 +37,30 @@
 
 (def model-folders (read-lines COMM-FILE))
 
-(def messages
-  {:start (format "STARTED TESTING THE %d MODELS WITH DEEPIMAGEJ IN FIJI\n\n"
-                  (count model-folders))
-   :end   (format "\nFINISHED TESTING THE %d MODELS IN FIJI\n\nLogs are in: %s and %s\n"
-                  (count model-folders) (str (fs/absolutize (:out LOG-FILES)))
-                  (fs/file-name (:err LOG-FILES)))})
+(defn gen-model-folders
+  "Reads the comm file and creates the vector with the string paths of the models folders to test"
+  ([] (gen-model-folders (:model-folders FILES)))
+  ([comm-file]
+   (read-lines comm-file)))
+
+(defn local-time
+  "returns local date and time"
+  ([] (local-time "Europe/Paris"))
+  ([zone-str]
+   (str (java.time.LocalDateTime/now (java.time.ZoneId/of zone-str)))))
+
+(defn gen-messages
+  "Generates the messages for the start and end of the CI run"
+  [model-folders k]
+  (let [now (local-time)
+        logs-msg (format "Logs are in: %s and %s\n\n"
+                         (str (fs/absolutize (get-in FILES [:logs :out])))
+                         (fs/file-name (get-in FILES [:logs :err])))
+        msgs {:start (format "STARTED TESTING THE %d MODELS WITH DEEPIMAGEJ IN FIJI AT %s\n\n"
+                             (count model-folders) now)
+              :end (format "\nFINISHED TESTING THE %d MODELS IN FIJI AT %s\n\n "
+                           (count model-folders) now)} ]
+    (str (k msgs) logs-msg)))
 
 (defn quote-arg
   "Quotes the argument to fiji script correctly (different in linux and windows)"
@@ -98,9 +116,9 @@
 (defn -main []
   "Runs the commands from the execution-dict. Logs outputs"
   (mapv #(spit % "") (vals LOG-FILES))
-  (print-and-log (:start messages))
+  (print-and-log (gen-messages (gen-model-folders) :start))
   (let [timed (download/my-time (mapv run-exec-step execution-dict))]
-    (print-and-log (:end messages))
+    (print-and-log (gen-messages (gen-model-folders) :end))
     (print-and-log (format "Total Time Taken: %s\n" (:iso timed)))))
 
 ;; Create bash file automatically
@@ -139,8 +157,8 @@
    (write-bash "# This file was generated automatically by run_fiji_scripts.clj\n")
    (write-bash "# This is needed in Linux for Fiji to run correctly\n\n")
    (mapv #(write-bash (str "echo \"\" > " (fs/absolutize %) "\n\n")) (vals LOG-FILES))
-   (write-bash (echo-and-log (:start messages)))
+   (write-bash (echo-and-log (gen-messages (gen-model-folders) :start)))
    (mapv bash-exec-step execution-dict)
-   (write-bash (echo-and-log (:end messages)))
+   (write-bash (echo-and-log (gen-messages (gen-model-folders) :end)))
    (printf "Bash script with %d lines of code written in: %s\n"
            (count (str/split-lines (slurp bash-file))) (str (fs/absolutize bash-file)))))
