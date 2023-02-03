@@ -6,20 +6,24 @@ bb -m core.main -h
 ````
 The output should be something like this:
 ````
+
 DeepImageJ CI for models from the BioImage Model Zoo (https://bioimage.io/)
 
-Usage: bb -m core.main [options] [action] (in the java_CI_scripts working directory)
-
-Options:
-  -u, --unit-test           false                            Run all unit tests
-  -j, --json-file FILE      ./pending_matrix/use_cases.json  Read input from json FILE
-  -s, --json-string STRING                                   Read input from raw json STRING
-  -h, --help                                                 Show help
+Usage: bb -m core.main [action] [options] (in the java_CI_scripts working directory)
 
 Actions:
  init (DEFAULT) Initial checks & generate folder structures and files for the compatible models to test.
  download       Populate model folders (download files). Build args for DeepImagej headless.
  reproduce      Run the models on Fiji with DeepImageJ headless. Create tests summaries (to-do).
+
+Options:
+  -h, --help                                                 Show help
+  -j, --json-file FILE      ./pending_matrix/use_cases.json  Read input from json FILE
+  -s, --json-string STRING                                   Read input from raw json STRING
+  -u, --unit-test           false                            Run all unit tests
+
+Please refer to the docs page for more information:
+        https://github.com/ivan-ea/CI-deepimagej-bioimage-io/blob/master/java_CI_scripts/Readme.md
 ````
 
 # Run actions
@@ -27,7 +31,7 @@ Actions:
 ## Run init with an input file
  
 ````
-bb -m core.main -j pending_matrix/use_cases.json init
+bb -m core.main init -j pending_matrix/use_cases.json
 ````
 
 ## Run with a json string as input
@@ -41,11 +45,11 @@ bb -m core.main -s '{\"include\": [{\"resource_id\": \"10.5281/zenodo.7261974\",
 
 ## Running download actions on the use cases
 ````
-bb -m core.main -j pending_matrix/use_cases.json download
+bb -m core.main download -j pending_matrix/use_cases.json
 ````
 
-## Running reproduce scripts on the use cases
-Assumes models have been populated and models_to_test.txt created
+## Running reproduce scripts 
+Assumes model folders have been populated and their paths are written on `models_to_test.txt`.
 ````
 bb -m core.main reproduce
 ````

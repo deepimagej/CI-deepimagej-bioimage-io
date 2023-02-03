@@ -16,8 +16,8 @@
 ; todo? multimethod, dispatch on string content
 
 (def cli-options
-  [["-u" "--unit-test" "Run all unit tests"
-    :default false]
+  [
+   ["-h" "--help" "Show help"]
    ["-j" "--json-file FILE" "Read input from json FILE"
     :default "./pending_matrix/use_cases.json"
     :validate [#(fs/exists? %) "File must exist"
@@ -25,21 +25,23 @@
    ["-s" "--json-string STRING" "Read input from raw json STRING"
     ; not given a default value, to make it incompatible with -j
     :validate [#(valid-json? %) "String must be valid json"]]
-   ;; A boolean option defaulting to nil
-   ["-h" "--help" "Show help"]])
+   ["-u" "--unit-test" "Run all unit tests"
+    :default false]
+   ])
 
 (defn usage [options-summary]
-  (->> ["DeepImageJ CI for models from the BioImage Model Zoo (https://bioimage.io/)"
+  (->> [""
+        "DeepImageJ CI for models from the BioImage Model Zoo (https://bioimage.io/)"
         ""
-        "Usage: bb -m core.main [options] [action] (in the java_CI_scripts working directory)"
-        ""
-        "Options:"
-        options-summary
+        "Usage: bb -m core.main [action] [options] (in the java_CI_scripts working directory)"
         ""
         "Actions:"
         " init (DEFAULT) Initial checks & generate folder structures and files for the compatible models to test."
         " download       Populate model folders (download files). Build args for DeepImagej headless."
         " reproduce      Run the models on Fiji with DeepImageJ headless. Create tests summaries (to-do)."
+        ""
+        "Options:"
+        options-summary
         ""
         "Please refer to the docs page for more information:
         https://github.com/ivan-ea/CI-deepimagej-bioimage-io/blob/master/java_CI_scripts/Readme.md"]
