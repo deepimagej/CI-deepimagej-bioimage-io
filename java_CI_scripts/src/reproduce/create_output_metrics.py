@@ -73,7 +73,7 @@ mae = sum_mae / (width*height)
 
 # Mae and Mse will be calculated relative to the max intensity value
 print_msg = "   The MSE (relative) is {}\n   The MAE (relative) is {}\n   The max_val is {}"
-print(print_msg.format(mse/max_val,mae/max_val,max_val))
+print(print_msg.format(mse/max_val, mae/max_val, max_val))
 
 output_file.write(":mse {:.5f} \n".format(mse/max_val))
 output_file.write(":mae {:.5f} \n".format(mae/max_val))
