@@ -19,6 +19,7 @@ output.txt
 # uziped folder
 bash_scripts/dependencies_2115/
 
+.idea/
 
 # paths to Models to test
 # change a lot between computers (abs paths) and inputs (contents)
