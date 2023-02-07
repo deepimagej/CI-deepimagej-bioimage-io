@@ -1,2 +1,8 @@
 {:paths ["src" "test"]
- :deps {}}
+ :deps {babashka/fs {:mvn/version "0.2.15"}
+        babashka/babashka.curl {:mvn/version "0.1.2"}
+        cheshire/cheshire {:mvn/version "5.11.0"}
+        clj-commons/clj-yaml {:mvn/version "1.0.26"}
+        babashka/process {:mvn/version "0.4.16"}
+        org.clojure/tools.cli {:mvn/version "1.0.214"}}
+ }
