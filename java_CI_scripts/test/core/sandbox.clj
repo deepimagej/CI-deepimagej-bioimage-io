@@ -27,8 +27,14 @@
 
 
 ; try-catch inside let
-
 (comment
   (let [a (try (/ 4 0) (catch Exception e nil))]
     a)
+  )
+
+; rdfs that are models
+(comment
+  (frequencies (map :type @all-rdfs-parsed))
+  ; => {"model" 69, "dataset" 42, "application" 52, "notebook" 2}
+  (filter (fn [r] (= "model" (:type r))) @all-rdfs-parsed)
   )

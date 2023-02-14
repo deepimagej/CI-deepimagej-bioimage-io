@@ -27,6 +27,10 @@
   (is (= "13bbeb9a2403f5ff840951d8907586cf1ceded3072d36466db3e592b5ad53649"
          (get-in @(:a-model model-dicts) [:weights :pytorch_state_dict :sha256]))))
 
+(deftest get-rdf-info-test
+  (is (= (into {} (get-rdf-info @(:tf-model model-dicts)))
+         {:type "model", :dij-config? true, :run-mode nil})))
+
 (deftest get-weight-info-test
   (let [w (get-weight-info @(:a-model model-dicts))
         w1 (get-weight-info @(:tf-model model-dicts))
@@ -123,3 +127,5 @@
                                 "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/per_sample_scale_range.ijm"
                                 "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/binarize.ijm"
                                 "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/params.csv"]))))
+
+

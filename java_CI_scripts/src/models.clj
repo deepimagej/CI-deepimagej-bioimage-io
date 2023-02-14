@@ -18,10 +18,17 @@
 (def p*process-names{:preprocess :pre-p :postprocess :post-p} )
 
 (defrecord Model [paths name nickname dij-config? weights tensors p*process attach])
+(defrecord RdfInfo [type dij-config? run-mode])
 (defrecord Paths [rdf-path summa-path model-dir-path samples-path])
 (defrecord Weight [type source])
 (defrecord Tensor [type name axes sample shape])
 (defrecord PProcess [type script])
+
+(defn get-rdf-info
+  [rdf-dict]
+  (map->RdfInfo {:type (:type rdf-dict)
+                 :dij-config? (contains? (:config rdf-dict) :deepimagej)
+                 :run-mode (:run_mode rdf-dict)}))
 
 (defn get-weight-info
   "Put relevant weight information in a record, given a parsed rdf.
