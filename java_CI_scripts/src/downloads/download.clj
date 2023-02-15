@@ -50,7 +50,7 @@
 (defn get-attachments-to-download
   "Chooses the preprocessing files to download from the links in the attachments"
   [model-record]
-  (filter #(str/ends-with? % "ijm") (:attach model-record) ))
+  (filter #(str/ends-with? % "ijm") (get-in model-record [:rdf-info :attach])))
 
 (defn get-urls-to-download
   "Gets all the urls that need to be downloaded to test a model record (weights and images)"
