@@ -1,11 +1,9 @@
 (ns models
-  (:require [collection :refer [COLLECTION-ROOT]]
+  "Define a Model record to hold the important data in an rdf"
+  (:require [config :refer [FILES]]
             [summaries [summary :refer [new-root-path gen-summa-path]]]
             [clj-yaml.core :as yaml]
             [babashka.fs :as fs]))
-
-(def MODEL-ROOT "path to the models" (fs/path ".." "models"))
-(def SAMPLE-ROOT "path to the tiff files" (fs/path ".." "numpy-tiff-deepimagej"))
 
 (defn parse-model
   "Takes the path of an rdf.yaml and parses it into an ordered dictionary"
@@ -17,13 +15,14 @@
                    :tensorflow_saved_model_bundle "Tensorflow"})
 (def p*process-names{:preprocess :pre-p :postprocess :post-p} )
 
-(defrecord Model [paths name nickname dij-config? weights tensors p*process attach])
+(defrecord Model [paths name nickname dij-config? rdf-info weights tensors p*process attach])
 (defrecord RdfInfo [type dij-config? run-mode])
 (defrecord Paths [rdf-path summa-path model-dir-path samples-path])
 (defrecord Weight [type source])
 (defrecord Tensor [type name axes sample shape])
 (defrecord PProcess [type script])
 
+; todo put attachments in rdf-info
 (defn get-rdf-info
   [rdf-dict]
   (map->RdfInfo {:type (:type rdf-dict)
@@ -63,19 +62,19 @@
 (defn gen-model-path
   "Gets the path corresponding to the model directory of an rdf-path"
   ([coll-root model-root rdf-path] (new-root-path coll-root model-root rdf-path))
-  ([rdf-path] (gen-model-path COLLECTION-ROOT MODEL-ROOT rdf-path)))
+  ([rdf-path] (gen-model-path (:collection-root FILES) (:models-root FILES) rdf-path)))
 
 (defn gen-sample-path
   "Gets the path corresponding to the model directory of an rdf-path"
   ([coll-root sample-root rdf-path] (new-root-path coll-root sample-root rdf-path))
-  ([rdf-path] (gen-model-path COLLECTION-ROOT SAMPLE-ROOT rdf-path)))
+  ([rdf-path] (gen-model-path (:collection-root FILES) (:samples-root FILES) rdf-path)))
 
 (defn create-model-dir
   "Creates directory for the model given the path to an rdf"
   ([coll-root model-root rdf-path]
    (fs/create-dirs (gen-model-path coll-root model-root rdf-path)))
   ([rdf-path]
-   (create-model-dir COLLECTION-ROOT MODEL-ROOT rdf-path)))
+   (create-model-dir (:collection-root FILES) (:models-root FILES) rdf-path)))
 
 (defn get-paths-info
   "Gets the different paths the model uses"
@@ -86,11 +85,12 @@
   "Generates a Model record, data structure with the information needed for testing a model"
   [rdf-path]
   (let [rdf-dict (parse-model rdf-path)]
-    (map->Model {:name (:name rdf-dict)
-                 :nickname (get-in rdf-dict [:config :bioimageio :nickname])
+    (map->Model {:name        (:name rdf-dict)
+                 :nickname    (get-in rdf-dict [:config :bioimageio :nickname])
                  :dij-config? (contains? (:config rdf-dict) :deepimagej)
-                 :paths (get-paths-info rdf-path)
-                 :weights (get-weight-info rdf-dict)
-                 :tensors (get-tensor-info rdf-dict)
-                 :p*process (get-p*process-info rdf-dict)
-                 :attach (get-in rdf-dict [:attachments :files])})))
+                 :rdf-info    (get-rdf-info rdf-dict)
+                 :paths       (get-paths-info rdf-path)
+                 :weights     (get-weight-info rdf-dict)
+                 :tensors     (get-tensor-info rdf-dict)
+                 :p*process   (get-p*process-info rdf-dict)
+                 :attach      (get-in rdf-dict [:attachments :files])})))

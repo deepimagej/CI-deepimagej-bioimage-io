@@ -78,7 +78,7 @@
     (testing "After the tests, delete the file"
       (is (fs/delete-if-exists expected-file)))))
 
-(deftest write-summaries-from--error!-test
+(deftest write-summaries-from-error!-test
   (let [{:keys [keep-testing error-found]} (initial-checks/separate-by-error @model-rp's)
         one-error-k (first (select-keys error-found [:no-dij-config]))]
     (write-summaries-from-error! one-error-k)))

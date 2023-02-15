@@ -49,7 +49,7 @@
     (let [timed (download/my-time (doall (pmap download/download-into-model-folder model-records-keep)))]
       (printf "Total Time Taken: %s\n" (:iso timed)))))
 
-;todo: generate test summaries for tested models
+;todo: generate test summaries for tested models that produce image
 (defn reproduce-pipeline
  "For the linux case, where reproduce.run-fiji-scripts fails"
   [& _]

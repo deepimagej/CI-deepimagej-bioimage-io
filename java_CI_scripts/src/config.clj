@@ -7,7 +7,9 @@
 (def FILES "Configuration constants that are files"
   {:config          (fs/file ".." "resources" "config.edn")
    :collection-root (fs/file ".." "bioimageio-gh-pages" "rdfs")
+   :summa-root      (fs/file ".." "test_summaries")
    :models-root     (fs/file ".." "models")
+   :samples-root    (fs/file ".." "numpy-tiff-deepimagej")
    :logs            {:out (fs/file ".." "test_summaries" "fiji_log_out.txt")
                      :err (fs/file ".." "test_summaries" "fiji_log_err.txt")}
    :report          (fs/file ".." "test_summaries" "report.md")

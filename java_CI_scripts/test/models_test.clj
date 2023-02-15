@@ -1,6 +1,6 @@
 (ns models-test
-  (:require [models :refer :all]
-            [summaries.summary :refer [SUMMA-ROOT]]
+  (:require [config :refer [FILES]]
+            [models :refer :all]
             [test-setup :refer [rdf-paths load-test-paths]]
             [clojure.test :refer :all]
             [clojure.java.io :refer [as-url]]
@@ -93,7 +93,7 @@
 ; (filter (fn [{:keys [:type]}] (= type :inputs)) b)
 
 (deftest gen-model-path-test
-  (let [expected-path (fs/path MODEL-ROOT "10.5281" "zenodo.6334881" "6346477")]
+  (let [expected-path (fs/path (:models-root FILES) "10.5281" "zenodo.6334881" "6346477")]
     (is (= (str (gen-model-path @(:an-rdf rdf-paths))) (str expected-path)))))
 
 ; No test for create-model-dir
@@ -104,9 +104,9 @@
   (let [test-rdf @(:pt-rdf rdf-paths)
         paths (get-paths-info test-rdf)
         components '("10.5281" "zenodo.5874741" "5874742")
-        s-path (apply fs/path (conj components SUMMA-ROOT))
-        m-path (apply fs/path (conj components MODEL-ROOT))
-        sample-path (apply fs/path (conj components SAMPLE-ROOT))]
+        s-path (apply fs/path (conj components (:summa-root FILES)))
+        m-path (apply fs/path (conj components (:models-root FILES)))
+        sample-path (apply fs/path (conj components (:samples-root FILES)))]
     (is (= [:rdf-path :summa-path :model-dir-path :samples-path] (keys paths)))
     (is (= (:rdf-path paths) test-rdf))
     (is (= (str s-path) (str (:summa-path paths))))
@@ -115,7 +115,7 @@
     (is (= paths (->Paths test-rdf s-path m-path sample-path))) "Equality regardless different references"))
 
 (deftest build-model-test
-  (testing "Only the new fields (record fields already tested"
+  (testing "Only the new fields (record fields already tested)"
     (let [the-keys [:name :nickname :dij-config? :attach]
           vals-model-0 (map #(% (build-model @(:an-rdf rdf-paths))) the-keys)
           vals-model-tf (map #(% (build-model @(:tf-rdf rdf-paths))) the-keys)]
