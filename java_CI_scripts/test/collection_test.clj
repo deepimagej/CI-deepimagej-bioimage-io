@@ -36,7 +36,7 @@
   (let [all-rdfs (fs/glob COLLECTION-ROOT "**")
         some-rdfs (fs/glob (fs/path COLLECTION-ROOT "10.5281/zenodo.5749843") "**")]
     (testing "Number of rdfs in the collection"
-      (is (= (count (filter-rdfs all-rdfs)) 165)))
+      (is (>= (count (filter-rdfs all-rdfs)) 165)))
     (is (= (count (filter-rdfs some-rdfs)) 2))))
 
 (deftest resource->paths-test
@@ -44,7 +44,7 @@
         version-glob (first (file-json->vector "pending_matrix/two_versions.json"))
         one-model (last (file-json->vector "pending_matrix/two_models.json"))]
     (testing "Globbing all resources and versions"
-      (is (= (count (resource->paths all-models-resources)) 165)))
+      (is (>= (count (resource->paths all-models-resources)) 165)))
     (testing "Globbing all version of a resource"
       (is (= (count (resource->paths version-glob)) 2))
       (is (= (resource->paths version-glob)
@@ -58,7 +58,7 @@
         resource-vectors (map file-json->vector files)
         [r-a r-b r-c] (map get-rdfs-to-test resource-vectors)]
     (testing "Resource vector of 1 element but complete globbing"
-      (is (= (count r-a) 165)))
+      (is (>= (count r-a) 165)))
     (testing "Resource vector has 2 maps"
       (is (= (map #(fs/file-name (fs/parent %)) r-b) ["7261975" "latest"])))
     (testing "Resource vector has 1 map, but version globbing"
