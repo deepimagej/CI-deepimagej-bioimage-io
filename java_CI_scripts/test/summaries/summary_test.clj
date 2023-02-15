@@ -79,6 +79,6 @@
       (is (fs/delete-if-exists expected-file)))))
 
 (deftest write-summaries-from-error!-test
-  (let [{:keys [keep-testing error-found]} (initial-checks/separate-by-error @model-rp's)
-        one-error-k (first (select-keys error-found [:no-dij-config]))]
+  (let [{:keys [keep-testing error-found]} (initial-checks/separate-by-error @model-records)
+        one-error-k (first (select-keys error-found [:no-compatible-weights]))]
     (write-summaries-from-error! one-error-k)))

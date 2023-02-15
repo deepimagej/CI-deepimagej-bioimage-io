@@ -71,10 +71,10 @@
 (defn separate-by-error
   "Discriminative function should return true to keep testing, false if error occurred
   After an error happens, no more error checks are made for a model"
-  ([models-rp-list]
-   (separate-by-error models-rp-list error-functions))
-  ([models-rp-list error-fns]
-   (reduce check-error {:keep-testing models-rp-list} error-fns)))
+  ([models-list]
+   (separate-by-error models-list error-functions))
+  ([models-list error-fns]
+   (reduce check-error {:keep-testing models-list} error-fns)))
 
 ; Deprecated, but not deleted. It can clarify how things worked initially
 (defn separate-by-dij-config
