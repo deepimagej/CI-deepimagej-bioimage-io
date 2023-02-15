@@ -15,8 +15,8 @@
                    :tensorflow_saved_model_bundle "Tensorflow"})
 (def p*process-names{:preprocess :pre-p :postprocess :post-p} )
 
-(defrecord Model [paths name nickname dij-config? rdf-info weights tensors p*process attach])
-(defrecord RdfInfo [type dij-config? run-mode])
+(defrecord Model [paths name nickname dij-config? rdf-info weights tensors p*process])
+(defrecord RdfInfo [type dij-config? run-mode attach])
 (defrecord Paths [rdf-path summa-path model-dir-path samples-path])
 (defrecord Weight [type source])
 (defrecord Tensor [type name axes sample shape])
@@ -25,9 +25,10 @@
 ; todo put attachments in rdf-info
 (defn get-rdf-info
   [rdf-dict]
-  (map->RdfInfo {:type (:type rdf-dict)
+  (map->RdfInfo {:type        (:type rdf-dict)
                  :dij-config? (contains? (:config rdf-dict) :deepimagej)
-                 :run-mode (:run_mode rdf-dict)}))
+                 :run-mode    (:run_mode rdf-dict)
+                 :attach      (get-in rdf-dict [:attachments :files])}))
 
 (defn get-weight-info
   "Put relevant weight information in a record, given a parsed rdf.
@@ -87,10 +88,8 @@
   (let [rdf-dict (parse-model rdf-path)]
     (map->Model {:name        (:name rdf-dict)
                  :nickname    (get-in rdf-dict [:config :bioimageio :nickname])
-                 :dij-config? (contains? (:config rdf-dict) :deepimagej)
                  :rdf-info    (get-rdf-info rdf-dict)
                  :paths       (get-paths-info rdf-path)
                  :weights     (get-weight-info rdf-dict)
                  :tensors     (get-tensor-info rdf-dict)
-                 :p*process   (get-p*process-info rdf-dict)
-                 :attach      (get-in rdf-dict [:attachments :files])})))
+                 :p*process   (get-p*process-info rdf-dict)})))

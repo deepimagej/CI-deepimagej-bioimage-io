@@ -29,7 +29,12 @@
 
 (deftest get-rdf-info-test
   (is (= (into {} (get-rdf-info @(:tf-model model-dicts)))
-         {:type "model", :dij-config? true, :run-mode nil})))
+         {:type "model", :dij-config? true, :run-mode nil :attach
+          ["https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/exampleImage.tif"
+           "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/resultImage.tif"
+           "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/per_sample_scale_range.ijm"
+           "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/binarize.ijm"
+           "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/params.csv"]})))
 
 (deftest get-weight-info-test
   (let [w (get-weight-info @(:a-model model-dicts))
@@ -116,12 +121,11 @@
 
 (deftest build-model-test
   (testing "Only the new fields (record fields already tested)"
-    (let [the-keys [:name :nickname :dij-config? :attach]
+    (let [the-keys [:name :nickname]
           vals-model-0 (map #(% (build-model @(:an-rdf rdf-paths))) the-keys)
           vals-model-tf (map #(% (build-model @(:tf-rdf rdf-paths))) the-keys)]
-      (is (= (butlast vals-model-0) ["2D UNet Arabidopsis Apical Stem Cells" "laid-back-lobster" false]))
-      (is (nil? (last vals-model-0)))
-      (is (= (butlast vals-model-tf) ["Cell Segmentation from Membrane Staining for Plant Tissues" "humorous-owl" true]))
+      (is (= vals-model-0 ["2D UNet Arabidopsis Apical Stem Cells" "laid-back-lobster"]))
+      (is (= vals-model-tf ["Cell Segmentation from Membrane Staining for Plant Tissues" "humorous-owl"]))
       (is (last vals-model-tf) ["https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/exampleImage.tif"
                                 "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/resultImage.tif"
                                 "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/per_sample_scale_range.ijm"
