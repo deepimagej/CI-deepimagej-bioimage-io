@@ -6,7 +6,7 @@
             [clojure.java.io :refer [as-url]]
             [babashka.fs :as fs]))
 
-; TODO use rdf-parsed from test-setup
+; todo use rdf-parsed from test-setup
 (def model-dicts {:a-model (atom nil) :tf-model (atom nil) :pt-model (atom nil)})
 
 (defn load-test-models
