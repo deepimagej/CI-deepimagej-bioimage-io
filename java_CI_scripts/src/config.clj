@@ -4,17 +4,20 @@
             [babashka.fs :as fs]))
 
 ; todo fill config constants (start from the end: run-fiji-scripts and test-1)
-(def FILES "Configuration constants that are files"
-  {:config          (fs/file ".." "resources" "config.edn")
-   :collection-root (fs/file ".." "bioimageio-gh-pages" "rdfs")
+(def ROOTS "Paths to folder roots"
+  {:collection-root (fs/file ".." "bioimageio-gh-pages" "rdfs")
    :summa-root      (fs/file ".." "test_summaries")
    :models-root     (fs/file ".." "models")
    :samples-root    (fs/file ".." "numpy-tiff-deepimagej")
-   :logs            {:out (fs/file ".." "test_summaries" "fiji_log_out.txt")
-                     :err (fs/file ".." "test_summaries" "fiji_log_err.txt")}
-   :report          (fs/file ".." "test_summaries" "report.md")
-   :bash-script     (fs/file ".." "resources" "models_to_test.sh")
-   :models-listed   (fs/file ".." "resources" "models_to_test.txt")
+   :resources-root  (fs/file ".." "resources")})
+
+(def FILES "Configuration constants that are files"
+  {:config          (fs/file (:resources-root ROOTS) "config.edn")
+   :logs            {:out (fs/file (:summa-root ROOTS) "fiji_log_out.txt")
+                     :err (fs/file (:summa-root ROOTS) "fiji_log_err.txt")}
+   :report          (fs/file (:summa-root ROOTS) "report.md")
+   :bash-script     (fs/file (:resources-root ROOTS) "models_to_test.sh")
+   :models-listed   (fs/file (:resources-root ROOTS) "models_to_test.txt")
    :fiji-home       (fs/file (System/getProperty "user.home") "blank_fiji" "Fiji.app")
    })
 
@@ -36,6 +39,6 @@
   make the files into their strings"
   ([] (serialize-config (:config FILES)))
   ([config-file]
-   (let [full-dict (into CONSTANTS (absolutize-nested FILES))]
+   (let [full-dict (merge CONSTANTS (absolutize-nested ROOTS) (absolutize-nested FILES))]
      (spit config-file (with-out-str (ppr/pprint full-dict)))
      (printf "Config file generated in %s\n" (str (fs/absolutize config-file))))))

@@ -1,5 +1,5 @@
 (ns models-test
-  (:require [config :refer [FILES]]
+  (:require [config :refer [ROOTS]]
             [models :refer :all]
             [test-setup :refer [rdf-paths load-test-paths]]
             [clojure.test :refer :all]
@@ -98,7 +98,7 @@
 ; (filter (fn [{:keys [:type]}] (= type :inputs)) b)
 
 (deftest gen-model-path-test
-  (let [expected-path (fs/path (:models-root FILES) "10.5281" "zenodo.6334881" "6346477")]
+  (let [expected-path (fs/path (:models-root ROOTS) "10.5281" "zenodo.6334881" "6346477")]
     (is (= (str (gen-model-path @(:an-rdf rdf-paths))) (str expected-path)))))
 
 ; No test for create-model-dir
@@ -109,9 +109,9 @@
   (let [test-rdf @(:pt-rdf rdf-paths)
         paths (get-paths-info test-rdf)
         components '("10.5281" "zenodo.5874741" "5874742")
-        s-path (apply fs/path (conj components (:summa-root FILES)))
-        m-path (apply fs/path (conj components (:models-root FILES)))
-        sample-path (apply fs/path (conj components (:samples-root FILES)))]
+        s-path (apply fs/path (conj components (:summa-root ROOTS)))
+        m-path (apply fs/path (conj components (:models-root ROOTS)))
+        sample-path (apply fs/path (conj components (:samples-root ROOTS)))]
     (is (= [:rdf-path :summa-path :model-dir-path :samples-path] (keys paths)))
     (is (= (:rdf-path paths) test-rdf))
     (is (= (str s-path) (str (:summa-path paths))))

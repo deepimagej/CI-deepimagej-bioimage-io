@@ -1,6 +1,6 @@
 (ns models
   "Define a Model record to hold the important data in an rdf"
-  (:require [config :refer [FILES]]
+  (:require [config :refer [ROOTS]]
             [summaries [summary :refer [new-root-path gen-summa-path]]]
             [clj-yaml.core :as yaml]
             [babashka.fs :as fs]))
@@ -63,19 +63,19 @@
 (defn gen-model-path
   "Gets the path corresponding to the model directory of an rdf-path"
   ([coll-root model-root rdf-path] (new-root-path coll-root model-root rdf-path))
-  ([rdf-path] (gen-model-path (:collection-root FILES) (:models-root FILES) rdf-path)))
+  ([rdf-path] (gen-model-path (:collection-root ROOTS) (:models-root ROOTS) rdf-path)))
 
 (defn gen-sample-path
   "Gets the path corresponding to the model directory of an rdf-path"
   ([coll-root sample-root rdf-path] (new-root-path coll-root sample-root rdf-path))
-  ([rdf-path] (gen-model-path (:collection-root FILES) (:samples-root FILES) rdf-path)))
+  ([rdf-path] (gen-model-path (:collection-root ROOTS) (:samples-root ROOTS) rdf-path)))
 
 (defn create-model-dir
   "Creates directory for the model given the path to an rdf"
   ([coll-root model-root rdf-path]
    (fs/create-dirs (gen-model-path coll-root model-root rdf-path)))
   ([rdf-path]
-   (create-model-dir (:collection-root FILES) (:models-root FILES) rdf-path)))
+   (create-model-dir (:collection-root ROOTS) (:models-root ROOTS) rdf-path)))
 
 (defn get-paths-info
   "Gets the different paths the model uses"
