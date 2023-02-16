@@ -1,5 +1,5 @@
 
-STARTED TESTING THE 29 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-02-01T16:20:27.535181
+STARTED TESTING THE 29 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-02-16T11:39:19.504608
 
 Logs are in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../test_summaries/fiji_log_out.txt and fiji_log_err.txt
 
@@ -83,7 +83,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT4M36.296S
+   Time taken: PT4M34.83S
 -- Finished testing model: kind-seashell
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -410,7 +410,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT1M55.458S
+   Time taken: PT1M52.479S
 -- Finished testing model: impartial-shrimp
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -704,7 +704,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT19.733S
+   Time taken: PT18.778S
 -- Finished testing model: humorous-owl
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -782,7 +782,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT19.191S
+   Time taken: PT18.862S
 -- Finished testing model: humorous-owl
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -914,7 +914,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT5.812S
+   Time taken: PT5.655S
 -- Finished testing model: discreet-rooster
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1178,7 +1178,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT11.715S
+   Time taken: PT11.503S
 -- Finished testing model: non-judgemental-eagle
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1363,7 +1363,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT8.441S
+   Time taken: PT8.027S
 -- Finished testing model: fearless-crab
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1842,7 +1842,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT11.615S
+   Time taken: PT11.586S
 -- Finished testing model: chatty-frog
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1852,7 +1852,7 @@ java.lang.NullPointerException
    The max_val is 35.1791687012
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6338614/6338615/output_metrics.edn
 
-FINISHED TESTING THE 29 MODELS IN FIJI AT 2023-02-01T16:20:27.540534
+FINISHED TESTING THE 29 MODELS IN FIJI AT 2023-02-16T11:39:19.509980
 
  Logs are in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../test_summaries/fiji_log_out.txt and fiji_log_err.txt
 
