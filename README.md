@@ -5,15 +5,14 @@ Scripts and gh workflows for testing the models of the bioimage model zoo in Dee
 - [Issue](https://github.com/bioimage-io/collection-bioimage-io/issues/515)
 
 # Local Setup
-## 1. Install Babashka
+## 1. Clone needed repositories
+- change directory to `bash_scripts` and run `local_setup.sh` which will clone:
+  + the bioimage.io collection repository
+  + the numpy-tiffs repository
+## 2. Install Babashka
 To run the scripts locally you need babashka installed. It is a standalone program (a 20Mb download) compatible with Linux, Mac, and Windows.
 Follow the [installation instructions](https://github.com/babashka/babashka#installation).
-## 2. Clone needed repositories
-- change directory to `bash_scripts`
-- run `local_setup.sh`
-- this will clone
-  - the bioimage.io collection repository
-  - the numpy-tiffs repository
+
 
 # Local testing of models from the zoo
 - change directory to `java_CI_scripts`

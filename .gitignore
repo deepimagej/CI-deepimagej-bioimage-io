@@ -26,3 +26,6 @@ bash_scripts/dependencies_2115/
 resources/models_to_test.txt
 resources/models_to_test.sh
 resources/config.edn
+
+# gh-pages branch
+gh-pages-branch/
