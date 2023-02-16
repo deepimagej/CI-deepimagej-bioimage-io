@@ -48,4 +48,3 @@
   (test-fn))
 
 (def an-edn (edn/read-string (slurp (fs/file "test" "resources" "an.edn"))))
-
