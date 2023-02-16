@@ -1,6 +1,6 @@
 (ns models-test
-  (:require [models :refer :all]
-            [summaries.summary :refer [SUMMA-ROOT]]
+  (:require [config :refer [ROOTS]]
+            [models :refer :all]
             [test-setup :refer [rdf-paths load-test-paths]]
             [clojure.test :refer :all]
             [clojure.java.io :refer [as-url]]
@@ -26,6 +26,15 @@
   (is (= "laid-back-lobster" (get-in @(:a-model model-dicts) [:config :bioimageio :nickname])))
   (is (= "13bbeb9a2403f5ff840951d8907586cf1ceded3072d36466db3e592b5ad53649"
          (get-in @(:a-model model-dicts) [:weights :pytorch_state_dict :sha256]))))
+
+(deftest get-rdf-info-test
+  (is (= (into {} (get-rdf-info @(:tf-model model-dicts)))
+         {:type "model", :dij-config? true, :run-mode nil :attach
+          ["https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/exampleImage.tif"
+           "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/resultImage.tif"
+           "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/per_sample_scale_range.ijm"
+           "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/binarize.ijm"
+           "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/params.csv"]})))
 
 (deftest get-weight-info-test
   (let [w (get-weight-info @(:a-model model-dicts))
@@ -89,7 +98,7 @@
 ; (filter (fn [{:keys [:type]}] (= type :inputs)) b)
 
 (deftest gen-model-path-test
-  (let [expected-path (fs/path MODEL-ROOT "10.5281" "zenodo.6334881" "6346477")]
+  (let [expected-path (fs/path (:models-root ROOTS) "10.5281" "zenodo.6334881" "6346477")]
     (is (= (str (gen-model-path @(:an-rdf rdf-paths))) (str expected-path)))))
 
 ; No test for create-model-dir
@@ -100,9 +109,9 @@
   (let [test-rdf @(:pt-rdf rdf-paths)
         paths (get-paths-info test-rdf)
         components '("10.5281" "zenodo.5874741" "5874742")
-        s-path (apply fs/path (conj components SUMMA-ROOT))
-        m-path (apply fs/path (conj components MODEL-ROOT))
-        sample-path (apply fs/path (conj components SAMPLE-ROOT))]
+        s-path (apply fs/path (conj components (:summa-root ROOTS)))
+        m-path (apply fs/path (conj components (:models-root ROOTS)))
+        sample-path (apply fs/path (conj components (:samples-root ROOTS)))]
     (is (= [:rdf-path :summa-path :model-dir-path :samples-path] (keys paths)))
     (is (= (:rdf-path paths) test-rdf))
     (is (= (str s-path) (str (:summa-path paths))))
@@ -111,15 +120,16 @@
     (is (= paths (->Paths test-rdf s-path m-path sample-path))) "Equality regardless different references"))
 
 (deftest build-model-test
-  (testing "Only the new fields (record fields already tested"
-    (let [the-keys [:name :nickname :dij-config? :attach]
+  (testing "Only the new fields (record fields already tested)"
+    (let [the-keys [:name :nickname]
           vals-model-0 (map #(% (build-model @(:an-rdf rdf-paths))) the-keys)
           vals-model-tf (map #(% (build-model @(:tf-rdf rdf-paths))) the-keys)]
-      (is (= (butlast vals-model-0) ["2D UNet Arabidopsis Apical Stem Cells" "laid-back-lobster" false]))
-      (is (nil? (last vals-model-0)))
-      (is (= (butlast vals-model-tf) ["Cell Segmentation from Membrane Staining for Plant Tissues" "humorous-owl" true]))
+      (is (= vals-model-0 ["2D UNet Arabidopsis Apical Stem Cells" "laid-back-lobster"]))
+      (is (= vals-model-tf ["Cell Segmentation from Membrane Staining for Plant Tissues" "humorous-owl"]))
       (is (last vals-model-tf) ["https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/exampleImage.tif"
                                 "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/resultImage.tif"
                                 "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/per_sample_scale_range.ijm"
                                 "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/binarize.ijm"
                                 "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/params.csv"]))))
+
+

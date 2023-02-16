@@ -1,0 +1,6 @@
+{
+  "include": [
+    {"resource_id": "10.5281/zenodo.7261974","version_id": "7261975"},
+    {"resource_id": "bioimageio/qupath","version_id": "latest"}
+  ]
+}

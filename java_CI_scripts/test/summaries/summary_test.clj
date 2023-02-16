@@ -7,7 +7,7 @@
             [clj-yaml.core :as yaml]
             [babashka.fs :as fs]))
 
-(use-fixtures :once load-test-paths load-rdfs-parsed load-model-records load-model-rp's)
+(use-fixtures :once load-test-paths load-rdfs-parsed load-model-records)
 
 (deftest get-parent-components-test
   (testing "Using 2 arguments on a generic path"
@@ -78,7 +78,7 @@
     (testing "After the tests, delete the file"
       (is (fs/delete-if-exists expected-file)))))
 
-(deftest write-summaries-from--error!-test
-  (let [{:keys [keep-testing error-found]} (initial-checks/separate-by-error @model-rp's)
-        one-error-k (first (select-keys error-found [:no-dij-config]))]
+(deftest write-summaries-from-error!-test
+  (let [{:keys [keep-testing error-found]} (initial-checks/separate-by-error @model-records)
+        one-error-k (first (select-keys error-found [:no-compatible-weights]))]
     (write-summaries-from-error! one-error-k)))

@@ -1,5 +1,5 @@
 (ns summaries.reports
-  (:require [config :refer [FILES]]
+  (:require [config :refer [ROOTS FILES]]
             [reproduce.run-fiji-scripts :as run-fiji-scripts]
             [clojure.edn :as edn]
             [babashka.fs :as fs]))
@@ -7,7 +7,7 @@
 (defn glob-models
   "globs a pattern on the models folder"
   [pattern]
-  (map fs/file (fs/glob (:models-root FILES) pattern)))
+  (map fs/file (fs/glob (:models-root ROOTS) pattern)))
 
 (comment "fails if no models folder exists..."
   (def result-files

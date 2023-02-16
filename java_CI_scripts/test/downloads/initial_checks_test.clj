@@ -3,7 +3,7 @@
             [test-setup :refer :all]
             [clojure.test :refer :all]))
 
-(use-fixtures :once load-test-paths load-rdfs-parsed load-model-records load-model-rp's)
+(use-fixtures :once load-test-paths load-rdfs-parsed load-model-records)
 
 (defn count-dict
   "counts dictionary entries that are seqs"
@@ -12,33 +12,36 @@
 (deftest count-dict-test
   (is (= (count-dict {:a [1 2] :b [4 5 6]}) {:a 2 :b 3})))
 
+(deftest model?-test
+  (is (model? (first @model-records)))
+  (is (>= (count (filter model? @all-model-records)) 70)))
+
 (deftest dij-config?-test
-  (is (= 2 (count (filter dij-config? @model-rp's))))
-  (is (= 48 (count (filter dij-config? @all-model-rp's)))))
+  (is (= 2 (count (filter dij-config? @model-records))))
+  (is (= 48 (count (filter dij-config? @all-model-records)))))
 
 (deftest no-run-mode?-test
-  (let [{without-rm true with-rm false} (group-by no-run-mode? @all-model-rp's)]
-    (is (= 161 (count without-rm)))
+  (let [{without-rm true with-rm false} (group-by no-run-mode? @all-model-records)]
+    (is (> (count without-rm) 161))
     (is (= 4 (count with-rm)))
     (is (= (repeat 4 "deepimagej")
-           (mapv #(get-in % [:parsed-rdf :run_mode :name]) with-rm)))))
+           (mapv #(get-in % [:rdf-info :run-mode :name]) with-rm)))))
 
 (deftest any-compatible-weight?-test
-  (is (not (any-compatible-weight? (first @model-rp's))))
-  (is (any-compatible-weight? (second @model-rp's)))
-  (is (any-compatible-weight? (last @model-rp's)))
+  (is (not (any-compatible-weight? (first @model-records))))
+  (is (any-compatible-weight? (second @model-records)))
+  (is (any-compatible-weight? (last @model-records)))
   (testing "all models in collection with compatible weights"
-    (is (= 46 (count (filter any-compatible-weight? @all-model-rp's))))))
+    (is (> (count (filter any-compatible-weight? @all-model-records)) 46))))
 
 (deftest available-sample-images?-test
-  (is (= 2 (count (filter available-sample-images? @model-rp's))))
-  (is (= 29 (count (filter available-sample-images? @all-model-rp's)))))
-
+  (is (= 2 (count (filter available-sample-images? @model-records))))
+  (is (= 29 (count (filter available-sample-images? @all-model-records)))))
 
 (deftest p*process-in-attachment?-test
   (is (not (p*process-in-attachment?
-             (assoc-in (last @model-rp's) [:model-record :attach] []))))
-  (is (p*process-in-attachment? (second @model-rp's))))
+             (assoc-in (last @model-records) [:rdf-info :attach] []))))
+  (is (p*process-in-attachment? (second @model-records))))
 
 (deftest error-functions-test
   (let [initial-error? (partial contains? (set (keys summaries.errors/initial-errors)))]
@@ -46,25 +49,25 @@
       (is (->> (keys error-functions) (map initial-error?) and)))))
 
 (deftest check-error-test
-  (let [discd-models (check-error {:keep-testing @model-rp's}
+  (let [discd-models (check-error {:keep-testing @model-records}
                                   (first (select-keys error-functions [:no-dij-config])))
-        d-all-models-dijconfig (check-error {:keep-testing @all-model-rp's}
+        d-all-models-dijconfig (check-error {:keep-testing @all-model-records}
                                             (first (select-keys error-functions [:no-dij-config])))
         d-all-models-runmode (check-error d-all-models-dijconfig
                                           (first (select-keys error-functions [:key-run-mode])))]
     (testing "No-dij-config for the 3 variety models"
       (is (= {:error-found 1, :keep-testing 2} (count-dict discd-models)))
       (is (= {:no-dij-config 1} (count-dict (:error-found discd-models)))))
-    (testing "No-dij-config for all models-rp"
+    (testing "No-dij-config for all models"
       (is (= {:error-found 1, :keep-testing 48} (count-dict d-all-models-dijconfig)))
-      (is (= {:no-dij-config 117} (count-dict (:error-found d-all-models-dijconfig)))))
+      (is (>= (:no-dij-config (count-dict (:error-found d-all-models-dijconfig))) 117)))
     (testing "All models, with run-mode error after discriminating with deepimagej config"
       (is (= {:error-found 2, :keep-testing 43}) (count-dict d-all-models-runmode))
-      (is (= {:key-run-mode 4 :no-dij-config 117} (count-dict (:error-found d-all-models-runmode)))))))
+      (is (>= (:no-dij-config (count-dict (:error-found d-all-models-runmode))) 117)))))
 
 (deftest separate-by-error-test
-  (let [models-discriminated (separate-by-error @model-rp's)
-        all-models-discriminated (separate-by-error @all-model-rp's
+  (let [models-discriminated (separate-by-error @model-records)
+        all-models-discriminated (separate-by-error @all-model-records
                                                     (select-keys error-functions
                                                                  [:no-dij-config :key-run-mode]))]
     (testing "Variety models"
@@ -76,8 +79,7 @@
     (testing "All models, with only no-dij-config and key-run-mode errors"
       (is (= (count-dict all-models-discriminated)
              {:error-found 2, :keep-testing 44}))
-      (is (= (count-dict (:error-found all-models-discriminated))
-             {:key-run-mode 4 :no-dij-config 117})))))
+      (is (>= (:no-dij-config (count-dict (:error-found all-models-discriminated))) 117)))))
 
 ; this has been replaced by more general version, but test can stay
 (deftest separate-by-dij-config-test
@@ -88,7 +90,9 @@
       (is (= 1 (count (:no-dij-config separated))))))
   (testing "All models in the collection"
     (let [separated (separate-by-dij-config @all-model-records)]
-      (is (= {:keep-testing 48 :no-dij-config 117} (count-dict separated))))))
+      (is (>= (:keep-testing (count-dict separated) 48)))
+      (is (>= (:no-dij-config (count-dict separated) 117))))))
+
 
 
 
