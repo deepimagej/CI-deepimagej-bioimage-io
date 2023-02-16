@@ -15,7 +15,7 @@
   (let [parsing-function (json-type {:json-file   collection/file-json->vector
                                      :json-string collection/str-json->vector})
         rdfs-paths (collection/get-rdfs-to-test (parsing-function (json-type options)))
-        model-records (map models/build-model rdfs-paths)
+        model-records (filter initial-checks/model? (map models/build-model rdfs-paths))
         {:keys [keep-testing error-found]} (initial-checks/separate-by-error model-records)]
     (println "Creating dirs for test summaries")
     (mapv summary/create-summa-dir rdfs-paths)
