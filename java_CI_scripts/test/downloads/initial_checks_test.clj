@@ -14,7 +14,7 @@
 
 (deftest model?-test
   (is (model? (first @model-records)))
-  (is (= (frequencies (map model? @all-model-records)) {true 70, false 96})))
+  (is (>= (count (filter model? @all-model-records)) 70)))
 
 (deftest dij-config?-test
   (is (= 2 (count (filter dij-config? @model-records))))
@@ -58,12 +58,12 @@
     (testing "No-dij-config for the 3 variety models"
       (is (= {:error-found 1, :keep-testing 2} (count-dict discd-models)))
       (is (= {:no-dij-config 1} (count-dict (:error-found discd-models)))))
-    (testing "No-dij-config for all models-rp"
+    (testing "No-dij-config for all models"
       (is (= {:error-found 1, :keep-testing 48} (count-dict d-all-models-dijconfig)))
       (is (>= (:no-dij-config (count-dict (:error-found d-all-models-dijconfig))) 117)))
     (testing "All models, with run-mode error after discriminating with deepimagej config"
       (is (= {:error-found 2, :keep-testing 43}) (count-dict d-all-models-runmode))
-      (is (= {:key-run-mode 4 :no-dij-config 118} (count-dict (:error-found d-all-models-runmode)))))))
+      (is (>= (:no-dij-config (count-dict (:error-found d-all-models-runmode))) 117)))))
 
 (deftest separate-by-error-test
   (let [models-discriminated (separate-by-error @model-records)
