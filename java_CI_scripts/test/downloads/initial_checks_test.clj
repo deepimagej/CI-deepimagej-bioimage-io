@@ -3,7 +3,7 @@
             [test-setup :refer :all]
             [clojure.test :refer :all]))
 
-(use-fixtures :once load-test-paths load-rdfs-parsed load-model-records load-model-rp's)
+(use-fixtures :once load-test-paths load-rdfs-parsed load-model-records)
 
 (defn count-dict
   "counts dictionary entries that are seqs"

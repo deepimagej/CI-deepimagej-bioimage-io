@@ -7,7 +7,7 @@
             [clj-yaml.core :as yaml]
             [babashka.fs :as fs]))
 
-(use-fixtures :once load-test-paths load-rdfs-parsed load-model-records load-model-rp's)
+(use-fixtures :once load-test-paths load-rdfs-parsed load-model-records)
 
 (deftest get-parent-components-test
   (testing "Using 2 arguments on a generic path"
