@@ -1,7 +1,9 @@
 (ns summaries.summary-test
   (:require [config :refer [ROOTS]]
+            [downloads.init-checks :as init-checks]
             [summaries.summary :refer :all]
             [summaries.errors :as errors]
+            [summaries.discriminate :as discriminate]
             [downloads.init-checks :as initial-checks]
             [test-setup :refer :all]
             [clojure.test :refer :all]
@@ -91,6 +93,7 @@
       (is (fs/delete-if-exists expected-file)))))
 
 (deftest write-summaries-from-error!-test
-  (let [{:keys [keep-testing error-found]} (initial-checks/separate-by-error @model-records)
+  (let [{:keys [keep-testing error-found]}
+        (discriminate/separate-by-error @model-records init-checks/errors-fns)
         one-error-k (first (select-keys error-found [:no-compatible-weights]))]
     (write-summaries-from-error! one-error-k)))

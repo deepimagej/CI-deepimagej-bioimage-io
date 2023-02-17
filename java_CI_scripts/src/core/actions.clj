@@ -3,7 +3,7 @@
   (:require [config :refer [FILES]]
             collection
             models
-            [summaries [summary :as summary] [reports :as reports]]
+            [summaries [summary :as summary] [reports :as reports] [discriminate :as discriminate]]
             [downloads [init-checks :as init-checks] [download :as download]]
             [reproduce [communicate :as comm] [run-fiji-scripts :as run-fiji-scripts]]
             [clojure.string :as str]
@@ -17,7 +17,8 @@
                                      :json-string collection/str-json->vector})
         rdfs-paths (collection/get-rdfs-to-test (parsing-function (json-type options)))
         model-records (filter init-checks/model? (map models/build-model rdfs-paths))
-        {:keys [keep-testing error-found]} (init-checks/separate-by-error model-records)]
+        {:keys [keep-testing error-found]}
+        (discriminate/separate-by-error model-records init-checks/errors-fns)]
     (println "Creating dirs for test summaries")
     (mapv summary/create-summa-dir rdfs-paths)
     (println "Creating dirs for models")
