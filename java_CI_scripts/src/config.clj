@@ -1,6 +1,6 @@
 (ns config
   "All the configuration constants in one place"
-  (:require [clojure [string :as str] [pprint :as ppr] [edn :as edn]]
+  (:require [clojure [string :as str] [pprint :as ppr]]
             [babashka.fs :as fs]))
 
 (def ROOTS "Paths to folder roots"
@@ -25,7 +25,8 @@
    :fiji-executable       (str (fs/file (:fiji-home FILES)
                                         (if (str/includes? (System/getProperty "os.name") "Windows")
                                           "ImageJ-win64.exe" "ImageJ-linux64")))
-   :fiji-scripts-arg-name "folder"})
+   :fiji-scripts-arg-name "folder"
+   :output-metrics-name   "output_metrics.edn"})
 
 (defn absolutize-nested
   "absolutize values of dictionary that are files"
