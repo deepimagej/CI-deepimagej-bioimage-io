@@ -1,6 +1,6 @@
 (ns summaries.summary
   (:require [config :refer [ROOTS]]
-            [summaries.errors]
+            [summaries.errors :as errors]
             [clj-yaml.core :as yaml]
             [babashka.fs :as fs]))
 
@@ -34,18 +34,12 @@
 (defn gen-summa-dict
   "Add additional fields to default summary dictionary to generate a valid test summary
   Without args, generates summary for passed model"
-  ([] (gen-summa-dict "passed" :reproduce))
-  ([status-k name-k & error-k]
-   (let [valid-names {:initial   "initial compatibility checks with deepimagej"
-                      :download  "downloading testing resources for deepimagej"
-                      :reproduce "reproduce test outputs with deepimagej headless"}
-         valid-statuses #{"passed" "failed"}
-         status (get valid-statuses status-k)
-         name (get valid-names name-k)
-         dict (if (empty? error-k)
-                default-summa-dict
-                (assoc default-summa-dict :error ((first error-k) summaries.errors/initial-errors)))]
-     (assoc dict :status status :name name))))
+  ([] (assoc default-summa-dict :status "passed" :name (:reproduce errors/ci-stages)))
+  ([error-k]
+   (let [stage (errors/find-stage error-k)]
+     (assoc default-summa-dict :error (get errors/all-errors error-k "Other error")
+                               :status "failed"
+                               :name (stage errors/ci-stages) ))))
 
 (defn write-test-summary!
   "Writes the yaml of the summary-dict in the summary path (in the model.paths)"
@@ -55,11 +49,11 @@
         out-file (fs/file (get-in model-record [:paths :summa-path]) file-name)]
     (spit out-file yaml-str)))
 
-; TODO automatic stage depending of error (use associations in summaries.errors)
 (defn write-summaries-from-error!
   "Writes the test summaries for the models with errors (entry from a discriminated-models dictionary)"
   [[error-key model-records]]
-  (let [summa-dict (gen-summa-dict "failed" :initial error-key)]
+  (let [summa-dict (gen-summa-dict error-key)]
     (mapv #(write-test-summary! % summa-dict) model-records)
+    ; todo print to stdout and log in report
     (printf "Created %d test summaries for the error key %s\n" (count model-records) error-key))
   )

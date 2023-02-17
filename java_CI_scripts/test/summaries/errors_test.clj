@@ -5,5 +5,4 @@
 (deftest find-stage-test
   (is (= (find-stage :no-compatible-weights) :initial))
   (is (= (find-stage :comparison) :reproduce))
-  (is (nil? (find-stage :other-error)))
-  (is (nil? (find-stage ""))))
+  (is (= (find-stage :other-error) :initial)))

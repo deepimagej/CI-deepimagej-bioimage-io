@@ -1,6 +1,7 @@
 (ns summaries.summary-test
   (:require [config :refer [ROOTS]]
             [summaries.summary :refer :all]
+            [summaries.errors :as errors]
             [downloads.initial-checks :as initial-checks]
             [test-setup :refer :all]
             [clojure.test :refer :all]
@@ -44,14 +45,25 @@
         (is (= (str toy-root) (str del)) "successful delete returns the path")))))
 
 (deftest gen-summa-dict-test
-  (is (= (gen-summa-dict "failed" :initial :no-dij-config)
+  (is (= (gen-summa-dict :no-dij-config)
          {:bioimageio_spec_version "0.4.8post1",
-          :error "rdf does not have keys for :config :deepimagej",
-          :status "failed",
-          :name "initial compatibility checks with deepimagej"}))
-  (is (= (gen-summa-dict) {:bioimageio_spec_version "0.4.8post1",
-                           :status "passed",
-                           :name "reproduce test outputs with deepimagej headless"})))
+          :error                   "rdf does not have keys for :config :deepimagej",
+          :status                  "failed",
+          :name                    "Initial compatibility checks with DeepImageJ"}))
+  (is (= (gen-summa-dict :comparison)
+         {:bioimageio_spec_version "0.4.8post1",
+          :error                   (:comparison errors/all-errors)
+          :status                  "failed",
+          :name                    (:reproduce errors/ci-stages)}))
+  (is (= (gen-summa-dict :mistake-key)
+         {:bioimageio_spec_version "0.4.8post1",
+          :error                   "Other error",
+          :status                  "failed",
+          :name                    "Initial compatibility checks with DeepImageJ"}))
+  (is (= (gen-summa-dict)
+         {:bioimageio_spec_version "0.4.8post1",
+          :status                  "passed",
+          :name                    "Reproduce test outputs with DeepImageJ headless"})))
 
 (defn no-pp [m]
   "finds model records without preprocessing (but with dij config)"
@@ -63,7 +75,7 @@
 
 (deftest write-test-summary-test
   (let [model (first @model-records)
-        summa-dict (gen-summa-dict "failed" :initial :no-dij-config)
+        summa-dict (gen-summa-dict :no-dij-config)
         summa-path (get-in model [:paths :summa-path])
         expected-file (fs/file (fs/path summa-path "test_summary.yaml"))]
     (testing "Before the test, create empty directory for the test summary of model"

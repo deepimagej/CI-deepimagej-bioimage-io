@@ -13,3 +13,10 @@
   "Read into a hash-map the output metrics file generated after inference"
   [model-record]
   (edn/read-string (slurp (get-metrics-file model-record))))
+
+(def error-functions
+  {:dij-headless (fn [_] true)
+   :comparison   (fn [_] true)})
+
+
+; todo reload model records from models_to_test.txt
