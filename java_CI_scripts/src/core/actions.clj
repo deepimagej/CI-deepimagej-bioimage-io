@@ -48,7 +48,6 @@
     (let [timed (download/my-time (doall (pmap download/download-into-model-folder model-records-keep)))]
       (printf "Total Time Taken: %s\n" (:iso timed)))))
 
-;todo: generate test summaries for tested models that produce image
 (defn reproduce-pipeline
  "For the linux case, where reproduce.run-fiji-scripts fails"
   [& _]
@@ -58,4 +57,7 @@
           timed (download/my-time (pr/shell "sh" (:bash-script FILES)))]
       (printf "Total Time Taken: %s\n" (:iso timed))
       (flush)))
+  ;todo: solve problem of absolute path in summary/gen-summa-path, fs/relativize
+  #_(let [rdf-paths (map fs/path (utils/read-lines (:rdfs-listed FILES)))
+        models-tested (map models/build-model rdf-paths)])
   (reports/basic-report))
