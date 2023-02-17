@@ -46,15 +46,15 @@
 (deftest error-functions-test
   (let [initial-error? (partial contains? (set (keys summaries.errors/initial-errors)))]
     (testing "errors correspond to the same ones in summaries.errors"
-      (is (->> (keys error-functions) (map initial-error?) and)))))
+      (is (->> (keys errors-fns) (map initial-error?) and)))))
 
 (deftest check-error-test
   (let [discd-models (check-error {:keep-testing @model-records}
-                                  (first (select-keys error-functions [:no-dij-config])))
+                                  (first (select-keys errors-fns [:no-dij-config])))
         d-all-models-dijconfig (check-error {:keep-testing @all-model-records}
-                                            (first (select-keys error-functions [:no-dij-config])))
+                                            (first (select-keys errors-fns [:no-dij-config])))
         d-all-models-runmode (check-error d-all-models-dijconfig
-                                          (first (select-keys error-functions [:key-run-mode])))]
+                                          (first (select-keys errors-fns [:key-run-mode])))]
     (testing "No-dij-config for the 3 variety models"
       (is (= {:error-found 1, :keep-testing 2} (count-dict discd-models)))
       (is (= {:no-dij-config 1} (count-dict (:error-found discd-models)))))
@@ -68,7 +68,7 @@
 (deftest separate-by-error-test
   (let [models-discriminated (separate-by-error @model-records)
         all-models-discriminated (separate-by-error @all-model-records
-                                                    (select-keys error-functions
+                                                    (select-keys errors-fns
                                                                  [:no-dij-config :key-run-mode]))]
     (testing "Variety models"
       (is (= (count-dict models-discriminated)

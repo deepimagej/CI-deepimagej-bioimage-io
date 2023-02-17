@@ -43,7 +43,7 @@
         p*p-names (downloads.p-process/get-p*process-names model-record)]
     (every? (partial contains? attach-names) p*p-names)))
 
-(def error-functions
+(def errors-fns
   "Association of each possible initial error with a discrimination function.
   Order of errors here affects order on how errors are checked"
   {:key-run-mode          no-run-mode?
@@ -71,7 +71,7 @@
   "Discriminative function should return true to keep testing, false if error occurred
   After an error happens, no more error checks are made for a model"
   ([models-list]
-   (separate-by-error models-list error-functions))
+   (separate-by-error models-list errors-fns))
   ([models-list error-fns]
    (reduce check-error {:keep-testing models-list} error-fns)))
 
