@@ -1,5 +1,5 @@
-(ns summaries.reproduce-metrics-test
-  (:require [summaries.reproduce-metrics :refer :all]
+(ns summaries.reproduce-checks-test
+  (:require [summaries.reproduce-checks :refer :all]
             [test-setup :refer :all]
             [clojure.test :refer :all]
             [clojure.pprint :as ppr]

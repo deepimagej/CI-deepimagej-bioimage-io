@@ -1,4 +1,4 @@
-(ns summaries.reproduce-metrics
+(ns summaries.reproduce-checks
   "Summaries form the output metric files produced after the inference with deepimagej run"
   (:require [config :refer [CONSTANTS]]
             [clojure.edn :as edn]
