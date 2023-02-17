@@ -1,7 +1,7 @@
 (ns summaries.discriminate-test
   (:require [summaries.discriminate :refer :all]
             utils
-            [downloads.init-checks :as init-checks]
+            [summaries.init-checks :as init-checks]
             [test-setup :refer :all]
             [clojure.test :refer :all]))
 

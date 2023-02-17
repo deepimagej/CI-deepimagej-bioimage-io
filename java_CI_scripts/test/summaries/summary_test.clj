@@ -1,10 +1,9 @@
 (ns summaries.summary-test
   (:require [config :refer [ROOTS]]
-            [downloads.init-checks :as init-checks]
+            [summaries.init-checks :as init-checks]
             [summaries.summary :refer :all]
             [summaries.errors :as errors]
             [summaries.discriminate :as discriminate]
-            [downloads.init-checks :as initial-checks]
             [test-setup :refer :all]
             [clojure.test :refer :all]
             [clj-yaml.core :as yaml]

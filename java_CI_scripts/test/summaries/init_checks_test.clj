@@ -1,5 +1,5 @@
-(ns downloads.initial-checks-test
-  (:require [downloads.init-checks :refer :all]
+(ns summaries.init-checks-test
+  (:require [summaries.init-checks :refer :all]
             utils
             [test-setup :refer :all]
             [clojure.test :refer :all]))

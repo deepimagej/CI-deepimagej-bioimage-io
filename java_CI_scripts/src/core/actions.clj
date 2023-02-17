@@ -3,8 +3,9 @@
   (:require [config :refer [FILES]]
             collection
             models
-            [summaries [summary :as summary] [reports :as reports] [discriminate :as discriminate]]
-            [downloads [init-checks :as init-checks] [download :as download]]
+            [summaries [summary :as summary] [reports :as reports]
+             [discriminate :as discriminate] [init-checks :as init-checks]]
+            [downloads  [download :as download]]
             [reproduce [communicate :as comm] [run-fiji-scripts :as run-fiji-scripts]]
             [clojure.string :as str]
             [babashka.fs :as fs]
