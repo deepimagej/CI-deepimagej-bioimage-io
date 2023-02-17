@@ -4,7 +4,7 @@
             collection
             models
             [summaries [summary :as summary] [reports :as reports]]
-            [downloads [initial-checks :as initial-checks] [download :as download]]
+            [downloads [init-checks :as init-checks] [download :as download]]
             [reproduce [communicate :as comm] [run-fiji-scripts :as run-fiji-scripts]]
             [clojure.string :as str]
             [babashka.fs :as fs]
@@ -16,8 +16,8 @@
   (let [parsing-function (json-type {:json-file   collection/file-json->vector
                                      :json-string collection/str-json->vector})
         rdfs-paths (collection/get-rdfs-to-test (parsing-function (json-type options)))
-        model-records (filter initial-checks/model? (map models/build-model rdfs-paths))
-        {:keys [keep-testing error-found]} (initial-checks/separate-by-error model-records)]
+        model-records (filter init-checks/model? (map models/build-model rdfs-paths))
+        {:keys [keep-testing error-found]} (init-checks/separate-by-error model-records)]
     (println "Creating dirs for test summaries")
     (mapv summary/create-summa-dir rdfs-paths)
     (println "Creating dirs for models")

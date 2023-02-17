@@ -1,4 +1,4 @@
-(ns downloads.initial-checks
+(ns downloads.init-checks
   "Initial checks to see failed models before downloads and inference"
   (:require [downloads.download :only [get-url-filename]]
             [downloads.p-process :only [get-p*process-names]]

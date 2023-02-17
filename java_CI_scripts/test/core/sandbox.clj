@@ -2,7 +2,7 @@
   (:require collection
             models
             [summaries summary errors]
-            [downloads download initial-checks]
+            [downloads download init-checks]
             [reproduce communicate]
             [core main]
             [test-setup :refer :all]

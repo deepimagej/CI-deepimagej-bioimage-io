@@ -2,7 +2,7 @@
   (:require [config :refer [ROOTS]]
             [summaries.summary :refer :all]
             [summaries.errors :as errors]
-            [downloads.initial-checks :as initial-checks]
+            [downloads.init-checks :as initial-checks]
             [test-setup :refer :all]
             [clojure.test :refer :all]
             [clj-yaml.core :as yaml]
