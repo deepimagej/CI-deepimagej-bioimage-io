@@ -22,7 +22,6 @@
 (defrecord Tensor [type name axes sample shape])
 (defrecord PProcess [type script])
 
-; todo put attachments in rdf-info
 (defn get-rdf-info
   [rdf-dict]
   (map->RdfInfo {:type        (:type rdf-dict)

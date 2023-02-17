@@ -4,8 +4,6 @@
             [downloads.p-process :only [get-p*process-names]]
             [babashka.fs :as fs]
             [summaries.errors :refer [initial-errors]]))
-;TODO use model record instead of model-rp EVERYWHERE
-(defrecord ModelRP [model-record parsed-rdf])
 
 (defn model?
   "Checks if a model record is from an rdf of type 'model'"

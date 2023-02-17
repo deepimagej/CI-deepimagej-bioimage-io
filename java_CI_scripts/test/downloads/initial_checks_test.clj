@@ -92,9 +92,3 @@
     (let [separated (separate-by-dij-config @all-model-records)]
       (is (>= (:keep-testing (count-dict separated) 48)))
       (is (>= (:no-dij-config (count-dict separated) 117))))))
-
-
-
-
-
-

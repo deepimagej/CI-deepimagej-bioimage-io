@@ -1,8 +1,7 @@
 (ns collection
-  (:require [babashka.fs :as fs]
+  (:require [config :refer [ROOTS]]
+            [babashka.fs :as fs]
             [cheshire.core :as json]))
-
-(def COLLECTION-ROOT "Path of the cloned repository" (fs/file ".." "bioimageio-gh-pages" "rdfs"))
 
 (defn str-json->vector
   "Returns the parsed list of resources/versions to test, given a raw json string"
@@ -29,10 +28,10 @@
        (= resource_id "**") (filter-rdfs (fs/glob root "**"))
        (= version_id "**") (filter-rdfs (fs/glob (fs/path root resource_id) "**"))
        :else (vector (fs/path root resource_id version_id "rdf.yaml")))))
-  ([resource-map] (resource->paths COLLECTION-ROOT resource-map)))
+  ([resource-map] (resource->paths (:collection-root ROOTS) resource-map)))
 
 (defn get-rdfs-to-test
   "Compiles a list of rdf paths that need to be tested, given a list of resource/versions maps.
   If only 1 argument is given, uses COLLECTION-ROOT as root path"
   ([root resources-vector] (set (flatten (map #(resource->paths root %) resources-vector))))
-  ([resources-vector] (get-rdfs-to-test COLLECTION-ROOT resources-vector)))
+  ([resources-vector] (get-rdfs-to-test (:collection-root ROOTS) resources-vector)))

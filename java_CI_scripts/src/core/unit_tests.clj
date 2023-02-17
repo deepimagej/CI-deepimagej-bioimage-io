@@ -1,5 +1,5 @@
 (ns core.unit-tests
-  "Require and run all tests for this project"
+  "Require and run all unit tests for this project"
   (:require [clojure.test :refer [run-tests]]))
 
 (def nss-to-test

@@ -3,7 +3,6 @@
   (:require [clojure [string :as str] [pprint :as ppr] [edn :as edn]]
             [babashka.fs :as fs]))
 
-; todo fill config constants (start from the end: run-fiji-scripts and test-1)
 (def ROOTS "Paths to folder roots"
   {:collection-root (fs/file ".." "bioimageio-gh-pages" "rdfs")
    :summa-root      (fs/file ".." "test_summaries")
