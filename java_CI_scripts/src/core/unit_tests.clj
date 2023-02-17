@@ -6,7 +6,7 @@
   "Names of the namespaces to test"
   ['collection-test
    'models-test
-   'summaries.summary-test
+   'summaries.summary-test 'summaries.reproduce-metrics-test 'summaries.errors-test
    'downloads.initial-checks-test 'downloads.download-test 'downloads.p-process-test
    'reproduce.communicate-test 'reproduce.run-fiji-scripts-test
    'core.cli-test
