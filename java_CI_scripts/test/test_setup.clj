@@ -1,7 +1,6 @@
 (ns test-setup
-  (:require [collection :refer [COLLECTION-ROOT]]
+  (:require [config :refer [ROOTS]]
             models
-            [downloads.initial-checks :as initial-checks]
             [clojure [test :refer :all] [edn :as edn]]
             [babashka.fs :as fs]))
 
@@ -17,11 +16,11 @@
   - A torchscript model (with state dict) with pre-process"
   [test-fn]
   (reset! (:an-rdf rdf-paths)
-          (fs/path COLLECTION-ROOT "10.5281" "zenodo.6334881" "6346477" "rdf.yaml"))
+          (fs/path (:collection-root ROOTS) "10.5281" "zenodo.6334881" "6346477" "rdf.yaml"))
   (reset! (:tf-rdf rdf-paths)
-          (fs/path COLLECTION-ROOT "10.5281" "zenodo.5749843" "5888237" "rdf.yaml"))
+          (fs/path (:collection-root ROOTS) "10.5281" "zenodo.5749843" "5888237" "rdf.yaml"))
   (reset! (:pt-rdf rdf-paths)
-          (fs/path COLLECTION-ROOT "10.5281" "zenodo.5874741" "5874742" "rdf.yaml" ))
+          (fs/path (:collection-root ROOTS) "10.5281" "zenodo.5874741" "5874742" "rdf.yaml" ))
   (test-fn))
 
 (def all-rdfs-paths (collection/get-rdfs-to-test
@@ -37,7 +36,7 @@
   (reset! all-rdfs-parsed (map models/parse-model all-rdfs-paths))
   (test-fn))
 
-; Built model records. needed for 'downloads/*.clj and after, assumes 'collection and 'models already tested and working
+; Built model records, needed for 'downloads/*.clj and after, assumes 'collection and 'models already tested and working
 
 (def model-records (atom nil))
 (def all-model-records (atom nil))
@@ -49,4 +48,3 @@
   (test-fn))
 
 (def an-edn (edn/read-string (slurp (fs/file "test" "resources" "an.edn"))))
-

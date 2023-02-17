@@ -6,7 +6,7 @@
             [clojure.java.io :refer [as-url]]
             [babashka.fs :as fs]))
 
-; TODO use rdf-parsed from test-setup
+; todo use rdf-parsed from test-setup
 (def model-dicts {:a-model (atom nil) :tf-model (atom nil) :pt-model (atom nil)})
 
 (defn load-test-models
@@ -131,5 +131,3 @@
                                 "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/per_sample_scale_range.ijm"
                                 "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/binarize.ijm"
                                 "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/params.csv"]))))
-
-

@@ -1,5 +1,5 @@
 (ns summaries.summary-test
-  (:require [collection :refer [COLLECTION-ROOT]]
+  (:require [config :refer [ROOTS]]
             [summaries.summary :refer :all]
             [downloads.initial-checks :as initial-checks]
             [test-setup :refer :all]
@@ -26,7 +26,7 @@
     (is (= (str expect) (str (new-root-path "a_root" "a_new_root" a-path))))))
 
 (deftest gen-summa-path-test
-  (let [expected-path (fs/path SUMMA-ROOT "10.5281" "zenodo.6334881" "6346477")]
+  (let [expected-path (fs/path (:summa-root ROOTS) "10.5281" "zenodo.6334881" "6346477")]
     (is (= (str (gen-summa-path @(:an-rdf rdf-paths))) (str expected-path)))))
 
 (deftest create-summa-dir-test
@@ -34,8 +34,8 @@
     (testing "Before folder exists"
       (is (not (fs/exists? toy-root))))
     (testing "Create folder structure"
-      (let [summa-path (gen-summa-path COLLECTION-ROOT toy-root @(:an-rdf rdf-paths))
-            result (create-summa-dir COLLECTION-ROOT toy-root @(:an-rdf rdf-paths))]
+      (let [summa-path (gen-summa-path (:collection-root ROOTS) toy-root @(:an-rdf rdf-paths))
+            result (create-summa-dir (:collection-root ROOTS) toy-root @(:an-rdf rdf-paths))]
         (is (= (str (fs/absolutize summa-path)) (str (fs/absolutize result)))
             "successful creation returns the path")
         (is (= (map fs/file-name (fs/list-dir toy-root)) ["10.5281"]))))

@@ -1,11 +1,12 @@
 (ns collection-test
-  (:require [collection :refer :all]
+  (:require [config :refer [ROOTS]]
+            [collection :refer :all]
             [clojure.test :refer :all]
             [babashka.fs :as fs]))
 
 (deftest collection-root-test
-  (is (= (fs/file-name COLLECTION-ROOT) "rdfs"))
-  (is (= (set (mapv fs/file-name (fs/list-dir COLLECTION-ROOT)))
+  (is (= (fs/file-name (:collection-root ROOTS)) "rdfs"))
+  (is (= (set (mapv fs/file-name (fs/list-dir (:collection-root ROOTS))))
          (set ["10.5281" "bioimageio" "deepimagej" "fiji" "hpa" "ilastik" "imjoy" "zero"]))
       "This test may fail if new partners/zenodo dois are added to the zoo"))
 
@@ -33,8 +34,8 @@
      (is (= version_id "latest")))))
 
 (deftest filter-rdfs-test
-  (let [all-rdfs (fs/glob COLLECTION-ROOT "**")
-        some-rdfs (fs/glob (fs/path COLLECTION-ROOT "10.5281/zenodo.5749843") "**")]
+  (let [all-rdfs (fs/glob (:collection-root ROOTS) "**")
+        some-rdfs (fs/glob (fs/path (:collection-root ROOTS) "10.5281/zenodo.5749843") "**")]
     (testing "Number of rdfs in the collection"
       (is (>= (count (filter-rdfs all-rdfs)) 165)))
     (is (= (count (filter-rdfs some-rdfs)) 2))))

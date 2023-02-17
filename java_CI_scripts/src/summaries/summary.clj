@@ -1,15 +1,13 @@
 (ns summaries.summary
-  (:require [collection :refer [COLLECTION-ROOT]]
+  (:require [config :refer [ROOTS]]
             [summaries.errors]
             [clj-yaml.core :as yaml]
             [babashka.fs :as fs]))
 
-(def SUMMA-ROOT "Path to the test summaries" (fs/path ".." "test_summaries"))
-
 (defn get-parent-components
   "Gets the (seq) of components of parent directory structure (from root) of a given rdf path"
   ([root path] (butlast (fs/components (fs/relativize root path))))
-  ([rdf-path] (get-parent-components COLLECTION-ROOT rdf-path)))
+  ([rdf-path] (get-parent-components (:collection-root ROOTS) rdf-path)))
 
 (defn new-root-path
   "Returns a path with a new root"
@@ -19,14 +17,14 @@
 (defn gen-summa-path
   "Gets the path corresponding to the test summary of an rdf-path"
   ([coll-root summa-root rdf-path] (new-root-path coll-root summa-root rdf-path))
-  ([rdf-path] (gen-summa-path COLLECTION-ROOT SUMMA-ROOT rdf-path)))
+  ([rdf-path] (gen-summa-path (:collection-root ROOTS) (:summa-root ROOTS) rdf-path)))
 
 (defn create-summa-dir
   "Creates directory for resulting test summaries given the path to an rdf"
   ([coll-root summa-root rdf-path]
    (fs/create-dirs (gen-summa-path coll-root summa-root rdf-path)))
   ([rdf-path]
-   (create-summa-dir COLLECTION-ROOT SUMMA-ROOT rdf-path)))
+   (create-summa-dir (:collection-root ROOTS) (:summa-root ROOTS) rdf-path)))
 
 (def default-summa-dict
   {:bioimageio_spec_version "0.4.8post1"
@@ -57,6 +55,7 @@
         out-file (fs/file (get-in model-record [:paths :summa-path]) file-name)]
     (spit out-file yaml-str)))
 
+; TODO automatic stage depending of error (use associations in summaries.errors)
 (defn write-summaries-from-error!
   "Writes the test summaries for the models with errors (entry from a discriminated-models dictionary)"
   [[error-key model-records]]
