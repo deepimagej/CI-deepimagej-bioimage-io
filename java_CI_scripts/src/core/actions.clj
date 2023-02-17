@@ -1,7 +1,8 @@
 (ns core.actions
   "Define the steps for every action: init, download, and reproduce"
   (:require [config :refer [FILES]]
-            [models]
+            collection
+            models
             [summaries [summary :as summary] [reports :as reports]]
             [downloads [initial-checks :as initial-checks] [download :as download]]
             [reproduce [communicate :as comm] [run-fiji-scripts :as run-fiji-scripts]]
