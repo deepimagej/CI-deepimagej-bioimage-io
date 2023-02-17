@@ -1,5 +1,5 @@
 (ns summaries.summary
-  (:require [config :refer [ROOTS]]
+  (:require [config :refer [ROOTS CONSTANTS]]
             [summaries.errors :as errors]
             [clj-yaml.core :as yaml]
             [babashka.fs :as fs]))
@@ -44,7 +44,7 @@
 (defn write-test-summary!
   "Writes the yaml of the summary-dict in the summary path (in the model.paths)"
   [model-record summa-dict]
-  (let [file-name "test_summary.yaml"
+  (let [file-name (:summary-name CONSTANTS)
         yaml-str (yaml/generate-string summa-dict :dumper-options {:flow-style :block})
         out-file (fs/file (get-in model-record [:paths :summa-path]) file-name)]
     (spit out-file yaml-str)))

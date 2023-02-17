@@ -17,8 +17,7 @@
    :report          (fs/file (:summa-root ROOTS) "report.md")
    :bash-script     (fs/file (:resources-root ROOTS) "models_to_test.sh")
    :models-listed   (fs/file (:resources-root ROOTS) "models_to_test.txt")
-   :fiji-home       (fs/file (System/getProperty "user.home") "blank_fiji" "Fiji.app")
-   })
+   :fiji-home       (fs/file (System/getProperty "user.home") "blank_fiji" "Fiji.app")})
 
 (def CONSTANTS "Constants that are not files"
   {:fiji-flags            ["--headless" "--ij2" "--console" "--run"]
@@ -26,7 +25,9 @@
                                         (if (str/includes? (System/getProperty "os.name") "Windows")
                                           "ImageJ-win64.exe" "ImageJ-linux64")))
    :fiji-scripts-arg-name "folder"
-   :output-metrics-name   "output_metrics.edn"})
+   :output-metrics-name   "output_metrics.edn"
+   :summary-name          "test_summary.yaml"
+   :mse-threshold         2.0})
 
 (defn absolutize-nested
   "absolutize values of dictionary that are files"

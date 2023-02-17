@@ -14,9 +14,18 @@
   [model-record]
   (edn/read-string (slurp (get-metrics-file model-record))))
 
-(def error-functions
-  {:dij-headless (fn [_] true)
-   :comparison   (fn [_] true)})
+(defn metrics-produced?
+  "Checks if headless run of deepimagej produced an image (metrics file is an empty map)"
+  [model-record]
+  (empty? (get-output-metrics model-record)))
 
+(defn ok-metrics?
+  "Check if CI output and expected output are sufficiently similar"
+  [model-record]
+  (> (:mse-threshold CONSTANTS) (get (get-output-metrics model-record) :mse 3.0)))
+
+(def error-functions
+  {:dij-headless metrics-produced?
+   :comparison   ok-metrics?})
 
 ; todo reload model records from models_to_test.txt

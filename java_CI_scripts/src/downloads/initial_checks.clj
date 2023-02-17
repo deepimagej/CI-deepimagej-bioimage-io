@@ -3,7 +3,7 @@
   (:require [downloads.download :only [get-url-filename]]
             [downloads.p-process :only [get-p*process-names]]
             [babashka.fs :as fs]
-            [summaries.errors :refer [initial-errors]]))
+            [summaries.errors :as errors]))
 
 (defn model?
   "Checks if a model record is from an rdf of type 'model'"
@@ -11,7 +11,7 @@
   (= "model" (get-in model-record [:rdf-info :type])))
 
 (defn dij-config?
-  "Checks whether a model-rp has deepimagej config (checks the record)"
+  "Checks whether a model-record has deepimagej config"
   [model-record]
   (get-in model-record [:rdf-info :dij-config?]))
 
@@ -58,6 +58,7 @@
    :error-found  {:error-key1 [list-of-model-rp]
                   :error-key2 [list-of-model-rp]}})
 
+; todo, put this somewhere different, used also for final-checks
 (defn check-error
   "Adds results of checking a new error to the data structure for discriminated models.
   To be used as reducing function when iterating over all possible errors"
