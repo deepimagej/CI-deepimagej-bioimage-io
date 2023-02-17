@@ -24,3 +24,11 @@
   (is (= (get-output-metrics (first @model-records)) {}))
   (is (= (get-output-metrics (second @model-records)) (second fake-maps)))
   (is (= (get-output-metrics (last @model-records)) (last fake-maps))))
+
+(deftest metrics-produced?-test
+  (is (not (true? (metrics-produced? (first @model-records)))))
+  (is (metrics-produced? (last @model-records))))
+
+(deftest ok-metrics?-test
+  (is (not (ok-metrics? (second @model-records))))
+  (is (ok-metrics? (last @model-records))))

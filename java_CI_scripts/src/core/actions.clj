@@ -25,13 +25,13 @@
 
     (mapv summary/write-summaries-from-error! error-found)
     (println "Creating comm file for" (count keep-testing) "models")
-    (comm/write-comm-file (map comm/build-dij-model keep-testing))
+    (comm/write-comm-file (map comm/build-dij-model keep-testing)) ; not used anymore, here for legacy reasons
     (comment
       ; txt input to numpy-tiff repo, needs that the :no-sample-images error is not checked during initial checks
       (comm/write-absolute-paths keep-testing :rdf-path
                                  (fs/file ".." "numpy-tiff-deepimagej" "resources" "rdfs_to_test.txt")))
-    (comm/write-absolute-paths keep-testing :model-dir-path
-                               (fs/file ".." "resources" "models_to_test.txt"))
+    (comm/write-absolute-paths keep-testing :model-dir-path (:models-listed FILES))
+    (comm/write-absolute-paths keep-testing :rdf-path (:rdfs-listed FILES))
     (mapv comm/write-dij-model keep-testing)
     (if ini-return keep-testing)))
 

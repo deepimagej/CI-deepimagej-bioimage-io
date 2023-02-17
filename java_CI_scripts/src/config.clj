@@ -15,8 +15,9 @@
    :logs            {:out (fs/file (:summa-root ROOTS) "fiji_log_out.txt")
                      :err (fs/file (:summa-root ROOTS) "fiji_log_err.txt")}
    :report          (fs/file (:summa-root ROOTS) "report.md")
-   :bash-script     (fs/file (:resources-root ROOTS) "models_to_test.sh")
+   :bash-script     (fs/file (:resources-root ROOTS) "test_the_models.sh")
    :models-listed   (fs/file (:resources-root ROOTS) "models_to_test.txt")
+   :rdfs-listed     (fs/file (:resources-root ROOTS) "rdfs_to_test.txt")
    :fiji-home       (fs/file (System/getProperty "user.home") "blank_fiji" "Fiji.app")})
 
 (def CONSTANTS "Constants that are not files"
@@ -36,8 +37,7 @@
                                                    (str (fs/absolutize v))))) dict)))
 
 (defn serialize-config
-  " Serialize config into an edn file
-  make the files into their strings"
+  " Serialize config into an edn file. Make the files into their absolute path strings"
   ([] (serialize-config (:config FILES)))
   ([config-file]
    (let [full-dict (merge CONSTANTS (absolutize-nested ROOTS) (absolutize-nested FILES))]

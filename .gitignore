@@ -25,6 +25,8 @@ bash_scripts/dependencies_2115/
 # change a lot between computers (abs paths) and inputs (contents)
 resources/models_to_test.txt
 resources/models_to_test.sh
+resources/test_the_models.sh
+resources/rdfs_to_test.txt
 resources/config.edn
 
 # gh-pages branch
