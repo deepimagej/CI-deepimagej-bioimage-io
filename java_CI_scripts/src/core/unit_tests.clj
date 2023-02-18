@@ -7,6 +7,7 @@
   ['collection-test
    'models-test
    'utils-test
+   ; discriminate tests should go after reproduce-checks for the fake files to be written
    'summaries.summary-test 'summaries.reproduce-checks-test 'summaries.errors-test
    'summaries.init-checks-test 'summaries.discriminate-test
    'downloads.download-test 'downloads.p-process-test

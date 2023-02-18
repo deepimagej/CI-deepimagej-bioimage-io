@@ -51,13 +51,14 @@
 (defn reproduce-pipeline
  "For the linux case, where reproduce.run-fiji-scripts fails"
   [& _]
+  ; Run inference on fiji
   (if (str/includes? (System/getProperty "os.name") "Windows")
     (run-fiji-scripts/-main)
     (let [_ (run-fiji-scripts/build-bash-script (:bash-script FILES))
           timed (download/my-time (pr/shell "sh" (:bash-script FILES)))]
       (printf "Total Time Taken: %s\n" (:iso timed))
       (flush)))
-  ;todo: solve problem of absolute path in summary/gen-summa-path, fs/relativize
+  ; Generate final test summaries
   (let [rdf-paths (map fs/path (utils/read-lines (:rdfs-listed FILES)))
         models-tested (map models/build-model rdf-paths)
         {:keys [keep-testing error-found]}
@@ -65,4 +66,5 @@
     (mapv summary/write-summaries-from-error! error-found)
     (mapv (partial summary/write-test-summary! (summary/gen-summa-dict)) keep-testing)
     (printf "Created %d test summaries for models that pass the CI\n" (count keep-testing)))
+  ; Generate the report
   (reports/basic-report))

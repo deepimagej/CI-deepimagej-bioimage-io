@@ -17,7 +17,7 @@
 (defn metrics-produced?
   "Checks if headless run of deepimagej produced an image (metrics file is an empty map)"
   [model-record]
-  (not-empty (get-output-metrics model-record)))
+  (not (empty? (get-output-metrics model-record))))
 
 (defn ok-metrics?
   "Check if CI output and expected output are sufficiently similar"

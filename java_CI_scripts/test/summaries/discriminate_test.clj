@@ -2,27 +2,31 @@
   (:require [summaries.discriminate :refer :all]
             utils
             [summaries.init-checks :as init-checks]
+            [summaries.reproduce-checks :as reproduce-checks]
             [test-setup :refer :all]
             [clojure.test :refer :all]))
 
 (use-fixtures :once load-test-paths load-rdfs-parsed load-model-records)
 
 (deftest check-error-test
-  (let [discd-models (check-error {:keep-testing @model-records}
-                                  (first (select-keys init-checks/errors-fns [:no-dij-config])))
-        d-all-models-dijconfig (check-error {:keep-testing @all-model-records}
-                                            (first (select-keys init-checks/errors-fns [:no-dij-config])))
-        d-all-models-runmode (check-error d-all-models-dijconfig
-                                          (first (select-keys init-checks/errors-fns [:key-run-mode])))]
-    (testing "No-dij-config for the 3 variety models"
-      (is (= {:error-found 1, :keep-testing 2} (utils/count-dict discd-models)))
-      (is (= {:no-dij-config 1} (utils/count-dict (:error-found discd-models)))))
-    (testing "No-dij-config for all models"
-      (is (= {:error-found 1, :keep-testing 48} (utils/count-dict d-all-models-dijconfig)))
-      (is (>= (:no-dij-config (utils/count-dict (:error-found d-all-models-dijconfig))) 117)))
-    (testing "All models, with run-mode error after discriminating with deepimagej config"
-      (is (= {:error-found 2, :keep-testing 43}) (utils/count-dict d-all-models-runmode))
-      (is (>= (:no-dij-config (utils/count-dict (:error-found d-all-models-runmode))) 117)))))
+  (testing "Errors during the init stage of CI"
+    (let [d-models-dijconfig (check-error {:keep-testing @model-records}
+                                          (utils/select-key->vec init-checks/errors-fns :no-dij-config))
+          d-all-models-dijconfig (check-error {:keep-testing @all-model-records}
+                                              (utils/select-key->vec init-checks/errors-fns :no-dij-config))
+          d-all-models-runmode (check-error d-all-models-dijconfig
+                                            (utils/select-key->vec init-checks/errors-fns :key-run-mode))]
+      (testing "No-dij-config for the 3 variety models"
+        (is (= {:error-found 1, :keep-testing 2} (utils/count-dict d-models-dijconfig)))
+        (is (= {:no-dij-config 1} (utils/count-dict (:error-found d-models-dijconfig)))))
+      (testing "No-dij-config for all models"
+        (is (= {:error-found 1, :keep-testing 48} (utils/count-dict d-all-models-dijconfig)))
+        (is (>= (:no-dij-config (utils/count-dict (:error-found d-all-models-dijconfig))) 117)))
+      (testing "All models, with run-mode error after discriminating with deepimagej config"
+        (is (= {:error-found 2, :keep-testing 43}) (utils/count-dict d-all-models-runmode))
+        (is (>= (:no-dij-config (utils/count-dict (:error-found d-all-models-runmode))) 117)))))
+  (testing "Errors during reproduce stage of CI"
+    (let [])))
 
 (deftest separate-by-error-test
   (let [models-discriminated (separate-by-error @model-records init-checks/errors-fns)

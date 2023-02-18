@@ -20,6 +20,12 @@
   ([zone-str]
    (str (java.time.LocalDateTime/now (java.time.ZoneId/of zone-str)))))
 
+(defn select-key->vec
+  "Select a key from a dictionary, but return a vector of 2 elements.
+  This is what happens to iterating over a map and destructuring"
+  [dict key-word]
+  (first (select-keys dict [key-word])))
+
 ; TODO: use this functions instead of the ones in s.summary
 (defn get-parent-components
   "Gets the (seq) of components of parent directory structure (from root) of a given rdf path"
