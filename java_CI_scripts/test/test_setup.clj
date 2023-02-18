@@ -1,5 +1,6 @@
 (ns test-setup
   (:require [config :refer [ROOTS]]
+            collection
             models
             [clojure [test :refer :all] [edn :as edn]]
             [babashka.fs :as fs]))

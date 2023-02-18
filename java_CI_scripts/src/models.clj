@@ -85,10 +85,10 @@
   "Generates a Model record, data structure with the information needed for testing a model"
   [rdf-path]
   (let [rdf-dict (parse-model rdf-path)]
-    (map->Model {:name        (:name rdf-dict)
-                 :nickname    (get-in rdf-dict [:config :bioimageio :nickname])
-                 :rdf-info    (get-rdf-info rdf-dict)
-                 :paths       (get-paths-info rdf-path)
-                 :weights     (get-weight-info rdf-dict)
-                 :tensors     (get-tensor-info rdf-dict)
-                 :p*process   (get-p*process-info rdf-dict)})))
+    (map->Model {:name      (:name rdf-dict)
+                 :nickname  (get-in rdf-dict [:config :bioimageio :nickname])
+                 :rdf-info  (get-rdf-info rdf-dict)
+                 :paths     (get-paths-info (fs/path rdf-path))
+                 :weights   (get-weight-info rdf-dict)
+                 :tensors   (get-tensor-info rdf-dict)
+                 :p*process (get-p*process-info rdf-dict)})))

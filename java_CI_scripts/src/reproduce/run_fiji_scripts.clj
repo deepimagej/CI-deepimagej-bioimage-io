@@ -1,19 +1,20 @@
 (ns reproduce.run-fiji-scripts
   "Run the 2 scripts: inference with DeepImageJ and comparison with Fiji.
   Use bb instead of bash for windows compatibility"
-  (:require [config :refer [FILES CONSTANTS]] [babashka.fs :as fs]
-            [babashka.process :as pr]
-            [clojure.java.io :as io]
+  (:require [config :refer [FILES CONSTANTS]]
+            utils
+            [downloads.download :as download]
             [clojure.java.shell :as shell]
             [clojure.set :as set]
             [clojure.string :as str]
-            [downloads.download :as download]))
+            [babashka.fs :as fs]
+            [babashka.process :as pr]))
 
 ; pr/tokenize removes escaped quotes \" and single quotes (use the cmd vector, not the string)
 ; ON LINUX: java.shell and bb.process/sh fail to convey the fiji args correctly
 ; CAUTION: Fiji stores the last valid argument for the variables across executions!!
 
-(def script-names "Absolute paths to the scripts"
+(def script-names "Absolute paths to the scripts (from this package)"
   (->> ["test_1_with_deepimagej.clj" "create_output_metrics.py"]
        (map #(fs/file "src" "reproduce" %))
        (map #(str (fs/absolutize %)))))
@@ -21,28 +22,16 @@
 (def script-prints [(format "-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS\n")
                     (format "-- script 2/2: COMPARING TO EXPECTED OUTPUT\n")])
 
-(defn read-lines
-  "Reads every line on a file, returns a vector of strings"
-  [file]
-  (with-open [rdr (io/reader file)]
-    (into [] (line-seq rdr))))
-
 (defn gen-model-folders
   "Reads the comm file and creates the vector with the string paths of the models folders to test"
   ([] (gen-model-folders (:models-listed FILES)))
   ([comm-file]
-   (read-lines comm-file)))
-
-(defn local-time
-  "returns local date and time"
-  ([] (local-time "Europe/Paris"))
-  ([zone-str]
-   (str (java.time.LocalDateTime/now (java.time.ZoneId/of zone-str)))))
+   (utils/read-lines comm-file)))
 
 (defn gen-messages
   "Generates the messages for the start and end of the CI run"
   [model-folders k]
-  (let [now (local-time)
+  (let [now (utils/local-time)
         logs-msg (format "Logs are in: %s and %s\n\n"
                          (str (fs/absolutize (get-in FILES [:logs :out])))
                          (fs/file-name (get-in FILES [:logs :err])))

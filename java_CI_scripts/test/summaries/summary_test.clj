@@ -1,7 +1,9 @@
 (ns summaries.summary-test
   (:require [config :refer [ROOTS]]
+            [summaries.init-checks :as init-checks]
             [summaries.summary :refer :all]
-            [downloads.initial-checks :as initial-checks]
+            [summaries.errors :as errors]
+            [summaries.discriminate :as discriminate]
             [test-setup :refer :all]
             [clojure.test :refer :all]
             [clj-yaml.core :as yaml]
@@ -44,14 +46,25 @@
         (is (= (str toy-root) (str del)) "successful delete returns the path")))))
 
 (deftest gen-summa-dict-test
-  (is (= (gen-summa-dict "failed" :initial :no-dij-config)
+  (is (= (gen-summa-dict :no-dij-config)
          {:bioimageio_spec_version "0.4.8post1",
-          :error "rdf does not have keys for :config :deepimagej",
-          :status "failed",
-          :name "initial compatibility checks with deepimagej"}))
-  (is (= (gen-summa-dict) {:bioimageio_spec_version "0.4.8post1",
-                           :status "passed",
-                           :name "reproduce test outputs with deepimagej headless"})))
+          :error                   "rdf does not have keys for :config :deepimagej",
+          :status                  "failed",
+          :name                    "Initial compatibility checks with DeepImageJ"}))
+  (is (= (gen-summa-dict :comparison)
+         {:bioimageio_spec_version "0.4.8post1",
+          :error                   (:comparison errors/all-errors)
+          :status                  "failed",
+          :name                    (:reproduce errors/ci-stages)}))
+  (is (= (gen-summa-dict :mistake-key)
+         {:bioimageio_spec_version "0.4.8post1",
+          :error                   "Other error",
+          :status                  "failed",
+          :name                    "Initial compatibility checks with DeepImageJ"}))
+  (is (= (gen-summa-dict)
+         {:bioimageio_spec_version "0.4.8post1",
+          :status                  "passed",
+          :name                    "Reproduce test outputs with DeepImageJ headless"})))
 
 (defn no-pp [m]
   "finds model records without preprocessing (but with dij config)"
@@ -63,7 +76,7 @@
 
 (deftest write-test-summary-test
   (let [model (first @model-records)
-        summa-dict (gen-summa-dict "failed" :initial :no-dij-config)
+        summa-dict (gen-summa-dict :no-dij-config)
         summa-path (get-in model [:paths :summa-path])
         expected-file (fs/file (fs/path summa-path "test_summary.yaml"))]
     (testing "Before the test, create empty directory for the test summary of model"
@@ -71,7 +84,7 @@
              (fs/absolutize (create-summa-dir (get-in model [:paths :rdf-path]))))
           "Need absolute paths, in linux the absolute path is returned after creation"))
     (testing "List the directory to see the summary test was created"
-      (write-test-summary! model summa-dict)
+      (write-test-summary! summa-dict model)
       (is (= (fs/path expected-file) (first (fs/list-dir summa-path)))))
     (testing "See that the contents of the test summery are correct (parse yaml)"
       (is (= (yaml/parse-string (slurp expected-file)) summa-dict)))
@@ -79,6 +92,7 @@
       (is (fs/delete-if-exists expected-file)))))
 
 (deftest write-summaries-from-error!-test
-  (let [{:keys [keep-testing error-found]} (initial-checks/separate-by-error @model-records)
+  (let [{:keys [keep-testing error-found]}
+        (discriminate/separate-by-error @model-records init-checks/errors-fns)
         one-error-k (first (select-keys error-found [:no-compatible-weights]))]
     (write-summaries-from-error! one-error-k)))

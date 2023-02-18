@@ -1,8 +1,8 @@
 (ns core.sandbox
   (:require collection
             models
-            [summaries summary errors]
-            [downloads download initial-checks]
+            [summaries summary errors init-checks]
+            [downloads download]
             [reproduce communicate]
             [core main]
             [test-setup :refer :all]

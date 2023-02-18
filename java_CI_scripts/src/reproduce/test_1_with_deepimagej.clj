@@ -12,6 +12,7 @@
 
 (println "   The folder is:" user/folder)                      ; debug
 
+; todo: robustness: get constants from serialized config file
 (def COMM-FILE (file user/folder "dij_args.edn"))
 (def DIJ-MODEL (edn/read-string (slurp COMM-FILE)))
 (def FIJI-HOME (file (System/getProperty "user.home") "blank_fiji"))

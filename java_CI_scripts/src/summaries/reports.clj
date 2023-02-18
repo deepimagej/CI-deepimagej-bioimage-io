@@ -24,7 +24,7 @@
 (defn basic-report
   "print basic report with results of CI"
   ([]
-   (spit (:report FILES) "")
+   (spit (:report FILES) "" :append true)
    (basic-report (:report FILES)))
   ([log-file]
    (doall (map #(let [msg (basic-model-info %1 %2)]

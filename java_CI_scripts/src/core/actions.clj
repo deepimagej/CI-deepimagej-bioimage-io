@@ -3,21 +3,23 @@
   (:require [config :refer [FILES]]
             collection
             models
-            [summaries [summary :as summary] [reports :as reports]]
-            [downloads [initial-checks :as initial-checks] [download :as download]]
+            [summaries [summary :as summary] [reports :as reports] [discriminate :as discriminate]
+             [init-checks :as init-checks] [reproduce-checks :as reproduce-checks]]
+            [downloads  [download :as download]]
             [reproduce [communicate :as comm] [run-fiji-scripts :as run-fiji-scripts]]
             [clojure.string :as str]
             [babashka.fs :as fs]
             [babashka.process :as pr]))
 
 (defn initial-pipeline
-  "Creates the folders corresponding to test input json"
+  "Creates the corresponding folders to test the rdfs specified in the input json"
   [ini-return json-type options]
   (let [parsing-function (json-type {:json-file   collection/file-json->vector
                                      :json-string collection/str-json->vector})
         rdfs-paths (collection/get-rdfs-to-test (parsing-function (json-type options)))
-        model-records (filter initial-checks/model? (map models/build-model rdfs-paths))
-        {:keys [keep-testing error-found]} (initial-checks/separate-by-error model-records)]
+        model-records (filter init-checks/model? (map models/build-model rdfs-paths))
+        {:keys [keep-testing error-found]}
+        (discriminate/separate-by-error model-records init-checks/errors-fns)]
     (println "Creating dirs for test summaries")
     (mapv summary/create-summa-dir rdfs-paths)
     (println "Creating dirs for models")
@@ -25,13 +27,13 @@
 
     (mapv summary/write-summaries-from-error! error-found)
     (println "Creating comm file for" (count keep-testing) "models")
-    (comm/write-comm-file (map comm/build-dij-model keep-testing))
+    (comm/write-comm-file (map comm/build-dij-model keep-testing)) ; not used anymore, here for legacy reasons
     (comment
       ; txt input to numpy-tiff repo, needs that the :no-sample-images error is not checked during initial checks
       (comm/write-absolute-paths keep-testing :rdf-path
                                  (fs/file ".." "numpy-tiff-deepimagej" "resources" "rdfs_to_test.txt")))
-    (comm/write-absolute-paths keep-testing :model-dir-path
-                               (fs/file ".." "resources" "models_to_test.txt"))
+    (comm/write-absolute-paths keep-testing :model-dir-path (:models-listed FILES))
+    (comm/write-absolute-paths keep-testing :rdf-path (:rdfs-listed FILES))
     (mapv comm/write-dij-model keep-testing)
     (if ini-return keep-testing)))
 
@@ -46,14 +48,23 @@
     (let [timed (download/my-time (doall (pmap download/download-into-model-folder model-records-keep)))]
       (printf "Total Time Taken: %s\n" (:iso timed)))))
 
-;todo: generate test summaries for tested models that produce image
 (defn reproduce-pipeline
  "For the linux case, where reproduce.run-fiji-scripts fails"
   [& _]
+  ; Run inference on fiji
   (if (str/includes? (System/getProperty "os.name") "Windows")
     (run-fiji-scripts/-main)
     (let [_ (run-fiji-scripts/build-bash-script (:bash-script FILES))
           timed (download/my-time (pr/shell "sh" (:bash-script FILES)))]
       (printf "Total Time Taken: %s\n" (:iso timed))
       (flush)))
+  ; Generate final test summaries
+  (let [rdf-paths (map fs/path (utils/read-lines (:rdfs-listed FILES)))
+        models-tested (map models/build-model rdf-paths)
+        {:keys [keep-testing error-found]}
+        (discriminate/separate-by-error models-tested reproduce-checks/errors-fns)]
+    (mapv summary/write-summaries-from-error! error-found)
+    (mapv (partial summary/write-test-summary! (summary/gen-summa-dict)) keep-testing)
+    (printf "Created %d test summaries for models that pass the CI\n" (count keep-testing)))
+  ; Generate the report
   (reports/basic-report))
