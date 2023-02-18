@@ -84,7 +84,7 @@
              (fs/absolutize (create-summa-dir (get-in model [:paths :rdf-path]))))
           "Need absolute paths, in linux the absolute path is returned after creation"))
     (testing "List the directory to see the summary test was created"
-      (write-test-summary! model summa-dict)
+      (write-test-summary! summa-dict model)
       (is (= (fs/path expected-file) (first (fs/list-dir summa-path)))))
     (testing "See that the contents of the test summery are correct (parse yaml)"
       (is (= (yaml/parse-string (slurp expected-file)) summa-dict)))

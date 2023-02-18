@@ -24,8 +24,6 @@
   [model-record]
   (> (:mse-threshold CONSTANTS) (get (get-output-metrics model-record) :mse 3.0)))
 
-(def error-functions
+(def errors-fns
   {:dij-headless metrics-produced?
    :comparison   ok-metrics?})
-
-; todo reload model records from models_to_test.txt

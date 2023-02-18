@@ -3,8 +3,8 @@
   (:require [config :refer [FILES]]
             collection
             models
-            [summaries [summary :as summary] [reports :as reports]
-             [discriminate :as discriminate] [init-checks :as init-checks]]
+            [summaries [summary :as summary] [reports :as reports] [discriminate :as discriminate]
+             [init-checks :as init-checks] [reproduce-checks :as reproduce-checks]]
             [downloads  [download :as download]]
             [reproduce [communicate :as comm] [run-fiji-scripts :as run-fiji-scripts]]
             [clojure.string :as str]
@@ -12,7 +12,7 @@
             [babashka.process :as pr]))
 
 (defn initial-pipeline
-  "Creates the folders corresponding to test input json"
+  "Creates the corresponding folders to test the rdfs specified in the input json"
   [ini-return json-type options]
   (let [parsing-function (json-type {:json-file   collection/file-json->vector
                                      :json-string collection/str-json->vector})
@@ -58,6 +58,11 @@
       (printf "Total Time Taken: %s\n" (:iso timed))
       (flush)))
   ;todo: solve problem of absolute path in summary/gen-summa-path, fs/relativize
-  #_(let [rdf-paths (map fs/path (utils/read-lines (:rdfs-listed FILES)))
-        models-tested (map models/build-model rdf-paths)])
+  (let [rdf-paths (map fs/path (utils/read-lines (:rdfs-listed FILES)))
+        models-tested (map models/build-model rdf-paths)
+        {:keys [keep-testing error-found]}
+        (discriminate/separate-by-error models-tested reproduce-checks/errors-fns)]
+    (mapv summary/write-summaries-from-error! error-found)
+    (mapv (partial summary/write-test-summary! (summary/gen-summa-dict)) keep-testing)
+    (printf "Created %d test summaries for models that pass the CI\n" (count keep-testing)))
   (reports/basic-report))

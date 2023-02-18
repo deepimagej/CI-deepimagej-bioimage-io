@@ -3,9 +3,9 @@
 
 ;  DATA STRUCTURE FOR DISCRIMINATED MODELS
 (comment
-  {:keep-testing [list-of-model-rp]
-   :error-found  {:error-key1 [list-of-model-rp]
-                  :error-key2 [list-of-model-rp]}})
+  {:keep-testing [list-of-model-records]
+   :error-found  {:error-key1 [list-of-model-records]
+                  :error-key2 [list-of-model-records]}})
 
 ; todo, put this somewhere different, used also for final-checks
 (defn check-error

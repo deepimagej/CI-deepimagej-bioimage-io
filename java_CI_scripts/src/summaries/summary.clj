@@ -43,7 +43,7 @@
 
 (defn write-test-summary!
   "Writes the yaml of the summary-dict in the summary path (in the model.paths)"
-  [model-record summa-dict]
+  [summa-dict model-record]
   (let [file-name (:summary-name CONSTANTS)
         yaml-str (yaml/generate-string summa-dict :dumper-options {:flow-style :block})
         out-file (fs/file (get-in model-record [:paths :summa-path]) file-name)]
@@ -53,7 +53,7 @@
   "Writes the test summaries for the models with errors (entry from a discriminated-models dictionary)"
   [[error-key model-records]]
   (let [summa-dict (gen-summa-dict error-key)]
-    (mapv #(write-test-summary! % summa-dict) model-records)
+    (mapv (partial write-test-summary! summa-dict) model-records)
     ; todo print to stdout and log in report
     (printf "Created %d test summaries for the error key %s\n" (count model-records) error-key))
   )

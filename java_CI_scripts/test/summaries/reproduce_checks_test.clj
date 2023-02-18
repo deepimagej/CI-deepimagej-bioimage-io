@@ -14,7 +14,8 @@
   (mapv (fn [dict model]
           (let [metrics-file (get-metrics-file model)]
             (fs/create-dirs (fs/parent metrics-file))
-            (spit metrics-file (with-out-str (ppr/pprint dict)))))
+            (spit metrics-file (with-out-str (ppr/pprint dict)))
+            (println (str metrics-file))))
         fake-maps @model-records)
   (test-fn))
 

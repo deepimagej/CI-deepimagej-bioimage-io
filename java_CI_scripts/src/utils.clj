@@ -1,6 +1,8 @@
 (ns utils
   "Generic functions"
-  (:require [clojure.java.io :as io]))
+  (:require [config :refer [ROOTS]]
+            [clojure.java.io :as io]
+            [babashka.fs :as fs]))
 
 (defn count-dict
   "Counts dictionary entries which are seqs"
@@ -13,7 +15,18 @@
     (into [] (line-seq rdr))))
 
 (defn local-time
-  "Returns local date and time"
+  "Returns local date and time as string in ISO Format"
   ([] (local-time "Europe/Paris"))
   ([zone-str]
    (str (java.time.LocalDateTime/now (java.time.ZoneId/of zone-str)))))
+
+; TODO: use this functions instead of the ones in s.summary
+(defn get-parent-components
+  "Gets the (seq) of components of parent directory structure (from root) of a given rdf path"
+  ([root path] (butlast (fs/components (fs/relativize root path))))
+  ([rdf-path] (get-parent-components (:collection-root ROOTS) rdf-path)))
+
+(defn new-root-path
+  "Returns a path with a new root"
+  [old-root new-root path]
+  (apply fs/path (conj (get-parent-components old-root path) new-root)))
