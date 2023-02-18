@@ -17,16 +17,25 @@
           d-all-models-runmode (check-error d-all-models-dijconfig
                                             (utils/select-key->vec init-checks/errors-fns :key-run-mode))]
       (testing "No-dij-config for the 3 variety models"
-        (is (= {:error-found 1, :keep-testing 2} (utils/count-dict d-models-dijconfig)))
-        (is (= {:no-dij-config 1} (utils/count-dict (:error-found d-models-dijconfig)))))
+        (is (= (utils/count-dict d-models-dijconfig) {:error-found 1, :keep-testing 2} ))
+        (is (= (utils/count-dict (:error-found d-models-dijconfig)) {:no-dij-config 1})))
       (testing "No-dij-config for all models"
-        (is (= {:error-found 1, :keep-testing 48} (utils/count-dict d-all-models-dijconfig)))
+        (is (= (utils/count-dict d-all-models-dijconfig) {:error-found 1, :keep-testing 48}))
         (is (>= (:no-dij-config (utils/count-dict (:error-found d-all-models-dijconfig))) 117)))
       (testing "All models, with run-mode error after discriminating with deepimagej config"
-        (is (= {:error-found 2, :keep-testing 43}) (utils/count-dict d-all-models-runmode))
+        (is (= (utils/count-dict d-all-models-runmode) {:error-found 2, :keep-testing 44}))
         (is (>= (:no-dij-config (utils/count-dict (:error-found d-all-models-runmode))) 117)))))
   (testing "Errors during reproduce stage of CI"
-    (let [])))
+    (let [d-models-dij-headless (check-error {:keep-testing @model-records}
+                                             (utils/select-key->vec reproduce-checks/errors-fns :dij-headless))
+          d-models-comparison (check-error d-models-dij-headless
+                                           (utils/select-key->vec reproduce-checks/errors-fns :comparison))]
+      (is (= (utils/count-dict d-models-dij-headless) {:error-found 1, :keep-testing 2}))
+      (is (= (utils/count-dict (:error-found d-models-dij-headless)) {:dij-headless 1}))
+      (is (= (utils/count-dict d-models-comparison) {:error-found 2, :keep-testing 1}))
+      (is (= (utils/count-dict (:error-found d-models-comparison))
+             {:dij-headless 1 :comparison 1}))
+      )))
 
 (deftest separate-by-error-test
   (let [models-discriminated (separate-by-error @model-records init-checks/errors-fns)
