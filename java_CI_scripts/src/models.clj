@@ -1,7 +1,8 @@
 (ns models
-  "Define a Model record to hold the important data in an rdf"
+  "Define a Model record to hold the relevant data from a parsed rdf"
   (:require [config :refer [ROOTS]]
-            [summaries [summary :refer [new-root-path gen-summa-path]]]
+            utils
+            [summaries.summary :as summary]
             [clj-yaml.core :as yaml]
             [babashka.fs :as fs]))
 
@@ -61,12 +62,12 @@
 
 (defn gen-model-path
   "Gets the path corresponding to the model directory of an rdf-path"
-  ([coll-root model-root rdf-path] (new-root-path coll-root model-root rdf-path))
+  ([coll-root model-root rdf-path] (utils/new-root-path coll-root model-root rdf-path))
   ([rdf-path] (gen-model-path (:collection-root ROOTS) (:models-root ROOTS) rdf-path)))
 
 (defn gen-sample-path
   "Gets the path corresponding to the model directory of an rdf-path"
-  ([coll-root sample-root rdf-path] (new-root-path coll-root sample-root rdf-path))
+  ([coll-root sample-root rdf-path] (utils/new-root-path coll-root sample-root rdf-path))
   ([rdf-path] (gen-model-path (:collection-root ROOTS) (:samples-root ROOTS) rdf-path)))
 
 (defn create-model-dir
@@ -79,7 +80,7 @@
 (defn get-paths-info
   "Gets the different paths the model uses"
   [rdf-path]
-  (->Paths rdf-path (gen-summa-path rdf-path) (gen-model-path rdf-path) (gen-sample-path rdf-path)))
+  (->Paths rdf-path (summary/gen-summa-path rdf-path) (gen-model-path rdf-path) (gen-sample-path rdf-path)))
 
 (defn build-model
   "Generates a Model record, data structure with the information needed for testing a model"
