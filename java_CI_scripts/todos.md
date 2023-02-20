@@ -6,6 +6,7 @@
 ## Refactor utils
 - [ ] put more generally used functions in `utils.clj`
     + [ ] my-time
+    + [ ] print-and-log
 - [ ] test of those functions in `utils-test.clj`
 
 ## Functionality
