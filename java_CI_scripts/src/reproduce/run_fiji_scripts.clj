@@ -144,4 +144,5 @@
    (mapv bash-exec-step (gen-execution-dict))
    (write-bash (echo-and-log (gen-messages (gen-model-folders) :end)))
    (printf "Bash script with %d lines of code written in: %s\n"
-           (count (str/split-lines (slurp bash-file))) (str (fs/absolutize bash-file)))))
+           (count (str/split-lines (slurp bash-file))) (str (fs/absolutize bash-file)))
+   (flush)))
