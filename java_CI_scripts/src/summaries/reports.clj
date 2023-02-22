@@ -1,5 +1,5 @@
 (ns summaries.reports
-  (:require [config :refer [ROOTS FILES]]
+  (:require [config :refer [ROOTS FILES CONSTANTS]]
             utils
             [reproduce.run-fiji-scripts :as run-fiji-scripts]
             [clojure.edn :as edn]
@@ -32,5 +32,5 @@
                   (utils/print-and-log msg log-file))
                (glob-models "**/output_metrics.edn")
                (glob-models "**/dij_args.edn")))
-   (printf "Report written in: %s\n" log-file)))
-
+   (printf "Report written in: %s\n" log-file)
+   (flush)))

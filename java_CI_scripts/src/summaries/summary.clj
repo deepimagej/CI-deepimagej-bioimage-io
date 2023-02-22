@@ -1,5 +1,5 @@
 (ns summaries.summary
-  (:require [config :refer [ROOTS CONSTANTS]]
+  (:require [config :refer [ROOTS FILES CONSTANTS]]
             utils
             [summaries.errors :as errors]
             [clj-yaml.core :as yaml]
@@ -45,5 +45,5 @@
   [[error-key model-records]]
   (let [summa-dict (gen-summa-dict error-key)]
     (mapv (partial write-test-summary! summa-dict) model-records)
-    ; todo print to stdout and log in report
-    (printf "Created %d test summaries for the error key %s\n" (count model-records) error-key)))
+    (utils/print-and-log (format "Created %d test summaries for the error key %s\n" (count model-records) error-key)
+                         (:summa-readme FILES))))
