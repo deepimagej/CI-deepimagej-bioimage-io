@@ -1,6 +1,6 @@
 (ns utils
   "Generic functions"
-  (:require [config :refer [ROOTS]]
+  (:require [config :refer [ROOTS FILES]]
             [clojure.java.io :as io]
             [babashka.fs :as fs]))
 
@@ -35,3 +35,11 @@
   "Returns a path with a new root"
   [old-root new-root path]
   (apply fs/path (conj (get-parent-components old-root path) new-root)))
+
+(defn print-and-log
+  "Prints a string message and logs it on all log files provided"
+  ([msg] (apply print-and-log msg (vals (:logs FILES))))
+  ([msg & log-files]
+   (print msg)
+   (flush)
+   (mapv #(spit % msg :append true) log-files)))

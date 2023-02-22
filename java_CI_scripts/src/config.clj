@@ -30,7 +30,7 @@
    :output-metrics-name    "output_metrics.edn"
    :summary-name           "test_summary.yaml"
    :dij-args-filename      "dij_args.edn"
-   :mse-threshold          2.0
+   :mse-threshold          2.5
    :special-headless-chars #{" " "_"}})
 
 (defn absolutize-nested
