@@ -99,13 +99,13 @@
   (testing "Attachments of Fru-net (.txt extension in p*processing scripts)"
     (let [name "Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)"
           fru-list (filter #(= name (:name %)) @all-model-records)
-          links (map get-attachments-to-download fru-list)]
-      (is (= (first links) ["https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/preprocessing.txt"
-                            "https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/postprocessing.txt"
-                            "https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/postprocessingWatershed.txt"]))
-      (is (= (second links)) ["https://zenodo.org/api/files/e1fbb083-1395-4786-bb14-96785b5c990a/preprocessing.txt"
-                            "https://zenodo.org/api/files/e1fbb083-1395-4786-bb14-96785b5c990a/postprocessing.txt"
-                            "https://zenodo.org/api/files/e1fbb083-1395-4786-bb14-96785b5c990a/postprocessingWatershed.txt"]))))
+          links (set (flatten (map get-attachments-to-download fru-list)))]
+      (is (= links (set (concat ["https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/preprocessing.txt"
+                                 "https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/postprocessing.txt"
+                                 "https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/postprocessingWatershed.txt"]
+                                ["https://zenodo.org/api/files/e1fbb083-1395-4786-bb14-96785b5c990a/preprocessing.txt"
+                                 "https://zenodo.org/api/files/e1fbb083-1395-4786-bb14-96785b5c990a/postprocessing.txt"
+                                 "https://zenodo.org/api/files/e1fbb083-1395-4786-bb14-96785b5c990a/postprocessingWatershed.txt"])))))))
 
 (deftest get-urls-to-download-test
   (let [downloads-list (map get-urls-to-download @model-records)]
