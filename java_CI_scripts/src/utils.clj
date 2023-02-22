@@ -1,6 +1,7 @@
 (ns utils
   "Generic functions"
-  (:require [config :refer [ROOTS]]
+  (:require [config :refer [ROOTS FILES CONSTANTS]]
+            [clojure.string :as str]
             [clojure.java.io :as io]
             [babashka.fs :as fs]))
 
@@ -35,3 +36,23 @@
   "Returns a path with a new root"
   [old-root new-root path]
   (apply fs/path (conj (get-parent-components old-root path) new-root)))
+
+(defn print-and-log
+  "Prints a string message and logs it on all log files provided"
+  ([msg] (apply print-and-log msg (vals (:logs FILES))))
+  ([msg & log-files]
+   (print msg)
+   (flush)
+   (mapv #(spit % msg :append true) log-files)))
+
+(defn before-str-content
+  "Returns all the contents of a string, before the pattern"
+  [s s-pattern]
+  (str/split s (re-pattern s-pattern)))
+
+(defn original-file-content
+  "Returns the contents of a file, only keeping contents up to a string pattern"
+  [file pattern]
+  (let [content (if (fs/exists? file) (slurp file) "")
+        content-to-keep (first (utils/before-str-content content pattern))]
+    content-to-keep))

@@ -1,6 +1,6 @@
 (ns downloads.download-test
   (:require [downloads.download :refer :all]
-            [test-setup :refer [load-test-paths load-model-records an-edn model-records]]
+            [test-setup :refer [load-test-paths load-model-records an-edn model-records all-model-records]]
             [clojure [test :refer :all] [edn :as edn]]
             [babashka.fs :as fs]))
 
@@ -90,11 +90,22 @@
             "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/resultImage.tif"]))))
 
 (deftest get-attachments-to-download-test
-  (let [links (map get-attachments-to-download @model-records)]
-    (is (= (first links) []))
-    (is (= (second links) ["https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/per_sample_scale_range.ijm"
-                           "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/binarize.ijm"]))
-    (is (= (last links) ["https://zenodo.org/api/files/a6d65a8b-4fed-453f-89f6-515a2a73a99e/zero_mean_unit_variance.ijm"]))))
+  (testing "Attachments of variety models"
+    (let [links (map get-attachments-to-download @model-records)]
+      (is (= (first links) []))
+      (is (= (second links) ["https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/per_sample_scale_range.ijm"
+                             "https://zenodo.org/api/files/eb8f4259-001c-4989-b8ea-d2997918599d/binarize.ijm"]))
+      (is (= (last links) ["https://zenodo.org/api/files/a6d65a8b-4fed-453f-89f6-515a2a73a99e/zero_mean_unit_variance.ijm"]))))
+  (testing "Attachments of Fru-net (.txt extension in p*processing scripts)"
+    (let [name "Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)"
+          fru-list (filter #(= name (:name %)) @all-model-records)
+          links (set (flatten (map get-attachments-to-download fru-list)))]
+      (is (= links (set (concat ["https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/preprocessing.txt"
+                                 "https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/postprocessing.txt"
+                                 "https://raw.githubusercontent.com/deepimagej/models/master/fru-net_sev_segmentation/postprocessingWatershed.txt"]
+                                ["https://zenodo.org/api/files/e1fbb083-1395-4786-bb14-96785b5c990a/preprocessing.txt"
+                                 "https://zenodo.org/api/files/e1fbb083-1395-4786-bb14-96785b5c990a/postprocessing.txt"
+                                 "https://zenodo.org/api/files/e1fbb083-1395-4786-bb14-96785b5c990a/postprocessingWatershed.txt"])))))))
 
 (deftest get-urls-to-download-test
   (let [downloads-list (map get-urls-to-download @model-records)]

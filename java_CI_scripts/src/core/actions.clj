@@ -1,6 +1,7 @@
 (ns core.actions
   "Define the steps for every action: init, download, and reproduce"
-  (:require [config :refer [FILES]]
+  (:require [config :refer [FILES CONSTANTS]]
+            utils
             collection
             models
             [summaries [summary :as summary] [reports :as reports] [discriminate :as discriminate]
@@ -20,13 +21,19 @@
         model-records (filter init-checks/model? (map models/build-model rdfs-paths))
         {:keys [keep-testing error-found]}
         (discriminate/separate-by-error model-records init-checks/errors-fns)]
+    ; Reset contents of test_summaries/Readme.md
+    (spit (:summa-readme FILES)
+          (str (utils/original-file-content (:summa-readme FILES) (:summa-readme-header CONSTANTS))
+               (:summa-readme-header CONSTANTS) (System/lineSeparator)))
+
     (println "Creating dirs for test summaries")
     (mapv summary/create-summa-dir rdfs-paths)
     (println "Creating dirs for models")
     (mapv models/create-model-dir (map #(get-in % [:paths :rdf-path]) keep-testing))
 
     (mapv summary/write-summaries-from-error! error-found)
-    (println "Creating comm file for" (count keep-testing) "models")
+    (utils/print-and-log (format "- Creating comm file for %d models\n" (count keep-testing))
+                         (:summa-readme FILES))
     (comm/write-comm-file (map comm/build-dij-model keep-testing)) ; not used anymore, here for legacy reasons
     (comment
       ; txt input to numpy-tiff repo, needs that the :no-sample-images error is not checked during initial checks
@@ -65,6 +72,7 @@
         (discriminate/separate-by-error models-tested reproduce-checks/errors-fns)]
     (mapv summary/write-summaries-from-error! error-found)
     (mapv (partial summary/write-test-summary! (summary/gen-summa-dict)) keep-testing)
-    (printf "Created %d test summaries for models that pass the CI\n" (count keep-testing)))
+    (utils/print-and-log (format "- Created %d test summaries for models that pass the CI\n" (count keep-testing))
+                         (:summa-readme FILES)))
   ; Generate the report
   (reports/basic-report))

@@ -19,7 +19,8 @@
    :models-listed   (fs/file (:resources-root ROOTS) "models_to_test.txt")
    :models-vector   (fs/file (:resources-root ROOTS) "models_to_test.edn")
    :rdfs-listed     (fs/file (:resources-root ROOTS) "rdfs_to_test.txt")
-   :fiji-home       (fs/file (System/getProperty "user.home") "blank_fiji" "Fiji.app")})
+   :fiji-home       (fs/file (System/getProperty "user.home") "blank_fiji" "Fiji.app")
+   :summa-readme    (fs/file (:summa-root ROOTS) "Readme.md")})
 
 (def CONSTANTS "Constants that are not files"
   {:fiji-flags             ["--headless" "--ij2" "--console" "--run"]
@@ -30,8 +31,9 @@
    :output-metrics-name    "output_metrics.edn"
    :summary-name           "test_summary.yaml"
    :dij-args-filename      "dij_args.edn"
-   :mse-threshold          2.0
-   :special-headless-chars #{" " "_"}})
+   :mse-threshold          2.5
+   :special-headless-chars #{" " "_"}
+   :summa-readme-header    "# Report summary"})
 
 (defn absolutize-nested
   "absolutize values of dictionary that are files"

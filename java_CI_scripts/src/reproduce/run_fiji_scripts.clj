@@ -63,14 +63,6 @@
   [model-folder script-name]
   (str/join " " (compose-command model-folder script-name)))
 
-(defn print-and-log
-  "Prints a string message and logs it on all log files provided"
-  ([msg] (apply print-and-log msg (vals (:logs FILES))))
-  ([msg & log-files]
-   (print msg)
-   (flush)
-   (mapv #(spit % msg :append true) log-files)))
-
 (defn gen-execution-dict
   "Generates a vector with a dict for every step. It has the commands and prints"
   ; can be access it with (get-in execution-dict [0 :cmd-vecs 0]), but not needed
@@ -88,21 +80,21 @@
   "Perform the commands for 1 execution step (1 model, 2 scripts)"
   ([execution-step] (run-exec-step execution-step (:logs FILES)))
   ([{:keys [message cmd-vecs]} {log-out :out log-err :err}]
-   (print-and-log message)
+   (utils/print-and-log message)
    (mapv (fn [cmd msg] (let [return (apply shell/sh cmd)]
-                         (print-and-log msg)
-                         ;(print-and-log (:err return) (:err LOG-FILES)) ; print errors on stdout?
+                         (utils/print-and-log msg)
+                         ;(utils/print-and-log (:err return) (:err LOG-FILES)) ; print errors on stdout?
                          (spit log-err (:err return) :append true)
-                         (print-and-log (:out return) log-out)))
+                         (utils/print-and-log (:out return) log-out)))
          cmd-vecs script-prints)))
 
 (defn -main []
   "Runs the commands from the execution-dict. Logs outputs"
   (mapv #(spit % "") (vals (:logs FILES)))
-  (print-and-log (gen-messages (gen-model-folders) :start))
+  (utils/print-and-log (gen-messages (gen-model-folders) :start))
   (let [timed (download/my-time (mapv run-exec-step (gen-execution-dict)))]
-    (print-and-log (gen-messages (gen-model-folders) :end))
-    (print-and-log (format "Total Time Taken: %s\n" (:iso timed)))))
+    (utils/print-and-log (gen-messages (gen-model-folders) :end))
+    (utils/print-and-log (format "Total Time Taken: %s\n" (:iso timed)))))
 
 ;; Create bash file automatically
 
@@ -144,4 +136,5 @@
    (mapv bash-exec-step (gen-execution-dict))
    (write-bash (echo-and-log (gen-messages (gen-model-folders) :end)))
    (printf "Bash script with %d lines of code written in: %s\n"
-           (count (str/split-lines (slurp bash-file))) (str (fs/absolutize bash-file)))))
+           (count (str/split-lines (slurp bash-file))) (str (fs/absolutize bash-file)))
+   (flush)))
