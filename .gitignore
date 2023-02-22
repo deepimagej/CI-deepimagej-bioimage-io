@@ -24,6 +24,7 @@ bash_scripts/dependencies_2115/
 # paths to Models to test
 # change a lot between computers (abs paths) and inputs (contents)
 resources/models_to_test.txt
+resources/models_to_test.edn
 resources/models_to_test.sh
 resources/test_the_models.sh
 resources/rdfs_to_test.txt
