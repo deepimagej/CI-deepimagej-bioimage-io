@@ -1,5 +1,5 @@
 
-STARTED TESTING THE 29 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-02-22T10:49:54.529165
+STARTED TESTING THE 29 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-02-22T15:06:10.802008
 
 Logs are in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../test_summaries/fiji_log_out.txt and fiji_log_err.txt
 
@@ -79,7 +79,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT9.003S
+   Time taken: PT8.558S
 -- Finished testing model: affable-shark
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -223,7 +223,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT12.087S
+   Time taken: PT12.339S
 -- Finished testing model: powerful-chipmunk
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -367,7 +367,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT12.086S
+   Time taken: PT12.43S
 -- Finished testing model: shivering-raccoon
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -409,7 +409,7 @@ and max_percentile: 0.998
 [DEBUG] Execution of model 'StarDist H&E Nuclei Segmentation' completed.
 [DEBUG] Close Tensorflow services
 [DEBUG] End execution
-   Time taken: PT11.314S
+   Time taken: PT11.611S
 -- Finished testing model: chatty-frog
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -492,7 +492,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT4M29.293S
+   Time taken: PT4M28.783S
 -- Finished testing model: kind-seashell
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -572,7 +572,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT12.761S
+   Time taken: PT12.394S
 -- Finished testing model: hiding-blowfish
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -655,7 +655,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT4M27.747S
+   Time taken: PT4M28.329S
 -- Finished testing model: kind-seashell
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -734,7 +734,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT12.155S
+   Time taken: PT12.582S
 -- Finished testing model: hiding-tiger
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -817,7 +817,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT1M52.55S
+   Time taken: PT1M52.725S
 -- Finished testing model: impartial-shrimp
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -897,7 +897,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT11.951S
+   Time taken: PT12.302S
 -- Finished testing model: hiding-blowfish
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -977,7 +977,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT12.429S
+   Time taken: PT11.924S
 -- Finished testing model: hiding-blowfish
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1056,7 +1056,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT11.984S
+   Time taken: PT12.341S
 -- Finished testing model: hiding-tiger
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1135,7 +1135,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT12.407S
+   Time taken: PT12.475S
 -- Finished testing model: hiding-tiger
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1176,7 +1176,7 @@ and max_percentile: 1
 [DEBUG] Execution of model 'Cell Segmentation from Membrane Staining for Plant Tissues' completed.
 [DEBUG] Close Tensorflow services
 [DEBUG] End execution
-   Time taken: PT18.502S
+   Time taken: PT18.981S
 -- Finished testing model: humorous-owl
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1217,7 +1217,7 @@ and max_percentile: 1
 [DEBUG] Execution of model '3D UNet - arabidopsis - ZeroCostDL4Mic' completed.
 [DEBUG] Close Tensorflow services
 [DEBUG] End execution
-   Time taken: PT18.687S
+   Time taken: PT18.5S
 -- Finished testing model: humorous-owl
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1296,7 +1296,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT4.618S
+   Time taken: PT4.67S
 -- Finished testing model: affable-shark
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1337,7 +1337,7 @@ and max_percentile: 1
 [DEBUG] Execution of model 'Pancreatic Phase Contrast Cell Segmentation (U-Net)' completed.
 [DEBUG] Close Tensorflow services
 [DEBUG] End execution
-   Time taken: PT5.787S
+   Time taken: PT5.667S
 -- Finished testing model: discreet-rooster
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1360,29 +1360,10 @@ and max_percentile: 1
 [DEBUG] Image name: sample_input_0.tif
 [DEBUG] Start pre-processing
 [DEBUG] Run Macro pre-processing
-Macro or script not found:
- 
-/home/runner/blank_fiji/Fiji.app/models/the_model//preprocessing.txt
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Tensorflow) Patch 1/9
-[DEBUG] (Tensorflow) Patch 2/9
-[DEBUG] (Tensorflow) Patch 3/9
-[DEBUG] (Tensorflow) Patch 4/9
-[DEBUG] (Tensorflow) Patch 5/9
-[DEBUG] (Tensorflow) Patch 6/9
-[DEBUG] (Tensorflow) Patch 7/9
-[DEBUG] (Tensorflow) Patch 8/9
-[DEBUG] (Tensorflow) Patch 9/9
-[DEBUG] Start post-processing 
-[DEBUG] Run Macro post-processing
-Macro or script not found:
- 
-/home/runner/blank_fiji/Fiji.app/models/the_model//postprocessing.txt
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
-[DEBUG] Execution of model 'Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)' completed.
+Preprocessing
+Error during Java preprocessing.
+[DEBUG] Error during Java preprocessing.
+Error during the aplication of the model.
 [DEBUG] Close Tensorflow services
 [DEBUG] End execution
 There are no images open
@@ -1465,7 +1446,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT1M31.566S
+   Time taken: PT1M31.436S
 -- Finished testing model: organized-badger
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1544,7 +1525,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT12.392S
+   Time taken: PT12.115S
 -- Finished testing model: powerful-chipmunk
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1581,7 +1562,7 @@ and max_percentile: 1
 [DEBUG] Execution of model 'Arabidopsis Leaf Segmentation' completed.
 [DEBUG] Close Tensorflow services
 [DEBUG] End execution
-   Time taken: PT11.972S
+   Time taken: PT10.806S
 -- Finished testing model: non-judgemental-eagle
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1664,7 +1645,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT13M9.172S
+   Time taken: PT13M7.858S
 -- Finished testing model: willing-hedgehog
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1748,7 +1729,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT59.238S
+   Time taken: PT59.346S
 -- Finished testing model: determined-chipmunk
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1788,7 +1769,7 @@ and max_percentile: 0.998
 [DEBUG] Execution of model 'StarDist Fluorescence Nuclei Segmentation' completed.
 [DEBUG] Close Tensorflow services
 [DEBUG] End execution
-   Time taken: PT8.145S
+   Time taken: PT8.015S
 -- Finished testing model: fearless-crab
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1872,7 +1853,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT1M24.189S
+   Time taken: PT1M23.785S
 -- Finished testing model: independent-shrimp
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1955,7 +1936,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT13M10.575S
+   Time taken: PT13M6.973S
 -- Finished testing model: willing-hedgehog
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1978,29 +1959,10 @@ java.lang.NullPointerException
 [DEBUG] Image name: sample_input_0.tif
 [DEBUG] Start pre-processing
 [DEBUG] Run Macro pre-processing
-Macro or script not found:
- 
-/home/runner/blank_fiji/Fiji.app/models/the_model//preprocessing.txt
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Tensorflow) Patch 1/9
-[DEBUG] (Tensorflow) Patch 2/9
-[DEBUG] (Tensorflow) Patch 3/9
-[DEBUG] (Tensorflow) Patch 4/9
-[DEBUG] (Tensorflow) Patch 5/9
-[DEBUG] (Tensorflow) Patch 6/9
-[DEBUG] (Tensorflow) Patch 7/9
-[DEBUG] (Tensorflow) Patch 8/9
-[DEBUG] (Tensorflow) Patch 9/9
-[DEBUG] Start post-processing 
-[DEBUG] Run Macro post-processing
-Macro or script not found:
- 
-/home/runner/blank_fiji/Fiji.app/models/the_model//postprocessing.txt
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
-[DEBUG] Execution of model 'Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)' completed.
+Preprocessing
+Error during Java preprocessing.
+[DEBUG] Error during Java preprocessing.
+Error during the aplication of the model.
 [DEBUG] Close Tensorflow services
 [DEBUG] End execution
 There are no images open
@@ -2010,7 +1972,7 @@ There are no images open
    Run did not produce output
    Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/FRUNet2DsEVSegmentation/latest/output_metrics.edn
 
-FINISHED TESTING THE 29 MODELS IN FIJI AT 2023-02-22T10:49:54.534327
+FINISHED TESTING THE 29 MODELS IN FIJI AT 2023-02-22T15:06:10.807206
 
  Logs are in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../test_summaries/fiji_log_out.txt and fiji_log_err.txt
 

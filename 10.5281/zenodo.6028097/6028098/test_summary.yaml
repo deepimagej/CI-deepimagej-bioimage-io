@@ -1,4 +1,3 @@
 bioimageio_spec_version: 0.4.8post1
-error: Difference between CI and expected outputs is greater than threshold (CI produced an output image)
-status: failed
+status: passed
 name: Reproduce test outputs with DeepImageJ headless
