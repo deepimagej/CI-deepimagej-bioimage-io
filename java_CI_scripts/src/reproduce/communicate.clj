@@ -1,18 +1,14 @@
 (ns reproduce.communicate
   "Creates files with information for the fiji scripts that will do the testing.
   Assumes model folders are populated"
-
-  (:require [clojure [string :as str] [pprint :as ppr] [edn :as edn]]
+  (:require [config :refer [ROOTS FILES CONSTANTS]]
+            [clojure [string :as str] [pprint :as ppr] [edn :as edn]]
             [clojure.java [io :refer [as-url]]]
             [babashka.fs :as fs]))
 
-(def COMM-ROOT (System/getProperty "user.home"))
-
 (def comm-file
   "File with the data structures of the models to test with DIJ headless"
-  (fs/file COMM-ROOT "models_to_test.edn"))
-
-(def dij-filename "filename with the dij arguments information" "dij_args.edn")
+  (fs/file (:resources-root ROOTS) "models_to_test.edn"))
 
 (defrecord DijArg [model format preprocessing postprocessing axes tile logging])
 (defrecord DijModel [nickname name dij-arg model-folder input-img output-img])
@@ -76,16 +72,16 @@
                   :logging        "Normal"})))
 
 (defn bracketize
-  "Surround a string with [brackets] (some dij args need this)"
+  "Surround a string with [brackets] if it has special characters (spaces, underscores, ...)"
   [s] (str "[" s "]"))
 
 (defn dij-arg-str
   "Makes the DIJ argument as a string"
   [model-record]
   (let [arg-record (build-dij-arg model-record)
-        s-keys #{:model :format :preprocessing :postprocessing}
-        surround #(if (contains? s-keys %) bracketize identity)]
-    (->> (map (fn [[k v]] (format "%s=%s" (name k) ((surround k) v))) arg-record)
+        s-keys #{:model :preprocessing :postprocessing}
+        surrounded #(if (contains? s-keys %) bracketize identity)]
+    (->> (map (fn [[k v]] (format "%s=%s" (name k) ((surrounded k) v))) arg-record)
         (str/join " "))))
 
 (defn get-name-from-url
@@ -121,19 +117,19 @@
   [model-record]
   (let [folder (get-in model-record [:paths :model-dir-path])
         content (with-out-str (ppr/pprint (into {} (build-dij-model model-record))))]
-    (spit (fs/file folder dij-filename) content)))
+    (spit (fs/file folder (:dij-args-filename CONSTANTS)) content)))
 
 (defn write-comm-file
   "Writes the edn file. Communication file between this CI and the fiji script to run dij headless"
   ([dij-models file]
    (spit file (with-out-str (ppr/pprint (mapv #(into {} %) dij-models)))))
-  ([dij-models] (write-comm-file dij-models comm-file)))
+  ([dij-models] (write-comm-file dij-models (:models-vector FILES))))
 
 (defn write-absolute-paths
   "Write a list of paths to test (path type chosen as arg: rdf, model-dir...)
   Communicate to python script to generate tiff from numpy with rdf paths"
   ([model-records path-k]
-   (write-absolute-paths model-records path-k (fs/file COMM-ROOT "absolute_paths.txt")))
+   (write-absolute-paths model-records path-k (fs/file (:resources-root ROOTS) "absolute_paths.txt")))
   ([model-records path-k file]
    (as-> model-records s
          (map #(str (fs/absolutize (get-in % [:paths path-k]))) s)

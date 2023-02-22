@@ -1,6 +1,6 @@
 # To-Do's
 ## Use constants from config
-- [ ] refactor `reproduce.communicate.clj`
+- [x] refactor `reproduce.communicate.clj`
 - [ ] read serialized config in `test_1_with_deepimagej.clj`
 
 ## Refactor utils
