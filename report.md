@@ -1,44 +1,44 @@
 # CovidIFCellSegmentationBoundaryModel
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5847355/6647683/
 - (powerful-chipmunk) 
-- mse: null 
-- mae: null
-- max_val: null
+- mse: 0.00098 
+- mae: 0.00820
+- max_val: 0.99999
 
 # CovidIFCellSegmentationBoundaryModel
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5847355/6322908/
 - (powerful-chipmunk) 
-- mse: null 
-- mae: null
-- max_val: null
+- mse: 0.00098 
+- mae: 0.00820
+- max_val: 0.99999
 
 # LiveCellSegmentationBoundaryModel
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/6647688/
 - (hiding-tiger) 
-- mse: null 
-- mae: null
-- max_val: null
+- mse: 0.00031 
+- mae: 0.00752
+- max_val: 1.00000
 
 # LiveCellSegmentationBoundaryModel
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/6321179/
 - (hiding-tiger) 
-- mse: null 
-- mae: null
-- max_val: null
+- mse: 0.00031 
+- mae: 0.00752
+- max_val: 1.00000
 
 # LiveCellSegmentationBoundaryModel
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/5869900/
 - (hiding-tiger) 
-- mse: null 
-- mae: null
-- max_val: null
+- mse: 0.00031 
+- mae: 0.00752
+- max_val: 1.00000
 
 # MitchondriaEMSegmentation2D
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406803/6406804/
 - (shivering-raccoon) 
-- mse: null 
-- mae: null
-- max_val: null
+- mse: 0.00016 
+- mae: 0.00255
+- max_val: 1.00000
 
 # StarDist Fluorescence Nuclei Segmentation
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348084/6348085/
@@ -57,16 +57,16 @@
 # PlatynereisEMcellsSegmentationBoundaryModel
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028280/6028281/
 - (willing-hedgehog) 
-- mse: null 
-- mae: null
-- max_val: null
+- mse: 1.10142 
+- mae: 2.53928
+- max_val: 0.99999
 
 # PlatynereisEMcellsSegmentationBoundaryModel
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028280/6647695/
 - (willing-hedgehog) 
-- mse: null 
-- mae: null
-- max_val: null
+- mse: 1.10142 
+- mae: 2.53928
+- max_val: 0.99999
 
 # Pancreatic Phase Contrast Cell Segmentation (U-Net)
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5914248/5914249/
@@ -92,16 +92,16 @@
 # EM3DBoundaryEnhancer
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6808325/6808413/
 - (determined-chipmunk) 
-- mse: null 
-- mae: null
-- max_val: null
+- mse: 0.19514 
+- mae: 0.86095
+- max_val: 0.99993
 
 # MitochondriaEMSegmentationBoundaryModel
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/6630266/
 - (kind-seashell) 
-- mse: null 
-- mae: null
-- max_val: null
+- mse: 0.06226 
+- mae: 0.30056
+- max_val: 1.00000
 
 # Mitochondria Segmentation for EM
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/5874842/
@@ -113,9 +113,9 @@
 # PlatynereisEMnucleiSegmentationBoundaryModel
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028097/6028098/
 - (organized-badger) 
-- mse: null 
-- mae: null
-- max_val: null
+- mse: 2.45097 
+- mae: 5.17975
+- max_val: 1.00000
 
 # Arabidopsis Leaf Segmentation
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348728/6348729/
@@ -127,30 +127,30 @@
 # EnhancerMitochondriaEM2D
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6406757/
 - (hiding-blowfish) 
-- mse: null 
-- mae: null
-- max_val: null
+- mse: 0.00616 
+- mae: 0.01802
+- max_val: 1.00000
 
 # EnhancerMitochondriaEM2D
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811498/
 - (hiding-blowfish) 
-- mse: null 
-- mae: null
-- max_val: null
+- mse: 0.00083 
+- mae: 0.00881
+- max_val: 0.99999
 
 # EnhancerMitochondriaEM2D
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811922/
 - (hiding-blowfish) 
-- mse: null 
-- mae: null
-- max_val: null
+- mse: 0.00355 
+- mae: 0.01617
+- max_val: 1.00000
 
 # EnhancerMitochondriaEM3D
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6811491/6811492/
 - (independent-shrimp) 
-- mse: null 
-- mae: null
-- max_val: null
+- mse: 1.83006 
+- mae: 3.79174
+- max_val: 0.96630
 
 # 3D UNet - arabidopsis - ZeroCostDL4Mic
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5877226/
@@ -183,16 +183,16 @@
 # NucleiSegmentationBoundaryModel
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6647674/
 - (affable-shark) 
-- mse: null 
-- mae: null
-- max_val: null
+- mse: 0.00031 
+- mae: 0.00559
+- max_val: 0.99996
 
 # NucleiSegmentationBoundaryModel
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6322939/
 - (affable-shark) 
-- mse: null 
-- mae: null
-- max_val: null
+- mse: 0.00031 
+- mae: 0.00559
+- max_val: 0.99996
 
 # Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/FRUNet2DsEVSegmentation/latest/
