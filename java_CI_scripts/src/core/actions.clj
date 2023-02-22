@@ -32,7 +32,7 @@
     (mapv models/create-model-dir (map #(get-in % [:paths :rdf-path]) keep-testing))
 
     (mapv summary/write-summaries-from-error! error-found)
-    (utils/print-and-log (format "Creating comm file for %d models" (count keep-testing))
+    (utils/print-and-log (format "- Creating comm file for %d models\n" (count keep-testing))
                          (:summa-readme FILES))
     (comm/write-comm-file (map comm/build-dij-model keep-testing)) ; not used anymore, here for legacy reasons
     (comment
@@ -72,7 +72,7 @@
         (discriminate/separate-by-error models-tested reproduce-checks/errors-fns)]
     (mapv summary/write-summaries-from-error! error-found)
     (mapv (partial summary/write-test-summary! (summary/gen-summa-dict)) keep-testing)
-    (utils/print-and-log (format "Created %d test summaries for models that pass the CI\n" (count keep-testing))
+    (utils/print-and-log (format "- Created %d test summaries for models that pass the CI\n" (count keep-testing))
                          (:summa-readme FILES)))
   ; Generate the report
   (reports/basic-report))

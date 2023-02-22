@@ -42,8 +42,10 @@
 
 (defn write-summaries-from-error!
   "Writes the test summaries for the models with errors (entry from a discriminated-models dictionary)"
-  [[error-key model-records]]
-  (let [summa-dict (gen-summa-dict error-key)]
-    (mapv (partial write-test-summary! summa-dict) model-records)
-    (utils/print-and-log (format "Created %d test summaries for the error key %s\n" (count model-records) error-key)
-                         (:summa-readme FILES))))
+  ([error-data-structure] (write-summaries-from-error! true error-data-structure))
+  ([verbose? [error-key model-records]]
+   (let [summa-dict (gen-summa-dict error-key)]
+     (mapv (partial write-test-summary! summa-dict) model-records)
+     (if verbose? (utils/print-and-log
+                    (format "- Created %d test summaries for the error key %s\n" (count model-records) error-key)
+                    (:summa-readme FILES))))))

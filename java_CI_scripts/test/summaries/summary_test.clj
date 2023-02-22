@@ -79,4 +79,4 @@
   (let [{:keys [keep-testing error-found]}
         (discriminate/separate-by-error @model-records init-checks/errors-fns)
         one-error-k (first (select-keys error-found [:no-compatible-weights]))]
-    (write-summaries-from-error! one-error-k)))
+    (write-summaries-from-error! false one-error-k)))
