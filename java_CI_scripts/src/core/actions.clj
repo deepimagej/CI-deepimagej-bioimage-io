@@ -21,13 +21,12 @@
         model-records (filter init-checks/model? (map models/build-model rdfs-paths))
         {:keys [keep-testing error-found]}
         (discriminate/separate-by-error model-records init-checks/errors-fns)]
+    (println "Creating dirs for test summaries")
+    (mapv summary/create-summa-dir rdfs-paths)
     ; Reset contents of test_summaries/Readme.md
     (spit (:summa-readme FILES)
           (str (utils/original-file-content (:summa-readme FILES) (:summa-readme-header CONSTANTS))
                (:summa-readme-header CONSTANTS) (System/lineSeparator)))
-
-    (println "Creating dirs for test summaries")
-    (mapv summary/create-summa-dir rdfs-paths)
     (println "Creating dirs for models")
     (mapv models/create-model-dir (map #(get-in % [:paths :rdf-path]) keep-testing))
 
