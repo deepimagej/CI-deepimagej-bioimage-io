@@ -11,22 +11,6 @@
 
 (use-fixtures :once load-test-paths load-rdfs-parsed load-model-records)
 
-(deftest get-parent-components-test
-  (testing "Using 2 arguments on a generic path"
-    (let [a-path (fs/path "a_root" "first_folder" "second_folder" "file.txt")
-          parent-comp (get-parent-components "a_root" a-path)
-          expected-comp ["first_folder" "second_folder"]]
-      (is (= (map str parent-comp) expected-comp))))
-  (testing "Using only 1 argument (default COLLECTION-ROOT)"
-    (let [parent-comp (get-parent-components @(:an-rdf rdf-paths))
-          expected-parent-comp ["10.5281" "zenodo.6334881" "6346477"]]
-      (is (= (map str parent-comp) expected-parent-comp)))))
-
-(deftest new-root-path-test
-  (let [a-path (fs/path "a_root" "first_folder" "second_folder" "file.txt")
-        expect (fs/path "a_new_root" "first_folder" "second_folder")]
-    (is (= (str expect) (str (new-root-path "a_root" "a_new_root" a-path))))))
-
 (deftest gen-summa-path-test
   (let [expected-path (fs/path (:summa-root ROOTS) "10.5281" "zenodo.6334881" "6346477")]
     (is (= (str (gen-summa-path @(:an-rdf rdf-paths))) (str expected-path)))))

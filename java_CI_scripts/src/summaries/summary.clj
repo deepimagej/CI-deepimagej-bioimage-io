@@ -1,22 +1,13 @@
 (ns summaries.summary
   (:require [config :refer [ROOTS CONSTANTS]]
+            utils
             [summaries.errors :as errors]
             [clj-yaml.core :as yaml]
             [babashka.fs :as fs]))
 
-(defn get-parent-components
-  "Gets the (seq) of components of parent directory structure (from root) of a given rdf path"
-  ([root path] (butlast (fs/components (fs/relativize root path))))
-  ([rdf-path] (get-parent-components (:collection-root ROOTS) rdf-path)))
-
-(defn new-root-path
-  "Returns a path with a new root"
-  [old-root new-root path]
-  (apply fs/path (conj (get-parent-components old-root path) new-root)))
-
 (defn gen-summa-path
   "Gets the path corresponding to the test summary of an rdf-path"
-  ([coll-root summa-root rdf-path] (new-root-path coll-root summa-root rdf-path))
+  ([coll-root summa-root rdf-path] (utils/new-root-path coll-root summa-root rdf-path))
   ([rdf-path] (gen-summa-path (:collection-root ROOTS) (:summa-root ROOTS) rdf-path)))
 
 (defn create-summa-dir
@@ -55,5 +46,4 @@
   (let [summa-dict (gen-summa-dict error-key)]
     (mapv (partial write-test-summary! summa-dict) model-records)
     ; todo print to stdout and log in report
-    (printf "Created %d test summaries for the error key %s\n" (count model-records) error-key))
-  )
+    (printf "Created %d test summaries for the error key %s\n" (count model-records) error-key)))

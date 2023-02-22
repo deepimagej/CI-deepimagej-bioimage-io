@@ -26,7 +26,6 @@
   [dict key-word]
   (first (select-keys dict [key-word])))
 
-; TODO: use this functions instead of the ones in s.summary
 (defn get-parent-components
   "Gets the (seq) of components of parent directory structure (from root) of a given rdf path"
   ([root path] (butlast (fs/components (fs/relativize root path))))
