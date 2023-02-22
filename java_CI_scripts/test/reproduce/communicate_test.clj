@@ -42,11 +42,14 @@
                        :logging "Normal"}))))
 
 (deftest bracketize-test
-  (is (= "[abc]" (bracketize "abc"))))
+  (are [expected input] (= expected (bracketize input))
+                        "abc" "abc"
+                        "[with many spaces]" "with many spaces"
+                        "[with_underscores_]" "with_underscores_"))
 
 (deftest dij-arg-str-test
   (is (= (dij-arg-str (nth @model-records 1))
-         "model=[Cell Segmentation from Membrane Staining for Plant Tissues] format=Tensorflow preprocessing=[per_sample_scale_range.ijm] postprocessing=[binarize.ijm] axes=Y,X,Z,C tile=256,256,8,1 logging=Normal")))
+         "model=[Cell Segmentation from Membrane Staining for Plant Tissues] format=Tensorflow preprocessing=[per_sample_scale_range.ijm] postprocessing=binarize.ijm axes=Y,X,Z,C tile=256,256,8,1 logging=Normal")))
 
 (deftest get-name-from-url-test
   (is (= (get-name-from-url "https://zenodo.org/my-file.txt") "my-file.txt")))
@@ -83,7 +86,6 @@
     (testing "After test, delete existing file"
       (is (fs/delete-if-exists c-file))
       (is (c-file-not-in-dir? "." c-name)))))
-
 
 (deftest write-dij-model-test
   (let [model-folders (map #(get-in % [:paths :model-dir-path]) (rest @model-records))]

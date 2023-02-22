@@ -73,7 +73,11 @@
 
 (defn bracketize
   "Surround a string with [brackets] if it has special characters (spaces, underscores, ...)"
-  [s] (str "[" s "]"))
+  [s]
+  (let [list-contains-special? (map #(str/includes? s %) (:special-headless-chars CONSTANTS))]
+    ; idiom for applying OR to a list of booleans
+    (if (some identity list-contains-special?)
+      (str "[" s "]") s)))
 
 (defn dij-arg-str
   "Makes the DIJ argument as a string"
