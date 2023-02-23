@@ -6,5 +6,5 @@
 - Created 0 test summaries for the error key :no-p*process
 - Creating comm file for 29 models
 - Created 4 test summaries for the error key :dij-headless
-- Created 3 test summaries for the error key :comparison
-- Created 22 test summaries for models that pass the CI
+- Created 0 test summaries for the error key :comparison
+- Created 25 test summaries for models that pass the CI

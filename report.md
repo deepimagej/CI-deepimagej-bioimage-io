@@ -71,9 +71,9 @@
 # Pancreatic Phase Contrast Cell Segmentation (U-Net)
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5914248/5914249/
 - (discreet-rooster) 
-- mse: 7154.80518 
-- mae: 28.16735
-- max_val: 1.00000
+- mse: 0.00000 
+- mae: 0.00000
+- max_val: 255.00000
 
 # Neuron Segmentation in EM (Membrane Prediction)
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874741/5874742/
@@ -155,16 +155,16 @@
 # 3D UNet - arabidopsis - ZeroCostDL4Mic
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5877226/
 - (humorous-owl) 
-- mse: 24486.37265 
-- mae: 96.66300
-- max_val: 0.99739
+- mse: 0.00000 
+- mae: 0.00000
+- max_val: 255.00000
 
 # Cell Segmentation from Membrane Staining for Plant Tissues
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5888237/
 - (humorous-owl) 
-- mse: 24486.37265 
-- mae: 96.66300
-- max_val: 0.99739
+- mse: 0.00000 
+- mae: 0.00000
+- max_val: 255.00000
 
 # HPA Nucleus Segmentation (DPNUnet)
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6200999/6224243/
