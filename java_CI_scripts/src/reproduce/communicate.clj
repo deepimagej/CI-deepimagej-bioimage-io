@@ -6,10 +6,6 @@
             [clojure.java [io :refer [as-url]]]
             [babashka.fs :as fs]))
 
-(def comm-file
-  "File with the data structures of the models to test with DIJ headless"
-  (fs/file (:resources-root ROOTS) "models_to_test.edn"))
-
 (defrecord DijArg [model format preprocessing postprocessing axes tile logging])
 (defrecord DijModel [nickname name dij-arg model-folder input-img output-img])
 
@@ -113,8 +109,8 @@
                     :name         (:name model-record)
                     :dij-arg      (dij-arg-str model-record)
                     :model-folder (get-model-folder model-record)
-                    :input-img    "sample_input_0.tif"
-                    :output-img   "sample_output_0.tif"})))
+                    :input-img    (:sample-input-name CONSTANTS)
+                    :output-img   (:sample-output-name CONSTANTS)})))
 
 (defn write-dij-model
   "Writes the serialized dij model in the model folder"

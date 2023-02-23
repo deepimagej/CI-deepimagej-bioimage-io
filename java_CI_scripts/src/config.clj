@@ -33,7 +33,10 @@
    :dij-args-filename      "dij_args.edn"
    :mse-threshold          2.5
    :special-headless-chars #{" " "_"}
-   :summa-readme-header    "# Report summary"})
+   :summa-readme-header    "# Report summary"
+   :sample-input-name      "sample_input_0.tif"
+   :sample-output-name     "sample_output_0.tif"
+   :CI-output-name         "CI_OUTPUT.tif"})
 
 (defn absolutize-nested
   "absolutize values of dictionary that are files"
