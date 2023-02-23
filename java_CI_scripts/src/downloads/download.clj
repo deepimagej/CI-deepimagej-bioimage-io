@@ -1,5 +1,7 @@
 (ns downloads.download
-  (:require [clojure.java.io :as io]
+  (:require [config :refer [ROOTS CONSTANTS]]
+            utils
+            [clojure.java.io :as io]
             [clojure.string :as str]
             [babashka [curl :as curl] [fs :as fs]]))
 
@@ -88,6 +90,18 @@
          folder-file (get-destination-folder model-record model-dir-name)]
      ;(doall (pmap (partial byte-arr->file! folder-file) responses file-names))
      (doall (pmap (partial save-file-with-info folder-file) timed-responses file-names)))))
+
+(defn get-correct-sample-images
+  "Get the sample images for the model folder, choose the manual sample tiffs if they exist"
+  [model-record]
+  (let [sample-path (get-in model-record [:paths :samples-path])
+        sample-input (fs/file sample-path  (:sample-input-name CONSTANTS))
+        manual-path (utils/new-root-path (:samples-root ROOTS) (fs/path (:samples-root ROOTS) "manual") sample-input)]
+    )
+  )
+
+(defn copy-sample-images
+  [model-record])
 
 (defn populate-model-folder
   "Downloads all needed urls from the model-record into local files.
