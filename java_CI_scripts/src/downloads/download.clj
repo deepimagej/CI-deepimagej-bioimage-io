@@ -101,13 +101,13 @@
       {:in sample-input :out (fs/file manual-path (:CI-output-name CONSTANTS))}
       {:in sample-input :out (fs/file sample-path (:sample-output-name CONSTANTS))})))
 
-(defn move-sample-images
-  "Move sample images from samples folder to model folder"
+(defn copy-sample-images
+  "Copy sample images from samples folder to model folder"
   [model-record folder-file]
   (let [{:keys [in out]} (get-correct-sample-images model-record)
         opts {:replace-existing true}]
-    (fs/move in (fs/file folder-file (:sample-input-name CONSTANTS)) opts)
-    (fs/move out (fs/file folder-file (:sample-output-name CONSTANTS)) opts)))
+    (fs/copy in (fs/file folder-file (:sample-input-name CONSTANTS)) opts)
+    (fs/copy out (fs/file folder-file (:sample-output-name CONSTANTS)) opts)))
 
 (defn populate-model-folder
   "Downloads all needed urls from the model-record into local files.
@@ -122,7 +122,7 @@
      ; copy rdf.yaml
      (fs/copy (get-in model-record [:paths :rdf-path]) (fs/file folder-file "rdf.yaml") {:replace-existing true})
      ;copy tiff images
-     (move-sample-images model-record folder-file))))
+     (copy-sample-images model-record folder-file))))
 
 ; (my-time (populate-model-folder (second @model-records)))
 ; with (doall (map
