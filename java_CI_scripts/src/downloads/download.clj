@@ -97,11 +97,17 @@
   (let [sample-path (get-in model-record [:paths :samples-path])
         sample-input (fs/file sample-path  (:sample-input-name CONSTANTS))
         manual-path (utils/new-root-path (:samples-root ROOTS) (fs/path (:samples-root ROOTS) "manual") sample-input)]
-    )
-  )
+    (if (fs/exists? manual-path)
+      {:in sample-input :out (fs/file manual-path (:CI-output-name CONSTANTS))}
+      {:in sample-input :out (fs/file sample-path (:sample-output-name CONSTANTS))})))
 
-(defn copy-sample-images
-  [model-record])
+(defn move-sample-images
+  "Move sample images from samples folder to model folder"
+  [model-record folder-file]
+  (let [{:keys [in out]} (get-correct-sample-images model-record)
+        opts {:replace-existing true}]
+    (fs/move in (fs/file folder-file (:sample-input-name CONSTANTS)) opts)
+    (fs/move out (fs/file folder-file (:sample-output-name CONSTANTS)) opts)))
 
 (defn populate-model-folder
   "Downloads all needed urls from the model-record into local files.
@@ -110,14 +116,13 @@
    (populate-model-folder model-record MODEL-DIR))
   ([model-record model-dir-name]
    (let [folder-file (get-destination-folder model-record model-dir-name)
-         sample-ims (fs/glob (get-in model-record [:paths :samples-path]) "*.tif")
-         copy-opts {:replace-existing true}]
+         sample-ims (fs/glob (get-in model-record [:paths :samples-path]) "*.tif")]
      ; create folder if it didn't exist
      (fs/create-dirs folder-file)
      ; copy rdf.yaml
-     (fs/copy (get-in model-record [:paths :rdf-path]) (fs/file folder-file "rdf.yaml") copy-opts)
+     (fs/copy (get-in model-record [:paths :rdf-path]) (fs/file folder-file "rdf.yaml") {:replace-existing true})
      ;copy tiff images
-     (doall (map #(fs/copy % (fs/file folder-file (fs/file-name %)) copy-opts) sample-ims)))))
+     (move-sample-images model-record folder-file))))
 
 ; (my-time (populate-model-folder (second @model-records)))
 ; with (doall (map
