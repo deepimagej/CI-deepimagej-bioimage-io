@@ -36,7 +36,8 @@
    :summa-readme-header    "# Report summary"
    :sample-input-name      "sample_input_0.tif"
    :sample-output-name     "sample_output_0.tif"
-   :CI-output-name         "CI_OUTPUT.tif"})
+   :CI-output-name         "CI_OUTPUT.tif"
+   :model-dir-name         "the_model"})
 
 (defn absolutize-nested
   "absolutize values of dictionary that are files"

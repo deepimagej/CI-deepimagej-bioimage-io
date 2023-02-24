@@ -5,8 +5,6 @@
             [clojure.string :as str]
             [babashka [curl :as curl] [fs :as fs]]))
 
-(def MODEL-DIR "the_model")
-
 (defmacro my-time
   "Variation on clojure.core/time: https://github.com/clojure/clojure/blob/clojure-1.10.1/src/clj/clojure/core.clj#L3884
   This macro returns a map with the time taken (duration) and the return value of the expression.
@@ -65,7 +63,7 @@
 (defn get-destination-folder
   "Gets the file corresponding to the model folder for a given rdf"
   ([model-record]
-   (get-destination-folder model-record MODEL-DIR))
+   (get-destination-folder model-record (:model-dir-name CONSTANTS)))
   ([model-record model-dir-name]
    (fs/file (get-in model-record [:paths :model-dir-path]) model-dir-name)))
 
@@ -82,7 +80,7 @@
 
 (defn download-into-model-folder
   ([model-record]
-   (download-into-model-folder model-record MODEL-DIR))
+   (download-into-model-folder model-record (:model-dir-name CONSTANTS)))
   ([model-record model-dir-name]
    (let [urls (get-urls-to-download model-record)
          file-names (map get-url-filename urls)
@@ -113,7 +111,7 @@
   "Downloads all needed urls from the model-record into local files.
   Copies the rdf and the tiffs from local folders."
   ([model-record]
-   (populate-model-folder model-record MODEL-DIR))
+   (populate-model-folder model-record (:model-dir-name CONSTANTS)))
   ([model-record model-dir-name]
    (let [folder-file (get-destination-folder model-record model-dir-name)
          sample-ims (fs/glob (get-in model-record [:paths :samples-path]) "*.tif")]

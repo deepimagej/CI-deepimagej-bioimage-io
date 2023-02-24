@@ -12,7 +12,7 @@
 ## Functionality
 
 - [ ] reproduce pipeline from local directory of models (no need for init or download) 
-- [ ] Basic report automatically on gh-pages readme.
+- [x] Basic report automatically on gh-pages readme.
 - [ ] Download with cache
   + cache directory
   + max cache duration
