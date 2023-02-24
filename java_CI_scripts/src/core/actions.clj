@@ -51,7 +51,7 @@
     (doall (map download/populate-model-folder model-records-keep))
     (printf "Downloading files (this could take some minutes) \n")
     (flush)
-    (let [timed (download/my-time (doall (pmap download/download-into-model-folder model-records-keep)))]
+    (let [timed (utils/my-time (doall (pmap download/download-into-model-folder model-records-keep)))]
       (printf "Total Time Taken: %s\n" (:iso timed)))))
 
 (defn reproduce-pipeline
@@ -61,7 +61,7 @@
   (if (str/includes? (System/getProperty "os.name") "Windows")
     (run-fiji-scripts/-main)
     (let [_ (run-fiji-scripts/build-bash-script (:bash-script FILES))
-          timed (download/my-time (pr/shell "sh" (:bash-script FILES)))]
+          timed (utils/my-time (pr/shell "sh" (:bash-script FILES)))]
       (printf "Total Time Taken: %s\n" (:iso timed))
       (flush)))
   ; Generate final test summaries

@@ -1,6 +1,7 @@
 (ns core.unit-tests
   "Require and run all unit tests for this project"
-  (:require [clojure.test :refer [run-tests]]))
+  (:require [clojure.test :refer [run-tests]]
+            [utils]))
 
 (def nss-to-test
   "Names of the namespaces to test"
@@ -19,4 +20,6 @@
 (apply require nss-to-test)
 
 (defn run-all-tests []
-  (apply run-tests nss-to-test))
+  (let [timed (utils/my-time (apply run-tests nss-to-test))]
+    (println "Time Taken for all unit tests: " (:iso timed))
+    (:return timed)))

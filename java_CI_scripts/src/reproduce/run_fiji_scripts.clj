@@ -3,7 +3,6 @@
   Use bb instead of bash for windows compatibility"
   (:require [config :refer [FILES CONSTANTS]]
             utils
-            [downloads.download :as download]
             [clojure.java.shell :as shell]
             [clojure.set :as set]
             [clojure.string :as str]
@@ -92,7 +91,7 @@
   "Runs the commands from the execution-dict. Logs outputs"
   (mapv #(spit % "") (vals (:logs FILES)))
   (utils/print-and-log (gen-messages (gen-model-folders) :start))
-  (let [timed (download/my-time (mapv run-exec-step (gen-execution-dict)))]
+  (let [timed (utils/my-time (mapv run-exec-step (gen-execution-dict)))]
     (utils/print-and-log (gen-messages (gen-model-folders) :end))
     (utils/print-and-log (format "Total Time Taken: %s\n" (:iso timed)))))
 

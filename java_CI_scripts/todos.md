@@ -4,14 +4,14 @@
 - [ ] read serialized config in `test_1_with_deepimagej.clj`
 
 ## Refactor utils
-- [ ] put more generally used functions in `utils.clj`
-    + [ ] my-time
+- [x] put more generally used functions in `utils.clj`
+    + [x] my-time
     + [x] print-and-log
-- [ ] test of those functions in `utils-test.clj`
+- [x] test of those functions in `utils-test.clj`
 
 ## Functionality
 
-- [ ] reproduce pipeline from local directory of models (no need for init or download) 
+- [ ] Reproduce pipeline from local directory of models (no need for init or download) 
 - [x] Basic report automatically on gh-pages readme.
 - [ ] Download with cache
   + cache directory
