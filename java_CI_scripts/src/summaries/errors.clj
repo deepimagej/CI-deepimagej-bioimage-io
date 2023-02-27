@@ -1,5 +1,6 @@
 (ns summaries.errors
-  "Error keys and messages for the different possible failed test summaries")
+  "Error keys and messages for the different possible failed test summaries"
+  (:require [clojure.set]))
 
 (def initial-errors "Errors that could happen during the initial checks"
   {:no-dij-config         "rdf does not have keys for :config :deepimagej"

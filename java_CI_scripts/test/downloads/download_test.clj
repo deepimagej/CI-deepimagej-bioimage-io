@@ -1,19 +1,11 @@
 (ns downloads.download-test
-  (:require [downloads.download :refer :all]
+  (:require [config :refer [CONSTANTS]]
+            [downloads.download :refer :all]
             [test-setup :refer [load-test-paths load-model-records an-edn model-records all-model-records]]
             [clojure [test :refer :all] [edn :as edn]]
             [babashka.fs :as fs]))
 
 (use-fixtures :once load-test-paths load-model-records)
-
-(deftest ^:integration my-time-test
-  (let [time-map (my-time (do (Thread/sleep 1050)
-                              (apply + (take 5 (range 1 100 2)))))
-        iso-str (:iso time-map)]
-    (is (= (* 5 5) (:return time-map)))
-    (is (>= 1 (.getSeconds (:duration time-map))))
-    (is (<= (.getNano (:duration time-map)) 1e9) "time taken is 1s and a little bit more (not 2s)")
-    (is (= [iso-str "1" "S"] (re-matches #"PT(\d).+\d+(S)" iso-str)))))
 
 (deftest get-url-response-test
   (let [url-1 "https://yaml.org/"
@@ -114,7 +106,7 @@
     (is (= 2 (count (nth downloads-list 2))))))
 
 (deftest get-destination-folder-test
-  (is (= MODEL-DIR (fs/file-name (get-destination-folder (second @model-records)))))
+  (is (= (:model-dir-name CONSTANTS) (fs/file-name (get-destination-folder (second @model-records)))))
   (is (= "alt_model_folder"
          (fs/file-name (get-destination-folder (last @model-records) "alt_model_folder")))))
 

@@ -64,3 +64,10 @@ bb -m core.main -u
 ````
 bb "(require 'collection-test 'core.cli-test) (clojure.test/run-tests 'collection-test 'core.cli-test)"
 ````
+
+# Run as a clojure project
+````
+clj -M -m core.main -h
+````
+- This will use the dependencies from `deps.edn` instead of the ones that come with babashka.
+- Should give exactly the same results as running with babashka.

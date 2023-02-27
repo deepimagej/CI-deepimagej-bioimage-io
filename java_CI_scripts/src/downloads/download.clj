@@ -5,19 +5,6 @@
             [clojure.string :as str]
             [babashka [curl :as curl] [fs :as fs]]))
 
-(def MODEL-DIR "the_model")
-
-(defmacro my-time
-  "Variation on clojure.core/time: https://github.com/clojure/clojure/blob/clojure-1.10.1/src/clj/clojure/core.clj#L3884
-  This macro returns a map with the time taken (duration) and the return value of the expression.
-  Useful when timing side effects, when further composition is not usually needed (but still possible)"
-  [expr]
-  `(let [start# (java.time.Instant/ofEpochMilli (System/currentTimeMillis))
-         ret# ~expr ;; evaluates the argument expression
-         end# (java.time.Instant/ofEpochMilli (System/currentTimeMillis))
-         duration# (java.time.Duration/between start# end#)]
-     (hash-map :duration duration# :iso (str duration#)  :return ret#)))
-
 (defn get-url-response
   "Gets the response of a URL as a hash map"
   [^String url]
@@ -65,7 +52,7 @@
 (defn get-destination-folder
   "Gets the file corresponding to the model folder for a given rdf"
   ([model-record]
-   (get-destination-folder model-record MODEL-DIR))
+   (get-destination-folder model-record (:model-dir-name CONSTANTS)))
   ([model-record model-dir-name]
    (fs/file (get-in model-record [:paths :model-dir-path]) model-dir-name)))
 
@@ -82,11 +69,11 @@
 
 (defn download-into-model-folder
   ([model-record]
-   (download-into-model-folder model-record MODEL-DIR))
+   (download-into-model-folder model-record (:model-dir-name CONSTANTS)))
   ([model-record model-dir-name]
    (let [urls (get-urls-to-download model-record)
          file-names (map get-url-filename urls)
-         timed-responses (map #(my-time (:body (get-url-response %))) urls)
+         timed-responses (map #(utils/my-time (:body (get-url-response %))) urls)
          folder-file (get-destination-folder model-record model-dir-name)]
      ;(doall (pmap (partial byte-arr->file! folder-file) responses file-names))
      (doall (pmap (partial save-file-with-info folder-file) timed-responses file-names)))))
@@ -113,7 +100,7 @@
   "Downloads all needed urls from the model-record into local files.
   Copies the rdf and the tiffs from local folders."
   ([model-record]
-   (populate-model-folder model-record MODEL-DIR))
+   (populate-model-folder model-record (:model-dir-name CONSTANTS)))
   ([model-record model-dir-name]
    (let [folder-file (get-destination-folder model-record model-dir-name)
          sample-ims (fs/glob (get-in model-record [:paths :samples-path]) "*.tif")]
