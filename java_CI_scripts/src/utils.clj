@@ -37,6 +37,12 @@
   [old-root new-root path]
   (apply fs/path (conj (get-parent-components old-root path) new-root)))
 
+(comment "Improved implementation, but breaks calls"
+         (defn new-root-path
+           "Returns a path with a new root"
+           [old-root new-root path]
+           (apply fs/path (conj (fs/components (fs/relativize old-root path)) new-root))) )
+
 (defn print-and-log
   "Prints a string message and logs it on all log files provided"
   ([msg] (apply print-and-log msg (vals (:logs FILES))))

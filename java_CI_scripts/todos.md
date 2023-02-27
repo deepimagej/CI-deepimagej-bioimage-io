@@ -9,6 +9,19 @@
     + [x] print-and-log
 - [x] test of those functions in `utils-test.clj`
 
+## Refactors
+- [ ] improve utils/new-root-path
+- [ ] think of deleting unused code (?)
+  + pros: 
+    + smaller codebase
+    + easier to understand (newcomer / reentering the code)
+    + what there is is what is executing
+    + if needed, it is in the repository
+  + cons: 
+    + need to delete also tests
+    + if needed, need to find it in the repository
+
+
 ## Functionality
 
 - [ ] Reproduce pipeline from local directory of models (no need for init or download) 
