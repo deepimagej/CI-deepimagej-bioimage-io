@@ -47,5 +47,5 @@
    (let [summa-dict (gen-summa-dict error-key)]
      (mapv (partial write-test-summary! summa-dict) model-records)
      (if verbose? (utils/print-and-log
-                    (format "- Created %d test summaries for the error key %s\n" (count model-records) error-key)
+                    (format "- Created %3d test summaries for the error key %s\n" (count model-records) error-key)
                     (:summa-readme FILES))))))
