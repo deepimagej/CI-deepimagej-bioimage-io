@@ -40,3 +40,11 @@
   ; => {"model" 69, "dataset" 42, "application" 52, "notebook" 2}
   (filter (fn [r] (= "model" (:type r))) @all-rdfs-parsed)
   )
+
+; rdf locals
+(comment
+  (def rdfs (collection/get-rdfs-to-test
+              (collection/file-json->vector (fs/file "pending_matrix/local.json"))))
+  (def parsed (map models/parse-model rdfs))
+  (def dois (map #(get-in % [:config :bioimageio :doi]) parsed))
+  )
