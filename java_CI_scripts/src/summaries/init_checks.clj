@@ -33,7 +33,9 @@
   "Tells if input and output tiff sample images are in the local numpy_tiff folder"
   [model-record]
   (let [samples-path (get-in model-record [:paths :samples-path])]
-    (and (fs/exists? samples-path) (= 4 (count (fs/list-dir samples-path))))))
+    ; path should exist and have at least 4 files
+    ; todo improve the condition: have 2 .tif and 2 .edn
+    (and (fs/exists? samples-path) (>= (count (fs/list-dir samples-path)) 4))))
 
 (defn p*process-in-attachment?
   "Tells if the p*processing files needed are to be downloaded (are in the attachments)"

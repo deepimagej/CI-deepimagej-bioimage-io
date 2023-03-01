@@ -5,10 +5,12 @@
             models
             [summaries summary errors init-checks]
             [downloads download]
-            [reproduce communicate]
+            [reproduce communicate run-fiji-scripts]
             [core main]
             [test-setup :refer :all]
             [clojure.test :refer :all]
+            [clojure.java.io :as io]
+            [clojure.string :as str]
             [babashka.fs :as fs]))
 
 (use-fixtures :once load-test-paths load-model-records load-rdfs-parsed)
@@ -46,5 +48,6 @@
   (def rdfs (collection/get-rdfs-to-test
               (collection/file-json->vector (fs/file "pending_matrix/local.json"))))
   (def parsed (map models/parse-model rdfs))
+  (def models (filter summaries.init-checks/model? (map models/build-model rdfs)))
   (def dois (map #(get-in % [:config :bioimageio :doi]) parsed))
   )
