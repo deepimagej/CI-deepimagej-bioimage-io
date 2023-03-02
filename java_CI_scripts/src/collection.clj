@@ -52,14 +52,14 @@
   {:resource_id (:id collection-model) :version_id (first (:versions collection-model))})
 
 (defn generate-pending-matrix-from-collection
-  "Generates the pending matrix corresponding to the models in the collection.json "
+  "Generates the pending matrix corresponding to the models in the collection.json
+   Returns number of models written"
   ([verbose?] (generate-pending-matrix-from-collection
-                (fs/file (:pending-matrix-root ROOTS) "only-collection.json") verbose?))
+                (fs/file (:pending-matrix-root ROOTS) "only_collection.json") verbose?))
   ([output-file verbose?]
    (let [models (filter #(= (:type %) "model") (parse-collection))
          pending-matrix (map get-model-identifier models)]
      (spit output-file (json/generate-string {:include pending-matrix} {:pretty true}))
-     (if verbose?
-       (printf "Pending matrix with %3d entries to test created in %s\n" (count models) output-file)
-       (flush))
+     (if verbose? (do (printf "Pending matrix with %3d entries to test created in %s\n" (count models) output-file)
+                      (flush)))
      (count models))))

@@ -25,9 +25,10 @@
 ## Functionality
 ### Ability to test only models in the collection.json
 - This json has the concatenation of all models that appear in the website
-- [ ] function to generate a pending matrix which contents correspond to the models in collection.json
+- [x] function to generate a pending matrix which contents correspond to the models in collection.json
 - [ ] call this function *a la carte*, since the collection is always mutating
-  - [ ] flag -c to generate this pending matrix
+  - [ ] flag -c to generate this pending matrix 
+  - [ ] call this in the yaml before every 
 
 ### Reproduce pipeline from local directory of models (no need for init or download)
 - Difference local and global rdfs
