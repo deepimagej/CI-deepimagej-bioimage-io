@@ -64,3 +64,20 @@
       (is (= (set (map #(fs/file-name (fs/parent %)) r-b)) #{"7261975" "latest"})))
     (testing "Resource vector has 1 map, but version globbing"
       (is (= (set (map #(fs/file-name (fs/parent %)) r-c)) #{"5888237" "5877226"})))))
+
+(deftest parse-collection-test
+  (testing "Contents of collection.json"
+    (let [parsed (parse-collection)
+          {:strs [model dataset application notebook] :as freqs}
+          (frequencies (map :type parsed))]
+      (is (= (set (keys freqs)) #{"model" "dataset" "application" "notebook"}))
+      (is (>= model 46))
+      (is (>= dataset 42))
+      (is (>= application 49))
+      (is (>= notebook 2)))))
+
+(deftest get-model-identifier-test
+  (let [models (filter #(= (:type %) "model") (parse-collection))
+        a-model (first (filter #(= (:nickname %) "impartial-shrimp") models))]
+    (is (= (get-model-identifier a-model)
+           {:resource_id "10.5281/zenodo.5874741", :version_id "5874742"}))))

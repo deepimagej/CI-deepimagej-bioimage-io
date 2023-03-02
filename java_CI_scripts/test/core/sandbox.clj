@@ -51,3 +51,17 @@
   (def models (filter summaries.init-checks/model? (map models/build-model rdfs)))
   (def dois (map #(get-in % [:config :bioimageio :doi]) parsed))
   )
+
+; contents of collection.json
+(comment
+  (def models (filter #(= (:type %) "model") (collection/parse-collection)))
+  ; count how many models in the collection
+  (reduce + (map #(count (:versions %)) models))
+  ; all models + version = 69... 70 resources-versions in total
+
+  ; count how many deepimagej models in the collection
+  ; resource-id contains string "deepimagej"
+  (def pending-matrix (map collection/get-model-identifier models))
+  (filter #(str/starts-with? (:resource_id %) "deepimagej") pending-matrix)
+  ; 9/19
+  )

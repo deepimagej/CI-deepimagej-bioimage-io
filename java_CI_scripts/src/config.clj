@@ -4,11 +4,12 @@
             [babashka.fs :as fs]))
 
 (def ROOTS "Paths to folder roots"
-  {:collection-root (fs/absolutize (fs/path ".." "bioimageio-gh-pages" "rdfs"))
-   :summa-root      (fs/absolutize (fs/path ".." "test_summaries"))
-   :models-root     (fs/absolutize (fs/path ".." "models"))
-   :samples-root    (fs/absolutize (fs/path ".." "numpy-tiff-deepimagej"))
-   :resources-root  (fs/absolutize (fs/path ".." "resources"))})
+  {:collection-root     (fs/absolutize (fs/path ".." "bioimageio-gh-pages" "rdfs"))
+   :summa-root          (fs/absolutize (fs/path ".." "test_summaries"))
+   :models-root         (fs/absolutize (fs/path ".." "models"))
+   :samples-root        (fs/absolutize (fs/path ".." "numpy-tiff-deepimagej"))
+   :resources-root      (fs/absolutize (fs/path ".." "resources"))
+   :pending-matrix-root (fs/absolutize (fs/path "pending_matrix"))})
 
 (def FILES "Configuration constants that are files"
   {:config          (fs/file (:resources-root ROOTS) "config.edn")

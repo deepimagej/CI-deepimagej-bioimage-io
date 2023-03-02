@@ -37,10 +37,29 @@
   ([root resources-vector] (set (flatten (map #(resource->paths root %) resources-vector))))
   ([resources-vector] (get-rdfs-to-test (:collection-root ROOTS) resources-vector)))
 
+(defn parse-collection
+  "Parse the contents of collection.json into a hash-map"
+  ([] (parse-collection (fs/file (:collection-root ROOTS) ".." "collection.json")))
+  ([collection-file]
+   (-> (fs/file collection-file)
+       slurp
+       (json/parse-string true)
+       :collection)))
+
+(defn get-model-identifier
+  "Gets the resource-id and the latest version-id of a collection model (in collection.json)"
+  [collection-model]
+  {:resource_id (:id collection-model) :version_id (first (:versions collection-model))})
+
 (defn generate-pending-matrix-from-collection
   "Generates the pending matrix corresponding to the models in the collection.json "
-  []
-  (let [parsed (-> (fs/file (:collection-root ROOTS) ".." "collection.json")
-                   slurp
-                   (json/parse-string true)
-                   :collection)]))
+  ([verbose?] (generate-pending-matrix-from-collection
+                (fs/file (:pending-matrix-root ROOTS) "only-collection.json") verbose?))
+  ([output-file verbose?]
+   (let [models (filter #(= (:type %) "model") (parse-collection))
+         pending-matrix (map get-model-identifier models)]
+     (spit output-file (json/generate-string {:include pending-matrix} {:pretty true}))
+     (if verbose?
+       (printf "Pending matrix with %3d entries to test created in %s\n" (count models) output-file)
+       (flush))
+     (count models))))
