@@ -1,0 +1,1 @@
+; Babashka script to set up the folders starting with a local directory of models to test

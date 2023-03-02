@@ -2,13 +2,13 @@
   (:require [config :refer [ROOTS]]
             [collection :refer :all]
             [clojure.test :refer :all]
+            [clojure.set :as set]
             [babashka.fs :as fs]))
 
 (deftest collection-root-test
   (is (= (fs/file-name (:collection-root ROOTS)) "rdfs"))
-  (is (= (set (mapv fs/file-name (fs/list-dir (:collection-root ROOTS))))
-         (set ["10.5281" "bioimageio" "deepimagej" "fiji" "hpa" "ilastik" "imjoy" "zero"]))
-      "This test may fail if new partners/zenodo dois are added to the zoo"))
+  (is (set/subset? #{"10.5281" "bioimageio" "deepimagej" "fiji" "hpa" "ilastik" "imjoy" "zero"}
+                   (set (mapv fs/file-name (fs/list-dir (:collection-root ROOTS)))))))
 
 (deftest str-json->vector-test
   (testing "Input is a raw json string"
@@ -64,3 +64,28 @@
       (is (= (set (map #(fs/file-name (fs/parent %)) r-b)) #{"7261975" "latest"})))
     (testing "Resource vector has 1 map, but version globbing"
       (is (= (set (map #(fs/file-name (fs/parent %)) r-c)) #{"5888237" "5877226"})))))
+
+(deftest parse-collection-test
+  (testing "Contents of collection.json"
+    (let [parsed (parse-collection)
+          {:strs [model dataset application notebook] :as freqs}
+          (frequencies (map :type parsed))]
+      (is (= (set (keys freqs)) #{"model" "dataset" "application" "notebook"}))
+      (is (>= model 46))
+      (is (>= dataset 42))
+      (is (>= application 49))
+      (is (>= notebook 2)))))
+
+(deftest get-model-identifier-test
+  (let [models (filter #(= (:type %) "model") (parse-collection))
+        a-model (first (filter #(= (:nickname %) "impartial-shrimp") models))]
+    (is (= (get-model-identifier a-model)
+           {:resource_id "10.5281/zenodo.5874741", :version_id "5874742"}))))
+
+(deftest generate-pending-matrix-from-collection-test
+  (let [filename "test.json"
+        n-models (generate-pending-matrix-from-collection filename false)
+        re-parsed (file-json->vector filename)]
+    (is (= n-models (count re-parsed)))
+    (is (= (set (keys (first re-parsed))) #{:resource_id :version_id}))
+    (is (fs/delete-if-exists filename))))

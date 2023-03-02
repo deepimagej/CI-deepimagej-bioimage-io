@@ -32,3 +32,10 @@ Contains models of different characteristics, to see different behaviors during 
 - All two versions of a model
 - Obtained via globbing or the "version" field
 - 10.5281/zenodo.5749843/**
+
+## only_collection.json
+- pending matrix generated from the latest version of the models from [collection.json](https://github.com/bioimage-io/collection-bioimage-io/blob/gh-pages/collection.json)
+- These are the models that appear in the bioimage.io website
+
+## use_cases.json
+- models from the use-cases that appear in the pre-print

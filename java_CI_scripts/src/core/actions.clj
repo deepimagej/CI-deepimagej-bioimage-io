@@ -71,7 +71,7 @@
         (discriminate/separate-by-error models-tested reproduce-checks/errors-fns)]
     (mapv summary/write-summaries-from-error! error-found)
     (mapv (partial summary/write-test-summary! (summary/gen-summa-dict)) keep-testing)
-    (utils/print-and-log (format "- Created %d test summaries for models that pass the CI\n" (count keep-testing))
+    (utils/print-and-log (format "- Created %3d test summaries for models that pass the CI\n" (count keep-testing))
                          (:summa-readme FILES)))
   ; Generate the report
   (reports/basic-report))

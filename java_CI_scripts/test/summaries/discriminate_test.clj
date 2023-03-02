@@ -20,11 +20,15 @@
         (is (= (utils/count-dict d-models-dijconfig) {:error-found 1, :keep-testing 2} ))
         (is (= (utils/count-dict (:error-found d-models-dijconfig)) {:no-dij-config 1})))
       (testing "No-dij-config for all models"
-        (is (= (utils/count-dict d-all-models-dijconfig) {:error-found 1, :keep-testing 48}))
-        (is (>= (:no-dij-config (utils/count-dict (:error-found d-all-models-dijconfig))) 117)))
+        (let [{:keys [error-found keep-testing]}  d-all-models-dijconfig]
+          (is (>= (count error-found) 1))
+          (is (>= (count keep-testing) 48))
+          (is (>= (count (:no-dij-config error-found)) 117))))
       (testing "All models, with run-mode error after discriminating with deepimagej config"
-        (is (= (utils/count-dict d-all-models-runmode) {:error-found 2, :keep-testing 44}))
-        (is (>= (:no-dij-config (utils/count-dict (:error-found d-all-models-runmode))) 117)))))
+        (let [{:keys [error-found keep-testing]} d-all-models-runmode]
+          (is (>= (count error-found) 2))
+          (is (>= (count keep-testing) 44))
+          (is (>= (count (:no-dij-config error-found)) 117))))))
   (testing "Errors during reproduce stage of CI"
     (let [d-models-dij-headless (check-error {:keep-testing @model-records}
                                              (utils/select-key->vec reproduce-checks/errors-fns :dij-headless))
@@ -49,9 +53,10 @@
              {:no-dij-config 0, :no-sample-images 0, :no-compatible-weights 1,
               :key-run-mode 0, :no-p*process 0})))
     (testing "All models, with only no-dij-config and key-run-mode errors"
-      (is (= (utils/count-dict all-models-discriminated)
-             {:error-found 2, :keep-testing 44}))
-      (is (>= (:no-dij-config (utils/count-dict (:error-found all-models-discriminated))) 117)))))
+      (let [{:keys [error-found keep-testing]} all-models-discriminated]
+        (is (>= (count error-found) 2))
+        (is (>= (count keep-testing) 44))
+        (is (>= (count (:no-dij-config error-found)) 117))))))
 
 ; this has been replaced by more general version, but test can stay
 (deftest separate-by-dij-config-test

@@ -11,8 +11,8 @@
   (is (>= (count (filter model? @all-model-records)) 70)))
 
 (deftest dij-config?-test
-  (is (= 2 (count (filter dij-config? @model-records))))
-  (is (= 48 (count (filter dij-config? @all-model-records)))))
+  (is (= (count (filter dij-config? @model-records)) 2))
+  (is (>= (count (filter dij-config? @all-model-records)) 48)))
 
 (deftest no-run-mode?-test
   (let [{without-rm true with-rm false} (group-by no-run-mode? @all-model-records)]
@@ -29,8 +29,8 @@
     (is (> (count (filter any-compatible-weight? @all-model-records)) 46))))
 
 (deftest available-sample-images?-test
-  (is (= 2 (count (filter available-sample-images? @model-records))))
-  (is (= 29 (count (filter available-sample-images? @all-model-records)))))
+  (is (= (count (filter available-sample-images? @model-records)) 2))
+  (is (>= (count (filter available-sample-images? @all-model-records)) 29)))
 
 (deftest p*process-in-attachment?-test
   (is (not (p*process-in-attachment?

@@ -11,7 +11,7 @@
 
 ## Refactors
 - [ ] improve utils/new-root-path
-- [ ] think of deleting unused code (?)
+- [ ] think of *deleting unused code* (?)
   + pros: 
     + smaller codebase
     + easier to understand (newcomer / reentering the code)
@@ -23,8 +23,19 @@
 
 
 ## Functionality
+### Ability to test only models in the collection.json
+- This json has the concatenation of all models that appear in the website
+- [x] function to generate a pending matrix which contents correspond to the models in collection.json
+- [ ] call this function *a la carte*, since the collection is always mutating
+  - [ ] flag -c to generate this pending matrix 
+  - [ ] call this in the yaml before every 
 
-- [ ] Reproduce pipeline from local directory of models (no need for init or download) 
+### Reproduce pipeline from local directory of models (no need for init or download)
+- Difference local and global rdfs
+- problem in downloads/get-url-filename and communicate/get-name-from-url
+- [ ] dispatch if url is string URL or File (?)
+
+### Other functionality
 - [x] Basic report automatically on gh-pages readme.
 - [ ] Download with cache
   + cache directory
