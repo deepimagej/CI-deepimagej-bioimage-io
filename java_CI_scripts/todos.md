@@ -11,7 +11,7 @@
 
 ## Refactors
 - [ ] improve utils/new-root-path
-- [ ] think of deleting unused code (?)
+- [ ] think of *deleting unused code* (?)
   + pros: 
     + smaller codebase
     + easier to understand (newcomer / reentering the code)
@@ -22,8 +22,13 @@
     + if needed, need to find it in the repository
 
 
-
 ## Functionality
+### Ability to test only models in the collection.json
+- This json has the concatenation of all models that appear in the website
+- [ ] function to generate a pending matrix which contents correspond to the models in collection.json
+- [ ] call this function *a la carte*, since the collection is always mutating
+  - [ ] flag -c to generate this pending matrix
+
 ### Reproduce pipeline from local directory of models (no need for init or download)
 - Difference local and global rdfs
 - problem in downloads/get-url-filename and communicate/get-name-from-url

@@ -36,3 +36,11 @@
   If only 1 argument is given, uses COLLECTION-ROOT as root path"
   ([root resources-vector] (set (flatten (map #(resource->paths root %) resources-vector))))
   ([resources-vector] (get-rdfs-to-test (:collection-root ROOTS) resources-vector)))
+
+(defn generate-pending-matrix-from-collection
+  "Generates the pending matrix corresponding to the models in the collection.json "
+  []
+  (let [parsed (-> (fs/file (:collection-root ROOTS) ".." "collection.json")
+                   slurp
+                   (json/parse-string true)
+                   :collection)]))
