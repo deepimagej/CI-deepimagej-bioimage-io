@@ -29,8 +29,8 @@
     (is (> (count (filter any-compatible-weight? @all-model-records)) 46))))
 
 (deftest available-sample-images?-test
-  (is (= 2 (count (filter available-sample-images? @model-records))))
-  (is (= 29 (count (filter available-sample-images? @all-model-records)))))
+  (is (= (count (filter available-sample-images? @model-records)) 2))
+  (is (>= (count (filter available-sample-images? @all-model-records)) 29)))
 
 (deftest p*process-in-attachment?-test
   (is (not (p*process-in-attachment?

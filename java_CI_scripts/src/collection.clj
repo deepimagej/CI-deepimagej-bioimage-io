@@ -1,4 +1,5 @@
 (ns collection
+  "Handles the bioimageio collection of rdfs/models"
   (:require [config :refer [ROOTS]]
             [babashka.fs :as fs]
             [cheshire.core :as json]))

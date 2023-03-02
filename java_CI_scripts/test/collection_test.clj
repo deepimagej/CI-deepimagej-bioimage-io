@@ -2,13 +2,13 @@
   (:require [config :refer [ROOTS]]
             [collection :refer :all]
             [clojure.test :refer :all]
+            [clojure.set :as set]
             [babashka.fs :as fs]))
 
 (deftest collection-root-test
   (is (= (fs/file-name (:collection-root ROOTS)) "rdfs"))
-  (is (= (set (mapv fs/file-name (fs/list-dir (:collection-root ROOTS))))
-         (set ["10.5281" "bioimageio" "deepimagej" "fiji" "hpa" "ilastik" "imjoy" "zero"]))
-      "This test may fail if new partners/zenodo dois are added to the zoo"))
+  (is (set/subset? #{"10.5281" "bioimageio" "deepimagej" "fiji" "hpa" "ilastik" "imjoy" "zero"}
+                   (set (mapv fs/file-name (fs/list-dir (:collection-root ROOTS)))))))
 
 (deftest str-json->vector-test
   (testing "Input is a raw json string"
