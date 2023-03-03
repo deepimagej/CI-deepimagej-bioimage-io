@@ -49,6 +49,7 @@ jobs:
         working-directory: ./java_CI_scripts
         run: |
           bb --version
+          bb "(require 'collection) (collection/generate-pending-matrix-from-collection true)" # update the collection to latest version
           bb -m core.main -j ./pending_matrix/only_collection.json download
 
       - name: check that initial pipeline of CI went OK
