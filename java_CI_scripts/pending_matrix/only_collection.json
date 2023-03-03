@@ -54,14 +54,14 @@
     "resource_id" : "10.5281/zenodo.6334383",
     "version_id" : "6346500"
   }, {
-    "resource_id" : "10.5281/zenodo.5749843",
-    "version_id" : "5888237"
-  }, {
     "resource_id" : "10.5281/zenodo.6559474",
     "version_id" : "6559475"
   }, {
+    "resource_id" : "10.5281/zenodo.5749843",
+    "version_id" : "5888237"
+  }, {
     "resource_id" : "10.5281/zenodo.6079314",
-    "version_id" : "7688686"
+    "version_id" : "7689587"
   }, {
     "resource_id" : "10.5281/zenodo.5847355",
     "version_id" : "6647683"
@@ -91,7 +91,7 @@
     "version_id" : "7274276"
   }, {
     "resource_id" : "10.5281/zenodo.7261974",
-    "version_id" : "7546703"
+    "version_id" : "7688940"
   }, {
     "resource_id" : "10.5281/zenodo.7315440",
     "version_id" : "7315441"
