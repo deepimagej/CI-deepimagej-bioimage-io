@@ -40,6 +40,13 @@
 - mae: 2.53928
 - max_val: 0.99999
 
+# B. Sutilist bacteria segmentation - Widefield microscopy - 2D UNet
+/home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.7261974/7688940/
+- (placid-llama) 
+- mse: null 
+- mae: null
+- max_val: null
+
 # Neuron Segmentation in EM (Membrane Prediction)
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874741/5874742/
 - (impartial-shrimp) 

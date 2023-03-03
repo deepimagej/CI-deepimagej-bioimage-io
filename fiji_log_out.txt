@@ -1,10 +1,10 @@
 
-STARTED TESTING THE 16 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-03-03T11:18:56.605318
+STARTED TESTING THE 17 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-03-03T14:30:43.931740
 
 Logs are in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../test_summaries/fiji_log_out.txt and fiji_log_err.txt
 
 
-- MODEL 1/16
+- MODEL 1/17
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -35,7 +35,7 @@ and max_percentile: 0.998
 [DEBUG] Execution of model 'StarDist Fluorescence Nuclei Segmentation' completed.
 [DEBUG] Close Tensorflow services
 [DEBUG] End execution
-   Time taken: PT10.545S
+   Time taken: PT7.956S
 -- Finished testing model: fearless-crab
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -44,7 +44,39 @@ and max_percentile: 0.998
    The MAE (relative) is 0.196667164273
    The max_val is 43.4840507507
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348084/6348085/output_metrics.edn
-- MODEL 2/16
+- MODEL 2/17
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.7261974/7688940
+--
+-- Started testing model: placid-llama
+   Name: B. Sutilist bacteria segmentation - Widefield microscopy - 2D UNet
+[DEBUG] Processing image: sample_input_0.tif
+[INFO] No TF library found in /home/runner/blank_fiji/Fiji.app/lib/.
+[DEBUG] Loading model
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Percentile normalization to the axes: xy
+with min_percentile: 0.01
+and max_percentile: 0.998
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+Preprocessing should provide a HashMap with
+the key input_1
+The input tensor 'input_1' should be given bythe preprocessing but it is not.
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Close Tensorflow services
+[DEBUG] End execution
+-- Error during deepimagej run
+There are no images open
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.7261974/7688940
+   Run did not produce output
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.7261974/7688940/output_metrics.edn
+- MODEL 3/17
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -124,7 +156,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT1M31.956S
+   Time taken: PT1M28.887S
 -- Finished testing model: independent-shrimp
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -133,7 +165,7 @@ java.lang.NullPointerException
    The MAE (relative) is 3.79173977663
    The max_val is 0.966301560402
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6811491/6811492/output_metrics.edn
-- MODEL 3/16
+- MODEL 4/17
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -166,7 +198,7 @@ and max_percentile: 0.998
 [DEBUG] Execution of model 'StarDist H&E Nuclei Segmentation' completed.
 [DEBUG] Close Tensorflow services
 [DEBUG] End execution
-   Time taken: PT15.736S
+   Time taken: PT11.439S
 -- Finished testing model: chatty-frog
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -175,7 +207,7 @@ and max_percentile: 0.998
    The MAE (relative) is 0.347544937567
    The max_val is 35.1791687012
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6338614/6338615/output_metrics.edn
-- MODEL 4/16
+- MODEL 5/17
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -245,7 +277,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT15.129S
+   Time taken: PT11.82S
 -- Finished testing model: shivering-raccoon
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -254,7 +286,7 @@ java.lang.NullPointerException
    The MAE (relative) is 0.00254955246825
    The max_val is 0.999997735023
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406803/6406804/output_metrics.edn
-- MODEL 5/16
+- MODEL 6/17
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -325,7 +357,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT14.539S
+   Time taken: PT12.243S
 -- Finished testing model: hiding-blowfish
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -334,7 +366,7 @@ java.lang.NullPointerException
    The MAE (relative) is 0.0161684653013
    The max_val is 0.999995589256
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811922/output_metrics.edn
-- MODEL 6/16
+- MODEL 7/17
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -408,7 +440,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT5M8.037S
+   Time taken: PT4M28.272S
 -- Finished testing model: kind-seashell
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -417,7 +449,7 @@ java.lang.NullPointerException
    The MAE (relative) is 0.300563673937
    The max_val is 1.0
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/6630266/output_metrics.edn
-- MODEL 7/16
+- MODEL 8/17
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -491,7 +523,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT2M3.621S
+   Time taken: PT1M52.633S
 -- Finished testing model: impartial-shrimp
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -500,7 +532,7 @@ java.lang.NullPointerException
    The MAE (relative) is 0.772956065576
    The max_val is 1.0
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874741/5874742/output_metrics.edn
-- MODEL 8/16
+- MODEL 9/17
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -570,7 +602,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT15.324S
+   Time taken: PT12.032S
 -- Finished testing model: hiding-tiger
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -579,7 +611,7 @@ java.lang.NullPointerException
    The MAE (relative) is 0.00752342139457
    The max_val is 1.0
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/6647688/output_metrics.edn
-- MODEL 9/16
+- MODEL 10/17
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -611,7 +643,7 @@ and max_percentile: 1
 [DEBUG] Execution of model 'Cell Segmentation from Membrane Staining for Plant Tissues' completed.
 [DEBUG] Close Tensorflow services
 [DEBUG] End execution
-   Time taken: PT22.594S
+   Time taken: PT18.852S
 -- Finished testing model: humorous-owl
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -620,7 +652,7 @@ and max_percentile: 1
    The MAE (relative) is 0.0
    The max_val is 255.0
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5888237/output_metrics.edn
-- MODEL 10/16
+- MODEL 11/17
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -690,7 +722,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT5.542S
+   Time taken: PT4.789S
 -- Finished testing model: affable-shark
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -699,7 +731,7 @@ java.lang.NullPointerException
    The MAE (relative) is 0.00558950735561
    The max_val is 0.999956965446
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6647674/output_metrics.edn
-- MODEL 11/16
+- MODEL 12/17
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -773,7 +805,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT1M46.212S
+   Time taken: PT1M31.612S
 -- Finished testing model: organized-badger
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -782,7 +814,7 @@ java.lang.NullPointerException
    The MAE (relative) is 5.17975172414
    The max_val is 1.0
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028097/6028098/output_metrics.edn
-- MODEL 12/16
+- MODEL 13/17
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -808,7 +840,7 @@ There are no images open
    The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6559474/6559475
    Run did not produce output
    Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6559474/6559475/output_metrics.edn
-- MODEL 13/16
+- MODEL 14/17
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -878,7 +910,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT14.435S
+   Time taken: PT12.518S
 -- Finished testing model: powerful-chipmunk
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -887,7 +919,7 @@ java.lang.NullPointerException
    The MAE (relative) is 0.00819686638683
    The max_val is 0.999992489815
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5847355/6647683/output_metrics.edn
-- MODEL 14/16
+- MODEL 15/17
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -961,7 +993,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT15M9.063S
+   Time taken: PT13M9.603S
 -- Finished testing model: willing-hedgehog
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -970,7 +1002,7 @@ java.lang.NullPointerException
    The MAE (relative) is 2.53927847055
    The max_val is 0.999988555908
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028280/6647695/output_metrics.edn
-- MODEL 15/16
+- MODEL 16/17
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -998,7 +1030,7 @@ and max_percentile: 1
 [DEBUG] Execution of model 'Arabidopsis Leaf Segmentation' completed.
 [DEBUG] Close Tensorflow services
 [DEBUG] End execution
-   Time taken: PT12.879S
+   Time taken: PT11.14S
 -- Finished testing model: non-judgemental-eagle
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1007,7 +1039,7 @@ and max_percentile: 1
    The MAE (relative) is 0.210958474752
    The max_val is 0.993139028549
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348728/6348729/output_metrics.edn
-- MODEL 16/16
+- MODEL 17/17
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -1082,7 +1114,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT1M5.816S
+   Time taken: PT58.762S
 -- Finished testing model: determined-chipmunk
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1092,7 +1124,7 @@ java.lang.NullPointerException
    The max_val is 0.999934792519
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6808325/6808413/output_metrics.edn
 
-FINISHED TESTING THE 16 MODELS IN FIJI AT 2023-03-03T11:18:56.609073
+FINISHED TESTING THE 17 MODELS IN FIJI AT 2023-03-03T14:30:43.935018
 
  Logs are in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../test_summaries/fiji_log_out.txt and fiji_log_err.txt
 
