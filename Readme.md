@@ -1,10 +1,10 @@
 # Report summary
-- Created 4 test summaries for the error key :key-run-mode
-- Created 21 test summaries for the error key :no-compatible-weights
-- Created 5 test summaries for the error key :no-dij-config
-- Created 12 test summaries for the error key :no-sample-images
-- Created 0 test summaries for the error key :no-p*process
-- Creating comm file for 29 models
-- Created 4 test summaries for the error key :dij-headless
-- Created 0 test summaries for the error key :comparison
-- Created 25 test summaries for models that pass the CI
+- Created   4 test summaries for the error key :key-run-mode
+- Created  14 test summaries for the error key :no-compatible-weights
+- Created   4 test summaries for the error key :no-dij-config
+- Created   8 test summaries for the error key :no-sample-images
+- Created   0 test summaries for the error key :no-p*process
+- Creating comm file for 16 models
+- Created   1 test summaries for the error key :dij-headless
+- Created   0 test summaries for the error key :comparison
+- Created  15 test summaries for models that pass the CI
