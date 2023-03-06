@@ -75,6 +75,13 @@
 - mae: 0.30056
 - max_val: 1.00000
 
+# EpitheliaAffinityModel
+/home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6079314/7695872/
+- (wild-whale) 
+- mse: 0.05089 
+- mae: 0.11179
+- max_val: 1.00000
+
 # PlatynereisEMnucleiSegmentationBoundaryModel
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028097/6028098/
 - (organized-badger) 
@@ -109,6 +116,13 @@
 - mse: 0.00000 
 - mae: 0.00000
 - max_val: 255.00000
+
+# HPA Nucleus Segmentation (DPNUnet)
+/home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6200999/7690494/
+- (conscientious-seashell) 
+- mse: 0.00000 
+- mae: 0.00000
+- max_val: 1.00000
 
 # NucleiSegmentationBoundaryModel
 /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6647674/

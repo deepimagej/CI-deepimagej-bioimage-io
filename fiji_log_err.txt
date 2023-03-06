@@ -1,30 +1,30 @@
 
-STARTED TESTING THE 17 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-03-03T14:30:43.931740
+STARTED TESTING THE 19 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-03-06T10:08:29.299944
 
 Logs are in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../test_summaries/fiji_log_out.txt and fiji_log_err.txt
 
 
-- MODEL 1/17
+- MODEL 1/19
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-Mar 03, 2023 1:30:45 PM java.util.prefs.FileSystemPreferences$1 run
+Mar 06, 2023 9:08:31 AM java.util.prefs.FileSystemPreferences$1 run
 INFO: Created user preferences directory.
 SLF4J: Class path contains multiple SLF4J bindings.
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-03-03 13:30:52.345770: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-03-03 13:30:52.347905: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-03-03 13:30:52.350044: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-03-03 13:30:52.354493: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2793435000 Hz
-2023-03-03 13:30:52.354635: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fc110da4730 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-03-03 13:30:52.354648: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-03-03 13:30:52.363916: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-03-03 13:30:52.402424: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 56662 microseconds.
+2023-03-06 09:08:39.195580: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-03-06 09:08:39.197603: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-03-06 09:08:39.199934: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2023-03-06 09:08:39.204882: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2593905000 Hz
+2023-03-06 09:08:39.205053: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f21ccdbb360 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-03-06 09:08:39.205075: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-03-06 09:08:39.214666: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-03-06 09:08:39.257179: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 61604 microseconds.
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
@@ -34,7 +34,7 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 2/17
+- MODEL 2/19
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -45,15 +45,15 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-03-03 13:31:28.486341: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-03-03 13:31:28.491513: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-03-03 13:31:28.496413: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-03-03 13:31:28.502114: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2793435000 Hz
-2023-03-03 13:31:28.502285: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f3d3cb5dcb0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-03-03 13:31:28.502307: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-03-03 13:31:28.519057: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-03-03 13:31:28.590907: I tensorflow/cc/saved_model/loader.cc:151] Running initialization op on SavedModel bundle at path: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-03-03 13:31:28.607377: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 121046 microseconds.
+2023-03-06 09:09:17.657993: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-03-06 09:09:17.663125: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-03-06 09:09:17.668374: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2023-03-06 09:09:17.674464: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2593905000 Hz
+2023-03-06 09:09:17.674639: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7feb95139670 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-03-06 09:09:17.674661: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-03-06 09:09:17.693282: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-03-06 09:09:17.771396: I tensorflow/cc/saved_model/loader.cc:151] Running initialization op on SavedModel bundle at path: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-03-06 09:09:17.790630: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 132644 microseconds.
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
@@ -63,7 +63,7 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 3/17
+- MODEL 3/19
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -74,6 +74,7 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+[W functional.py:21] Warning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument. (function )
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
@@ -83,35 +84,7 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 4/17
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-03-03 13:33:40.738594: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-03-03 13:33:40.740710: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-03-03 13:33:40.742910: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-03-03 13:33:40.747340: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2793435000 Hz
-2023-03-03 13:33:40.747481: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fd4f52c9750 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-03-03 13:33:40.747501: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-03-03 13:33:40.756553: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-03-03 13:33:40.796698: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 58116 microseconds.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 5/17
+- MODEL 4/19
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -131,7 +104,7 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 6/17
+- MODEL 5/19
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -151,7 +124,35 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 7/17
+- MODEL 6/19
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
+OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+2023-03-06 09:12:19.614576: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-03-06 09:12:19.616605: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-03-06 09:12:19.618899: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2023-03-06 09:12:19.623622: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2593905000 Hz
+2023-03-06 09:12:19.623800: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fc0192d8580 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-03-06 09:12:19.623821: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-03-06 09:12:19.633394: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-03-06 09:12:19.674713: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 60146 microseconds.
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
+OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+- MODEL 7/19
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -171,7 +172,7 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 8/17
+- MODEL 8/19
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -191,7 +192,7 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 9/17
+- MODEL 9/19
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -211,7 +212,7 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 10/17
+- MODEL 10/19
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -222,14 +223,6 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-03-03 13:43:10.724038: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-03-03 13:43:10.746285: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-03-03 13:43:10.772545: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-03-03 13:43:10.777476: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2793435000 Hz
-2023-03-03 13:43:10.777629: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fe3d92630e0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-03-03 13:43:10.777650: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-03-03 13:43:10.873944: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-03-03 13:43:11.236254: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 512224 microseconds.
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
@@ -239,7 +232,55 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 11/17
+- MODEL 11/19
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
+OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
+OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+- MODEL 12/19
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
+OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+2023-03-06 09:21:38.708463: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-03-06 09:21:38.731559: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-03-06 09:21:38.759809: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2023-03-06 09:21:38.765399: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2593905000 Hz
+2023-03-06 09:21:38.765586: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f98510d10a0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-03-06 09:21:38.765608: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-03-06 09:21:38.870127: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-03-06 09:21:39.285515: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 577053 microseconds.
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
+OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+- MODEL 13/19
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -261,7 +302,7 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 12/17
+- MODEL 14/19
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -283,7 +324,7 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 13/17
+- MODEL 15/19
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -294,14 +335,14 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-03-03 13:46:06.636702: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-03-03 13:46:06.653226: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-03-03 13:46:06.671130: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-03-03 13:46:06.675761: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2793435000 Hz
-2023-03-03 13:46:06.675914: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fa858e064b0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-03-03 13:46:06.675936: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-03-03 13:46:06.732542: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-03-03 13:46:07.016631: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 379935 microseconds.
+2023-03-06 09:24:38.821031: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-03-06 09:24:38.836626: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-03-06 09:24:38.855202: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2023-03-06 09:24:38.860288: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2593905000 Hz
+2023-03-06 09:24:38.860477: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7ff4f91956c0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-03-06 09:24:38.860498: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-03-06 09:24:38.922871: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-03-06 09:24:39.229200: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 408176 microseconds.
 Macro Error: Width or height is 0 in line 25
  
 run ( "Scale..." , "x=- y=- width=&wsize height=&hsize interpolation=Bicubic create" <)> ; 
@@ -369,7 +410,7 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 14/17
+- MODEL 16/19
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -391,7 +432,7 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 15/17
+- MODEL 17/19
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -413,7 +454,7 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 16/17
+- MODEL 18/19
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -424,14 +465,14 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-03-03 14:00:29.727808: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-03-03 14:00:29.769475: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-03-03 14:00:29.818472: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-03-03 14:00:29.824160: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2793435000 Hz
-2023-03-03 14:00:29.824310: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f6a4cd9e3a0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-03-03 14:00:29.824331: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-03-03 14:00:30.012246: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-03-03 14:00:30.760153: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 1032354 microseconds.
+2023-03-06 09:38:37.871881: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-03-06 09:38:37.915867: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-03-06 09:38:37.981702: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
+2023-03-06 09:38:37.990928: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2593905000 Hz
+2023-03-06 09:38:37.991137: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f6cd4da90d0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-03-06 09:38:37.991163: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-03-06 09:38:38.297536: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-03-06 09:38:39.215309: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 1343434 microseconds.
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
@@ -441,7 +482,7 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 17/17
+- MODEL 19/19
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -462,7 +503,7 @@ SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-si
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
 SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
 
-FINISHED TESTING THE 17 MODELS IN FIJI AT 2023-03-03T14:30:43.935018
+FINISHED TESTING THE 19 MODELS IN FIJI AT 2023-03-06T10:08:29.304480
 
  Logs are in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../test_summaries/fiji_log_out.txt and fiji_log_err.txt
 
