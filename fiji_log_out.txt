@@ -1,17 +1,17 @@
 
-STARTED TESTING THE 32 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-03-06T11:29:04.193553
+STARTED TESTING THE 26 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-03-07T11:55:03.438729
 
 Logs are in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../test_summaries/fiji_log_out.txt and fiji_log_err.txt
 
 
-- MODEL 1/32
+- MODEL 1/26
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6322939
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6383429/7701632
 --
--- Started testing model: affable-shark
-   Name: NucleiSegmentationBoundaryModel
+-- Started testing model: loyal-squid
+   Name: 3D UNet Mouse Embryo Fixed
 [DEBUG] Processing image: sample_input_0.tif
 [DEBUG] Loading model
 Loading:     100% |████████████████████████████████████████|
@@ -24,89 +24,21 @@ Number of inter-op threads is 1
 Number of intra-op threads is 2
 [DEBUG] Image name: sample_input_0.tif
 [DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:17.7199
-Standard deviation value:20.2505
 [DEBUG] End pre-processing
 [DEBUG] Running inference on the tensors
-[DEBUG] (Pytorch) Patch 1/4
-[DEBUG] (Pytorch) Patch 2/4
-[DEBUG] (Pytorch) Patch 3/4
-[DEBUG] (Pytorch) Patch 4/4
+[DEBUG] (Pytorch) Patch 1/8
+[DEBUG] (Pytorch) Patch 2/8
+[DEBUG] (Pytorch) Patch 3/8
+[DEBUG] (Pytorch) Patch 4/8
+[DEBUG] (Pytorch) Patch 5/8
+[DEBUG] (Pytorch) Patch 6/8
+[DEBUG] (Pytorch) Patch 7/8
+[DEBUG] (Pytorch) Patch 8/8
 [DEBUG] Start post-processing 
 [DEBUG] End post-processing 
 [DEBUG] Close all the inputs except the input image
 [DEBUG] Open images at the end of the execution:
- - NucleiSegmentationBoundaryModel_output0_sample_input_0
-[DEBUG] Execution of model 'NucleiSegmentationBoundaryModel' completed.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-   Time taken: PT8.616S
--- Finished testing model: affable-shark
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6322939
-   The MSE (relative) is 0.00030509716404
-   The MAE (relative) is 0.00558950735561
-   The max_val is 0.999956965446
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6322939/output_metrics.edn
-- MODEL 2/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6200999/6538911
---
--- Started testing model: conscientious-seashell
-   Name: HPA Nucleus Segmentation (DPNUnet)
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Error during Macro preprocessing.
-[DEBUG] Error during Macro preprocessing.
-Error during the aplication of the model.
+[DEBUG] Execution of model '3D UNet Mouse Embryo Fixed' completed.
 java.lang.NullPointerException
 	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
 	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
@@ -150,1674 +82,10 @@ java.lang.NullPointerException
 There are no images open
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6200999/6538911
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6383429/7701632
    Run did not produce output
-   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6200999/6538911/output_metrics.edn
-- MODEL 3/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6079314/7695872
---
--- Started testing model: wild-whale
-   Name: EpitheliaAffinityModel
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:0.186
-Standard deviation value:0.1245
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Pytorch) Patch 1/4
-[DEBUG] (Pytorch) Patch 2/4
-[DEBUG] (Pytorch) Patch 3/4
-[DEBUG] (Pytorch) Patch 4/4
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - EpitheliaAffinityModel_output0_sample_input_0
-[DEBUG] Execution of model 'EpitheliaAffinityModel' completed.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-   Time taken: PT3.202S
--- Finished testing model: wild-whale
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6079314/7695872
-   The MSE (relative) is 0.0508925721629
-   The MAE (relative) is 0.111790096647
-   The max_val is 1.0
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6079314/7695872/output_metrics.edn
-- MODEL 4/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5847355/6322908
---
--- Started testing model: powerful-chipmunk
-   Name: CovidIFCellSegmentationBoundaryModel
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:1752.8062
-Standard deviation value:487.4528
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Pytorch) Patch 1/4
-[DEBUG] (Pytorch) Patch 2/4
-[DEBUG] (Pytorch) Patch 3/4
-[DEBUG] (Pytorch) Patch 4/4
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - CovidIFCellSegmentationBoundaryModel_output0_sample_input_0
-[DEBUG] Execution of model 'CovidIFCellSegmentationBoundaryModel' completed.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-   Time taken: PT13.368S
--- Finished testing model: powerful-chipmunk
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5847355/6322908
-   The MSE (relative) is 0.000984327428841
-   The MAE (relative) is 0.00819686638683
-   The max_val is 0.999992489815
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5847355/6322908/output_metrics.edn
-- MODEL 5/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6200999/6224243
---
--- Started testing model: conscientious-seashell
-   Name: HPA Nucleus Segmentation (DPNUnet)
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Error during Macro preprocessing.
-[DEBUG] Error during Macro preprocessing.
-Error during the aplication of the model.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-There are no images open
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6200999/6224243
-   Run did not produce output
-   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6200999/6224243/output_metrics.edn
-- MODEL 6/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406803/6406804
---
--- Started testing model: shivering-raccoon
-   Name: MitchondriaEMSegmentation2D
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:128.3344
-Standard deviation value:54.6462
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Pytorch) Patch 1/4
-[DEBUG] (Pytorch) Patch 2/4
-[DEBUG] (Pytorch) Patch 3/4
-[DEBUG] (Pytorch) Patch 4/4
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - MitchondriaEMSegmentation2D_output0_sample_input_0
-[DEBUG] Execution of model 'MitchondriaEMSegmentation2D' completed.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-   Time taken: PT13.318S
--- Finished testing model: shivering-raccoon
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406803/6406804
-   The MSE (relative) is 0.000164432469627
-   The MAE (relative) is 0.00254955246825
-   The max_val is 0.999997735023
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406803/6406804/output_metrics.edn
-- MODEL 7/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6338614/6338615
---
--- Started testing model: chatty-frog
-   Name: StarDist H&E Nuclei Segmentation
-[DEBUG] Processing image: sample_input_0.tif
-[INFO] No TF library found in /home/runner/blank_fiji/Fiji.app/lib/.
-[DEBUG] Loading model
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Percentile normalization to the axes: xy
-with min_percentile: 0.01
-and max_percentile: 0.998
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Tensorflow) Patch 1/6
-[DEBUG] (Tensorflow) Patch 2/6
-[DEBUG] (Tensorflow) Patch 3/6
-[DEBUG] (Tensorflow) Patch 4/6
-[DEBUG] (Tensorflow) Patch 5/6
-[DEBUG] (Tensorflow) Patch 6/6
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - StarDist H&E Nuclei Segmentation_output_sample_input_0
-[DEBUG] Execution of model 'StarDist H&E Nuclei Segmentation' completed.
-[DEBUG] Close Tensorflow services
-[DEBUG] End execution
-   Time taken: PT14.398S
--- Finished testing model: chatty-frog
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6338614/6338615
-   The MSE (relative) is 0.871869696995
-   The MAE (relative) is 0.347544937567
-   The max_val is 35.1791687012
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6338614/6338615/output_metrics.edn
-- MODEL 8/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/5874842
---
--- Started testing model: kind-seashell
-   Name: Mitochondria Segmentation for EM
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:136.8695
-Standard deviation value:47.8963
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Pytorch) Patch 1/8
-[DEBUG] (Pytorch) Patch 2/8
-[DEBUG] (Pytorch) Patch 3/8
-[DEBUG] (Pytorch) Patch 4/8
-[DEBUG] (Pytorch) Patch 5/8
-[DEBUG] (Pytorch) Patch 6/8
-[DEBUG] (Pytorch) Patch 7/8
-[DEBUG] (Pytorch) Patch 8/8
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - Mitochondria Segmentation for EM_output0_sample_input_0
-[DEBUG] Execution of model 'Mitochondria Segmentation for EM' completed.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-   Time taken: PT4M42.531S
--- Finished testing model: kind-seashell
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/5874842
-   The MSE (relative) is 0.0622590482291
-   The MAE (relative) is 0.300563673937
-   The max_val is 1.0
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/5874842/output_metrics.edn
-- MODEL 9/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811922
---
--- Started testing model: hiding-blowfish
-   Name: EnhancerMitochondriaEM2D
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Percentile normalization to the axes: xy
-with min_percentile: 0.01
-and max_percentile: 1
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Pytorch) Patch 1/4
-[DEBUG] (Pytorch) Patch 2/4
-[DEBUG] (Pytorch) Patch 3/4
-[DEBUG] (Pytorch) Patch 4/4
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - EnhancerMitochondriaEM2D_output0_sample_input_0
-[DEBUG] Execution of model 'EnhancerMitochondriaEM2D' completed.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-   Time taken: PT13.405S
--- Finished testing model: hiding-blowfish
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811922
-   The MSE (relative) is 0.00355372358714
-   The MAE (relative) is 0.0161684653013
-   The max_val is 0.999995589256
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811922/output_metrics.edn
-- MODEL 10/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/6630266
---
--- Started testing model: kind-seashell
-   Name: MitochondriaEMSegmentationBoundaryModel
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:136.8695
-Standard deviation value:47.8963
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Pytorch) Patch 1/8
-[DEBUG] (Pytorch) Patch 2/8
-[DEBUG] (Pytorch) Patch 3/8
-[DEBUG] (Pytorch) Patch 4/8
-[DEBUG] (Pytorch) Patch 5/8
-[DEBUG] (Pytorch) Patch 6/8
-[DEBUG] (Pytorch) Patch 7/8
-[DEBUG] (Pytorch) Patch 8/8
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - MitochondriaEMSegmentationBoundaryModel_output0_sample_input_0
-[DEBUG] Execution of model 'MitochondriaEMSegmentationBoundaryModel' completed.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-   Time taken: PT4M33.294S
--- Finished testing model: kind-seashell
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/6630266
-   The MSE (relative) is 0.0622590482291
-   The MAE (relative) is 0.300563673937
-   The max_val is 1.0
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/6630266/output_metrics.edn
-- MODEL 11/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/6321179
---
--- Started testing model: hiding-tiger
-   Name: LiveCellSegmentationBoundaryModel
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:128.0212
-Standard deviation value:9.4274
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Pytorch) Patch 1/4
-[DEBUG] (Pytorch) Patch 2/4
-[DEBUG] (Pytorch) Patch 3/4
-[DEBUG] (Pytorch) Patch 4/4
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - LiveCellSegmentationBoundaryModel_output0_sample_input_0
-[DEBUG] Execution of model 'LiveCellSegmentationBoundaryModel' completed.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-   Time taken: PT12.909S
--- Finished testing model: hiding-tiger
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/6321179
-   The MSE (relative) is 0.000312062056537
-   The MAE (relative) is 0.00752342139457
-   The max_val is 1.0
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/6321179/output_metrics.edn
-- MODEL 12/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874741/5874742
---
--- Started testing model: impartial-shrimp
-   Name: Neuron Segmentation in EM (Membrane Prediction)
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:126.0766
-Standard deviation value:32.7007
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Pytorch) Patch 1/8
-[DEBUG] (Pytorch) Patch 2/8
-[DEBUG] (Pytorch) Patch 3/8
-[DEBUG] (Pytorch) Patch 4/8
-[DEBUG] (Pytorch) Patch 5/8
-[DEBUG] (Pytorch) Patch 6/8
-[DEBUG] (Pytorch) Patch 7/8
-[DEBUG] (Pytorch) Patch 8/8
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - Neuron Segmentation in EM (Membrane Prediction)_output0_sample_input_0
-[DEBUG] Execution of model 'Neuron Segmentation in EM (Membrane Prediction)' completed.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-   Time taken: PT1M51.426S
--- Finished testing model: impartial-shrimp
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874741/5874742
-   The MSE (relative) is 0.458272094035
-   The MAE (relative) is 0.772956065576
-   The max_val is 1.0
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874741/5874742/output_metrics.edn
-- MODEL 13/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6406757
---
--- Started testing model: hiding-blowfish
-   Name: EnhancerMitochondriaEM2D
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Percentile normalization to the axes: xy
-with min_percentile: 0.01
-and max_percentile: 1
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Pytorch) Patch 1/4
-[DEBUG] (Pytorch) Patch 2/4
-[DEBUG] (Pytorch) Patch 3/4
-[DEBUG] (Pytorch) Patch 4/4
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - EnhancerMitochondriaEM2D_output0_sample_input_0
-[DEBUG] Execution of model 'EnhancerMitochondriaEM2D' completed.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-   Time taken: PT12.967S
--- Finished testing model: hiding-blowfish
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6406757
-   The MSE (relative) is 0.00615578428483
-   The MAE (relative) is 0.0180234799925
-   The max_val is 0.999999880791
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6406757/output_metrics.edn
-- MODEL 14/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811498
---
--- Started testing model: hiding-blowfish
-   Name: EnhancerMitochondriaEM2D
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Percentile normalization to the axes: xy
-with min_percentile: 0.01
-and max_percentile: 1
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Pytorch) Patch 1/4
-[DEBUG] (Pytorch) Patch 2/4
-[DEBUG] (Pytorch) Patch 3/4
-[DEBUG] (Pytorch) Patch 4/4
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - EnhancerMitochondriaEM2D_output0_sample_input_0
-[DEBUG] Execution of model 'EnhancerMitochondriaEM2D' completed.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-   Time taken: PT12.607S
--- Finished testing model: hiding-blowfish
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811498
-   The MSE (relative) is 0.000834784702047
-   The MAE (relative) is 0.00881184965189
-   The max_val is 0.999992847443
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811498/output_metrics.edn
-- MODEL 15/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/5869900
---
--- Started testing model: hiding-tiger
-   Name: LiveCellSegmentationBoundaryModel
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:128.0212
-Standard deviation value:9.4274
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Pytorch) Patch 1/4
-[DEBUG] (Pytorch) Patch 2/4
-[DEBUG] (Pytorch) Patch 3/4
-[DEBUG] (Pytorch) Patch 4/4
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - LiveCellSegmentationBoundaryModel_output0_sample_input_0
-[DEBUG] Execution of model 'LiveCellSegmentationBoundaryModel' completed.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-   Time taken: PT12.803S
--- Finished testing model: hiding-tiger
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/5869900
-   The MSE (relative) is 0.000312062056537
-   The MAE (relative) is 0.00752342139457
-   The max_val is 1.0
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/5869900/output_metrics.edn
-- MODEL 16/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/6647688
---
--- Started testing model: hiding-tiger
-   Name: LiveCellSegmentationBoundaryModel
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:128.0212
-Standard deviation value:9.4274
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Pytorch) Patch 1/4
-[DEBUG] (Pytorch) Patch 2/4
-[DEBUG] (Pytorch) Patch 3/4
-[DEBUG] (Pytorch) Patch 4/4
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - LiveCellSegmentationBoundaryModel_output0_sample_input_0
-[DEBUG] Execution of model 'LiveCellSegmentationBoundaryModel' completed.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-   Time taken: PT13.175S
--- Finished testing model: hiding-tiger
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/6647688
-   The MSE (relative) is 0.000312062056537
-   The MAE (relative) is 0.00752342139457
-   The max_val is 1.0
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/6647688/output_metrics.edn
-- MODEL 17/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5888237
---
--- Started testing model: humorous-owl
-   Name: Cell Segmentation from Membrane Staining for Plant Tissues
-[DEBUG] Processing image: sample_input_0.tif
-[INFO] No TF library found in /home/runner/blank_fiji/Fiji.app/lib/.
-[DEBUG] Loading model
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Percentile normalization to the axes: xyz
-with min_percentile: 0
-and max_percentile: 1
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Tensorflow) Patch 1/4
-[DEBUG] (Tensorflow) Patch 2/4
-[DEBUG] (Tensorflow) Patch 3/4
-[DEBUG] (Tensorflow) Patch 4/4
-[DEBUG] Start post-processing 
-[DEBUG] Run Macro post-processing
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - Cell Segmentation from Membrane Staining for Plant Tissues_output_sample_input_0
-[DEBUG] Execution of model 'Cell Segmentation from Membrane Staining for Plant Tissues' completed.
-[DEBUG] Close Tensorflow services
-[DEBUG] End execution
-   Time taken: PT19.19S
--- Finished testing model: humorous-owl
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5888237
-   The MSE (relative) is 0.0
-   The MAE (relative) is 0.0
-   The max_val is 255.0
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5888237/output_metrics.edn
-- MODEL 18/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5877226
---
--- Started testing model: humorous-owl
-   Name: 3D UNet - arabidopsis - ZeroCostDL4Mic
-[DEBUG] Processing image: sample_input_0.tif
-[INFO] No TF library found in /home/runner/blank_fiji/Fiji.app/lib/.
-[DEBUG] Loading model
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Percentile normalization to the axes: xyz
-with min_percentile: 0
-and max_percentile: 1
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Tensorflow) Patch 1/4
-[DEBUG] (Tensorflow) Patch 2/4
-[DEBUG] (Tensorflow) Patch 3/4
-[DEBUG] (Tensorflow) Patch 4/4
-[DEBUG] Start post-processing 
-[DEBUG] Run Macro post-processing
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - 3D UNet - arabidopsis - ZeroCostDL4Mic_output_sample_input_0
-[DEBUG] Execution of model '3D UNet - arabidopsis - ZeroCostDL4Mic' completed.
-[DEBUG] Close Tensorflow services
-[DEBUG] End execution
-   Time taken: PT19.81S
--- Finished testing model: humorous-owl
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5877226
-   The MSE (relative) is 0.0
-   The MAE (relative) is 0.0
-   The max_val is 255.0
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5877226/output_metrics.edn
-- MODEL 19/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6647674
---
--- Started testing model: affable-shark
-   Name: NucleiSegmentationBoundaryModel
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:17.7199
-Standard deviation value:20.2505
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Pytorch) Patch 1/4
-[DEBUG] (Pytorch) Patch 2/4
-[DEBUG] (Pytorch) Patch 3/4
-[DEBUG] (Pytorch) Patch 4/4
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - NucleiSegmentationBoundaryModel_output0_sample_input_0
-[DEBUG] Execution of model 'NucleiSegmentationBoundaryModel' completed.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-   Time taken: PT4.612S
--- Finished testing model: affable-shark
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6647674
-   The MSE (relative) is 0.00030509716404
-   The MAE (relative) is 0.00558950735561
-   The max_val is 0.999956965446
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6647674/output_metrics.edn
-- MODEL 20/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5914248/5914249
---
--- Started testing model: discreet-rooster
-   Name: Pancreatic Phase Contrast Cell Segmentation (U-Net)
-[DEBUG] Processing image: sample_input_0.tif
-[INFO] No TF library found in /home/runner/blank_fiji/Fiji.app/lib/.
-[DEBUG] Loading model
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Percentile normalization to the axes: xy
-with min_percentile: 0
-and max_percentile: 1
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Tensorflow) Patch 1/4
-[DEBUG] (Tensorflow) Patch 2/4
-[DEBUG] (Tensorflow) Patch 3/4
-[DEBUG] (Tensorflow) Patch 4/4
-[DEBUG] Start post-processing 
-[DEBUG] Run Macro post-processing
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - Pancreatic Phase Contrast Cell Segmentation (U-Net)_output_sample_input_0
-[DEBUG] Execution of model 'Pancreatic Phase Contrast Cell Segmentation (U-Net)' completed.
-[DEBUG] Close Tensorflow services
-[DEBUG] End execution
-   Time taken: PT6.234S
--- Finished testing model: discreet-rooster
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5914248/5914249
-   The MSE (relative) is 0.0
-   The MAE (relative) is 0.0
-   The max_val is 255.0
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5914248/5914249/output_metrics.edn
-- MODEL 21/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6559474/6559475
---
--- Started testing model: naked-microbe
-   Name: Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)
-[DEBUG] Processing image: sample_input_0.tif
-[INFO] No TF library found in /home/runner/blank_fiji/Fiji.app/lib/.
-[DEBUG] Loading model
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Preprocessing
-Error during Java preprocessing.
-[DEBUG] Error during Java preprocessing.
-Error during the aplication of the model.
-[DEBUG] Close Tensorflow services
-[DEBUG] End execution
-There are no images open
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6559474/6559475
-   Run did not produce output
-   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6559474/6559475/output_metrics.edn
-- MODEL 22/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028097/6028098
---
--- Started testing model: organized-badger
-   Name: PlatynereisEMnucleiSegmentationBoundaryModel
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:158.0579
-Standard deviation value:31.3358
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Pytorch) Patch 1/8
-[DEBUG] (Pytorch) Patch 2/8
-[DEBUG] (Pytorch) Patch 3/8
-[DEBUG] (Pytorch) Patch 4/8
-[DEBUG] (Pytorch) Patch 5/8
-[DEBUG] (Pytorch) Patch 6/8
-[DEBUG] (Pytorch) Patch 7/8
-[DEBUG] (Pytorch) Patch 8/8
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - PlatynereisEMnucleiSegmentationBoundaryModel_output0_sample_input_0
-[DEBUG] Execution of model 'PlatynereisEMnucleiSegmentationBoundaryModel' completed.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-   Time taken: PT1M34.328S
--- Finished testing model: organized-badger
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028097/6028098
-   The MSE (relative) is 2.45096810686
-   The MAE (relative) is 5.17975172414
-   The max_val is 1.0
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028097/6028098/output_metrics.edn
-- MODEL 23/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5847355/6647683
---
--- Started testing model: powerful-chipmunk
-   Name: CovidIFCellSegmentationBoundaryModel
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:1752.8062
-Standard deviation value:487.4528
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Pytorch) Patch 1/4
-[DEBUG] (Pytorch) Patch 2/4
-[DEBUG] (Pytorch) Patch 3/4
-[DEBUG] (Pytorch) Patch 4/4
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - CovidIFCellSegmentationBoundaryModel_output0_sample_input_0
-[DEBUG] Execution of model 'CovidIFCellSegmentationBoundaryModel' completed.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-   Time taken: PT12.868S
--- Finished testing model: powerful-chipmunk
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5847355/6647683
-   The MSE (relative) is 0.000984327428841
-   The MAE (relative) is 0.00819686638683
-   The max_val is 0.999992489815
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5847355/6647683/output_metrics.edn
-- MODEL 24/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348728/6348729
---
--- Started testing model: non-judgemental-eagle
-   Name: Arabidopsis Leaf Segmentation
-[DEBUG] Processing image: sample_input_0.tif
-[INFO] No TF library found in /home/runner/blank_fiji/Fiji.app/lib/.
-[DEBUG] Loading model
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Percentile normalization to the axes: xyz
-with min_percentile: 0.01
-and max_percentile: 1
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Tensorflow) Patch 1/1
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - Arabidopsis Leaf Segmentation_output_sample_input_0
-[DEBUG] Execution of model 'Arabidopsis Leaf Segmentation' completed.
-[DEBUG] Close Tensorflow services
-[DEBUG] End execution
-   Time taken: PT11.262S
--- Finished testing model: non-judgemental-eagle
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348728/6348729
-   The MSE (relative) is 0.0260380954092
-   The MAE (relative) is 0.210958474752
-   The max_val is 0.993139028549
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348728/6348729/output_metrics.edn
-- MODEL 25/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028280/6647695
---
--- Started testing model: willing-hedgehog
-   Name: PlatynereisEMcellsSegmentationBoundaryModel
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:175.0249
-Standard deviation value:26.874
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Pytorch) Patch 1/8
-[DEBUG] (Pytorch) Patch 2/8
-[DEBUG] (Pytorch) Patch 3/8
-[DEBUG] (Pytorch) Patch 4/8
-[DEBUG] (Pytorch) Patch 5/8
-[DEBUG] (Pytorch) Patch 6/8
-[DEBUG] (Pytorch) Patch 7/8
-[DEBUG] (Pytorch) Patch 8/8
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - PlatynereisEMcellsSegmentationBoundaryModel_output0_sample_input_0
-[DEBUG] Execution of model 'PlatynereisEMcellsSegmentationBoundaryModel' completed.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-   Time taken: PT12M58.817S
--- Finished testing model: willing-hedgehog
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028280/6647695
-   The MSE (relative) is 1.10142479099
-   The MAE (relative) is 2.53927847055
-   The max_val is 0.999988555908
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028280/6647695/output_metrics.edn
-- MODEL 26/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6808325/6808413
---
--- Started testing model: determined-chipmunk
-   Name: EM3DBoundaryEnhancer
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Loading model
-Loading:     100% |████████████████████████████████████████|
-Number of inter-op threads is 1
-Number of intra-op threads is 2
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Percentile normalization to the axes: xyz
-with min_percentile: 0.01
-and max_percentile: 1
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Pytorch) Patch 1/8
-[DEBUG] (Pytorch) Patch 2/8
-[DEBUG] (Pytorch) Patch 3/8
-[DEBUG] (Pytorch) Patch 4/8
-[DEBUG] (Pytorch) Patch 5/8
-[DEBUG] (Pytorch) Patch 6/8
-[DEBUG] (Pytorch) Patch 7/8
-[DEBUG] (Pytorch) Patch 8/8
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - EM3DBoundaryEnhancer_output0_sample_input_0
-[DEBUG] Execution of model 'EM3DBoundaryEnhancer' completed.
-java.lang.NullPointerException
-	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
-	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-
-   Time taken: PT58.999S
--- Finished testing model: determined-chipmunk
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6808325/6808413
-   The MSE (relative) is 0.195142190488
-   The MAE (relative) is 0.860952209663
-   The max_val is 0.999934792519
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6808325/6808413/output_metrics.edn
-- MODEL 27/32
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6383429/7701632/output_metrics.edn
+- MODEL 2/26
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -1848,7 +116,7 @@ and max_percentile: 0.998
 [DEBUG] Execution of model 'StarDist Fluorescence Nuclei Segmentation' completed.
 [DEBUG] Close Tensorflow services
 [DEBUG] End execution
-   Time taken: PT9.668S
+   Time taken: PT8.924S
 -- Finished testing model: fearless-crab
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1857,7 +125,39 @@ and max_percentile: 0.998
    The MAE (relative) is 0.196667164273
    The max_val is 43.4840507507
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348084/6348085/output_metrics.edn
-- MODEL 28/32
+- MODEL 3/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.7261974/7688940
+--
+-- Started testing model: placid-llama
+   Name: B. Sutilist bacteria segmentation - Widefield microscopy - 2D UNet
+[DEBUG] Processing image: sample_input_0.tif
+[INFO] No TF library found in /home/runner/blank_fiji/Fiji.app/lib/.
+[DEBUG] Loading model
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Percentile normalization to the axes: xy
+with min_percentile: 0.01
+and max_percentile: 0.998
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+Preprocessing should provide a HashMap with
+the key input_1
+The input tensor 'input_1' should be given bythe preprocessing but it is not.
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Close Tensorflow services
+[DEBUG] End execution
+-- Error during deepimagej run
+There are no images open
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.7261974/7688940
+   Run did not produce output
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.7261974/7688940/output_metrics.edn
+- MODEL 4/26
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -1922,7 +222,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT11.37S
+   Time taken: PT9.611S
 -- Finished testing model: conscientious-seashell
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -1931,39 +231,7 @@ java.lang.NullPointerException
    The MAE (relative) is 1.34926712131e-06
    The max_val is 1.0
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6200999/7690494/output_metrics.edn
-- MODEL 29/32
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.7261974/7688940
---
--- Started testing model: placid-llama
-   Name: B. Sutilist bacteria segmentation - Widefield microscopy - 2D UNet
-[DEBUG] Processing image: sample_input_0.tif
-[INFO] No TF library found in /home/runner/blank_fiji/Fiji.app/lib/.
-[DEBUG] Loading model
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Percentile normalization to the axes: xy
-with min_percentile: 0.01
-and max_percentile: 0.998
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-Preprocessing should provide a HashMap with
-the key input_1
-The input tensor 'input_1' should be given bythe preprocessing but it is not.
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Close Tensorflow services
-[DEBUG] End execution
--- Error during deepimagej run
-There are no images open
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.7261974/7688940
-   Run did not produce output
-   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.7261974/7688940/output_metrics.edn
-- MODEL 30/32
+- MODEL 5/26
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
@@ -2038,7 +306,7 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT1M24.295S
+   Time taken: PT1M17.761S
 -- Finished testing model: independent-shrimp
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
@@ -2047,11 +315,1292 @@ java.lang.NullPointerException
    The MAE (relative) is 3.79173977663
    The max_val is 0.966301560402
    Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6811491/6811492/output_metrics.edn
-- MODEL 31/32
+- MODEL 6/26
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028280/6028281
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6079314/7695872
+--
+-- Started testing model: wild-whale
+   Name: EpitheliaAffinityModel
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Loading model
+Loading:     100% |████████████████████████████████████████|
+Number of inter-op threads is 1
+Number of intra-op threads is 2
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Mean value:0.186
+Standard deviation value:0.1245
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Pytorch) Patch 1/4
+[DEBUG] (Pytorch) Patch 2/4
+[DEBUG] (Pytorch) Patch 3/4
+[DEBUG] (Pytorch) Patch 4/4
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - EpitheliaAffinityModel_output0_sample_input_0
+[DEBUG] Execution of model 'EpitheliaAffinityModel' completed.
+java.lang.NullPointerException
+	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
+	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
+	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
+	at ij.IJ.runUserPlugIn(IJ.java:237)
+	at ij.IJ.runPlugIn(IJ.java:203)
+	at ij.Executer.runCommand(Executer.java:152)
+	at ij.Executer.run(Executer.java:70)
+	at ij.IJ.run(IJ.java:319)
+	at ij.IJ.run(IJ.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
+	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
+	at clojure.lang.Compiler.eval(Compiler.java:6927)
+	at clojure.lang.Compiler.eval(Compiler.java:6890)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
+	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
+	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
+	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+   Time taken: PT2.693S
+-- Finished testing model: wild-whale
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6079314/7695872
+   The MSE (relative) is 0.0508925721629
+   The MAE (relative) is 0.111790096647
+   The max_val is 1.0
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6079314/7695872/output_metrics.edn
+- MODEL 7/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6338614/6338615
+--
+-- Started testing model: chatty-frog
+   Name: StarDist H&E Nuclei Segmentation
+[DEBUG] Processing image: sample_input_0.tif
+[INFO] No TF library found in /home/runner/blank_fiji/Fiji.app/lib/.
+[DEBUG] Loading model
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Percentile normalization to the axes: xy
+with min_percentile: 0.01
+and max_percentile: 0.998
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Tensorflow) Patch 1/6
+[DEBUG] (Tensorflow) Patch 2/6
+[DEBUG] (Tensorflow) Patch 3/6
+[DEBUG] (Tensorflow) Patch 4/6
+[DEBUG] (Tensorflow) Patch 5/6
+[DEBUG] (Tensorflow) Patch 6/6
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - StarDist H&E Nuclei Segmentation_output_sample_input_0
+[DEBUG] Execution of model 'StarDist H&E Nuclei Segmentation' completed.
+[DEBUG] Close Tensorflow services
+[DEBUG] End execution
+   Time taken: PT12.922S
+-- Finished testing model: chatty-frog
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6338614/6338615
+   The MSE (relative) is 0.871869696995
+   The MAE (relative) is 0.347544937567
+   The max_val is 35.1791687012
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6338614/6338615/output_metrics.edn
+- MODEL 8/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406803/6406804
+--
+-- Started testing model: shivering-raccoon
+   Name: MitchondriaEMSegmentation2D
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Loading model
+Loading:     100% |████████████████████████████████████████|
+Number of inter-op threads is 1
+Number of intra-op threads is 2
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Mean value:128.3344
+Standard deviation value:54.6462
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Pytorch) Patch 1/4
+[DEBUG] (Pytorch) Patch 2/4
+[DEBUG] (Pytorch) Patch 3/4
+[DEBUG] (Pytorch) Patch 4/4
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - MitchondriaEMSegmentation2D_output0_sample_input_0
+[DEBUG] Execution of model 'MitchondriaEMSegmentation2D' completed.
+java.lang.NullPointerException
+	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
+	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
+	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
+	at ij.IJ.runUserPlugIn(IJ.java:237)
+	at ij.IJ.runPlugIn(IJ.java:203)
+	at ij.Executer.runCommand(Executer.java:152)
+	at ij.Executer.run(Executer.java:70)
+	at ij.IJ.run(IJ.java:319)
+	at ij.IJ.run(IJ.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
+	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
+	at clojure.lang.Compiler.eval(Compiler.java:6927)
+	at clojure.lang.Compiler.eval(Compiler.java:6890)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
+	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
+	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
+	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+   Time taken: PT11.914S
+-- Finished testing model: shivering-raccoon
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406803/6406804
+   The MSE (relative) is 0.000164432469627
+   The MAE (relative) is 0.00254955246825
+   The max_val is 0.999997735023
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406803/6406804/output_metrics.edn
+- MODEL 9/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811922
+--
+-- Started testing model: hiding-blowfish
+   Name: EnhancerMitochondriaEM2D
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Loading model
+Loading:     100% |████████████████████████████████████████|
+Number of inter-op threads is 1
+Number of intra-op threads is 2
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Percentile normalization to the axes: xy
+with min_percentile: 0.01
+and max_percentile: 1
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Pytorch) Patch 1/4
+[DEBUG] (Pytorch) Patch 2/4
+[DEBUG] (Pytorch) Patch 3/4
+[DEBUG] (Pytorch) Patch 4/4
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - EnhancerMitochondriaEM2D_output0_sample_input_0
+[DEBUG] Execution of model 'EnhancerMitochondriaEM2D' completed.
+java.lang.NullPointerException
+	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
+	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
+	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
+	at ij.IJ.runUserPlugIn(IJ.java:237)
+	at ij.IJ.runPlugIn(IJ.java:203)
+	at ij.Executer.runCommand(Executer.java:152)
+	at ij.Executer.run(Executer.java:70)
+	at ij.IJ.run(IJ.java:319)
+	at ij.IJ.run(IJ.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
+	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
+	at clojure.lang.Compiler.eval(Compiler.java:6927)
+	at clojure.lang.Compiler.eval(Compiler.java:6890)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
+	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
+	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
+	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+   Time taken: PT12.182S
+-- Finished testing model: hiding-blowfish
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811922
+   The MSE (relative) is 0.00355372358714
+   The MAE (relative) is 0.0161684653013
+   The max_val is 0.999995589256
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6406756/6811922/output_metrics.edn
+- MODEL 10/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6346511/7701413
+--
+-- Started testing model: emotional-cricket
+   Name: 3D UNet Arabidopsis Apical Stem Cells
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Loading model
+Loading:     100% |████████████████████████████████████████|
+Number of inter-op threads is 1
+Number of intra-op threads is 2
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Pytorch) Patch 1/8
+[DEBUG] (Pytorch) Patch 2/8
+[DEBUG] (Pytorch) Patch 3/8
+[DEBUG] (Pytorch) Patch 4/8
+[DEBUG] (Pytorch) Patch 5/8
+[DEBUG] (Pytorch) Patch 6/8
+[DEBUG] (Pytorch) Patch 7/8
+[DEBUG] (Pytorch) Patch 8/8
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+[DEBUG] Execution of model '3D UNet Arabidopsis Apical Stem Cells' completed.
+java.lang.NullPointerException
+	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
+	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
+	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
+	at ij.IJ.runUserPlugIn(IJ.java:237)
+	at ij.IJ.runPlugIn(IJ.java:203)
+	at ij.Executer.runCommand(Executer.java:152)
+	at ij.Executer.run(Executer.java:70)
+	at ij.IJ.run(IJ.java:319)
+	at ij.IJ.run(IJ.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
+	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
+	at clojure.lang.Compiler.eval(Compiler.java:6927)
+	at clojure.lang.Compiler.eval(Compiler.java:6890)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
+	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
+	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
+	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+There are no images open
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6346511/7701413
+   Run did not produce output
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6346511/7701413/output_metrics.edn
+- MODEL 11/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/6630266
+--
+-- Started testing model: kind-seashell
+   Name: MitochondriaEMSegmentationBoundaryModel
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Loading model
+Loading:     100% |████████████████████████████████████████|
+Number of inter-op threads is 1
+Number of intra-op threads is 2
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Mean value:136.8695
+Standard deviation value:47.8963
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Pytorch) Patch 1/8
+[DEBUG] (Pytorch) Patch 2/8
+[DEBUG] (Pytorch) Patch 3/8
+[DEBUG] (Pytorch) Patch 4/8
+[DEBUG] (Pytorch) Patch 5/8
+[DEBUG] (Pytorch) Patch 6/8
+[DEBUG] (Pytorch) Patch 7/8
+[DEBUG] (Pytorch) Patch 8/8
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - MitochondriaEMSegmentationBoundaryModel_output0_sample_input_0
+[DEBUG] Execution of model 'MitochondriaEMSegmentationBoundaryModel' completed.
+java.lang.NullPointerException
+	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
+	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
+	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
+	at ij.IJ.runUserPlugIn(IJ.java:237)
+	at ij.IJ.runPlugIn(IJ.java:203)
+	at ij.Executer.runCommand(Executer.java:152)
+	at ij.Executer.run(Executer.java:70)
+	at ij.IJ.run(IJ.java:319)
+	at ij.IJ.run(IJ.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
+	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
+	at clojure.lang.Compiler.eval(Compiler.java:6927)
+	at clojure.lang.Compiler.eval(Compiler.java:6890)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
+	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
+	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
+	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+   Time taken: PT4M17.967S
+-- Finished testing model: kind-seashell
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/6630266
+   The MSE (relative) is 0.0622590482291
+   The MAE (relative) is 0.300563673937
+   The max_val is 1.0
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874841/6630266/output_metrics.edn
+- MODEL 12/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874741/5874742
+--
+-- Started testing model: impartial-shrimp
+   Name: Neuron Segmentation in EM (Membrane Prediction)
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Loading model
+Loading:     100% |████████████████████████████████████████|
+Number of inter-op threads is 1
+Number of intra-op threads is 2
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Mean value:126.0766
+Standard deviation value:32.7007
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Pytorch) Patch 1/8
+[DEBUG] (Pytorch) Patch 2/8
+[DEBUG] (Pytorch) Patch 3/8
+[DEBUG] (Pytorch) Patch 4/8
+[DEBUG] (Pytorch) Patch 5/8
+[DEBUG] (Pytorch) Patch 6/8
+[DEBUG] (Pytorch) Patch 7/8
+[DEBUG] (Pytorch) Patch 8/8
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - Neuron Segmentation in EM (Membrane Prediction)_output0_sample_input_0
+[DEBUG] Execution of model 'Neuron Segmentation in EM (Membrane Prediction)' completed.
+java.lang.NullPointerException
+	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
+	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
+	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
+	at ij.IJ.runUserPlugIn(IJ.java:237)
+	at ij.IJ.runPlugIn(IJ.java:203)
+	at ij.Executer.runCommand(Executer.java:152)
+	at ij.Executer.run(Executer.java:70)
+	at ij.IJ.run(IJ.java:319)
+	at ij.IJ.run(IJ.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
+	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
+	at clojure.lang.Compiler.eval(Compiler.java:6927)
+	at clojure.lang.Compiler.eval(Compiler.java:6890)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
+	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
+	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
+	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+   Time taken: PT1M43.609S
+-- Finished testing model: impartial-shrimp
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874741/5874742
+   The MSE (relative) is 0.458272094035
+   The MAE (relative) is 0.772956065576
+   The max_val is 1.0
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5874741/5874742/output_metrics.edn
+- MODEL 13/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6334777/7701561
+--
+-- Started testing model: thoughtful-turtle
+   Name: 3D UNet Lateral Root Primordia Cells
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Loading model
+Loading:     100% |████████████████████████████████████████|
+Number of inter-op threads is 1
+Number of intra-op threads is 2
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Pytorch) Patch 1/8
+[DEBUG] (Pytorch) Patch 2/8
+[DEBUG] (Pytorch) Patch 3/8
+[DEBUG] (Pytorch) Patch 4/8
+[DEBUG] (Pytorch) Patch 5/8
+[DEBUG] (Pytorch) Patch 6/8
+[DEBUG] (Pytorch) Patch 7/8
+[DEBUG] (Pytorch) Patch 8/8
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+[DEBUG] Execution of model '3D UNet Lateral Root Primordia Cells' completed.
+java.lang.NullPointerException
+	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
+	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
+	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
+	at ij.IJ.runUserPlugIn(IJ.java:237)
+	at ij.IJ.runPlugIn(IJ.java:203)
+	at ij.Executer.runCommand(Executer.java:152)
+	at ij.Executer.run(Executer.java:70)
+	at ij.IJ.run(IJ.java:319)
+	at ij.IJ.run(IJ.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
+	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
+	at clojure.lang.Compiler.eval(Compiler.java:6927)
+	at clojure.lang.Compiler.eval(Compiler.java:6890)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
+	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
+	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
+	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+There are no images open
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6334777/7701561
+   Run did not produce output
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6334777/7701561/output_metrics.edn
+- MODEL 14/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/6647688
+--
+-- Started testing model: hiding-tiger
+   Name: LiveCellSegmentationBoundaryModel
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Loading model
+Loading:     100% |████████████████████████████████████████|
+Number of inter-op threads is 1
+Number of intra-op threads is 2
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Mean value:128.0212
+Standard deviation value:9.4274
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Pytorch) Patch 1/4
+[DEBUG] (Pytorch) Patch 2/4
+[DEBUG] (Pytorch) Patch 3/4
+[DEBUG] (Pytorch) Patch 4/4
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - LiveCellSegmentationBoundaryModel_output0_sample_input_0
+[DEBUG] Execution of model 'LiveCellSegmentationBoundaryModel' completed.
+java.lang.NullPointerException
+	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
+	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
+	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
+	at ij.IJ.runUserPlugIn(IJ.java:237)
+	at ij.IJ.runPlugIn(IJ.java:203)
+	at ij.Executer.runCommand(Executer.java:152)
+	at ij.Executer.run(Executer.java:70)
+	at ij.IJ.run(IJ.java:319)
+	at ij.IJ.run(IJ.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
+	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
+	at clojure.lang.Compiler.eval(Compiler.java:6927)
+	at clojure.lang.Compiler.eval(Compiler.java:6890)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
+	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
+	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
+	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+   Time taken: PT12.19S
+-- Finished testing model: hiding-tiger
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/6647688
+   The MSE (relative) is 0.000312062056537
+   The MAE (relative) is 0.00752342139457
+   The max_val is 1.0
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5869899/6647688/output_metrics.edn
+- MODEL 15/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5888237
+--
+-- Started testing model: humorous-owl
+   Name: Cell Segmentation from Membrane Staining for Plant Tissues
+[DEBUG] Processing image: sample_input_0.tif
+[INFO] No TF library found in /home/runner/blank_fiji/Fiji.app/lib/.
+[DEBUG] Loading model
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Percentile normalization to the axes: xyz
+with min_percentile: 0
+and max_percentile: 1
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Tensorflow) Patch 1/4
+[DEBUG] (Tensorflow) Patch 2/4
+[DEBUG] (Tensorflow) Patch 3/4
+[DEBUG] (Tensorflow) Patch 4/4
+[DEBUG] Start post-processing 
+[DEBUG] Run Macro post-processing
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - Cell Segmentation from Membrane Staining for Plant Tissues_output_sample_input_0
+[DEBUG] Execution of model 'Cell Segmentation from Membrane Staining for Plant Tissues' completed.
+[DEBUG] Close Tensorflow services
+[DEBUG] End execution
+   Time taken: PT18.315S
+-- Finished testing model: humorous-owl
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5888237
+   The MSE (relative) is 0.0
+   The MAE (relative) is 0.0
+   The max_val is 255.0
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5749843/5888237/output_metrics.edn
+- MODEL 16/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6647674
+--
+-- Started testing model: affable-shark
+   Name: NucleiSegmentationBoundaryModel
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Loading model
+Loading:     100% |████████████████████████████████████████|
+Number of inter-op threads is 1
+Number of intra-op threads is 2
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Mean value:17.7199
+Standard deviation value:20.2505
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Pytorch) Patch 1/4
+[DEBUG] (Pytorch) Patch 2/4
+[DEBUG] (Pytorch) Patch 3/4
+[DEBUG] (Pytorch) Patch 4/4
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - NucleiSegmentationBoundaryModel_output0_sample_input_0
+[DEBUG] Execution of model 'NucleiSegmentationBoundaryModel' completed.
+java.lang.NullPointerException
+	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
+	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
+	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
+	at ij.IJ.runUserPlugIn(IJ.java:237)
+	at ij.IJ.runPlugIn(IJ.java:203)
+	at ij.Executer.runCommand(Executer.java:152)
+	at ij.Executer.run(Executer.java:70)
+	at ij.IJ.run(IJ.java:319)
+	at ij.IJ.run(IJ.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
+	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
+	at clojure.lang.Compiler.eval(Compiler.java:6927)
+	at clojure.lang.Compiler.eval(Compiler.java:6890)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
+	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
+	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
+	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+   Time taken: PT4.449S
+-- Finished testing model: affable-shark
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6647674
+   The MSE (relative) is 0.00030509716404
+   The MAE (relative) is 0.00558950735561
+   The max_val is 0.999956965446
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5764892/6647674/output_metrics.edn
+- MODEL 17/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6334881/7701241
+--
+-- Started testing model: laid-back-lobster
+   Name: 2D UNet Arabidopsis Apical Stem Cells
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Loading model
+Loading:     100% |████████████████████████████████████████|
+Number of inter-op threads is 1
+Number of intra-op threads is 2
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Pytorch) Patch 1/4
+[DEBUG] (Pytorch) Patch 2/4
+[DEBUG] (Pytorch) Patch 3/4
+[DEBUG] (Pytorch) Patch 4/4
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+[DEBUG] Execution of model '2D UNet Arabidopsis Apical Stem Cells' completed.
+java.lang.NullPointerException
+	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
+	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
+	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
+	at ij.IJ.runUserPlugIn(IJ.java:237)
+	at ij.IJ.runPlugIn(IJ.java:203)
+	at ij.Executer.runCommand(Executer.java:152)
+	at ij.Executer.run(Executer.java:70)
+	at ij.IJ.run(IJ.java:319)
+	at ij.IJ.run(IJ.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
+	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
+	at clojure.lang.Compiler.eval(Compiler.java:6927)
+	at clojure.lang.Compiler.eval(Compiler.java:6890)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
+	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
+	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
+	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+There are no images open
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6334881/7701241
+   Run did not produce output
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6334881/7701241/output_metrics.edn
+- MODEL 18/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6334583/7701492
+--
+-- Started testing model: passionate-t-rex
+   Name: 3D UNet Arabidopsis Ovules
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Loading model
+Loading:     100% |████████████████████████████████████████|
+Number of inter-op threads is 1
+Number of intra-op threads is 2
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Pytorch) Patch 1/8
+[DEBUG] (Pytorch) Patch 2/8
+[DEBUG] (Pytorch) Patch 3/8
+[DEBUG] (Pytorch) Patch 4/8
+[DEBUG] (Pytorch) Patch 5/8
+[DEBUG] (Pytorch) Patch 6/8
+[DEBUG] (Pytorch) Patch 7/8
+[DEBUG] (Pytorch) Patch 8/8
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+[DEBUG] Execution of model '3D UNet Arabidopsis Ovules' completed.
+java.lang.NullPointerException
+	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
+	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
+	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
+	at ij.IJ.runUserPlugIn(IJ.java:237)
+	at ij.IJ.runPlugIn(IJ.java:203)
+	at ij.Executer.runCommand(Executer.java:152)
+	at ij.Executer.run(Executer.java:70)
+	at ij.IJ.run(IJ.java:319)
+	at ij.IJ.run(IJ.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
+	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
+	at clojure.lang.Compiler.eval(Compiler.java:6927)
+	at clojure.lang.Compiler.eval(Compiler.java:6890)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
+	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
+	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
+	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+There are no images open
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6334583/7701492
+   Run did not produce output
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6334583/7701492/output_metrics.edn
+- MODEL 19/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028097/6028098
+--
+-- Started testing model: organized-badger
+   Name: PlatynereisEMnucleiSegmentationBoundaryModel
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Loading model
+Loading:     100% |████████████████████████████████████████|
+Number of inter-op threads is 1
+Number of intra-op threads is 2
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Mean value:158.0579
+Standard deviation value:31.3358
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Pytorch) Patch 1/8
+[DEBUG] (Pytorch) Patch 2/8
+[DEBUG] (Pytorch) Patch 3/8
+[DEBUG] (Pytorch) Patch 4/8
+[DEBUG] (Pytorch) Patch 5/8
+[DEBUG] (Pytorch) Patch 6/8
+[DEBUG] (Pytorch) Patch 7/8
+[DEBUG] (Pytorch) Patch 8/8
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - PlatynereisEMnucleiSegmentationBoundaryModel_output0_sample_input_0
+[DEBUG] Execution of model 'PlatynereisEMnucleiSegmentationBoundaryModel' completed.
+java.lang.NullPointerException
+	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
+	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
+	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
+	at ij.IJ.runUserPlugIn(IJ.java:237)
+	at ij.IJ.runPlugIn(IJ.java:203)
+	at ij.Executer.runCommand(Executer.java:152)
+	at ij.Executer.run(Executer.java:70)
+	at ij.IJ.run(IJ.java:319)
+	at ij.IJ.run(IJ.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
+	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
+	at clojure.lang.Compiler.eval(Compiler.java:6927)
+	at clojure.lang.Compiler.eval(Compiler.java:6890)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
+	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
+	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
+	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+   Time taken: PT1M29.804S
+-- Finished testing model: organized-badger
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028097/6028098
+   The MSE (relative) is 2.45096810686
+   The MAE (relative) is 5.17975172414
+   The max_val is 1.0
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028097/6028098/output_metrics.edn
+- MODEL 20/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6334383/7701262
+--
+-- Started testing model: pioneering-rhino
+   Name: 2D UNet Arabidopsis Ovules
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Loading model
+Loading:     100% |████████████████████████████████████████|
+Number of inter-op threads is 1
+Number of intra-op threads is 2
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Pytorch) Patch 1/4
+[DEBUG] (Pytorch) Patch 2/4
+[DEBUG] (Pytorch) Patch 3/4
+[DEBUG] (Pytorch) Patch 4/4
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+[DEBUG] Execution of model '2D UNet Arabidopsis Ovules' completed.
+java.lang.NullPointerException
+	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
+	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
+	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
+	at ij.IJ.runUserPlugIn(IJ.java:237)
+	at ij.IJ.runPlugIn(IJ.java:203)
+	at ij.Executer.runCommand(Executer.java:152)
+	at ij.Executer.run(Executer.java:70)
+	at ij.IJ.run(IJ.java:319)
+	at ij.IJ.run(IJ.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
+	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
+	at clojure.lang.Compiler.eval(Compiler.java:6927)
+	at clojure.lang.Compiler.eval(Compiler.java:6890)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
+	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
+	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
+	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+There are no images open
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6334383/7701262
+   Run did not produce output
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6334383/7701262/output_metrics.edn
+- MODEL 21/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6559474/6559475
+--
+-- Started testing model: naked-microbe
+   Name: Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)
+[DEBUG] Processing image: sample_input_0.tif
+[INFO] No TF library found in /home/runner/blank_fiji/Fiji.app/lib/.
+[DEBUG] Loading model
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Preprocessing
+Error during Java preprocessing.
+[DEBUG] Error during Java preprocessing.
+Error during the aplication of the model.
+[DEBUG] Close Tensorflow services
+[DEBUG] End execution
+There are no images open
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6559474/6559475
+   Run did not produce output
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6559474/6559475/output_metrics.edn
+- MODEL 22/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5847355/6647683
+--
+-- Started testing model: powerful-chipmunk
+   Name: CovidIFCellSegmentationBoundaryModel
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Loading model
+Loading:     100% |████████████████████████████████████████|
+Number of inter-op threads is 1
+Number of intra-op threads is 2
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Mean value:1752.8062
+Standard deviation value:487.4528
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Pytorch) Patch 1/4
+[DEBUG] (Pytorch) Patch 2/4
+[DEBUG] (Pytorch) Patch 3/4
+[DEBUG] (Pytorch) Patch 4/4
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - CovidIFCellSegmentationBoundaryModel_output0_sample_input_0
+[DEBUG] Execution of model 'CovidIFCellSegmentationBoundaryModel' completed.
+java.lang.NullPointerException
+	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
+	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
+	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
+	at ij.IJ.runUserPlugIn(IJ.java:237)
+	at ij.IJ.runPlugIn(IJ.java:203)
+	at ij.Executer.runCommand(Executer.java:152)
+	at ij.Executer.run(Executer.java:70)
+	at ij.IJ.run(IJ.java:319)
+	at ij.IJ.run(IJ.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
+	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
+	at clojure.lang.Compiler.eval(Compiler.java:6927)
+	at clojure.lang.Compiler.eval(Compiler.java:6890)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
+	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
+	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
+	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+   Time taken: PT12.535S
+-- Finished testing model: powerful-chipmunk
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5847355/6647683
+   The MSE (relative) is 0.000984327428841
+   The MAE (relative) is 0.00819686638683
+   The max_val is 0.999992489815
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.5847355/6647683/output_metrics.edn
+- MODEL 23/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6384845/7701638
+--
+-- Started testing model: powerful-fish
+   Name: 3D UNet Mouse Embryo Live
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Loading model
+Loading:     100% |████████████████████████████████████████|
+Number of inter-op threads is 1
+Number of intra-op threads is 2
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Pytorch) Patch 1/8
+[DEBUG] (Pytorch) Patch 2/8
+[DEBUG] (Pytorch) Patch 3/8
+[DEBUG] (Pytorch) Patch 4/8
+[DEBUG] (Pytorch) Patch 5/8
+[DEBUG] (Pytorch) Patch 6/8
+[DEBUG] (Pytorch) Patch 7/8
+[DEBUG] (Pytorch) Patch 8/8
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+[DEBUG] Execution of model '3D UNet Mouse Embryo Live' completed.
+java.lang.NullPointerException
+	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
+	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
+	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
+	at ij.IJ.runUserPlugIn(IJ.java:237)
+	at ij.IJ.runPlugIn(IJ.java:203)
+	at ij.Executer.runCommand(Executer.java:152)
+	at ij.Executer.run(Executer.java:70)
+	at ij.IJ.run(IJ.java:319)
+	at ij.IJ.run(IJ.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
+	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
+	at clojure.lang.Compiler.eval(Compiler.java:6927)
+	at clojure.lang.Compiler.eval(Compiler.java:6890)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
+	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
+	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
+	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+There are no images open
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6384845/7701638
+   Run did not produce output
+   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6384845/7701638/output_metrics.edn
+- MODEL 24/26
+
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028280/6647695
 --
 -- Started testing model: willing-hedgehog
    Name: PlatynereisEMcellsSegmentationBoundaryModel
@@ -2121,43 +1670,138 @@ java.lang.NullPointerException
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
 
-   Time taken: PT12M56.588S
+   Time taken: PT12M46.246S
 -- Finished testing model: willing-hedgehog
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028280/6028281
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028280/6647695
    The MSE (relative) is 1.10142479099
    The MAE (relative) is 2.53927847055
    The max_val is 0.999988555908
-   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028280/6028281/output_metrics.edn
-- MODEL 32/32
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6028280/6647695/output_metrics.edn
+- MODEL 25/26
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/FRUNet2DsEVSegmentation/latest
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348728/6348729
 --
--- Started testing model: null
-   Name: Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)
+-- Started testing model: non-judgemental-eagle
+   Name: Arabidopsis Leaf Segmentation
 [DEBUG] Processing image: sample_input_0.tif
 [INFO] No TF library found in /home/runner/blank_fiji/Fiji.app/lib/.
 [DEBUG] Loading model
 [DEBUG] Image name: sample_input_0.tif
 [DEBUG] Start pre-processing
 [DEBUG] Run Macro pre-processing
-Preprocessing
-Error during Java preprocessing.
-[DEBUG] Error during Java preprocessing.
-Error during the aplication of the model.
+Percentile normalization to the axes: xyz
+with min_percentile: 0.01
+and max_percentile: 1
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Tensorflow) Patch 1/1
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - Arabidopsis Leaf Segmentation_output_sample_input_0
+[DEBUG] Execution of model 'Arabidopsis Leaf Segmentation' completed.
 [DEBUG] Close Tensorflow services
 [DEBUG] End execution
-There are no images open
+   Time taken: PT11.495S
+-- Finished testing model: non-judgemental-eagle
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
-   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/FRUNet2DsEVSegmentation/latest
-   Run did not produce output
-   Empty metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/deepimagej/FRUNet2DsEVSegmentation/latest/output_metrics.edn
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348728/6348729
+   The MSE (relative) is 0.0260380954092
+   The MAE (relative) is 0.210958474752
+   The max_val is 0.993139028549
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6348728/6348729/output_metrics.edn
+- MODEL 26/26
 
-FINISHED TESTING THE 32 MODELS IN FIJI AT 2023-03-06T11:29:04.200908
+-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6808325/6808413
+--
+-- Started testing model: determined-chipmunk
+   Name: EM3DBoundaryEnhancer
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Loading model
+Loading:     100% |████████████████████████████████████████|
+Number of inter-op threads is 1
+Number of intra-op threads is 2
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Percentile normalization to the axes: xyz
+with min_percentile: 0.01
+and max_percentile: 1
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Pytorch) Patch 1/8
+[DEBUG] (Pytorch) Patch 2/8
+[DEBUG] (Pytorch) Patch 3/8
+[DEBUG] (Pytorch) Patch 4/8
+[DEBUG] (Pytorch) Patch 5/8
+[DEBUG] (Pytorch) Patch 6/8
+[DEBUG] (Pytorch) Patch 7/8
+[DEBUG] (Pytorch) Patch 8/8
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - EM3DBoundaryEnhancer_output0_sample_input_0
+[DEBUG] Execution of model 'EM3DBoundaryEnhancer' completed.
+java.lang.NullPointerException
+	at deepimagej.tools.StartTensorflowService.closeTfService(StartTensorflowService.java:90)
+	at DeepImageJ_Run.freeIJMemory(DeepImageJ_Run.java:1084)
+	at DeepImageJ_Run.run(DeepImageJ_Run.java:268)
+	at ij.IJ.runUserPlugIn(IJ.java:237)
+	at ij.IJ.runPlugIn(IJ.java:203)
+	at ij.Executer.runCommand(Executer.java:152)
+	at ij.Executer.run(Executer.java:70)
+	at ij.IJ.run(IJ.java:319)
+	at ij.IJ.run(IJ.java:409)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
+	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
+	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
+	at clojure.lang.Compiler.eval(Compiler.java:6927)
+	at clojure.lang.Compiler.eval(Compiler.java:6890)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
+	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
+	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
+	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
+	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
+	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+   Time taken: PT53.65S
+-- Finished testing model: determined-chipmunk
+-- script 2/2: COMPARING TO EXPECTED OUTPUT
+
+   The folder is: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6808325/6808413
+   The MSE (relative) is 0.195142190488
+   The MAE (relative) is 0.860952209663
+   The max_val is 0.999934792519
+   Metrics file written in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../models/10.5281/zenodo.6808325/6808413/output_metrics.edn
+
+FINISHED TESTING THE 26 MODELS IN FIJI AT 2023-03-07T11:55:03.444390
 
  Logs are in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../test_summaries/fiji_log_out.txt and fiji_log_err.txt
 
