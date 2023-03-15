@@ -5,6 +5,8 @@
   (:import [ij IJ])
   )
 
+(println "Hello?")
+
 (def COMM-FILE (file (System/getProperty "user.home") "models_to_test.edn"))
 (def ALL-MODELS "All Models in a vector, from the comm-file" (edn/read-string (slurp COMM-FILE)))
 (def FIJI-HOME (file (System/getProperty "user.home") "blank_fiji"))

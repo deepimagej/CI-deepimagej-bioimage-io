@@ -27,17 +27,17 @@
     "resource_id" : "10.5281/zenodo.6028280",
     "version_id" : "6647695"
   }, {
-    "resource_id" : "10.5281/zenodo.6383429",
-    "version_id" : "7701632"
-  }, {
     "resource_id" : "10.5281/zenodo.5874841",
     "version_id" : "6630266"
+  }, {
+    "resource_id" : "10.5281/zenodo.6383429",
+    "version_id" : "7701632"
   }, {
     "resource_id" : "10.5281/zenodo.6811491",
     "version_id" : "6811492"
   }, {
     "resource_id" : "10.5281/zenodo.6200635",
-    "version_id" : "6538890"
+    "version_id" : "7702687"
   }, {
     "resource_id" : "10.5281/zenodo.5869899",
     "version_id" : "6647688"
@@ -69,20 +69,20 @@
     "resource_id" : "10.5281/zenodo.6334777",
     "version_id" : "7701561"
   }, {
+    "resource_id" : "10.5281/zenodo.7274275",
+    "version_id" : "7274276"
+  }, {
     "resource_id" : "10.5281/zenodo.6334583",
     "version_id" : "7701492"
-  }, {
-    "resource_id" : "10.5281/zenodo.6200999",
-    "version_id" : "7690494"
   }, {
     "resource_id" : "10.5281/zenodo.6334881",
     "version_id" : "7701241"
   }, {
+    "resource_id" : "10.5281/zenodo.6200999",
+    "version_id" : "7690494"
+  }, {
     "resource_id" : "10.5281/zenodo.5817052",
     "version_id" : "5906839"
-  }, {
-    "resource_id" : "10.5281/zenodo.7274275",
-    "version_id" : "7274276"
   }, {
     "resource_id" : "10.5281/zenodo.5910854",
     "version_id" : "6539073"
