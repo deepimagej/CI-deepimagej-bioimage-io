@@ -1,0 +1,8 @@
+{
+  "include": [
+    {"resource_id": "10.5281/zenodo.7261974","version_id": "7688940"},
+    {"resource_id": "10.5281/zenodo.6338614","version_id": "6338615"},
+    {"resource_id": "10.5281/zenodo.7315440","version_id": "7315441"}
+
+  ]
+}
