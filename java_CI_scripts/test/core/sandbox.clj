@@ -73,5 +73,12 @@
 
   ; parsed models with weight name= "Onnx"
   (map #(hash-map (:nickname %) (:weights %)) (filter #(= "Onnx" (:type (first (:weights %)))) @all-model-records))
-
   )
+
+; find tf2 models
+(comment
+(count
+  (filter (fn [[k v]] (and (some? v) (str/starts-with? v "2.")))
+          (map #(vector (:name %) (get-in % [:weights :tensorflow_saved_model_bundle :tensorflow_version])) @all-rdfs-parsed)))
+
+)
