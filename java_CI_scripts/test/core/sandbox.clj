@@ -65,3 +65,13 @@
   (filter #(str/starts-with? (:resource_id %) "deepimagej") pending-matrix)
   ; 9/19
   )
+
+; find models of specific weight type
+(comment
+  ; types of weights in parsed models
+  (frequencies (map #(:type (first (:weights %))) @all-model-records))
+
+  ; parsed models with weight name= "Onnx"
+  (map #(hash-map (:nickname %) (:weights %)) (filter #(= "Onnx" (:type (first (:weights %)))) @all-model-records))
+
+  )
