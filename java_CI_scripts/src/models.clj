@@ -16,8 +16,8 @@
   "Association of key=name of weights in the yaml, and val=name of weights in model record"
   {:torchscript "Pytorch"
    :tensorflow_saved_model_bundle "Tensorflow"
-   :onnx "Onnx"
-   :pytorch_script "Pytorch"
+   ;:onnx "Onnx"
+   ;:pytorch_script "Pytorch"
    })
 
 (def p*process-names{:preprocess :pre-p :postprocess :post-p} )

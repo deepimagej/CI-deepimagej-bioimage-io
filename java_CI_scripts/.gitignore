@@ -3,3 +3,6 @@
 java_CI_scripts.iml
 .idea/
 out/
+
+# info for finding models
+rdfs_with_no_dij_config.txt
