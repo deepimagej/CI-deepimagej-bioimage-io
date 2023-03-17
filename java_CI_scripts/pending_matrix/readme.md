@@ -39,3 +39,10 @@ Contains models of different characteristics, to see different behaviors during 
 
 ## use_cases.json
 - models from the use-cases that appear in the pre-print
+
+## different_engines.json
+Models with all the new compatible weights to the model runner.
+- pytorch (wild-whale)
+- tf1 (chatty-frog)
+- tf2 (placid-llama)
+- onnx (nice-peacock)

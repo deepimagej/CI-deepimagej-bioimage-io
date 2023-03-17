@@ -33,11 +33,14 @@
     (mapv summary/write-summaries-from-error! error-found)
     (utils/print-and-log (format "- Creating comm file for %d models\n" (count keep-testing))
                          (:summa-readme FILES))
-    (comm/write-comm-file (map comm/build-dij-model keep-testing)) ; not used anymore, here for legacy reasons
-    (comment
-      ; txt input to numpy-tiff repo, needs that the :no-sample-images error is not checked during initial checks
-      (comm/write-absolute-paths keep-testing :rdf-path
-                                 (fs/file ".." "numpy-tiff-deepimagej" "resources" "rdfs_to_test.txt")))
+    ; edn with all the models and args (not used anymore, here for legacy reasons)
+    (comm/write-comm-file (map comm/build-dij-model keep-testing)
+                          (fs/file (System/getProperty "user.home") "models_to_test.edn"))
+
+    ;txt input to numpy-tiff repo, optionally do not check the :no-sample-images error during initial checks
+    (comm/write-absolute-paths (concat keep-testing (:no-sample-images error-found)) :rdf-path
+                               (fs/file ".." "numpy-tiff-deepimagej" "resources" "rdfs_to_test.txt"))
+    (comm/write-absolute-paths (:no-dij-config error-found) :rdf-path (fs/file "rdfs_with_no_dij_config.txt"))
     (comm/write-absolute-paths keep-testing :model-dir-path (:models-listed FILES))
     (comm/write-absolute-paths keep-testing :rdf-path (:rdfs-listed FILES))
     (mapv comm/write-dij-model keep-testing)
@@ -52,7 +55,7 @@
     (printf "Downloading files (this could take some minutes) \n")
     (flush)
     (let [timed (utils/my-time (doall (pmap download/download-into-model-folder model-records-keep)))]
-      (printf "Total Time Taken: %s\n" (:iso timed)))))
+      (printf "Total Time Taken: %s\n" (:iso timed)) (flush))))
 
 (defn reproduce-pipeline
  "For the linux case, where reproduce.run-fiji-scripts fails"
