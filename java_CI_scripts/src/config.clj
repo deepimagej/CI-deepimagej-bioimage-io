@@ -20,12 +20,12 @@
    :models-listed (fs/file (:resources-root ROOTS) "models_to_test.txt")
    :models-vector (fs/file (:resources-root ROOTS) "models_to_test.edn")
    :rdfs-listed   (fs/file (:resources-root ROOTS) "rdfs_to_test.txt")
-   :fiji-home     (fs/file (System/getProperty "user.home") "blank_fiji" "Fiji.app")
+   :fiji-home     (fs/file (System/getProperty "user.home") "blank_fiji" )
    :summa-readme  (fs/file (:summa-root ROOTS) "Readme.md")})
 
 (def CONSTANTS "Constants that are not files"
   {:fiji-flags             ["--headless" "--ij2" "--console" "--run"]
-   :fiji-executable        (str (fs/file (:fiji-home FILES)
+   :fiji-executable        (str (fs/file (:fiji-home FILES) "Fiji.app"
                                          (if (str/includes? (System/getProperty "os.name") "Windows")
                                            "ImageJ-win64.exe" "ImageJ-linux64")))
    :fiji-download-url      "https://downloads.imagej.net/fiji/archive/20221201-1017/"
