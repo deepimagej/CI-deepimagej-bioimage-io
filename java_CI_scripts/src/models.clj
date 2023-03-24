@@ -12,8 +12,14 @@
   (let [yaml-str (slurp (fs/file rdf-path))]
     (yaml/parse-string yaml-str)))
 
-(def weight-names {:torchscript "Pytorch"
-                   :tensorflow_saved_model_bundle "Tensorflow"})
+(def weight-names
+  "Association of key=name of weights in the yaml, and val=name of weights in model record"
+  {:torchscript "Pytorch"
+   :tensorflow_saved_model_bundle "Tensorflow"
+   ;:onnx "Onnx"
+   ;:pytorch_script "Pytorch"
+   })
+
 (def p*process-names{:preprocess :pre-p :postprocess :post-p} )
 
 (defrecord Model [paths name nickname dij-config? rdf-info weights tensors p*process])

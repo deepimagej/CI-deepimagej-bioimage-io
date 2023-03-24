@@ -12,7 +12,8 @@ on:
         default: '''{"include": [
 		    {"resource_id": "10.5281/zenodo.5749843","version_id": "5888237"},
 		    {"resource_id": "10.5281/zenodo.6338614","version_id": "6338615"},
-		    {"resource_id": "10.5281/zenodo.6200999","version_id": "6538911"},
+		    {"resource_id": "10.5281/zenodo.6200635","version_id": "7702687"},
+		    {"resource_id": "10.5281/zenodo.6200999","version_id": "7690494"},
 		    {"resource_id": "10.5281/zenodo.6406756","version_id": "6811922"}]}'''
         type: string
 

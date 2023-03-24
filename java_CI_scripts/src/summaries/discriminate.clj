@@ -1,5 +1,5 @@
 (ns summaries.discriminate
-  "Sieve the models with their respective error")
+  "Sieve the models by their respective error")
 
 ;  DATA STRUCTURE FOR DISCRIMINATED MODELS
 (comment
@@ -7,7 +7,6 @@
    :error-found  {:error-key1 [list-of-model-records]
                   :error-key2 [list-of-model-records]}})
 
-; todo, put this somewhere different, used also for final-checks
 (defn check-error
   "Adds results of checking a new error to the data structure for discriminated models.
   To be used as reducing function when iterating over all possible errors"

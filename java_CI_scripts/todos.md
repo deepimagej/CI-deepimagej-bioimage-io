@@ -1,4 +1,11 @@
 # To-Do's
+## Remove need for key [:config :deepimagej]
+- deepimagej does not seem to need it
+- [ ] gather the information to create the models from other parts of the yaml
+  + [ ] models/get-p*process-info
+  + [ ] models/get-tensor-info
+- [ ] remove the checking of errors type :no-dij-config 
+
 ## Use constants from config
 - [x] refactor `reproduce.communicate.clj`
 - [ ] read serialized config in `test_1_with_deepimagej.clj`
@@ -15,18 +22,18 @@
   + pros: 
     + smaller codebase
     + easier to understand (newcomer / reentering the code)
-    + what there is is what is executing
+    + what there is, is what is executing
     + if needed, it is in the repository
   + cons: 
     + need to delete also tests
-    + if needed, need to find it in the repository
+    + if needed, need to find it in the git repository history
 
 
 ## Functionality
 ### Ability to test only models in the collection.json
 - This json has the concatenation of all models that appear in the website
 - [x] function to generate a pending matrix which contents correspond to the models in collection.json
-- [ ] call this function *a la carte*, since the collection is always mutating
+- [ ] Action to call this function *a la carte*, since the collection is always mutating
   - [ ] flag -c to generate this pending matrix 
   - [ ] call this in the yaml before every 
 

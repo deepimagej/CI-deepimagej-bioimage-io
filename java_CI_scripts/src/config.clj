@@ -12,22 +12,25 @@
    :pending-matrix-root (fs/absolutize (fs/path "pending_matrix"))})
 
 (def FILES "Configuration constants that are files"
-  {:config          (fs/file (:resources-root ROOTS) "config.edn")
-   :logs            {:out (fs/file (:summa-root ROOTS) "fiji_log_out.txt")
-                     :err (fs/file (:summa-root ROOTS) "fiji_log_err.txt")}
-   :report          (fs/file (:summa-root ROOTS) "report.md")
-   :bash-script     (fs/file (:resources-root ROOTS) "test_the_models.sh")
-   :models-listed   (fs/file (:resources-root ROOTS) "models_to_test.txt")
-   :models-vector   (fs/file (:resources-root ROOTS) "models_to_test.edn")
-   :rdfs-listed     (fs/file (:resources-root ROOTS) "rdfs_to_test.txt")
-   :fiji-home       (fs/file (System/getProperty "user.home") "blank_fiji" "Fiji.app")
-   :summa-readme    (fs/file (:summa-root ROOTS) "Readme.md")})
+  {:config        (fs/file (:resources-root ROOTS) "config.edn")
+   :logs          {:out (fs/file (:summa-root ROOTS) "fiji_log_out.txt")
+                   :err (fs/file (:summa-root ROOTS) "fiji_log_err.txt")}
+   :report        (fs/file (:summa-root ROOTS) "report.md")
+   :bash-script   (fs/file (:resources-root ROOTS) "test_the_models.sh")
+   :models-listed (fs/file (:resources-root ROOTS) "models_to_test.txt")
+   :models-vector (fs/file (:resources-root ROOTS) "models_to_test.edn")
+   :rdfs-listed   (fs/file (:resources-root ROOTS) "rdfs_to_test.txt")
+   :fiji-home     (fs/file (System/getProperty "user.home") "blank_fiji" )
+   :summa-readme  (fs/file (:summa-root ROOTS) "Readme.md")})
 
 (def CONSTANTS "Constants that are not files"
   {:fiji-flags             ["--headless" "--ij2" "--console" "--run"]
-   :fiji-executable        (str (fs/file (:fiji-home FILES)
+   :fiji-executable        (str (fs/file (:fiji-home FILES) "Fiji.app"
                                          (if (str/includes? (System/getProperty "os.name") "Windows")
                                            "ImageJ-win64.exe" "ImageJ-linux64")))
+   :fiji-download-url      "https://downloads.imagej.net/fiji/archive/20221201-1017/"
+   :dij2-download-url      "https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.15/DeepImageJ_-2.1.15.jar"
+   :dij2-deps-url          "https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.15/dependencies_2115.zip"
    :fiji-scripts-arg-name  "folder"
    :output-metrics-name    "output_metrics.edn"
    :summary-name           "test_summary.yaml"
