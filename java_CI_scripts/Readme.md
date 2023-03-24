@@ -60,9 +60,21 @@ bb -m core.main reproduce
 bb -m core.main -u
 ````
 
-### Run unit tests for a subset of namespaces
+# Run source code directly (functionality that is still not actions)
+
+## Update the models in the pending matrix `only_colection.json`
+````
+bb "(require 'collection) (collection/generate-pending-matrix-from-collection true)"
+````
+
+## Run unit tests for a subset of namespaces
 ````
 bb "(require 'collection-test 'core.cli-test) (clojure.test/run-tests 'collection-test 'core.cli-test)"
+````
+
+## Generate bash script to run the CI
+````
+bb "(require '[reproduce.run-fiji-scripts :as r]) (r/build-bash-script)"
 ````
 
 # Run as a clojure project
