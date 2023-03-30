@@ -42,6 +42,13 @@
    (fs/delete-if-exists (fs/file download-destination zip-name))
    (println "Unzipped successfully" zip-name "in" unzip-destination)))
 
+(defn setup-fiji-&-deepimagej
+  []
+  (unzip-pipeline fiji-url fiji-zip-name (:fiji-home FILES) true)
+  (unzip-pipeline (:dij2-deps-url CONSTANTS) (download/get-url-filename (:dij2-deps-url CONSTANTS))
+                  (fs/file (:fiji-home FILES) "Fiji.app" "jars") false)
+  (download-zip (:dij2-download-url CONSTANTS) (fs/file (:fiji-home FILES) "Fiji.app" "plugins")
+                (download/get-url-filename (:dij2-download-url CONSTANTS))))
 
 ; trying each part
 (comment
@@ -56,4 +63,8 @@
 (comment
   (unzip-pipeline fiji-url fiji-zip-name (fs/file (fs/home) "just_testing") true)
   (unzip-pipeline fiji-url fiji-zip-name (:fiji-home FILES) true)
+  (unzip-pipeline (:dij2-deps-url CONSTANTS) (download/get-url-filename (:dij2-deps-url CONSTANTS))
+                  (fs/file (:fiji-home FILES) "Fiji.app" "jars") false)
+  (download-zip (:dij2-download-url CONSTANTS) (fs/file (:fiji-home FILES) "Fiji.app" "plugins")
+                (download/get-url-filename (:dij2-download-url CONSTANTS)))
   )
