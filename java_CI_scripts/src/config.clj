@@ -20,7 +20,7 @@
    :models-listed (fs/file (:resources-root ROOTS) "models_to_test.txt")
    :models-vector (fs/file (:resources-root ROOTS) "models_to_test.edn")
    :rdfs-listed   (fs/file (:resources-root ROOTS) "rdfs_to_test.txt")
-   :fiji-home     (fs/file (System/getProperty "user.home") "blank_fiji" )
+   :fiji-home     (fs/file (System/getProperty "user.home") "blank_fiji")
    :summa-readme  (fs/file (:summa-root ROOTS) "Readme.md")})
 
 (def CONSTANTS "Constants that are not files"
@@ -29,8 +29,10 @@
                                          (if (str/includes? (System/getProperty "os.name") "Windows")
                                            "ImageJ-win64.exe" "ImageJ-linux64")))
    :fiji-download-url      "https://downloads.imagej.net/fiji/archive/20221201-1017/"
-   :dij2-download-url      "https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.15/DeepImageJ_-2.1.15.jar"
-   :dij2-deps-url          "https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.15/dependencies_2115.zip"
+   ;:dij2-download-url      "https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.15/DeepImageJ_-2.1.15.jar"
+   ;:dij2-deps-url          "https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.15/dependencies_2115.zip"
+   :dij2-download-url      "https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.16/DeepImageJ_-2.1.16.jar"
+   :dij2-deps-url          "https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.16/dependencies_2116.zip"
    :fiji-scripts-arg-name  "folder"
    :output-metrics-name    "output_metrics.edn"
    :summary-name           "test_summary.yaml"
