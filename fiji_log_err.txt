@@ -1,707 +1,517 @@
 
-STARTED TESTING THE 40 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-03-09T10:57:33.987738
+STARTED TESTING THE 27 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-03-30T13:43:11.951182
 
 Logs are in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../test_summaries/fiji_log_out.txt and fiji_log_err.txt
 
 
-- MODEL 1/40
+- MODEL 1/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-Mar 09, 2023 9:57:36 AM java.util.prefs.FileSystemPreferences$1 run
+Mar 30, 2023 11:43:14 AM java.util.prefs.FileSystemPreferences$1 run
 INFO: Created user preferences directory.
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-[W BinaryOps.cpp:467] Warning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
-To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (function operator())
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+2023-03-30 11:43:23.938828: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-03-30 11:43:23.942627: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-03-30 11:43:23.949345: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2023-03-30 11:43:23.960413: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2294685000 Hz
+2023-03-30 11:43:23.960759: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fbd4c426b40 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-03-30 11:43:23.960784: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-03-30 11:43:23.978646: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-03-30 11:43:24.032867: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 94052 microseconds.
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 2/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 2/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-Macro Error: Number or numeric function expected in line 11
- 
-paramMean = <[> 0.4862745098039216 , 0.4588235294117647 , 0.407843137254902 ] ; 
-Error in the Macro's code.
-	at deepimagej.processing.ProcessingBridge.runProcessingMacro(ProcessingBridge.java:182)
-	at deepimagej.processing.ProcessingBridge.runPreprocessing(ProcessingBridge.java:77)
-	at deepimagej.tools.DijRunnerPreprocessing.call(DijRunnerPreprocessing.java:134)
-	at deepimagej.tools.DijRunnerPreprocessing.call(DijRunnerPreprocessing.java:1)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-java.util.concurrent.ExecutionException: java.lang.NullPointerException
-	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
-	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
-	at DeepImageJ_Run.calculateImage(DeepImageJ_Run.java:962)
-	at DeepImageJ_Run.arrangeParametersAndRunModel(DeepImageJ_Run.java:656)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:265)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-Caused by: java.lang.NullPointerException
-	at deepimagej.tools.DijRunnerPreprocessing.removeProcessedImageAndShowOriginal(DijRunnerPreprocessing.java:206)
-	at deepimagej.tools.DijRunnerPreprocessing.call(DijRunnerPreprocessing.java:147)
-	at deepimagej.tools.DijRunnerPreprocessing.call(DijRunnerPreprocessing.java:1)
-	... 4 more
-[WARN] Model: nuclei_model was not closed explicitly.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 3/40
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 4/40
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-[W BinaryOps.cpp:467] Warning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
-To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (function operator())
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 5/40
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-Macro Error: Number or numeric function expected in line 11
- 
-paramMean = <[> 0.4862745098039216 , 0.4588235294117647 , 0.407843137254902 ] ; 
-Error in the Macro's code.
-	at deepimagej.processing.ProcessingBridge.runProcessingMacro(ProcessingBridge.java:182)
-	at deepimagej.processing.ProcessingBridge.runPreprocessing(ProcessingBridge.java:77)
-	at deepimagej.tools.DijRunnerPreprocessing.call(DijRunnerPreprocessing.java:134)
-	at deepimagej.tools.DijRunnerPreprocessing.call(DijRunnerPreprocessing.java:1)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-java.util.concurrent.ExecutionException: java.lang.NullPointerException
-	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
-	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
-	at DeepImageJ_Run.calculateImage(DeepImageJ_Run.java:962)
-	at DeepImageJ_Run.arrangeParametersAndRunModel(DeepImageJ_Run.java:656)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:265)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-Caused by: java.lang.NullPointerException
-	at deepimagej.tools.DijRunnerPreprocessing.removeProcessedImageAndShowOriginal(DijRunnerPreprocessing.java:206)
-	at deepimagej.tools.DijRunnerPreprocessing.call(DijRunnerPreprocessing.java:147)
-	at deepimagej.tools.DijRunnerPreprocessing.call(DijRunnerPreprocessing.java:1)
-	... 4 more
-[WARN] Model: nuclei_model was not closed explicitly.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 6/40
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.jni.LibUtils - Downloading https://publish.djl.ai/pytorch/1.13.1/cpu/linux-x86_64/native/lib/libc10.so.gz ...
+[pool-1-thread-1] INFO ai.djl.pytorch.jni.LibUtils - Downloading https://publish.djl.ai/pytorch/1.13.1/cpu/linux-x86_64/native/lib/libtorch_cpu.so.gz ...
+[pool-1-thread-1] INFO ai.djl.pytorch.jni.LibUtils - Downloading https://publish.djl.ai/pytorch/1.13.1/cpu/linux-x86_64/native/lib/libtorch.so.gz ...
+[pool-1-thread-1] INFO ai.djl.pytorch.jni.LibUtils - Downloading https://publish.djl.ai/pytorch/1.13.1/cpu/linux-x86_64/native/lib/libgomp-52f2fd74.so.1.gz ...
+[pool-1-thread-1] INFO ai.djl.pytorch.jni.LibUtils - Extracting jnilib/linux-x86_64/cpu/libdjl_torch.so to cache ...
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 [W functional.py:21] Warning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument. (function )
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 7/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 3/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 8/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 4/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-03-09 10:01:01.164507: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-03-09 10:01:01.167074: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-03-09 10:01:01.169618: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-03-09 10:01:01.174956: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2095170000 Hz
-2023-03-09 10:01:01.175127: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fce38daa4a0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-03-09 10:01:01.175151: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-03-09 10:01:01.186144: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-03-09 10:01:01.234240: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 69743 microseconds.
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 9/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 5/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+2023-03-30 11:48:26.076647: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-03-30 11:48:26.081643: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-03-30 11:48:26.084831: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2023-03-30 11:48:26.094179: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2294685000 Hz
+2023-03-30 11:48:26.094505: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fc8183bbaf0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-03-30 11:48:26.094532: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-03-30 11:48:26.107375: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-03-30 11:48:26.162381: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 85744 microseconds.
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 10/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 6/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
+[W functional.py:21] Warning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument. (function )
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 11/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 7/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 12/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 8/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 13/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 9/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 14/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 10/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 15/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 11/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 16/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 12/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 17/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 13/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 18/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 14/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 19/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 15/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 20/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 16/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-03-09 10:20:20.418511: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-03-09 10:20:20.445508: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-03-09 10:20:20.477244: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-03-09 10:20:20.483225: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2095170000 Hz
-2023-03-09 10:20:20.483429: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f12dc586090 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-03-09 10:20:20.483456: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-03-09 10:20:20.605453: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-03-09 10:20:21.068212: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 649717 microseconds.
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+2023-03-30 12:14:18.579708: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-03-30 12:14:18.612142: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-03-30 12:14:18.645084: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2023-03-30 12:14:18.651659: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2294685000 Hz
+2023-03-30 12:14:18.651852: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fe7d057b970 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-03-30 12:14:18.651873: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-03-30 12:14:18.799471: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-03-30 12:14:19.319957: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 740252 microseconds.
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 21/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 17/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-03-09 10:21:01.548954: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-03-09 10:21:01.575029: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-03-09 10:21:01.604888: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-03-09 10:21:01.611033: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2095170000 Hz
-2023-03-09 10:21:01.611229: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f5b8057b570 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-03-09 10:21:01.611257: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-03-09 10:21:01.733856: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-03-09 10:21:02.181906: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 632954 microseconds.
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 22/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 18/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 23/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 19/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-[W BinaryOps.cpp:467] Warning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
-To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (function operator())
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 24/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 20/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-03-09 10:22:26.383218: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-03-09 10:22:26.418033: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-03-09 10:22:26.460544: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-03-09 10:22:26.466321: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2095170000 Hz
-2023-03-09 10:22:26.466500: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7ff7b40175c0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-03-09 10:22:26.466522: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-03-09 10:22:26.623460: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-03-09 10:22:27.159496: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 776281 microseconds.
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 25/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 21/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 26/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 22/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 27/40
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-03-09 10:25:45.868596: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-03-09 10:25:45.886328: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-03-09 10:25:45.905420: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-03-09 10:25:45.911071: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2095170000 Hz
-2023-03-09 10:25:45.911265: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f7768d7d510 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-03-09 10:25:45.911290: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-03-09 10:25:45.973205: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-03-09 10:25:46.317693: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 449112 microseconds.
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+2023-03-30 12:20:58.092395: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-03-30 12:20:58.113698: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-03-30 12:20:58.133919: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2023-03-30 12:20:58.139781: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2294685000 Hz
+2023-03-30 12:20:58.139962: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f1ba4a53830 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-03-30 12:20:58.139983: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-03-30 12:20:58.218172: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-03-30 12:20:58.593783: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 501394 microseconds.
 Macro Error: Width or height is 0 in line 25
  
 run ( "Scale..." , "x=- y=- width=&wsize height=&hsize interpolation=Bicubic create" <)> ; 
@@ -765,373 +575,135 @@ Caused by: java.lang.NullPointerException
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 28/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 23/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-[W BinaryOps.cpp:467] Warning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
-To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (function operator())
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+2023-03-30 12:21:20.962064: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-03-30 12:21:20.968838: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-03-30 12:21:20.975571: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2023-03-30 12:21:20.982846: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2294685000 Hz
+2023-03-30 12:21:20.983105: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fd040672f00 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-03-30 12:21:20.983137: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-03-30 12:21:21.007878: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-03-30 12:21:21.111791: I tensorflow/cc/saved_model/loader.cc:151] Running initialization op on SavedModel bundle at path: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-03-30 12:21:21.133821: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 171791 microseconds.
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 29/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 24/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-[W BinaryOps.cpp:467] Warning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
-To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (function operator())
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 30/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 25/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 31/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 26/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-03-09 10:29:24.996742: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-03-09 10:29:25.146879: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-03-09 10:29:25.210217: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-03-09 10:29:25.217383: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2095170000 Hz
-2023-03-09 10:29:25.217592: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fc4acd02dc0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-03-09 10:29:25.217620: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-03-09 10:29:25.463798: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-03-09 10:29:26.382217: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 1385478 microseconds.
-2023-03-09 10:29:29.687162: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 201326592 exceeds 10% of system memory.
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+2023-03-30 12:47:10.624400: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
+2023-03-30 12:47:10.681719: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-03-30 12:47:10.746844: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 FMA
+2023-03-30 12:47:10.754616: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2294685000 Hz
+2023-03-30 12:47:10.754829: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fa80c017300 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2023-03-30 12:47:10.754857: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+2023-03-30 12:47:11.040012: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-03-30 12:47:12.097018: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 1472622 microseconds.
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 32/40
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+- MODEL 27/27
 
 -- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-[W BinaryOps.cpp:467] Warning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
-To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (function operator())
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of inter-op threads is 1
+[pool-1-thread-1] INFO ai.djl.pytorch.engine.PtEngine - Number of intra-op threads is 2
 -- script 2/2: COMPARING TO EXPECTED OUTPUT
 
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 33/40
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
 SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
--- script 2/2: COMPARING TO EXPECTED OUTPUT
+SLF4J: Actual binding is of type [org.slf4j.impl.SimpleLoggerFactory]
 
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 34/40
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-03-09 10:46:10.445165: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-03-09 10:46:10.447508: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-03-09 10:46:10.450242: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-03-09 10:46:10.455402: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2095170000 Hz
-2023-03-09 10:46:10.455580: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f6a2910b6c0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-03-09 10:46:10.455605: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-03-09 10:46:10.466720: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-03-09 10:46:10.514866: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 69708 microseconds.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 35/40
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 36/40
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-[W functional.py:21] Warning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument. (function )
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 37/40
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-03-09 10:47:49.458898: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-03-09 10:47:49.464789: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-03-09 10:47:49.470764: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-03-09 10:47:49.477522: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2095170000 Hz
-2023-03-09 10:47:49.477677: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7fa438673090 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-03-09 10:47:49.477692: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-03-09 10:47:49.498548: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-03-09 10:47:49.588077: I tensorflow/cc/saved_model/loader.cc:151] Running initialization op on SavedModel bundle at path: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-03-09 10:47:49.608630: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 149742 microseconds.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 38/40
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 39/40
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-[W BinaryOps.cpp:467] Warning: floor_divide is deprecated, and will be removed in a future version of pytorch. It currently rounds toward 0 (like the 'trunc' function NOT 'floor'). This results in incorrect rounding for negative values.
-To keep the current behavior, use torch.div(a, b, rounding_mode='trunc'), or for actual floor division, use torch.div(a, b, rounding_mode='floor'). (function operator())
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-- MODEL 40/40
-
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-2023-03-09 11:04:56.111193: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: /home/runner/blank_fiji/Fiji.app/models/the_model/
-2023-03-09 11:04:56.127974: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-03-09 11:04:56.148908: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2 AVX512F FMA
-2023-03-09 11:04:56.154465: I tensorflow/core/platform/profile_utils/cpu_utils.cc:94] CPU Frequency: 2095170000 Hz
-2023-03-09 11:04:56.154659: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x7f9cfca4b840 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
-2023-03-09 11:04:56.154685: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
-2023-03-09 11:04:56.221377: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-03-09 11:04:56.574824: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 463648 microseconds.
-Macro Error: Width or height is 0 in line 25
- 
-run ( "Scale..." , "x=- y=- width=&wsize height=&hsize interpolation=Bicubic create" <)> ; 
-java.lang.NullPointerException
-	at deepimagej.processing.ProcessingBridge.runProcessingMacro(ProcessingBridge.java:187)
-	at deepimagej.processing.ProcessingBridge.runPreprocessing(ProcessingBridge.java:77)
-	at deepimagej.tools.DijRunnerPreprocessing.call(DijRunnerPreprocessing.java:134)
-	at deepimagej.tools.DijRunnerPreprocessing.call(DijRunnerPreprocessing.java:1)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-java.util.concurrent.ExecutionException: java.lang.NullPointerException
-	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
-	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
-	at DeepImageJ_Run.calculateImage(DeepImageJ_Run.java:962)
-	at DeepImageJ_Run.arrangeParametersAndRunModel(DeepImageJ_Run.java:656)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:265)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-Caused by: java.lang.NullPointerException
-	at deepimagej.tools.DijRunnerPreprocessing.removeProcessedImageAndShowOriginal(DijRunnerPreprocessing.java:206)
-	at deepimagej.tools.DijRunnerPreprocessing.call(DijRunnerPreprocessing.java:176)
-	at deepimagej.tools.DijRunnerPreprocessing.call(DijRunnerPreprocessing.java:1)
-	... 4 more
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: Class path contains multiple SLF4J bindings.
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: Found binding in [jar:file:/home/runner/blank_fiji/Fiji.app/jars/slf4j-simple-1.7.26.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-SLF4J: Actual binding is of type [ch.qos.logback.classic.util.ContextSelectorStaticBinder]
-
-FINISHED TESTING THE 40 MODELS IN FIJI AT 2023-03-09T10:57:33.999034
+FINISHED TESTING THE 27 MODELS IN FIJI AT 2023-03-30T13:43:11.959565
 
  Logs are in: /home/runner/work/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/../test_summaries/fiji_log_out.txt and fiji_log_err.txt
 
