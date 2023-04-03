@@ -23,11 +23,23 @@
    :fiji-home     (fs/file (System/getProperty "user.home") "blank_fiji")
    :summa-readme  (fs/file (:summa-root ROOTS) "Readme.md")})
 
+(def os-related-info
+  "Names of the fiji zip and executable depend on the OS"
+  {"Windows" {:zip-name   "fiji-win64.zip"
+              :executable (str (fs/file (:fiji-home FILES) "Fiji.app" "ImageJ-win64.exe"))}
+   "Linux"   {:zip-name   "fiji-linux64.zip"
+              :executable (str (fs/file (:fiji-home FILES) "Fiji.app" "ImageJ-linux64"))}
+   "MAC"     {:zip-name   "fiji-macosx.zip"
+              :executable (str (fs/file (:fiji-home FILES) "Fiji.app" "Contents" "MacOS" "ImageJ-macosx"))}})
+
+(def current-os-info
+  "Map entry of the actual OS that is running the program"
+  (last (first (filter (fn [[k v]] (str/includes? (System/getProperty "os.name") k)) os-related-info))))
+
 (def CONSTANTS "Constants that are not files"
   {:fiji-flags             ["--headless" "--ij2" "--console" "--run"]
-   :fiji-executable        (str (fs/file (:fiji-home FILES) "Fiji.app"
-                                         (if (str/includes? (System/getProperty "os.name") "Windows")
-                                           "ImageJ-win64.exe" "ImageJ-linux64")))
+   :fiji-zip-name          (:zip-name current-os-info)
+   :fiji-executable        (:executable current-os-info)
    :fiji-download-url      "https://downloads.imagej.net/fiji/archive/20221201-1017/"
    ;:dij2-download-url      "https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.15/DeepImageJ_-2.1.15.jar"
    ;:dij2-deps-url          "https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.15/dependencies_2115.zip"

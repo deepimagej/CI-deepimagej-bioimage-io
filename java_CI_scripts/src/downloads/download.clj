@@ -67,6 +67,13 @@
     (flush)
     written-bytes))
 
+(defn download-file
+  "Downloads a (zip) file from a url and saves it in a folder with a given name"
+  [url destination-folder-file save-name]
+  (let [timed-response (utils/my-time (:body (get-url-response url)))]
+    (save-file-with-info destination-folder-file timed-response save-name)))
+
+
 (defn download-into-model-folder
   ([model-record]
    (download-into-model-folder model-record (:model-dir-name CONSTANTS)))
