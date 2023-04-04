@@ -51,7 +51,7 @@
       (do (delete-model-folder FIJI-HOME)
           (copy-model-folder FIJI-HOME model-folder)
           (try (IJ/run imp "DeepImageJ Run" dij-arg)
-               (catch Exception e (println "-- Error during deepimagej run")))
+               (catch Exception e (println "-- Error during DeepImagej run")))
           (try (IJ/saveAs "Tiff" (str model-folder OUTPUT-NAME))
                (catch Exception e (println "-- Error trying to save output image")))
           (delete-model-folder FIJI-HOME)))))
@@ -59,7 +59,7 @@
 (defmacro my-time
   "Variation on clojure.core/time: https://github.com/clojure/clojure/blob/clojure-1.10.1/src/clj/clojure/core.clj#L3884
   This macro returns a map with the time taken and the return value of the expression.
-  Useful when timing side effects, no further composition is not usually needed (but still possible)"
+  Useful when timing side effects, no further composition is usually needed (but still possible)"
   [expr]
   `(let [start# (java.time.Instant/ofEpochMilli (System/currentTimeMillis))
          ret# ~expr ;; evaluates the argument expression

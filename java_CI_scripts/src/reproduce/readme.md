@@ -21,6 +21,12 @@ From fiji directory
 ````
 
 ## on windows
+From CI root directory
+````
+~\blank_fiji\Fiji.app\ImageJ-win64.exe --headless --console --ij2 --run .\src\reproduce\test_many_with_deepimagej.clj
+````
+
+From this directory
 ````
 ~\blank_fiji\Fiji.app\ImageJ-win64.exe --headless --console --ij2 --run .\test_many_with_deepimagej.clj
 ````
