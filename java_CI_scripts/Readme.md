@@ -14,7 +14,7 @@ Usage: bb -m core.main [action] [options] (in the java_CI_scripts working direct
 Actions:
  init (DEFAULT) Initial checks & generate folder structures and files for the compatible models to test.
  download       Populate model folders (download files). Build args for DeepImagej headless.
- reproduce      Run the models on Fiji with DeepImageJ headless. Create tests summaries (to-do).
+ reproduce      Run the models on Fiji with DeepImageJ headless. Create tests summaries.
 
 Options:
   -h, --help                                                 Show help
