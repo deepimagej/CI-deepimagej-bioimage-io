@@ -25,16 +25,16 @@
 
 (def os-related-info
   "Names of the fiji zip and executable depend on the OS"
-  {"Windows" {:zip-name   "fiji-win64.zip"
+  {"windows" {:zip-name   "fiji-win64.zip"
               :executable (str (fs/file (:fiji-home FILES) "Fiji.app" "ImageJ-win64.exe"))}
-   "Linux"   {:zip-name   "fiji-linux64.zip"
+   "linux"   {:zip-name   "fiji-linux64.zip"
               :executable (str (fs/file (:fiji-home FILES) "Fiji.app" "ImageJ-linux64"))}
-   "MAC"     {:zip-name   "fiji-macosx.zip"
+   "mac"     {:zip-name   "fiji-macosx.zip"
               :executable (str (fs/file (:fiji-home FILES) "Fiji.app" "Contents" "MacOS" "ImageJ-macosx"))}})
 
 (def current-os-info
   "Map entry of the actual OS that is running the program"
-  (last (first (filter (fn [[k v]] (str/includes? (System/getProperty "os.name") k)) os-related-info))))
+  (last (first (filter (fn [[k v]] (str/includes? (str/lower-case (System/getProperty "os.name")) k)) os-related-info))))
 
 (def CONSTANTS "Constants that are not files"
   {:fiji-flags             ["--headless" "--ij2" "--console" "--run"]
