@@ -145,3 +145,9 @@
   ([script-path]
    (println "Running in fiji:" script-path)
    (apply pr/shell (conj (into [(:fiji-executable CONSTANTS)] (:fiji-flags CONSTANTS)) script-path))))
+
+(defn grant-exec-permission
+  "Make the fiji executable have permission to execute (not needed on windows)"
+  []
+  (if-not (fs/windows?)
+    (pr/shell "chmod" "+x" (:fiji-executable CONSTANTS))))
