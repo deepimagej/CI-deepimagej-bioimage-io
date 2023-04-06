@@ -11,7 +11,7 @@
 (def ALL-MODELS "All Models in a vector, from the comm-file" (edn/read-string (slurp COMM-FILE)))
 (def FIJI-HOME (file (System/getProperty "user.home") "blank_fiji"))
 (def MODEL-DIR-NAME "the_model")
-(def OUTPUT-NAME "CI_OUTPUT.tif")
+(def OUTPUT-NAME "CI_OUTPUT_sequential.tif")
 
 (defn copy-file
   [in-dir out-dir filename]
