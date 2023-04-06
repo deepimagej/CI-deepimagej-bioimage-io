@@ -61,7 +61,7 @@
  "For the linux case, where reproduce.run-fiji-scripts fails"
   [& _]
   ; Run inference on fiji
-  (if (str/includes? (System/getProperty "os.name") "Windows")
+  (if (fs/windows?)
     (run-fiji-scripts/-main)
     (let [_ (run-fiji-scripts/build-bash-script (:bash-script FILES))
           timed (utils/my-time (pr/shell "sh" (:bash-script FILES)))]

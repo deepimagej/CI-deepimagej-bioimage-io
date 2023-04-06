@@ -9,7 +9,7 @@
   "Gets the response of a URL as a hash map"
   [^String url]
   (let [basic-opts {:as :bytes :throw false},
-        opts (if (str/includes? (System/getProperty "os.name") "Windows")
+        opts (if (fs/windows?)
                (assoc basic-opts :compressed false)
                basic-opts)]
     (curl/get url opts)))
