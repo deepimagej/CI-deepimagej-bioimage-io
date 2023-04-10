@@ -72,9 +72,17 @@ bb "(require 'collection) (collection/generate-pending-matrix-from-collection tr
 bb "(require 'collection-test 'core.cli-test) (clojure.test/run-tests 'collection-test 'core.cli-test)"
 ````
 
-## Generate bash script to run the CI
+## Generate the bash script to run the CI
 ````
 bb "(require '[reproduce.run-fiji-scripts :as r]) (r/build-bash-script)"
+````
+## Setup Fiji and DeepImageJ in default directory `~/blank_fiji/`
+````
+bb "(require '[reproduce.setup-fiji :as r]) (r/setup-fiji-&-deepimagej)"
+````
+## Run script for running models *sequentially*
+````
+bb "(require '[reproduce.run-fiji-scripts :as r]) (r/grant-exec-permission) (r/run-fiji-script)"
 ````
 
 # Run as a clojure project

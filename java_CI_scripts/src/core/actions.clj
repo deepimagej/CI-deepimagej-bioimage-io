@@ -58,7 +58,7 @@
       (printf "Total Time Taken: %s\n" (:iso timed)) (flush))))
 
 (defn reproduce-pipeline
- "For the linux case, where reproduce.run-fiji-scripts fails"
+ "Reproduce pipeline for Windows and linux/mac, where reproduce.run-fiji-scripts fails"
   [& _]
   ; Run inference on Fiji
   (run-fiji-scripts/grant-exec-permission)
