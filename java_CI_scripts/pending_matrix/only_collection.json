@@ -15,14 +15,14 @@
     "resource_id" : "10.5281/zenodo.6348084",
     "version_id" : "6348085"
   }, {
-    "resource_id" : "10.5281/zenodo.6346511",
-    "version_id" : "7701413"
-  }, {
     "resource_id" : "10.5281/zenodo.6406803",
     "version_id" : "6406804"
   }, {
+    "resource_id" : "10.5281/zenodo.6346511",
+    "version_id" : "7768142"
+  }, {
     "resource_id" : "10.5281/zenodo.6384845",
-    "version_id" : "7701638"
+    "version_id" : "7774490"
   }, {
     "resource_id" : "10.5281/zenodo.6028280",
     "version_id" : "6647695"
@@ -31,7 +31,7 @@
     "version_id" : "6630266"
   }, {
     "resource_id" : "10.5281/zenodo.6383429",
-    "version_id" : "7701632"
+    "version_id" : "7774505"
   }, {
     "resource_id" : "10.5281/zenodo.6811491",
     "version_id" : "6811492"
@@ -51,11 +51,14 @@
     "resource_id" : "10.5281/zenodo.5914248",
     "version_id" : "6514622"
   }, {
+    "resource_id" : "10.5281/zenodo.6559474",
+    "version_id" : "6559475"
+  }, {
     "resource_id" : "10.5281/zenodo.6334383",
     "version_id" : "7701262"
   }, {
-    "resource_id" : "10.5281/zenodo.6559474",
-    "version_id" : "6559475"
+    "resource_id" : "10.5281/zenodo.7274275",
+    "version_id" : "7274276"
   }, {
     "resource_id" : "10.5281/zenodo.5749843",
     "version_id" : "5888237"
@@ -67,13 +70,10 @@
     "version_id" : "6647683"
   }, {
     "resource_id" : "10.5281/zenodo.6334777",
-    "version_id" : "7701561"
-  }, {
-    "resource_id" : "10.5281/zenodo.7274275",
-    "version_id" : "7274276"
+    "version_id" : "7765026"
   }, {
     "resource_id" : "10.5281/zenodo.6334583",
-    "version_id" : "7701492"
+    "version_id" : "7768223"
   }, {
     "resource_id" : "10.5281/zenodo.6334881",
     "version_id" : "7701241"
@@ -90,11 +90,11 @@
     "resource_id" : "10.5281/zenodo.5910163",
     "version_id" : "5942853"
   }, {
-    "resource_id" : "10.5281/zenodo.7261974",
-    "version_id" : "7688940"
-  }, {
     "resource_id" : "10.5281/zenodo.7315440",
     "version_id" : "7315441"
+  }, {
+    "resource_id" : "10.5281/zenodo.7261974",
+    "version_id" : "7782776"
   }, {
     "resource_id" : "10.5281/zenodo.6808325",
     "version_id" : "6808413"
@@ -107,6 +107,12 @@
   }, {
     "resource_id" : "10.5281/zenodo.7614645",
     "version_id" : "7642674"
+  }, {
+    "resource_id" : "10.5281/zenodo.7772662",
+    "version_id" : "7781091"
+  }, {
+    "resource_id" : "10.5281/zenodo.7786492",
+    "version_id" : "7786493"
   }, {
     "resource_id" : "deepimagej/DeepSTORMZeroCostDL4Mic",
     "version_id" : "latest"

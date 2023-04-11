@@ -1,0 +1,115 @@
+name: CI - test different engines and OS's
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab (github website)
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  my-job:
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        #os: [windows-latest, macos-latest]        
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      # Check out another repositories
+      - uses: actions/checkout@v3
+        with:
+          repository: bioimage-io/collection-bioimage-io
+          ref: gh-pages
+          path: bioimageio-gh-pages
+      - uses: actions/checkout@v3
+        with:
+          repository: ivan-ea/numpy-tiff-deepimagej
+          ref: master
+          path: numpy-tiff-deepimagej          
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a set of commands using the runners shell
+      - name: See directory structure of the gh VM
+        run: |
+          java -version
+          pwd
+          ls
+          echo "--"
+          ls .
+          echo "--"
+          ls $GITHUB_WORKSPACE | tee output.txt
+          echo "--"
+          echo ~
+          echo "--"
+          echo $HOME
+      - name: Checking that previous output still there
+        run: |
+          ls
+          cat output.txt
+
+      # - name: Fake Fiji Setup
+      #   run: |
+      #     mkdir -p ~/blank_fiji/Fiji.app
+      #     touch ~/blank_fiji/Fiji.app/ImageJ-linux64
+      #     touch resources/models_to_test.txt
+
+      - name: setup babashka
+        uses: turtlequeue/setup-babashka@v1.5.0
+        with:
+          babashka-version: 1.1.173
+
+      - name: run scripts for tests
+        working-directory: ./java_CI_scripts
+        run: |
+          bb --version
+          bb -m core.main -h
+          # bb -m core.main -u # run all unit tests
+          # bb "(require '[core.cli-test]) (clojure.test/run-tests 'core.cli-test)" # run core unit tests
+          bb -m core.main -j pending_matrix/different_engines.json init
+          ls -R -l ../models
+
+      - name: check that initial pipeline of CI went OK
+        working-directory: ./
+        run: |
+          chmod +x ./bash_scripts/check_initial_CI.sh
+          bash ./bash_scripts/check_initial_CI.sh
+
+      - name: check the commands that will be run for reproduction
+        working-directory: ./java_CI_scripts
+        run: |
+          bb "(require '[config :refer [CONSTANTS]])(println (:fiji-executable CONSTANTS) (fs/exists? (:fiji-executable CONSTANTS)))"
+          bb "(require '[reproduce.run-fiji-scripts :as r]) (r/build-bash-script)"
+          head -n 25 ../resources/test_the_models.sh          
+
+      # Download and Reproduce
+
+      - name: run download pipeline
+        working-directory: ./java_CI_scripts
+        run: |
+          bb -m core.main -j pending_matrix/different_engines.json download
+          bb "(require '[reproduce.setup-fiji :as r]) (r/setup-fiji-&-deepimagej)"
+          bb "(require '[config :refer [CONSTANTS]])(println (:fiji-executable CONSTANTS) (fs/exists? (:fiji-executable CONSTANTS)))"
+          ls -R -l ../models
+                
+      - name: run reproduce pipeline
+        working-directory: ./java_CI_scripts
+        run: |
+          bb "(require '[reproduce.run-fiji-scripts :as r]) (r/grant-exec-permission) (r/run-fiji-script)"
+          echo "MODEL FOLDERS AFTER TESTS IN A ROW"
+          ls -R -l ../models
+          echo "Now not all models in a row"
+          bb -m core.main reproduce
+          echo "MODEL FOLDERS AFTER TESTS IN DIFFERENT FIJI INSTANCES"
+          ls -R -l ../models
+
+      - name: print contents of log (error)
+        working-directory: ./java_CI_scripts
+        run: |
+          cat ../test_summaries/fiji_log_err.txt

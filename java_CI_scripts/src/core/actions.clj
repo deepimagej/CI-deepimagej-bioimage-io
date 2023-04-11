@@ -58,13 +58,14 @@
       (printf "Total Time Taken: %s\n" (:iso timed)) (flush))))
 
 (defn reproduce-pipeline
- "For the linux case, where reproduce.run-fiji-scripts fails"
+ "Reproduce pipeline for Windows and linux/mac, where reproduce.run-fiji-scripts fails"
   [& _]
-  ; Run inference on fiji
-  (if (str/includes? (System/getProperty "os.name") "Windows")
+  ; Run inference on Fiji
+  (run-fiji-scripts/grant-exec-permission)
+  (run-fiji-scripts/build-bash-script (:bash-script FILES))
+  (if (fs/windows?)
     (run-fiji-scripts/-main)
-    (let [_ (run-fiji-scripts/build-bash-script (:bash-script FILES))
-          timed (utils/my-time (pr/shell "sh" (:bash-script FILES)))]
+    (let [timed (utils/my-time (pr/shell "sh" (:bash-script FILES)))]
       (printf "Total Time Taken: %s\n" (:iso timed))
       (flush)))
   ; Generate final test summaries

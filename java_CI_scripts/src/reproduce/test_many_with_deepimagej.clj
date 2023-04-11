@@ -11,7 +11,7 @@
 (def ALL-MODELS "All Models in a vector, from the comm-file" (edn/read-string (slurp COMM-FILE)))
 (def FIJI-HOME (file (System/getProperty "user.home") "blank_fiji"))
 (def MODEL-DIR-NAME "the_model")
-(def OUTPUT-NAME "CI_OUTPUT.tif")
+(def OUTPUT-NAME "CI_OUTPUT_sequential.tif")
 
 (defn copy-file
   [in-dir out-dir filename]
@@ -44,15 +44,16 @@
     (if (not (nil? imp))
       (do (copy-model-folder FIJI-HOME model-folder)
           (try (IJ/run imp "DeepImageJ Run" dij-arg)
-               (catch Exception e (println "-- Error during deepimagej run")))
-          (try (IJ/saveAs "Tiff" (str model-folder OUTPUT-NAME))
-               (catch Exception e (println "-- Error trying to save output image")))
+               (try (IJ/saveAs "Tiff" (str model-folder OUTPUT-NAME))
+                    (catch Exception e (println "-- Error trying to save output image")))
+               (catch Exception e (println "-- Error during DeepImagej run")))
+          (IJ/run "Close All")
           (delete-model-folder FIJI-HOME)))))
 
 (defmacro my-time
   "Variation on clojure.core/time: https://github.com/clojure/clojure/blob/clojure-1.10.1/src/clj/clojure/core.clj#L3884
   This macro returns a map with the time taken and the return value of the expression.
-  Useful when timing side effects, no further composition is not usually needed (but still possible)"
+  Useful when timing side effects, no further composition is usually needed (but still possible)"
   [expr]
   `(let [start# (java.time.Instant/ofEpochMilli (System/currentTimeMillis))
          ret# ~expr ;; evaluates the argument expression

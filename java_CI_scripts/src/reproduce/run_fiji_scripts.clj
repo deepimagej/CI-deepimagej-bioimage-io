@@ -2,7 +2,7 @@
   "Run the 2 scripts: inference with DeepImageJ and comparison with Fiji.
   Use bb instead of bash for windows compatibility"
   (:require [config :refer [FILES CONSTANTS]]
-            utils
+            [utils]
             [clojure.java.shell :as shell]
             [clojure.set :as set]
             [clojure.string :as str]
@@ -137,3 +137,17 @@
    (printf "Bash script with %d lines of code written in: %s\n"
            (count (str/split-lines (slurp bash-file))) (str (fs/absolutize bash-file)))
    (flush)))
+
+(defn run-fiji-script
+  "Shells out and calls the fiji executable on a script.
+  Used for running the script that tests the models in a single fiji instance."
+  ([] (run-fiji-script (str (fs/absolutize (fs/file "src" "reproduce" "test_many_with_deepimagej.clj")))))
+  ([script-path]
+   (println "Running in fiji:" script-path)
+   (apply pr/shell (conj (into [(:fiji-executable CONSTANTS)] (:fiji-flags CONSTANTS)) script-path))))
+
+(defn grant-exec-permission
+  "Make the fiji executable have permission to execute (not needed on windows)"
+  []
+  (if-not (fs/windows?)
+    (pr/shell "chmod" "+x" (:fiji-executable CONSTANTS))))

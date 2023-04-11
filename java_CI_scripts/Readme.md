@@ -14,7 +14,7 @@ Usage: bb -m core.main [action] [options] (in the java_CI_scripts working direct
 Actions:
  init (DEFAULT) Initial checks & generate folder structures and files for the compatible models to test.
  download       Populate model folders (download files). Build args for DeepImagej headless.
- reproduce      Run the models on Fiji with DeepImageJ headless. Create tests summaries (to-do).
+ reproduce      Run the models on Fiji with DeepImageJ headless. Create tests summaries.
 
 Options:
   -h, --help                                                 Show help
@@ -72,9 +72,17 @@ bb "(require 'collection) (collection/generate-pending-matrix-from-collection tr
 bb "(require 'collection-test 'core.cli-test) (clojure.test/run-tests 'collection-test 'core.cli-test)"
 ````
 
-## Generate bash script to run the CI
+## Generate the bash script to run the CI
 ````
 bb "(require '[reproduce.run-fiji-scripts :as r]) (r/build-bash-script)"
+````
+## Setup Fiji and DeepImageJ in default directory `~/blank_fiji/`
+````
+bb "(require '[reproduce.setup-fiji :as r]) (r/setup-fiji-&-deepimagej)"
+````
+## Run script for running models *sequentially*
+````
+bb "(require '[reproduce.run-fiji-scripts :as r]) (r/grant-exec-permission) (r/run-fiji-script)"
 ````
 
 # Run as a clojure project

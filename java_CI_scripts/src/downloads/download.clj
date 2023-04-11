@@ -9,7 +9,7 @@
   "Gets the response of a URL as a hash map"
   [^String url]
   (let [basic-opts {:as :bytes :throw false},
-        opts (if (str/includes? (System/getProperty "os.name") "Windows")
+        opts (if (fs/windows?)
                (assoc basic-opts :compressed false)
                basic-opts)]
     (curl/get url opts)))
@@ -66,6 +66,13 @@
     (println (format "Took: %s" (:iso timed-response)))
     (flush)
     written-bytes))
+
+(defn download-file
+  "Downloads a (zip) file from a url and saves it in a folder with a given name"
+  [url destination-folder-file save-name]
+  (let [timed-response (utils/my-time (:body (get-url-response url)))]
+    (save-file-with-info destination-folder-file timed-response save-name)))
+
 
 (defn download-into-model-folder
   ([model-record]
