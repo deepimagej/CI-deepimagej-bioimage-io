@@ -42,7 +42,7 @@ jobs:
           pwd
           ls
           echo "--"
-          ls CI-deepimagej-bioimage-io
+          ls .
           echo "--"
           ls $GITHUB_WORKSPACE | tee output.txt
           echo "--"
