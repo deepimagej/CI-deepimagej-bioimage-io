@@ -69,7 +69,6 @@ jobs:
         working-directory: ./java_CI_scripts
         run: |
           bb --version
-          bb ../../scripts/info.clj
           bb -m core.main -h
           # bb -m core.main -u # run all unit tests
           # bb "(require '[core.cli-test]) (clojure.test/run-tests 'core.cli-test)" # run core unit tests
@@ -87,7 +86,7 @@ jobs:
         run: |
           bb "(require '[config :refer [CONSTANTS]])(println (:fiji-executable CONSTANTS) (fs/exists? (:fiji-executable CONSTANTS)))"
           bb "(require '[reproduce.run-fiji-scripts :as r]) (r/build-bash-script)"
-          head -n 30 ../resources/test_the_models.sh          
+          head -n 25 ../resources/test_the_models.sh          
 
       # Download and Reproduce
 
