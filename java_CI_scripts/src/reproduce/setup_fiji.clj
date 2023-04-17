@@ -33,7 +33,7 @@
                   (download/get-url-filename (:dij2-download-url CONSTANTS)))))
 
 (defn setup-fiji-&-deepimagej3
-  ([] (setup-fiji-&-deepimagej (:fiji-home FILES)))
+  ([] (setup-fiji-&-deepimagej3(:fiji-home FILES)))
   ([fiji-home]
    (unzip-pipeline fiji-url (:fiji-zip-name CONSTANTS) fiji-home true)
    ; if deps are only 1 jar, use download-file (not unzip-pipeline)
