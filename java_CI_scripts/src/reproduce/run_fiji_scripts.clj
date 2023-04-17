@@ -138,10 +138,10 @@
            (count (str/split-lines (slurp bash-file))) (str (fs/absolutize bash-file)))
    (flush)))
 
-(defn run-fiji-script
+(defn run-seq-fiji-script
   "Shells out and calls the fiji executable on a script.
   Used for running the script that tests the models in a single fiji instance."
-  ([] (run-fiji-script (str (fs/absolutize (fs/file "src" "reproduce" "test_many_with_deepimagej.clj")))))
+  ([] (run-seq-fiji-script (str (fs/absolutize (fs/file "src" "reproduce" "test_many_with_deepimagej.clj")))))
   ([script-path]
    (println "Running in fiji:" script-path)
    (apply pr/shell (conj (into [(:fiji-executable CONSTANTS)] (:fiji-flags CONSTANTS)) script-path))))

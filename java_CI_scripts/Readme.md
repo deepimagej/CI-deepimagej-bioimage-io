@@ -78,11 +78,11 @@ bb "(require '[reproduce.run-fiji-scripts :as r]) (r/build-bash-script)"
 ````
 ## Setup Fiji and DeepImageJ in default directory `~/blank_fiji/`
 ````
-bb "(require '[reproduce.setup-fiji :as r]) (r/setup-fiji-&-deepimagej)"
+bb "(require '[reproduce.setup-fiji :as r]) (r/setup-fiji-&-deepimagej3)"
 ````
 ## Run script for running models *sequentially*
 ````
-bb "(require '[reproduce.run-fiji-scripts :as r]) (r/grant-exec-permission) (r/run-fiji-script)"
+bb "(require '[reproduce.run-fiji-scripts :as r]) (r/grant-exec-permission) (r/run-seq-fiji-script)"
 ````
 
 # Run as a clojure project

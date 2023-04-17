@@ -5,8 +5,6 @@
             [downloads.download :as download]
             [babashka.fs :as fs]))
 
-; todo deepimagej 3.0 links (needs to be online)
-
 (def fiji-url (str (:fiji-download-url CONSTANTS) (:fiji-zip-name CONSTANTS)))
 
 (defn unzip-pipeline
@@ -34,6 +32,15 @@
    (download/download-file (:dij2-download-url CONSTANTS) (fs/file fiji-home "Fiji.app" "plugins")
                   (download/get-url-filename (:dij2-download-url CONSTANTS)))))
 
+(defn setup-fiji-&-deepimagej3
+  ([] (setup-fiji-&-deepimagej (:fiji-home FILES)))
+  ([fiji-home]
+   (unzip-pipeline fiji-url (:fiji-zip-name CONSTANTS) fiji-home true)
+   ; if deps are only 1 jar, use download-file (not unzip-pipeline)
+   (unzip-pipeline (:dij3-deps-url CONSTANTS) "dij3-deps.zip" (fs/file fiji-home "Fiji.app" "jars") false)
+   (download/download-file (:dij3-download-url CONSTANTS) (fs/file fiji-home "Fiji.app" "plugins")
+                           "DeepImageJ_-3.0.0.jar")))
+
 ; trying each part
 (comment
   (download/download-file fiji-url (fs/home) "my.zip")
@@ -51,4 +58,6 @@
                   (fs/file (:fiji-home FILES) "Fiji.app" "jars") false)
   (download/download-file (:dij2-download-url CONSTANTS) (fs/file (:fiji-home FILES) "Fiji.app" "plugins")
                  (download/get-url-filename (:dij2-download-url CONSTANTS)))
+
+  (setup-fiji-&-deepimagej3 (fs/file (fs/home) "drive_testing_3"))
   )
