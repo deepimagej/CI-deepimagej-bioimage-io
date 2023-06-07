@@ -46,8 +46,8 @@
    :dij2-download-url      "https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.16/DeepImageJ_-2.1.16.jar"
    :dij2-deps-url          "https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.16/dependencies_2116.zip"
    ; todo: change google drive links for github links (once stable version is released)
-   :dij3-download-url      "https://drive.google.com/uc?export=download&id=1-4i3_igM7hvhMyUCifOPGM-UhO2q97p1"
-   :dij3-deps-url          "https://drive.google.com/uc?export=download&id=13t_RQ6tf02EYdAwrBBKfo-riGADKmfjH"
+   :dij3-download-url      "https://drive.google.com/uc?export=download&id=177XNRu5Uid81W3-LP9DedabexlmN6HwO"
+   :dij3-deps-url          "https://drive.google.com/uc?export=download&confirm=9iBg&id=1JQ7j-yXUUdnOF0ppYINL_-O6H6F6E3LN"
    :fiji-scripts-arg-name  "folder"
    :output-metrics-name    "output_metrics.edn"
    :summary-name           "test_summary.yaml"
