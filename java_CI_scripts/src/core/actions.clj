@@ -6,9 +6,8 @@
             models
             [summaries [summary :as summary] [reports :as reports] [discriminate :as discriminate]
              [init-checks :as init-checks] [reproduce-checks :as reproduce-checks]]
-            [downloads  [download :as download]]
+            [downloads [download :as download]]
             [reproduce [communicate :as comm] [run-fiji-scripts :as run-fiji-scripts]]
-            [clojure.string :as str]
             [babashka.fs :as fs]
             [babashka.process :as pr]))
 
@@ -37,9 +36,9 @@
     (comm/write-comm-file (map comm/build-dij-model keep-testing)
                           (fs/file (System/getProperty "user.home") "models_to_test.edn"))
 
-    ;txt input to numpy-tiff repo, optionally do not check the :no-sample-images error during initial checks
-    (comm/write-absolute-paths (concat keep-testing (:no-sample-images error-found)) :rdf-path
-                               (fs/file ".." "numpy-tiff-deepimagej" "resources" "rdfs_to_test.txt"))
+    ;txt input to numpy-tiff repo, alternatively do not check the :no-sample-images error during initial checks
+    (comm/write-absolute-paths (concat keep-testing (:no-sample-images error-found) (:key-run-mode error-found))
+                               :rdf-path (fs/file ".." "numpy-tiff-deepimagej" "resources" "rdfs_to_test.txt"))
     (comm/write-absolute-paths (:no-dij-config error-found) :rdf-path (fs/file "rdfs_with_no_dij_config.txt"))
     (comm/write-absolute-paths keep-testing :model-dir-path (:models-listed FILES))
     (comm/write-absolute-paths keep-testing :rdf-path (:rdfs-listed FILES))

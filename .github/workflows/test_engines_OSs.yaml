@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, windows-latest, macos-latest, macos-10.15]
         #os: [windows-latest, macos-latest]        
     runs-on: ${{ matrix.os }}
 
@@ -94,14 +94,14 @@ jobs:
         working-directory: ./java_CI_scripts
         run: |
           bb -m core.main -j pending_matrix/different_engines.json download
-          bb "(require '[reproduce.setup-fiji :as r]) (r/setup-fiji-&-deepimagej)"
+          bb "(require '[reproduce.setup-fiji :as r]) (r/setup-fiji-&-deepimagej3)"
           bb "(require '[config :refer [CONSTANTS]])(println (:fiji-executable CONSTANTS) (fs/exists? (:fiji-executable CONSTANTS)))"
           ls -R -l ../models
                 
       - name: run reproduce pipeline
         working-directory: ./java_CI_scripts
         run: |
-          bb "(require '[reproduce.run-fiji-scripts :as r]) (r/grant-exec-permission) (r/run-fiji-script)"
+          bb "(require '[reproduce.run-fiji-scripts :as r]) (r/grant-exec-permission) (r/run-seq-fiji-script)"
           echo "MODEL FOLDERS AFTER TESTS IN A ROW"
           ls -R -l ../models
           echo "Now not all models in a row"
