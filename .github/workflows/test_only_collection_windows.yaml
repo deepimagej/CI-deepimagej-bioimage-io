@@ -50,6 +50,8 @@ jobs:
         run: |
           bb --version
           bb "(require 'collection) (collection/generate-pending-matrix-from-collection true)" # update the collection to latest version
+          echo "Models in generated Collection json"
+          cat ./pending_matrix/only_collection.json
           bb -m core.main -j ./pending_matrix/only_collection.json download
           ls -R -l ../models
 
