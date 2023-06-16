@@ -41,13 +41,10 @@
    :fiji-zip-name          (:zip-name current-os-info)
    :fiji-executable        (:executable current-os-info)
    :fiji-download-url      "https://downloads.imagej.net/fiji/archive/20221201-1017/"
-   ;:dij2-download-url      "https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.15/DeepImageJ_-2.1.15.jar"
-   ;:dij2-deps-url          "https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.15/dependencies_2115.zip"
    :dij2-download-url      "https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.16/DeepImageJ_-2.1.16.jar"
    :dij2-deps-url          "https://github.com/deepimagej/deepimagej-plugin/releases/download/2.1.16/dependencies_2116.zip"
-   ; todo: change google drive links for github links (once stable version is released)
-   :dij3-download-url      "https://drive.google.com/uc?export=download&id=177XNRu5Uid81W3-LP9DedabexlmN6HwO"
-   :dij3-deps-url          "https://drive.google.com/uc?export=download&confirm=9iBg&id=1JQ7j-yXUUdnOF0ppYINL_-O6H6F6E3LN"
+   :dij3-download-url      "https://github.com/deepimagej/deepimagej-plugin/releases/download/3.0.1/DeepImageJ-3.0.1.jar"
+   :dij3-deps-url          "https://github.com/deepimagej/deepimagej-plugin/releases/download/3.0.1/dependencies_3.zip"
    :fiji-scripts-arg-name  "folder"
    :output-metrics-name    "output_metrics.edn"
    :summary-name           "test_summary.yaml"

@@ -37,9 +37,10 @@
   ([fiji-home]
    (unzip-pipeline fiji-url (:fiji-zip-name CONSTANTS) fiji-home true)
    ; if deps are only 1 jar, use download-file (not unzip-pipeline)
-   (unzip-pipeline (:dij3-deps-url CONSTANTS) "dij3-deps.zip" (fs/file fiji-home "Fiji.app" "jars") false)
+   (unzip-pipeline (:dij3-deps-url CONSTANTS) (download/get-url-filename (:dij3-deps-url CONSTANTS))
+                   (fs/file fiji-home "Fiji.app" "jars") false)
    (download/download-file (:dij3-download-url CONSTANTS) (fs/file fiji-home "Fiji.app" "plugins")
-                           "DeepImageJ_-3.0.0.jar")))
+                           (download/get-url-filename (:dij3-download-url CONSTANTS)))))
 
 ; trying each part
 (comment
