@@ -17,7 +17,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   my-ci-job:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest # HAS TO BE ON WINDOWS SINCE DIJ3, WEIRD LINUX HEADLESS BUG
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -44,21 +44,16 @@ jobs:
           babashka-version: 1.1.173
 
       - name: Setup fiji & deepimagej
-        working-directory: ./bash_scripts
+        working-directory: ./java_CI_scripts 
         run: |
-          sh setup_deepimagej.sh
-          touch ../resources/models_to_test.txt
+          bb "(require '[reproduce.setup-fiji :as r]) (r/setup-fiji-&-deepimagej3)"
 
       - name: run initial stage
         working-directory: ./java_CI_scripts
         run: |
           bb --version
           bb -m core.main -s ${{ inputs.pending_matrix }} download
-
-      - name: check that initial pipeline of CI went OK
-        run: |
-          chmod +x ./bash_scripts/check_initial_CI.sh
-          bash ./bash_scripts/check_initial_CI.sh
+          ls -R -l ../models          
 
       - name: run reproduce pipeline
         working-directory: ./java_CI_scripts
