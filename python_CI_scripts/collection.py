@@ -24,7 +24,7 @@ def file_json_2_vector(json_file):
 
 def filter_rdfs(paths):
     """Keeps only the rdf.yaml from a seq of paths"""
-    list(filter(lambda x: x.name == "rdf.yaml", paths))
+    return list(filter(lambda x: x.name == "rdf.yaml", paths))
 
 
 def resources_2_paths(resource_map, root=ROOTS["collection-root"]):
