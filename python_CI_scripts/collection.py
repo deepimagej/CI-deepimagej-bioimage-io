@@ -46,4 +46,4 @@ def get_rdfs_to_test(resources_vector, root=ROOTS["collection-root"]):
     """ Compiles a list of rdf paths that need to be tested, given a list of resource/versions maps.
     If only 1 argument is given, uses COLLECTION ROOT as root path"""
     unflattened = list(map(lambda x: resources_2_paths(x, root), resources_vector))
-    return list(itertools.chain(*unflattened))
+    return list(set(itertools.chain(*unflattened)))
