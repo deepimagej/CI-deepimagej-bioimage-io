@@ -8,7 +8,8 @@ import yaml
 
 def parse_model(rdf_path):
     """Takes the path of an rdf.yaml and parses it into a dictionary"""
-    with open(rdf_path, "r") as f:
+    with open(rdf_path, "r", encoding="utf-8") as f:
+        # encoding needs to be utf-8, otherwise:   UnicodeDecodeError: 'charmap' codec can't decode byte 0x90
         data = yaml.safe_load(f)
     return data
 
@@ -34,10 +35,20 @@ def get_paths_info(rdf_path):
             "samples-path": utils.new_root_path(old_root, ROOTS["samples-root"], rdf_path)}
 
 
+def get_weight_info(rdf_dict):
+    """Put relevant weight information in a record, given a parsed rdf.
+    The field 'type' is 'None' for unsupported weights"""
+    weights_dict = utils.get(rdf_dict, "weights")
+    weight_types = []
+    if weights_dict is None:
+
+
+
 def build_model(rdf_path):
     """Generates a Model record, data structure with the information needed for testing a model"""
     rdf_dict = parse_model(rdf_path)
     return {"name": utils.get(rdf_dict, "name"),
             "nickname": utils.get_in(rdf_dict, ["config", "bioimageio", "nickname"]),
             "rdf_info": get_rdf_info(rdf_dict),
-            "paths": get_paths_info(rdf_path)}
+            "paths": get_paths_info(rdf_path),
+            "weight-types": get_weight_info(rdf_dict)}
