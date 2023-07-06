@@ -1,6 +1,6 @@
 """Define a Model record to hold the relevant data from a parsed rdf"""
 
-from config import ROOTS
+from config import ROOTS, CONSTANTS
 from pathlib import Path
 import utils
 import yaml
@@ -12,11 +12,6 @@ def parse_model(rdf_path):
         # encoding needs to be utf-8, otherwise:   UnicodeDecodeError: 'charmap' codec can't decode byte 0x90
         data = yaml.safe_load(f)
     return data
-
-
-"""Association of key=name of weights in the yaml, and val=name of weights in model record"""
-weight_names = {"torchscript": "Pytorch",
-                "tensorflow_saved_model_bundle": "Tensorflow"}
 
 
 def get_rdf_info(rdf_dict):
@@ -39,9 +34,28 @@ def get_weight_info(rdf_dict):
     """Put relevant weight information in a record, given a parsed rdf.
     The field 'type' is 'None' for unsupported weights"""
     weights_dict = utils.get(rdf_dict, "weights")
-    weight_types = []
-    if weights_dict is None:
+    if weights_dict is not None:
+        return list(filter(lambda x: x in CONSTANTS["valid-weight-keys"], weights_dict.keys()))
+    return []
 
+
+def get_tensor_info(rdf_dict, type_="inputs"):
+    """Get info about input/output tensors"""
+    tensor_list = utils.get(rdf_dict, type_)
+    if tensor_list is None:
+        return None
+    tensor_dict = tensor_list[0]
+    tensor_info = {"name": utils.get(tensor_dict, "name"),
+                   "axes": utils.get(tensor_dict, "axes")}
+    sample_inputs = utils.get(rdf_dict, "sample_" + type_)
+    test_inputs = utils.get(rdf_dict, "test_" + type_)
+
+    if sample_inputs is not None:
+        tensor_info["original-sample"] = Path(sample_inputs[0]).name
+    if test_inputs is not None:
+        tensor_info["original-test"] = Path(test_inputs[0]).name
+
+    return tensor_info
 
 
 def build_model(rdf_path):
@@ -51,4 +65,8 @@ def build_model(rdf_path):
             "nickname": utils.get_in(rdf_dict, ["config", "bioimageio", "nickname"]),
             "rdf_info": get_rdf_info(rdf_dict),
             "paths": get_paths_info(rdf_path),
-            "weight-types": get_weight_info(rdf_dict)}
+            "weight-types": get_weight_info(rdf_dict),
+            "inputs": get_tensor_info(rdf_dict, "inputs"),
+            "outputs": get_tensor_info(rdf_dict, "outputs")}
+
+# Note: info about shape and correct sample file will be known only after download
