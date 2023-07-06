@@ -63,7 +63,7 @@ def build_model(rdf_path):
     rdf_dict = parse_model(rdf_path)
     return {"name": utils.get(rdf_dict, "name"),
             "nickname": utils.get_in(rdf_dict, ["config", "bioimageio", "nickname"]),
-            "rdf_info": get_rdf_info(rdf_dict),
+            "rdf-info": get_rdf_info(rdf_dict),
             "paths": get_paths_info(rdf_path),
             "weight-types": get_weight_info(rdf_dict),
             "inputs": get_tensor_info(rdf_dict, "inputs"),

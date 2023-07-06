@@ -37,6 +37,7 @@ assert outputs == {'name': 'output', 'axes': 'byxzc', 'original-sample': 'result
 
 # test build model
 all_model_records = list(map(lambda x: models.build_model(x), collection_test.rdf_paths_3))
+assert len(all_model_records) == len(collection_test.rdf_paths_3)
 
 # debug error in yaml parsing (solved)
 # for rdf_path in collection_test.rdf_paths_3:
@@ -44,3 +45,21 @@ all_model_records = list(map(lambda x: models.build_model(x), collection_test.rd
 #     x = models.build_model(rdf_path)
 #     all_model_records.append(x)
 
+pt_model = models.build_model(pt_rdf)
+pt_model_nopaths = pt_model.copy()
+pt_model_nopaths.pop("paths")
+assert pt_model_nopaths == {'name': 'Neuron Segmentation in EM (Membrane Prediction)',
+                            'nickname': 'impartial-shrimp',
+                            'rdf-info': {'type': 'model', 'dij-config?': True, 'run-mode': None},
+                            'weight-types': ['torchscript'],
+                            'inputs': {'name': 'input0',
+                                       'axes': 'bczyx',
+                                       'original-sample': 'sample_input_0.tif',
+                                       'original-test': 'test_input_0.npy'},
+                            'outputs': {'name': 'output0',
+                                        'axes': 'bczyx',
+                                        'original-sample': 'sample_output_0.tif',
+                                        'original-test': 'test_output_0.npy'}}
+
+model_with_run_mode = models.build_model(Path(ROOTS["collection-root"], "deepimagej", "SkinLesionClassification", "latest", "rdf.yaml"))
+assert utils.get_in(model_with_run_mode, ["rdf-info", "run-mode"]) == {'name': 'deepimagej'}
