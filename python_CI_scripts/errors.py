@@ -67,3 +67,9 @@ init_errors_fns = {"key-run-mode": is_no_run_mode,
 # REPRODUCE CHECKS
 
 # DISCRIMINATE MODELS BY ERROR TYPE
+
+# Data structure for discriminated models
+#   {:keep-testing [list-of-model-records]
+#    :error-found  {:error-key1 [list-of-model-records]
+#                   :error-key2 [list-of-model-records]}}
+
