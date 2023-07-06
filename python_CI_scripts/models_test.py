@@ -45,8 +45,8 @@ assert len(all_model_records) == len(collection_test.rdf_paths_3)
 #     x = models.build_model(rdf_path)
 #     all_model_records.append(x)
 
-pt_model = models.build_model(pt_rdf)
-pt_model_nopaths = pt_model.copy()
+a_model_record, pt_model_record, tf_model_record = list(map(lambda x: models.build_model(x), [an_rdf, pt_rdf, tf_rdf]))
+pt_model_nopaths = pt_model_record.copy()
 pt_model_nopaths.pop("paths")
 assert pt_model_nopaths == {'name': 'Neuron Segmentation in EM (Membrane Prediction)',
                             'nickname': 'impartial-shrimp',

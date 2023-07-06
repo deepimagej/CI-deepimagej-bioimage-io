@@ -40,12 +40,12 @@ def find_stage(error_key):
 # INITIAL CHECKS
 def is_model(model_record):
     """Checks if a model record is from an rdf of type 'model'"""
-    return utils.get_in(model_record, ["rdf_info", "type"]) == "model"
+    return utils.get_in(model_record, ["rdf-info", "type"]) == "model"
 
 
 def is_no_run_mode(model_record):
     """Checks if the rdf does not have a run_mode key (or if is empty if found)"""
-    run_mode_val = utils.get_in(model_record, ["rdf_info", "run-mode"])
+    run_mode_val = utils.get_in(model_record, ["rdf-info", "run-mode"])
     if run_mode_val is None:
         return True
     return utils.get(run_mode_val, "name") != "deepimagej"
@@ -53,7 +53,7 @@ def is_no_run_mode(model_record):
 
 def is_any_compatible_weight(model_record):
     """Tells if a model has any compatible weights (checks model record)"""
-    w = utils.get_in(model_record, "weight-types")
+    w = utils.get(model_record, "weight-types")
     if w is None:
         return False
     return len(w) > 0
