@@ -22,4 +22,22 @@ def get_rdf_info(rdf_dict):
     """Gets relevant info from a parsed rdf dictionary"""
     return {"type": rdf_dict["type"],
             "dij-config?": "deepimagej" in rdf_dict["config"],
-            "run-mode": utils.get(rdf_dict,"run_mode")}
+            "run-mode": utils.get(rdf_dict, "run_mode")}
+
+
+def get_paths_info(rdf_path):
+    """Gets the different paths the model uses"""
+    old_root = ROOTS["collection-root"]
+    return {"rdf-path": rdf_path,
+            "summa-path": utils.new_root_path(old_root, ROOTS["summa-root"], rdf_path),
+            "model-dir-path": utils.new_root_path(old_root, ROOTS["models-root"], rdf_path),
+            "samples-path": utils.new_root_path(old_root, ROOTS["samples-root"], rdf_path)}
+
+
+def build_model(rdf_path):
+    """Generates a Model record, data structure with the information needed for testing a model"""
+    rdf_dict = parse_model(rdf_path)
+    return {"name": utils.get(rdf_dict, "name"),
+            "nickname": utils.get_in(rdf_dict, ["config", "bioimageio", "nickname"]),
+            "rdf_info": get_rdf_info(rdf_dict),
+            "paths": get_paths_info(rdf_path)}

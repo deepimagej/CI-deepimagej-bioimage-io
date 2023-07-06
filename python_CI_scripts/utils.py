@@ -1,4 +1,5 @@
 """Generally used functions"""
+from pathlib import Path
 
 
 def get(dic, key):
@@ -18,3 +19,8 @@ def get_in(dic, key_list):
             return dic[key_list[0]]
         else:
             return get_in(dic[key_list[0]], key_list[1:])
+
+
+def new_root_path(old_root, new_root, file_path):
+    """Returns a path with a new root"""
+    return Path(new_root) / file_path.parent.relative_to(old_root)
