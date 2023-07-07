@@ -73,3 +73,15 @@ init_errors_fns = {"key-run-mode": is_no_run_mode,
 #    :error-found  {:error-key1 [list-of-model-records]
 #                   :error-key2 [list-of-model-records]}}
 
+
+def check_error(discriminated_models, error_key, discriminating_fn):
+    """Adds results of checking a new error to the data structure for discriminated models.
+      To be used as reducing function when iterating over all possible errors"""
+
+    groups = utils.group_by(discriminating_fn, discriminated_models["keep-testing"])
+    to_keep, with_error = utils.get(groups, True), utils.get(groups, False)
+    if "error-found" not in discriminated_models:
+        discriminated_models["error-found"] = {}
+    discriminated_models["error-found"][error_key] = with_error
+
+    return {"keep-testing": to_keep, "error-found": discriminated_models["error-found"]}
