@@ -49,3 +49,6 @@ error_struct = errors_test.models_discriminated["error-found"]
 # summaries.write_summaries_from_error(list(error_struct.items())[1]) # testing on only 1 of the errors
 
 list(map(lambda x: summaries.write_summaries_from_error(x), error_struct.items()))
+
+# for writing test summaries for all models
+#list(map(lambda x: summaries.write_summaries_from_error(x), errors_test.all_models_discriminated["error-found"].items()))
