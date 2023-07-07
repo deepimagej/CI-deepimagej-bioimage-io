@@ -12,4 +12,5 @@ ROOTS = {"collection-root": Path("..", "bioimageio-gh-pages", "rdfs").absolute()
 
 
 "Constants that are not files"
-CONSTANTS = {"valid-weight-keys": ["torchscript", "tensorflow_saved_model_bundle", "onnx"]}
+CONSTANTS = {"valid-weight-keys": ["torchscript", "tensorflow_saved_model_bundle", "onnx"],
+             "summary-name": "test_summary.yaml"}

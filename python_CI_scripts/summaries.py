@@ -1,4 +1,5 @@
-from config import ROOTS
+import utils
+from config import ROOTS, CONSTANTS
 import errors
 
 from bioimageio.core import __version__ as bioimageio_core_version
@@ -20,5 +21,13 @@ def gen_summa_dict(passed=False, error_key="other"):
                   "name": errors.ci_stages.get(stage)})
     return d
 
-def write_test_summary():
-    return
+
+def write_test_summary(summa_dict, model_record, verb=False):
+    """Writes the yaml of the summary-dict in the summary path (in the model.paths)"""
+    path = utils.get_in(model_record, ["paths", "summa-path"])
+    path.mkdir(parents=True, exist_ok=True)
+    file_name = CONSTANTS["summary-name"]
+    with open(path / file_name, "w") as yaml_file:
+        yaml.dump(summa_dict, yaml_file, default_flow_style=False)
+    if verb:
+        print("written test summary in:", path/file_name)
