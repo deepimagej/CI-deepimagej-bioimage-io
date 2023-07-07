@@ -46,6 +46,7 @@ def group_by(f, coll):
 def count_dict(d):
     """Counts dictionary entries which are seqs"""
     def fn(acum, x):
-        acum.update({x[0]: len(x[1])})
+        val = None if x[1] is None else len(x[1])
+        acum.update({x[0]: val})
         return acum
     return reduce(fn, d.items(), {})

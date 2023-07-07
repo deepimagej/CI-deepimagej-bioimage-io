@@ -1,6 +1,7 @@
 """Error keys and messages for the different possible failed test summaries"""
 
 import utils
+from functools import reduce
 
 "Errors that could happen during the initial checks"
 initial_errors = {"no-dij-config": "rdf does not have keys for :config :deepimagej",
@@ -74,10 +75,11 @@ init_errors_fns = {"key-run-mode": is_no_run_mode,
 #                   :error-key2 [list-of-model-records]}}
 
 
-def check_error(discriminated_models, error_key, discriminating_fn):
+def check_error(discriminated_models, error_key_and_fn):
     """Adds results of checking a new error to the data structure for discriminated models.
       To be used as reducing function when iterating over all possible errors"""
 
+    error_key, discriminating_fn = error_key_and_fn
     groups = utils.group_by(discriminating_fn, discriminated_models["keep-testing"])
     to_keep, with_error = utils.get(groups, True), utils.get(groups, False)
     if "error-found" not in discriminated_models:
@@ -85,3 +87,12 @@ def check_error(discriminated_models, error_key, discriminating_fn):
     discriminated_models["error-found"][error_key] = with_error
 
     return {"keep-testing": to_keep, "error-found": discriminated_models["error-found"]}
+
+
+def separate_by_error(models_list, error_fns):
+    """Discriminative function should return true to keep testing, false if error occurred
+    After an error happens, no more error checks are made for a model"""
+    return reduce(check_error, error_fns.items(), {"keep-testing": models_list})
+
+
+
