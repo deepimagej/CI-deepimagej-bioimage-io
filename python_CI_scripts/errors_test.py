@@ -40,7 +40,7 @@ assert set(map(lambda x: x["name"], d_all_models_runmode["error-found"]["key-run
 
 models_discriminated = errors.separate_by_error(model_records, errors.init_errors_fns)
 assert utils.count_dict(models_discriminated) == {'keep-testing': 2, 'error-found': 2}
-assert utils.count_dict(models_discriminated["error-found"]) == {'key-run-mode': None, 'no-compatible-weights': 1}
+assert utils.count_dict(models_discriminated["error-found"]) == {'key-run-mode': 0, 'no-compatible-weights': 1}
 
 all_actual_models = list(filter(lambda x: errors.is_model(x), models_test.all_model_records))
 all_models_discriminated = errors.separate_by_error(all_actual_models, errors.init_errors_fns)

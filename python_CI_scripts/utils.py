@@ -1,4 +1,7 @@
 """Generally used functions"""
+
+from config import FILES
+
 from functools import reduce
 from pathlib import Path
 
@@ -50,3 +53,13 @@ def count_dict(d):
         acum.update({x[0]: val})
         return acum
     return reduce(fn, d.items(), {})
+
+
+def print_and_log(msg, log_files):
+    """Prints a string message and logs it on all log files provided"""
+    print(msg, flush=True, end="")
+    for log in log_files:
+        with open(log, 'a') as f:
+            f.write(msg)
+
+
