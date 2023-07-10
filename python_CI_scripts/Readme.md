@@ -39,7 +39,10 @@ Tested on Windows anaconda cmd
 ````
 python -u main.py -s "<a valid json string literal here>"
 ````
-example
+examples:
+````
+python -u main.py -s "{\"include\": [{\"resource_id\": \"**\",\"version_id\": \"**\"}]}" init
+````
 ````
 python -u main.py -s "{\"include\": [{\"resource_id\": \"10.5281/zenodo.7261974\",\"version_id\": \"7261975\"}, {\"resource_id\": \"deepimagej\",\"version_id\": \"DeepSTORMZeroCostDL4Mic/latest\"}]}" init
 ````
