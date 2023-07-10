@@ -1,0 +1,15 @@
+name: ppytorch
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10.11
+  - bioimageio.core=0.5.9
+  #- scikit-learn
+  #- scikit-image
+  - numpy
+#  - pandas
+#  - pip
+#  - pip:
+#    - entropytriangle==1.0.2
+#    - tiler==0.5.7
