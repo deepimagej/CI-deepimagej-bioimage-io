@@ -4,6 +4,7 @@ from config import FILES, CONSTANTS
 import collection
 import models
 import errors
+import utils
 
 
 def initial_pipeline(ini_return, input_json):
@@ -19,13 +20,14 @@ def initial_pipeline(ini_return, input_json):
 
     list(map(lambda x: summaries.write_summaries_from_error(x), models_discriminated["error-found"].items()))
 
-    print("{} models to keep testing".format(len(keep_testing)))
+    utils.print_and_log("\n{} models to keep testing (after init)".format(len(keep_testing)), [FILES["summa-readme"]])
     if ini_return:
         return keep_testing
 
 
 def download_pipeline(input_json):
     """Downloads files necessary for testing the models"""
+    keep_testing = initial_pipeline(ini_return=True, input_json=input_json)
 
     # -> TODO create comm file here for the reproduce step (used to be done in init)
     return
