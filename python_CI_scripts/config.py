@@ -9,12 +9,14 @@ ROOTS = {"collection-root": Path("..", "bioimageio-gh-pages", "rdfs").absolute()
          # "models-root": Path("..", "models").absolute(),
          "models-root": Path("test_outputs", "models").absolute(),  # for debugging
          "samples-root": Path("..", "numpy-tiff-deepimagej").absolute(),
-         "resources-root": Path("..", "resources").absolute(),
+         # "resources-root": Path("..", "resources").absolute(),  # for debugging
+         "resources-root": Path("test_outputs", "resources").absolute(),
          "pending-matrix-root": Path("..", "java_CI_scripts", "pending_matrix").absolute(),
          "fiji-home": Path.home() / "blank_fiji"}
 
 "Configuration constants that are files"
-FILES = {"logs": {"out": ROOTS["summa-root"] / "fiji_log_out.txt",
+FILES = {"failed-downloads": ROOTS["resources-root"] / "failed_download_rdfs.txt",
+         "logs": {"out": ROOTS["summa-root"] / "fiji_log_out.txt",
                   "err": ROOTS["summa-root"] / "fiji_log_err.txt"},
          "summa-readme": ROOTS["summa-root"] / "Readme.md"}
 
@@ -22,4 +24,4 @@ FILES = {"logs": {"out": ROOTS["summa-root"] / "fiji_log_out.txt",
 CONSTANTS = {"model-dir-name": "the_model",
              "summary-name": "test_summary.yaml",
              "summa-readme-header": "# Report summary",
-             "valid-weight-keys": ["torchscript", "tensorflow_saved_model_bundle", "onnx"]}
+             "valid-weight-keys": ["torchscript", "pytorch_script", "tensorflow_saved_model_bundle", "onnx"]}

@@ -29,6 +29,10 @@ def download_pipeline(input_json):
     """Downloads files necessary for testing the models"""
     keep_testing = initial_pipeline(ini_return=True, input_json=input_json)
 
+    # Reset contents of resources/failed_download_rdfs.txt
+    f = open(FILES["failed-downloads"], "w")
+    f.close()
+
     # -> TODO create comm file here for the reproduce step (used to be done in init)
     return
 
