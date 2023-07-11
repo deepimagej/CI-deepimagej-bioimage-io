@@ -1,7 +1,9 @@
 """Error keys and messages for the different possible failed test summaries"""
 
+from config import CONSTANTS
 import utils
 from functools import reduce
+
 
 "Errors that could happen during the initial checks"
 initial_errors = {"no-dij-config": "rdf does not have keys for :config :deepimagej",
@@ -13,7 +15,8 @@ initial_errors = {"no-dij-config": "rdf does not have keys for :config :deepimag
                   "incompatible-spec": "Version of the rdf is incompatible with DeepImageJ"}
 
 "Errors that could happen while downloading files for testing"
-download_errors = {"download-fail": "failure to download model with 'bioimageio.core.export_resource_package'"}
+download_errors = {"download-fail": "Failure to download model with 'bioimageio.core.export_resource_package'",
+                   "no-test-images": "No correct sample images to test"}
 
 "Errors that could happen trying to reproduce output with DeepImageJ"
 reproduce_errors = {"dij-headless": "Error while running DeepImageJ headless (CI did not produce an output image)",
@@ -64,6 +67,18 @@ def is_any_compatible_weight(model_record):
 Order of errors here affects order on how errors are checked"""
 init_errors_fns = {"key-run-mode": is_no_run_mode,
                    "no-compatible-weights": is_any_compatible_weight}
+
+
+# DOWNLOAD CHECKS
+def is_success_download(model_record):
+    """Checks if model zip downloaded correctly"""
+    folder_path = utils.get_in(model_record, ["paths", "model-dir-path"])
+    extracted_path = folder_path / CONSTANTS["model-dir-name"]
+
+    return extracted_path.exists()
+
+
+download_errors_fns = {"download-fail": is_success_download}
 
 # REPRODUCE CHECKS
 

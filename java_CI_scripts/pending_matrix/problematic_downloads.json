@@ -1,6 +1,6 @@
 {
   "include": [
-    {"resource_id": "10.5281/zenodo.5914248","version_id": "6514622"},
+    {"resource_id": "deepimagej/widefieldtxredsuperresolution","version_id": "latest"},
     {"resource_id": "deepimagej/Mt3VirtualStaining","version_id": "latest"},
     {"resource_id": "deepimagej/SkinLesionClassification","version_id": "latest"},
     {"resource_id": "10.5281/zenodo.6865412","version_id": "6919253"}
