@@ -1,10 +1,11 @@
-name: ppytorch
+name: dij_python_ci
 channels:
   - defaults
   - conda-forge
 dependencies:
   - python=3.10.11
   - bioimageio.core=0.5.9
+  - bioimageio.spec=0.4.9
   #- scikit-learn
   #- scikit-image
   - numpy
