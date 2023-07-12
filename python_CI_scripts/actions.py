@@ -48,7 +48,7 @@ def download_pipeline(input_json):
     list(map(lambda x: summaries.write_summaries_from_error(x), models_discriminated["error-found"].items()))
 
     # get correct images
-    list(map(lambda x: downloads.save_correct_sample_images(x, verb=True), keep_testing_dw))
+    list(map(lambda x: downloads.save_correct_sample_images(x, verb=False), keep_testing_dw))
 
     utils.print_and_log("\n{} models to keep testing (after download)\n\n".format(len(keep_testing_dw)),
                         [FILES["summa-readme"]])

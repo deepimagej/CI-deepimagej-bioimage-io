@@ -3,6 +3,7 @@ from utils import *
 
 # test get-in
 nested_d = {"l-1": [1, 2, 3], "l-2": {"b": 3, "l-3": {"c": 4, "d": 5}}}
+assert get_in(nested_d, ["l-2","c"],default="err") == "err"
 
 # test new_root_path
 a_path = Path("a_root", "first_folder", "second_folder", "file.txt")

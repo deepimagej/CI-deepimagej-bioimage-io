@@ -42,7 +42,7 @@ def download_model(model_record, verb=False, failed_file=FILES["failed-downloads
 def save_images(s_path, model_folder_path, type_="input", verb=False):
     """Saves image in the model folder with the default name"""
     dest = model_folder_path / CONSTANTS["sample-" + type_ + "-name"]
-    if s_path.exists():
+    if s_path.exists() and s_path.is_file():
         dest.write_bytes(s_path.read_bytes())
     elif verb:
         print("Error: source path does not exist {}".format(s_path))
@@ -67,15 +67,15 @@ def save_correct_sample_images(model_record, verb=False):
 
     for i, in_path in enumerate(in_order):
         if in_path.exists():
-            save_images(in_path, model_path, "input")
             if verb:
                 print(in_msgs[i].format(in_path))
+            save_images(in_path, model_path, "input", verb)
             break
 
     for j, out_path in enumerate(out_order):
         if out_path.exists():
-            save_images(out_path, model_path, "output")
             if verb:
                 print(out_msgs[j].format(out_path))
+            save_images(out_path, model_path, "output", verb)
             break
 
