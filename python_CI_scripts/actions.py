@@ -1,6 +1,6 @@
 """Define the steps for every action: init, download, and reproduce"""
 import summaries
-from config import FILES, CONSTANTS
+from config import ROOTS, FILES, CONSTANTS
 import utils
 
 import collection
@@ -23,11 +23,14 @@ def initial_pipeline(ini_return, input_json):
 
     list(map(lambda x: summaries.write_summaries_from_error(x), models_discriminated["error-found"].items()))
 
-    utils.print_and_log("\n{} models to keep testing (after init)\n\n".format(len(keep_testing)),
-                        [FILES["summa-readme"]])
+    # report the errors & comm file
+    list(map(lambda x: x.unlink(), (ROOTS["summa-root"]/CONSTANTS["errors-dir-name"]).glob("*")))
 
-    # report the errors
-    list(map(lambda x: comm.serialize_models(x, "init"), models_discriminated["error-found"].items()))
+    list(map(lambda x: comm.serialize_models(x, "init"),
+             ({"keep-testing": keep_testing} | models_discriminated["error-found"]).items()))
+
+    utils.print_and_log("\n{} models to keep testing after init.\nDetailed information in {}\n\n".format(
+        len(keep_testing), ROOTS["summa-root"]/CONSTANTS["errors-dir-name"]), [FILES["summa-readme"]])
 
     if ini_return:
         return keep_testing
@@ -54,16 +57,18 @@ def download_pipeline(input_json):
     print()
     list(map(lambda x: summaries.write_summaries_from_error(x), models_discriminated["error-found"].items()))
 
-    utils.print_and_log("\n{} models to keep testing (after download)\n\n".format(len(keep_testing_dw)),
-                        [FILES["summa-readme"]])
+    utils.print_and_log("\n{} models to keep testing after download.\nDetailed information in {}\n\n".format(
+        len(keep_testing_dw), ROOTS["summa-root"]/CONSTANTS["errors-dir-name"]), [FILES["summa-readme"]])
 
+    # report the errors & comm files
+    list(map(lambda x: comm.serialize_models(x, "download"),
+             ({"keep-testing": keep_testing_dw} | models_discriminated["error-found"]).items()))
 
-    # -> TODO create comm file here for the reproduce step: with keep_testing for the reproduce step (used to be done in init)
     return
 
 
 def reproduce_pipeline():
     """Reproduce pipeline for Windows"""
-    # Todo, read serialized models to keep testing after download
+    # Todo, read serialized models to keep testing after download (download_keep-testing.yaml)
     # TODO generate dij args files
     return
