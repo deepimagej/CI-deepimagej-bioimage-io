@@ -15,15 +15,17 @@ def get(dic, key):
         return None
 
 
-def get_in(dic, key_list):
+def get_in(dic, key_list, default=None):
     """Returns the value in a nested associative structure, where key_list is a list of keys."""
     if len(key_list) == 0:
-        return None
+        return default
     if key_list[0] in dic:
         if len(key_list) == 1:
             return dic[key_list[0]]
         else:
-            return get_in(dic[key_list[0]], key_list[1:])
+            return get_in(dic[key_list[0]], key_list[1:], default=None)
+    else:
+        return default
 
 
 def new_root_path(old_root, new_root, file_path):

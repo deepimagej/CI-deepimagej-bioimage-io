@@ -36,6 +36,7 @@ def download_pipeline(input_json):
     f = open(FILES["failed-downloads"], "w")
     f.close()
 
+    # download
     tic = utils.print_start_msg("Started download of {} models".format(len(keep_testing_ini)))
     list(map(lambda x: downloads.download_model(x, verb=True), keep_testing_ini))
     utils.print_elapsed_time(tic, "Finished all downloads")
@@ -46,7 +47,8 @@ def download_pipeline(input_json):
     print()
     list(map(lambda x: summaries.write_summaries_from_error(x), models_discriminated["error-found"].items()))
 
-    # todo, get correct images
+    # get correct images
+    list(map(lambda x: downloads.save_correct_sample_images(x, verb=True), keep_testing_dw))
 
     utils.print_and_log("\n{} models to keep testing (after download)\n\n".format(len(keep_testing_dw)),
                         [FILES["summa-readme"]])

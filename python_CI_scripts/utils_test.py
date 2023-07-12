@@ -1,6 +1,9 @@
 from config import ROOTS
 from utils import *
 
+# test get-in
+nested_d = {"l-1": [1, 2, 3], "l-2": {"b": 3, "l-3": {"c": 4, "d": 5}}}
+
 # test new_root_path
 a_path = Path("a_root", "first_folder", "second_folder", "file.txt")
 expect = Path("a_new_root", "first_folder", "second_folder")

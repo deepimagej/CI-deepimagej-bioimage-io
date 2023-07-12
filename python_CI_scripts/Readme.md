@@ -49,8 +49,13 @@ python -u main.py -s "{\"include\": [{\"resource_id\": \"10.5281/zenodo.7261974\
 
 ## Running download actions on the use cases
 ````
-TODO
+python -u main.py -j ..\java_CI_scripts\pending_matrix\use_cases.json download
 ````
+Download a single model
+````
+python -u main.py -s "{\"include\": [{\"resource_id\": \"10.5281/zenodo.5910854\",\"version_id\": \"6539073\"}]}" download
+````
+
 
 ## Running reproduce scripts 
 Assumes model folders have been populated and their paths are written on `models_to_test.txt`.
