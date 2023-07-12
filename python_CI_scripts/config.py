@@ -21,7 +21,10 @@ FILES = {"failed-downloads": ROOTS["resources-root"] / "failed_download_rdfs.txt
          "summa-readme": ROOTS["summa-root"] / "Readme.md"}
 
 "Constants that are not files"
-CONSTANTS = {"model-dir-name": "the_model",
+CONSTANTS = {"CI-output-name": "CI_OUTPUT.tif",
+             "model-dir-name": "the_model",
+             "sample-input-name": "sample_input_0.tif",
+             "sample-output-name": "sample_output_0.tif",
              "summary-name": "test_summary.yaml",
              "summa-readme-header": "# Report summary",
              "valid-weight-keys": ["torchscript", "pytorch_script", "tensorflow_saved_model_bundle", "onnx"]}

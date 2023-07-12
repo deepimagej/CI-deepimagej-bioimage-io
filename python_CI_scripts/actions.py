@@ -9,8 +9,6 @@ import errors
 import downloads
 
 
-
-
 def initial_pipeline(ini_return, input_json):
     """input_json already parsed"""
     rdf_paths = collection.get_rdfs_to_test(input_json)
@@ -40,7 +38,7 @@ def download_pipeline(input_json):
 
     tic = utils.print_start_msg("Started download of {} models".format(len(keep_testing_ini)))
     list(map(lambda x: downloads.download_model(x, verb=True), keep_testing_ini))
-    utils.print_elapsed_time(tic, "Finished downloads")
+    utils.print_elapsed_time(tic, "Finished all downloads")
 
     models_discriminated = errors.separate_by_error(keep_testing_ini, errors.download_errors_fns)
     keep_testing_dw = models_discriminated["keep-testing"]
