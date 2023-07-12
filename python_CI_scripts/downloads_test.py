@@ -5,6 +5,7 @@ import models
 import errors
 from collection_test import resources_list as lightweight_json
 
+# test download_model
 lightweight_models = list(map(lambda x: models.build_model(x), collection.get_rdfs_to_test(lightweight_json)))
 downloads.download_model(lightweight_models[0], verb=True)
 assert errors.is_success_download(lightweight_models[0])

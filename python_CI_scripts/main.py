@@ -6,6 +6,10 @@ import collection
 from functools import partial
 import argparse
 
+import warnings
+warnings.filterwarnings('ignore', category=UserWarning)
+warnings.filterwarnings('ignore', category=RuntimeWarning)
+
 parser = argparse.ArgumentParser(
     prog="main.py",
     description="Python CI for testing bioimagio models in deepimagej",
@@ -21,11 +25,12 @@ parser.add_argument('-s', '--json-string', action='store')
 
 args = parser.parse_args()
 
+print()
 print("args.json_file is:", args.json_file)
 print("Args are:", args)
 
 input_json = collection.file_json_2_vector(args.json_file) if args.json_string is None else collection.str_json_2_vector(args.json_string)
-print("\nInput json is:\n", input_json)
+print("\nInput json is:\n {} \n".format(input_json))
 
 action_fns = {"init": partial(actions.initial_pipeline, ini_return=False, input_json=input_json),
               "download": partial(actions.download_pipeline, input_json=input_json),

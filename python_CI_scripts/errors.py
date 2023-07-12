@@ -99,6 +99,8 @@ def check_error(discriminated_models, error_key_and_fn):
     to_keep, with_error = utils.get(groups, True), utils.get(groups, False)
     if with_error is None:
         with_error = []
+    if to_keep is None:
+        to_keep = []
     if "error-found" not in discriminated_models:
         discriminated_models["error-found"] = {}
     discriminated_models["error-found"][error_key] = with_error

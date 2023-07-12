@@ -4,6 +4,7 @@ from config import FILES
 
 from functools import reduce
 from pathlib import Path
+from datetime import datetime
 
 
 def get(dic, key):
@@ -55,11 +56,25 @@ def count_dict(d):
     return reduce(fn, d.items(), {})
 
 
-def print_and_log(msg, log_files):
+def print_and_log(msg, log_files, pr=True):
     """Prints a string message and logs it on all log files provided"""
-    print(msg, flush=True, end="")
+    if pr:
+        print(msg, flush=True, end="")
     for log in log_files:
         with open(log, 'a') as f:
             f.write(msg)
 
 
+def print_start_msg(msg, indent_level=0):
+    tic = datetime.now()
+    indent = " " * 2 * indent_level
+    print("{}{}, started at: {}".format(indent, msg, tic))
+    return tic
+
+
+def print_elapsed_time(tic, msg, indent_level=0):
+    tac = datetime.now()
+    indent = " " * 2 * indent_level
+    print("{}{} at: {}".format(indent, msg, tac))
+    print("{}Elapsed time: {}".format(indent, tac - tic))
+    return tac
