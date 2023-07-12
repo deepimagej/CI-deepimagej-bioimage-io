@@ -4,7 +4,6 @@ from config import CONSTANTS
 import utils
 from functools import reduce
 
-
 "Errors that could happen during the initial checks"
 initial_errors = {"no-dij-config": "rdf does not have keys for :config :deepimagej",
                   "no-sample-images": "Sample image tiffs have not been generated from numpy tests files",
@@ -78,7 +77,17 @@ def is_success_download(model_record):
     return extracted_path.exists()
 
 
-download_errors_fns = {"download-fail": is_success_download}
+def is_correct_images(model_record):
+    """Checks if correct sample images have been saved"""
+    folder_path = utils.get_in(model_record, ["paths", "model-dir-path"])
+    input_path = folder_path / CONSTANTS["sample-input-name"]
+    output_path = folder_path / CONSTANTS["sample-output-name"]
+    return input_path.exists() and output_path.exists()
+
+
+download_errors_fns = {"download-fail": is_success_download,
+                       "no-test-images": is_correct_images}
+
 
 # REPRODUCE CHECKS
 
@@ -112,6 +121,3 @@ def separate_by_error(models_list, error_fns):
     """Discriminative function should return true to keep testing, false if error occurred
     After an error happens, no more error checks are made for a model"""
     return reduce(check_error, error_fns.items(), {"keep-testing": models_list})
-
-
-

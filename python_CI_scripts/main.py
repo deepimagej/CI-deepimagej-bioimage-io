@@ -1,5 +1,5 @@
 # info for arg parsing https://docs.python.org/3/library/argparse.html
-from config import ROOTS
+from config import ROOTS, CONSTANTS
 import actions
 import collection
 
@@ -35,5 +35,9 @@ print("\nInput json is:\n {} \n".format(input_json))
 action_fns = {"init": partial(actions.initial_pipeline, ini_return=False, input_json=input_json),
               "download": partial(actions.download_pipeline, input_json=input_json),
               "reproduce": actions.reproduce_pipeline}
+
+# create necessary folders
+(ROOTS["summa-root"]/CONSTANTS["errors-dir-name"]).mkdir(parents=True, exist_ok=True)
+ROOTS["resources-root"].mkdir(parents=True, exist_ok=True)
 
 action_fns[args.action]()
