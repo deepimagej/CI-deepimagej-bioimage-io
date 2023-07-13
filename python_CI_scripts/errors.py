@@ -15,7 +15,7 @@ initial_errors = {"no-dij-config": "rdf does not have keys for :config :deepimag
 "Errors that could happen while downloading files for testing"
 download_errors = {"download-fail": "Failure to download model with 'bioimageio.core.export_resource_package'",
                    "no-test-images": "No correct sample images to test",
-                   "no-p*process": "Needed p*processing file not found (imagej macro)"}
+                   "no-pprocess": "P*processing yaml info and files do not agree"}
 
 "Errors that could happen trying to reproduce output with DeepImageJ"
 reproduce_errors = {"dij-headless": "Error while running DeepImageJ headless (CI did not produce an output image)",
@@ -84,6 +84,13 @@ def is_correct_images(model_record):
     output_path = folder_path / CONSTANTS["sample-output-name"]
     return input_path.exists() and output_path.exists()
 
+
+def is_correct_pprocess(model_record):
+    """Checks if preprocessing stated in the yaml is in the downloaded folder"""
+    extracted_path = utils.get_in(model_record, ["paths", "model-dir-path"]) / CONSTANTS["model-dir-name"]
+
+
+    # rules
 
 download_errors_fns = {"download-fail": is_success_download,
                        "no-test-images": is_correct_images}
