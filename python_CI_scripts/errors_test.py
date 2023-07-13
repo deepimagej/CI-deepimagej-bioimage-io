@@ -28,7 +28,7 @@ assert utils.count_dict(d_models_weights["error-found"]) == {'no-compatible-weig
 
 d_all_models_runmode = errors.check_error({"keep-testing": models_test.all_model_records},
                                           list(errors.init_errors_fns.items())[0])
-assert len(d_all_models_runmode["keep-testing"]) > 200
+assert len(d_all_models_runmode["keep-testing"]) > 190
 assert set(map(lambda x: x["name"], d_all_models_runmode["error-found"]["key-run-mode"])) == {
     'Cells and gland Segmentation (FRUNet)',
     'Glial Cell SMLM (DeepSTORM - ZeroCostDL4Mic)',

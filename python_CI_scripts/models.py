@@ -27,7 +27,8 @@ def get_paths_info(rdf_path):
     return {"rdf-path": rdf_path,
             "summa-path": utils.new_root_path(old_root, ROOTS["summa-root"], rdf_path),
             "model-dir-path": utils.new_root_path(old_root, ROOTS["models-root"], rdf_path),
-            "samples-path": utils.new_root_path(old_root, ROOTS["samples-root"], rdf_path)}
+            "samples-path": utils.new_root_path(old_root, ROOTS["samples-root"], rdf_path),
+            "manual-samples-path": utils.new_root_path(old_root, ROOTS["samples-root"] / "manual", rdf_path)}
 
 
 def get_weight_info(rdf_dict):
