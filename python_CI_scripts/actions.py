@@ -69,6 +69,9 @@ def download_pipeline(input_json):
 
 def reproduce_pipeline():
     """Reproduce pipeline for Windows"""
-    # Todo, read serialized models to keep testing after download (download_keep-testing.yaml)
+    # read serialized models to keep testing after download (download_keep-testing.yaml)
+    rdf_paths = models.parse_model(ROOTS["summa-root"] / CONSTANTS["errors-dir-name"]/ "download_keep-testing.yaml")
+
+
     # TODO generate dij args files
     return

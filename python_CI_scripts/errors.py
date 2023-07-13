@@ -9,13 +9,13 @@ initial_errors = {"no-dij-config": "rdf does not have keys for :config :deepimag
                   "no-sample-images": "Sample image tiffs have not been generated from numpy tests files",
                   "no-compatible-weights": "rdf does not have a compatible weight format",
                   "key-run-mode": "Test not yet available: rdf contains the key run_mode with value deepimagej",
-                  "no-p*process": "Needed p*processing file is not in the attachments (cannot be downloaded)",
                   "not-a-model": "rdf type is not a DL model",  # no test summaries for these though,
                   "incompatible-spec": "Version of the rdf is incompatible with DeepImageJ"}
 
 "Errors that could happen while downloading files for testing"
 download_errors = {"download-fail": "Failure to download model with 'bioimageio.core.export_resource_package'",
-                   "no-test-images": "No correct sample images to test"}
+                   "no-test-images": "No correct sample images to test",
+                   "no-p*process": "Needed p*processing file not found (imagej macro)"}
 
 "Errors that could happen trying to reproduce output with DeepImageJ"
 reproduce_errors = {"dij-headless": "Error while running DeepImageJ headless (CI did not produce an output image)",
