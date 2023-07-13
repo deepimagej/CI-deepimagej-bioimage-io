@@ -26,6 +26,8 @@ def initial_pipeline(ini_return, input_json):
     # report the errors & comm file
     list(map(lambda x: x.unlink(), (ROOTS["summa-root"]/CONSTANTS["errors-dir-name"]).glob("*")))
 
+    list(map(lambda x: comm.serialize_models(x, "all"), ({"models_to_test": model_records}).items()))
+
     list(map(lambda x: comm.serialize_models(x, "init"),
              ({"keep-testing": keep_testing} | models_discriminated["error-found"]).items()))
 
