@@ -24,10 +24,15 @@ pt_rdf = Path(ROOTS["collection-root"], "10.5281", "zenodo.5874741", "5874742", 
 
 not_a_model_rdf = Path(ROOTS["collection-root"], "bioimageio", "qupath", "latest", "rdf.yaml")
 
+a_parsed, tf_parsed, pt_parsed = list(map(lambda x: models.parse_model(x), [an_rdf, tf_rdf, pt_rdf]))
+
 # test weight info
-w1, w2, w3 = list(map(lambda x: models.get_weight_info(models.parse_model(x)), [an_rdf, tf_rdf, pt_rdf]))
+w1, w2, w3 = list(map(lambda x: models.get_weight_info(x), [a_parsed, tf_parsed, pt_parsed]))
 assert w1 == [] and w2 == ["tensorflow_saved_model_bundle"] and w3 == ["torchscript"]
 assert models.get_weight_info(models.parse_model(not_a_model_rdf)) == []
+
+# test get_pprocess_info
+
 
 # test tensor info
 inputs = models.get_tensor_info(models.parse_model(an_rdf), "inputs")

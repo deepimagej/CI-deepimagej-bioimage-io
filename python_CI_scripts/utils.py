@@ -22,7 +22,7 @@ def get_in(dic, key_list, default=None):
     if len(key_list) == 1:
         return dic.get(key_list[0], default)
     else:
-        return get_in(dic[key_list[0]], key_list[1:], default=default)
+        return get_in(dic.get(key_list[0], {}), key_list[1:], default=default)
 
 
 

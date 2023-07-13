@@ -40,6 +40,19 @@ def get_weight_info(rdf_dict):
     return []
 
 
+def get_pprocess_info(rdf_dict, type_="inputs"):
+    """Gathers information about pre- or post-processing from the parsed yaml file"""
+    pp = "preprocessing" if type_ == "inputs" else "postprocessing"
+    _puts_dict = rdf_dict.get(type_)[0]
+    pp_dict = _puts_dict.get(pp, [{}])[0]
+    name = utils.get_in(pp_dict, ["name"], default="")
+    mode = utils.get_in(pp_dict, ["kwargs", "mode"], default="")
+    if mode == "":
+        return name
+    else:
+        return mode + "_" + name
+
+
 def get_tensor_info(rdf_dict, type_="inputs"):
     """Get info about input/output tensors"""
     tensor_list = utils.get(rdf_dict, type_)
@@ -55,6 +68,10 @@ def get_tensor_info(rdf_dict, type_="inputs"):
         tensor_info["original-sample"] = Path(sample_inputs[0]).name
     if test_inputs is not None:
         tensor_info["original-test"] = Path(test_inputs[0]).name
+
+    # pp_name = get_pprocess_info(rdf_dict, type_)
+    # if len(pp_name) > 2:
+    #     tensor_info["original-p*process"] = pp_name
 
     return tensor_info
 
