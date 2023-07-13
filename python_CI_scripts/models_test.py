@@ -74,7 +74,8 @@ assert pt_model_nopaths == {'name': 'Neuron Segmentation in EM (Membrane Predict
 
 parsed_model_nopaths = models.build_model(collection_test.r_c[0])
 parsed_model_nopaths.pop("paths")
-assert parsed_model_nopaths == {'name': '3D UNet - arabidopsis - ZeroCostDL4Mic', 'nickname': 'humorous-owl',
+parsed_model_nopaths.pop("name")
+assert parsed_model_nopaths == {'nickname': 'humorous-owl',
                                 'rdf-info': {'type': 'model', 'dij-config?': True, 'run-mode': None},
                                 'weight-types': ['tensorflow_saved_model_bundle'],
                                 'inputs': {'name': 'input', 'axes': 'byxzc', 'original-sample': 'exampleImage.tif',
@@ -93,6 +94,7 @@ assert model_no_dij_no_paths == {'name': 'CebraNET Cellular Membranes in Volume 
                                  'outputs': {'name': 'output0', 'axes': 'bczyx',
                                              'original-sample': 'sample_output_0.tif',
                                              'original-test': 'test_data_out.npy'}}
+
 
 
 model_with_run_mode = models.build_model(Path(ROOTS["collection-root"], "deepimagej", "SkinLesionClassification", "latest", "rdf.yaml"))

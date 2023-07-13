@@ -6,6 +6,7 @@ import utils
 
 import json
 import yaml
+import numpy as np
 
 
 def paths2string(model_record):
@@ -18,7 +19,7 @@ def paths2string(model_record):
     return str_model
 
 
-def serialize_models(error_data_structure, stage, out_folder=ROOTS["summa-root"]/CONSTANTS["errors-dir-name"]):
+def serialize_models(error_data_structure, stage, out_folder=ROOTS["summa-root"] / CONSTANTS["errors-dir-name"]):
     """
     Write the models after they have been discriminated by an error, at a certain stage.
     Model records as json
@@ -35,5 +36,28 @@ def serialize_models(error_data_structure, stage, out_folder=ROOTS["summa-root"]
     with open(out_folder / (file_name + ".yaml"), "w") as yaml_file:
         yaml.dump(rdf_paths, yaml_file, default_flow_style=False, sort_keys=False)
 
-# TODO dij args
-# get the shape with numpy form the test images
+
+# TODO (in progress) COMPOSE THE ARGUMENTS FOR DEEPIMAGEJ
+
+def format_axes(model_record):
+    """Changes format of axes from rdf (e.g. byzxc) to the one needed for DIJ (e.g. Y,Z,X,C)"""
+    axes = utils.get_in(model_record, ["inputs", "axes"])
+    axes = axes.replace("b", "").upper()
+    return ",".join(list(axes))
+
+
+def get_input_shape(model_record):
+    """
+    The tile will be the original shape of the input image (without the initial batch).
+    This information comes from the numpy, is stored in the file input_shape.edn
+    """
+    extracted_path = utils.get_in(model_record, ["paths", "model-dir-path"]) / CONSTANTS["model-dir-name"]
+    test_input = np.load(extracted_path / utils.get_in(model_record, ["inputs", "original-test"]))
+    return ",".join(list(map(str, test_input.shape[1:])))
+
+
+def get_weight_format(model_record):
+    """Gets the 'dij-macro-compatible' weight format from a model record"""
+    # go through valid weight formats,
+    # see the first one in model["weigth-types"]
+    # associate with correct name e.g. Pytorch not torchscript
