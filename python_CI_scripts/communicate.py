@@ -7,6 +7,7 @@ import utils
 import json
 import yaml
 import numpy as np
+import os
 
 
 def paths2string(model_record):
@@ -100,4 +101,31 @@ def build_dij_arg(model_record):
             "tile": get_input_shape(model_record),
             "logging": "Normal"}
 
+
+def dij_arg_str(model_record):
+    """Makes the DIJ argument as a string"""
+    arg_record = build_dij_arg(model_record)
+    args = list(map(lambda x: "{}={}".format(x[0], utils.bracketize(x[1])), arg_record.items()))
+    return " ".join(args)
+
+
+def get_model_folder_str(model_record):
+    """Gets the model path as a string and with the file separators needed in an imageJ script"""
+    str_path = str(utils.get_in(model_record, ["paths", "model-dir-path"])) + os.sep
+    return str_path.replace("\\","/")
+
+
+def build_dij_record(model_record):
+    """Note: the name of the test images will no longer be the one in the yaml,
+    because all tiffs generated from numpy have the same name."""
+    return {"nickname": model_record.get("nickname"),
+            "name": model_record.get("name"),
+            "dij-arg": dij_arg_str(model_record),
+            "model-folder": get_model_folder_str("model_record"),
+            "input-img": CONSTANTS["sample-input-name"],
+            "output-img": CONSTANTS["sample-output-name"]}
+
+
+def write_dij_record(model_record):
+    return
 
