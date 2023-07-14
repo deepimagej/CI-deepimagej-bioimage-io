@@ -36,6 +36,6 @@ CONSTANTS = {"CI-output-name": "CI_OUTPUT.tif",
 
 def absolutize_nested(dic):
     """absolutize values of dictionary that are files"""
-    tuples = list(map(lambda x: [x[0], absolutize_nested(x[1]) if isinstance(x[1], dict) else str(x[1].absolute())],
-                      dic.items()))
+    tuples = map(lambda x: [x[0], absolutize_nested(x[1]) if isinstance(x[1], dict) else str(x[1].absolute())],
+                 dic.items())
     return dict(tuples)
