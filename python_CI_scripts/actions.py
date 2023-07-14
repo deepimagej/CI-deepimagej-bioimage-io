@@ -86,6 +86,12 @@ def reproduce_pipeline():
     # read serialized models to keep testing after download (download_keep-testing.yaml)
     rdf_paths = models.parse_model(ROOTS["summa-root"] / CONSTANTS["errors-dir-name"]/ "download_keep-testing.yaml")
 
+    # todo # Serialize config
 
-    # TODO generate dij args files
+    # todo # Call fiji commands
+
+    # todo # write test summaries for errors during reproduce
+
+    # todo # report the errors & comm files
+
     return

@@ -112,7 +112,7 @@ def dij_arg_str(model_record):
 def get_model_folder_str(model_record):
     """Gets the model path as a string and with the file separators needed in an imageJ script"""
     str_path = str(utils.get_in(model_record, ["paths", "model-dir-path"])) + os.sep
-    return str_path.replace("\\","/")
+    return str_path.replace("\\", "/")
 
 
 def build_dij_record(model_record):
