@@ -1,6 +1,6 @@
 """Generally used functions"""
 
-from config import FILES
+from config import FILES, CONSTANTS
 
 from functools import reduce
 from pathlib import Path
@@ -78,3 +78,12 @@ def print_elapsed_time(tic, msg, indent_level=0):
     print("{}{} at: {}".format(indent, msg, tac))
     print("{}Elapsed time: {}".format(indent, tac - tic))
     return tac
+
+
+def bracketize(s, special_chars=CONSTANTS["special-headless-chars"]):
+    """Surround a string with [brackets] if it has special characters (spaces, underscores, points, ...)"""
+    contains_special = reduce(lambda x, y: x or y, (map(lambda x: x in s, special_chars)))
+    if contains_special:
+        return "[" + s + "]"
+    else:
+        return s

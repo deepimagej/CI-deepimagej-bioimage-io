@@ -19,3 +19,9 @@ assert groups == {1: ["a"], 2: ["as", "aa"], 3: ["asd"], 4: ["asdf", "qwer"]}
 # test count_dict
 d = {'a': [1, 2, 3, 4], 'b': [3, 5]}
 assert count_dict(d) == {'a': 4, 'b': 2}
+
+# test bracketize
+assert bracketize("abc") == "abc"
+assert "[with many spaces]" == bracketize("with many spaces")
+assert "[with_underscores_]" == bracketize("with_underscores_")
+assert "[binarize_.ijm]" == bracketize("binarize_.ijm")

@@ -44,4 +44,23 @@ creative_panda_model = models.build_model(Path(ROOTS["collection-root"], "10.528
 assert comm.get_pprocess(creative_panda_model, "inputs") == "per_sample_scale_range.ijm"
 assert comm.get_pprocess(creative_panda_model, "outputs") == "binarize.ijm"
 
+# test build_dij_arg
+assert comm.build_dij_arg(tf_model_record) == {'model': 'Cell Segmentation from Membrane Staining for Plant Tissues',
+                                               'format': 'Tensorflow',
+                                               'preprocessing': 'per_sample_scale_range.ijm',
+                                               'postprocessing': 'binarize.ijm',
+                                               'axes': 'Y,X,Z,C',
+                                               'tile': '256,256,8,1',
+                                               'logging': 'Normal'}
 
+assert comm.build_dij_arg(pt_model_record) == {'model': 'Neuron Segmentation in EM (Membrane Prediction)',
+                                               'format': 'Pytorch',
+                                               'preprocessing': 'zero_mean_unit_variance.ijm',
+                                               'postprocessing': 'no postprocessing',
+                                               'axes': 'C,Z,Y,X',
+                                               'tile': '1,32,360,360',
+                                               'logging': 'Normal'}
+
+# do not format the text, these strings need to be in 1 line to work on DeepImageJ
+# "model=[Cell Segmentation from Membrane Staining for Plant Tissues] format=Tensorflow preprocessing=[per_sample_scale_range.ijm] postprocessing=[binarize.ijm] axes=Y,X,Z,C tile=256,256,8,1 logging=Normal"
+# "model=[Neuron Segmentation in EM (Membrane Prediction)] format=Pytorch preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Z,Y,X tile=1,32,360,360 logging=Normal",

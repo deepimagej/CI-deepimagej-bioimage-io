@@ -82,8 +82,22 @@ def get_pprocess(model_record, type_="inputs"):
     if name == "":
         return "no " + pp
 
-    files = list(extracted_path.glob("*"+name+"*"))
+    files = list(extracted_path.glob("*" + name + "*"))
     if len(files) == 0:
         return "no " + pp
 
     return files[0].name
+
+
+def build_dij_arg(model_record):
+    """Builds the argument string needed for the DeepImageJ Run command.
+    All args are required and are needed in the right order"""
+    return {"model": model_record.get("name"),
+            "format": get_weight_format(model_record),
+            "preprocessing": get_pprocess(model_record, "inputs"),
+            "postprocessing": get_pprocess(model_record, "outputs"),
+            "axes": format_axes(model_record),
+            "tile": get_input_shape(model_record),
+            "logging": "Normal"}
+
+
