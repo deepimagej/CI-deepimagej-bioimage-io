@@ -31,7 +31,7 @@ def serialize_models(error_data_structure, stage, out_folder=ROOTS["summa-root"]
     str_model_records = list(map(lambda x: paths2string(x), model_records))
 
     with open(out_folder / (file_name + ".json"), 'w') as fp:
-        json.dump({file_name: str_model_records}, fp, indent=2, )
+        json.dump({file_name: str_model_records}, fp, indent=2)
 
     rdf_paths = list(map(lambda x: utils.get_in(x, ["paths", "rdf-path"]), str_model_records))
     with open(out_folder / (file_name + ".yaml"), "w") as yaml_file:
@@ -121,11 +121,19 @@ def build_dij_record(model_record):
     return {"nickname": model_record.get("nickname"),
             "name": model_record.get("name"),
             "dij-arg": dij_arg_str(model_record),
-            "model-folder": get_model_folder_str("model_record"),
+            "model-folder": get_model_folder_str(model_record),
             "input-img": CONSTANTS["sample-input-name"],
             "output-img": CONSTANTS["sample-output-name"]}
 
 
-def write_dij_record(model_record):
-    return
+def write_dij_record(model_record, verb=False):
+    """Writes the serialized dij record in the model folder"""
+    folder = utils.get_in(model_record, ["paths", "model-dir-path"])
+    content = build_dij_record(model_record)
+
+    with open(folder / CONSTANTS["dij-args-filename"], 'w') as f:
+        json.dump(content, f, indent=2)
+
+    if verb:
+        print("written {} in {}".format(CONSTANTS["dij-args-filename"], folder))
 

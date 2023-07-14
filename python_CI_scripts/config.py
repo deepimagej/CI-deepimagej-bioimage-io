@@ -22,6 +22,7 @@ FILES = {"failed-downloads": ROOTS["resources-root"] / "failed_download_rdfs.txt
 
 "Constants that are not files"
 CONSTANTS = {"CI-output-name": "CI_OUTPUT.tif",
+             "dij-args-filename": "dij_args.json",
              "errors-dir-name": "errors_info",
              "model-dir-name": "the_model",
              "sample-input-name": "sample_input_0.tif",

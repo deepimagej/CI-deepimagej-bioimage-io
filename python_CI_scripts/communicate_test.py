@@ -64,7 +64,21 @@ assert comm.build_dij_arg(pt_model_record) == {'model': 'Neuron Segmentation in 
 # test dij_arg_str
 # do not format the text, these strings need to be in 1 line to work on DeepImageJ
 tf_arg = "model=[Cell Segmentation from Membrane Staining for Plant Tissues] format=Tensorflow preprocessing=[per_sample_scale_range.ijm] postprocessing=[binarize.ijm] axes=Y,X,Z,C tile=256,256,8,1 logging=Normal"
-pt_arg = "model=[Neuron Segmentation in EM (Membrane Prediction)] format=Pytorch preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Z,Y,X tile=1,32,360,360 logging=Normal",
+
+pt_arg = "model=[Neuron Segmentation in EM (Membrane Prediction)] format=Pytorch preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Z,Y,X tile=1,32,360,360 logging=Normal"
 
 assert comm.dij_arg_str(pt_model_record) == pt_arg
 assert comm.dij_arg_str(tf_model_record) == tf_arg
+
+# test build_dij_record
+pt_dij_nopath = comm.build_dij_record(pt_model_record)
+pt_dij_nopath.pop("model-folder")
+assert pt_dij_nopath == {'nickname': 'impartial-shrimp',
+                         'name': 'Neuron Segmentation in EM (Membrane Prediction)',
+                         'dij-arg': 'model=[Neuron Segmentation in EM (Membrane Prediction)] format=Pytorch preprocessing=[zero_mean_unit_variance.ijm] postprocessing=[no postprocessing] axes=C,Z,Y,X tile=1,32,360,360 logging=Normal',
+                         'input-img': 'sample_input_0.tif',
+                         'output-img': 'sample_output_0.tif'}
+
+# test write_dij_record
+comm.write_dij_record(pt_model_record, verb=True)
+comm.write_dij_record(tf_model_record, verb=True)
