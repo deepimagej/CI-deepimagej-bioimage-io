@@ -85,13 +85,6 @@ def is_correct_images(model_record):
     return input_path.exists() and output_path.exists()
 
 
-def is_correct_pprocess(model_record):
-    """Checks if preprocessing stated in the yaml is in the downloaded folder"""
-    extracted_path = utils.get_in(model_record, ["paths", "model-dir-path"]) / CONSTANTS["model-dir-name"]
-
-
-    # rules
-
 download_errors_fns = {"download-fail": is_success_download,
                        "no-test-images": is_correct_images}
 

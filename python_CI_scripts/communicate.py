@@ -60,4 +60,30 @@ def get_weight_format(model_record):
     """Gets the 'dij-macro-compatible' weight format from a model record"""
     # go through valid weight formats,
     # see the first one in model["weigth-types"]
-    # associate with correct name e.g. Pytorch not torchscript
+    # Associate key=name of weights in the yaml, and val=name of weights in model record e.g. Pytorch not torchscript
+
+    weight_names = {"torchscript": "Pytorch",
+                    "tensorflow_saved_model_bundle": "Tensorflow",
+                    "onnx": "Onnx"}
+
+    weights_in_model = model_record.get("weight-types")
+
+    for w in CONSTANTS["valid-weight-keys"]:
+        if w in weights_in_model:
+            return weight_names[w]
+
+
+def get_pprocess(model_record, type_="inputs"):
+    """Gets the name of the corresponding pre- or post-processing file"""
+    pp = {"inputs": "pre", "outputs": "post"}[type_] + "processing"
+    name = utils.get_in(model_record, [type_, "original-p*process"], default="")
+    extracted_path = utils.get_in(model_record, ["paths", "model-dir-path"]) / CONSTANTS["model-dir-name"]
+
+    if name == "":
+        return "no " + pp
+
+    files = list(extracted_path.glob("*"+name+"*"))
+    if len(files) == 0:
+        return "no " + pp
+
+    return files[0].name
