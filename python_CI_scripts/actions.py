@@ -21,6 +21,10 @@ def initial_pipeline(ini_return, input_json):
     with open(FILES["summa-readme"], "w") as f:
         f.write(CONSTANTS["summa-readme-header"] + "\n")
 
+    utils.print_and_log("\n{} models to test ({} rdf paths)\n\n".format(len(model_records), len(rdf_paths)),
+                        [FILES["summa-readme"]])
+
+    # write test summaries for errors during init
     list(map(lambda x: summaries.write_summaries_from_error(x), models_discriminated["error-found"].items()))
 
     # report the errors & comm file
@@ -57,14 +61,22 @@ def download_pipeline(input_json):
     models_discriminated = errors.separate_by_error(keep_testing_ini, errors.download_errors_fns)
     keep_testing_dw = models_discriminated["keep-testing"]
     print()
-    list(map(lambda x: summaries.write_summaries_from_error(x), models_discriminated["error-found"].items()))
 
-    utils.print_and_log("\n{} models to keep testing after download.\nDetailed information in {}\n\n".format(
-        len(keep_testing_dw), ROOTS["summa-root"]/CONSTANTS["errors-dir-name"]), [FILES["summa-readme"]])
+    # write test summaries for errors during download
+    list(map(lambda x: summaries.write_summaries_from_error(x), models_discriminated["error-found"].items()))
 
     # report the errors & comm files
     list(map(lambda x: comm.serialize_models(x, "download"),
              ({"keep-testing": keep_testing_dw} | models_discriminated["error-found"]).items()))
+
+    utils.print_and_log("\n{} models to keep testing after download.\nDetailed information in {}\n".format(
+        len(keep_testing_dw), ROOTS["summa-root"]/CONSTANTS["errors-dir-name"]), [FILES["summa-readme"]])
+
+    # write dij_args.json for every model to test in fiji
+    list(map(lambda x: comm.write_dij_record(x), keep_testing_dw))
+    utils.print_and_log("\nComm file '{}' created for these {} models \n\n".format(CONSTANTS["dij-args-filename"],
+                                                                                    len(keep_testing_dw)),
+                        [FILES["summa-readme"]])
 
     return
 
@@ -74,6 +86,12 @@ def reproduce_pipeline():
     # read serialized models to keep testing after download (download_keep-testing.yaml)
     rdf_paths = models.parse_model(ROOTS["summa-root"] / CONSTANTS["errors-dir-name"]/ "download_keep-testing.yaml")
 
+    # todo # Serialize config
 
-    # TODO generate dij args files
+    # todo # Call fiji commands
+
+    # todo # write test summaries for errors during reproduce
+
+    # todo # report the errors & comm files
+
     return

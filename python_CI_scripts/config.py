@@ -15,17 +15,27 @@ ROOTS = {"collection-root": Path("..", "bioimageio-gh-pages", "rdfs").absolute()
          "fiji-home": Path.home() / "blank_fiji"}
 
 "Configuration constants that are files"
-FILES = {"failed-downloads": ROOTS["resources-root"] / "failed_download_rdfs.txt",
+FILES = {"config": ROOTS["resources-root"] / "config.json",
+         "failed-downloads": ROOTS["resources-root"] / "failed_download_rdfs.txt",
          "logs": {"out": ROOTS["summa-root"] / "fiji_log_out.txt",
                   "err": ROOTS["summa-root"] / "fiji_log_err.txt"},
          "summa-readme": ROOTS["summa-root"] / "Readme.md"}
 
 "Constants that are not files"
 CONSTANTS = {"CI-output-name": "CI_OUTPUT.tif",
+             "dij-args-filename": "dij_args.json",
              "errors-dir-name": "errors_info",
              "model-dir-name": "the_model",
              "sample-input-name": "sample_input_0.tif",
              "sample-output-name": "sample_output_0.tif",
+             "special-headless-chars": {" ", "_", "."},
              "summary-name": "test_summary.yaml",
              "summa-readme-header": "# Report summary",
              "valid-weight-keys": ["torchscript", "pytorch_script", "tensorflow_saved_model_bundle", "onnx"]}
+
+
+def absolutize_nested(dic):
+    """absolutize values of dictionary that are files"""
+    tuples = map(lambda x: [x[0], absolutize_nested(x[1]) if isinstance(x[1], dict) else str(x[1].absolute())],
+                 dic.items())
+    return dict(tuples)

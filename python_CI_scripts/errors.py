@@ -15,7 +15,7 @@ initial_errors = {"no-dij-config": "rdf does not have keys for :config :deepimag
 "Errors that could happen while downloading files for testing"
 download_errors = {"download-fail": "Failure to download model with 'bioimageio.core.export_resource_package'",
                    "no-test-images": "No correct sample images to test",
-                   "no-p*process": "Needed p*processing file not found (imagej macro)"}
+                   "no-pprocess": "P*processing yaml info and files do not agree"}
 
 "Errors that could happen trying to reproduce output with DeepImageJ"
 reproduce_errors = {"dij-headless": "Error while running DeepImageJ headless (CI did not produce an output image)",

@@ -8,6 +8,7 @@ lightweight_json = collection.file_json_2_vector(ROOTS["pending-matrix-root"] / 
 
 assert lightweight_json == [{'resource_id': '10.5281/zenodo.7786492', 'version_id': '7786493'},
                             {'resource_id': '10.5281/zenodo.5914248', 'version_id': '6514622'},
+                            {"resource_id": "10.5281/zenodo.8064806", "version_id": "8073617"},
                             {'resource_id': '10.5281/zenodo.6338614', 'version_id': '6338615'}]
 
 # test resources_2_paths
