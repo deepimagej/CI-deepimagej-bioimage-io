@@ -1,6 +1,7 @@
 """All the configuration constants in one place"""
 
 from pathlib import Path
+import json
 
 "Paths to folder roots"
 ROOTS = {"collection-root": Path("..", "bioimageio-gh-pages", "rdfs").absolute(),
@@ -28,7 +29,7 @@ CONSTANTS = {"CI-output-name": "CI_OUTPUT.tif",
              "model-dir-name": "the_model",
              "sample-input-name": "sample_input_0.tif",
              "sample-output-name": "sample_output_0.tif",
-             "special-headless-chars": {" ", "_", "."},
+             "special-headless-chars": [" ", "_", "."],
              "summary-name": "test_summary.yaml",
              "summa-readme-header": "# Report summary",
              "valid-weight-keys": ["torchscript", "pytorch_script", "tensorflow_saved_model_bundle", "onnx"]}
@@ -39,3 +40,16 @@ def absolutize_nested(dic):
     tuples = map(lambda x: [x[0], absolutize_nested(x[1]) if isinstance(x[1], dict) else str(x[1].absolute())],
                  dic.items())
     return dict(tuples)
+
+
+def serialize_config(config_file=FILES["config"], verb=True):
+    """Serialize config into a json file. Make the files into their absolute path strings"""
+    c_dict = {"ROOTS": absolutize_nested(ROOTS),
+              "FILES": absolutize_nested(FILES),
+              "CONSTANTS": CONSTANTS}
+
+    with open(config_file, 'w') as f:
+        json.dump(c_dict, f, indent=2)
+
+    if verb:
+        print("Config file saved in {}".format(config_file.absolute()))

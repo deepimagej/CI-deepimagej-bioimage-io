@@ -1,4 +1,5 @@
 """Define the steps for every action: init, download, and reproduce"""
+import config
 import summaries
 from config import ROOTS, FILES, CONSTANTS
 import utils
@@ -86,7 +87,8 @@ def reproduce_pipeline():
     # read serialized models to keep testing after download (download_keep-testing.yaml)
     rdf_paths = models.parse_model(ROOTS["summa-root"] / CONSTANTS["errors-dir-name"]/ "download_keep-testing.yaml")
 
-    # todo # Serialize config
+    # Serialize config
+    config.serialize_config()
 
     # todo # Call fiji commands
 

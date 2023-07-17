@@ -25,7 +25,6 @@ def get_in(dic, key_list, default=None):
         return get_in(dic.get(key_list[0], {}), key_list[1:], default=default)
 
 
-
 def new_root_path(old_root, new_root, file_path):
     """Returns a path with a new root"""
     return Path(new_root) / file_path.parent.relative_to(old_root)
