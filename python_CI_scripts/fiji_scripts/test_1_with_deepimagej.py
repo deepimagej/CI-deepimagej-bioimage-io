@@ -30,3 +30,6 @@ def print_elapsed_time(tic, msg, indent_level=0):
     print("{}{} at: {}".format(indent, msg, tac))
     print("{}Elapsed time: {}".format(indent, tac - tic))
     return tac
+
+
+print("Hi from script 1")

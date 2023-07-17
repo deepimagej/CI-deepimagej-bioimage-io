@@ -4,6 +4,7 @@ import summaries
 from config import ROOTS, FILES, CONSTANTS
 import utils
 
+from pathlib import Path
 import collection
 import models
 import errors
@@ -84,8 +85,11 @@ def download_pipeline(input_json):
 
 def reproduce_pipeline():
     """Reproduce pipeline for Windows"""
+
     # read serialized models to keep testing after download (download_keep-testing.yaml)
-    rdf_paths = models.parse_model(ROOTS["summa-root"] / CONSTANTS["errors-dir-name"]/ "download_keep-testing.yaml")
+    rdf_paths = models.parse_model(ROOTS["summa-root"] / CONSTANTS["errors-dir-name"] / "download_keep-testing.yaml")
+    model_records = list((map(lambda x: models.build_model(Path(x)), rdf_paths)))
+    model_paths = list(map(lambda x: comm.get_model_folder_str(x), model_records))
 
     # Serialize config
     config.serialize_config()
