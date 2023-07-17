@@ -8,7 +8,7 @@ import utils
 
 from pathlib import Path
 import datetime
-
+import subprocess
 
 script_names = list(map(lambda x: str(Path(".", "fiji_scripts", x).absolute()),
                         ["test_1_with_deepimagej.py", "create_output_metrics.py"]))
@@ -37,6 +37,29 @@ def quote_arg(model_folder):
 
 def compose_command(model_folder, script_name):
     """Creates a vector with the components of the command"""
-    return []
+    return [str(FILES["fiji-executable"].absolute())] + CONSTANTS["fiji-flags"] + [script_name, quote_arg(model_folder)]
 
 
+def gen_execution_dicts(all_model_folders):
+    """Generates a dict with execution info for every step (models). It has the commands and prints"""
+    return list(map(lambda i_m: {"message":  "- MODEL {:3}/{:3}".format(i_m[0]+1, len(all_model_folders)),
+                                 "cmd-vecs": list(map(lambda x: compose_command(i_m[1], x), script_names))},
+                    enumerate(all_model_folders)))
+
+
+def run_exec_step(execution_step, logs=FILES["logs"]):
+    """Perform the commands for 1 execution step (1 model, 2 scripts)"""
+
+    utils.print_and_log(execution_step["message"], [logs["out"], logs["err"]])
+    for cmd, msg in zip(execution_step["cmd-vecs"], script_prints):
+        utils.print_and_log(msg, [logs["out"], logs["err"]])
+        c = subprocess.run(cmd, capture_output=True, text=True)  # <- Shelling out happens here
+        utils.print_and_log(c.stdout, [logs["out"]], pr=True)
+        utils.print_and_log(c.stderr, [logs["err"]], pr=False)
+
+
+def test_models_in_fiji(all_model_folders, logs=FILES["logs"]):
+    """Runs the commands from the execution-dict. Logs outputs"""
+    tic = datetime.datetime.now()
+    # reset contents of log files
+    return
