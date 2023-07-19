@@ -22,3 +22,13 @@ Tested on: cmd, anaconda prompt, and powershell
 **Note**: 
 - The working directory of the script is the console working directory from where it is launched
 - This is also the directory where the `engines` (from JDLL) will be downloaded
+
+## Examples
+`test_1_with_deepiamgej.py`
+````
+C:\Users\hestevez\blank_fiji\Fiji.app\ImageJ-win64.exe --headless --ij2 --console --run C:\Users\hestevez\REPOS\CI-deepimagej-bioimage-io\python_CI_scripts\fiji_scripts\test_1_with_deepimagej.py folder='C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/python_CI_scripts/test_outputs/models/10.5281/zenodo.5764892/6647674/'
+````
+`create_output_metrics.py`
+````
+C:\Users\hestevez\blank_fiji\Fiji.app\ImageJ-win64.exe --headless --ij2 --console --run C:\Users\hestevez\REPOS\CI-deepimagej-bioimage-io\python_CI_scripts\fiji_scripts\create_output_metrics.py folder='C:/Users/hestevez/REPOS/CI-deepimagej-bioimage-io/python_CI_scripts/test_outputs/models/10.5281/zenodo.5764892/6647674/'
+````

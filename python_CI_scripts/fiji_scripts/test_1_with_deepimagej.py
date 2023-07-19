@@ -9,6 +9,7 @@ import time
 from ij import IJ
 
 
+
 def my_print(s, indent="   *** "):
     """start all prints with a default indent"""
     print(indent + str(s))
@@ -16,8 +17,9 @@ def my_print(s, indent="   *** "):
 
 
 my_print("The folder is: " + folder) # check if the argument is being read correctly
-my_print("pwd: " + os.getcwd())
+my_print("wd: " + os.getcwd())
 
+# Read config and dij record file
 config_dir = "test_outputs/resources/config.json"
 with open(config_dir, "r") as f:
     config = json.load(f)

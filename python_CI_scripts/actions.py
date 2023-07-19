@@ -100,6 +100,8 @@ def reproduce_pipeline():
 
     # todo # write test summaries for errors during reproduce
 
-    # todo # report the errors & comm files
+    # todo # write test summaries for models that pass
+
+    # todo # report the errors & comm files (pass in "reproduce_keep-testing.yaml")
 
     return
