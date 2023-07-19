@@ -21,6 +21,7 @@ FILES = {"config": ROOTS["resources-root"] / "config.json",
          "fiji-executable": ROOTS["fiji-home"] / "Fiji.app" / "ImageJ-win64.exe",
          "logs": {"out": ROOTS["summa-root"] / "fiji_log_out.txt",
                   "err": ROOTS["summa-root"] / "fiji_log_err.txt"},
+         "report": ROOTS["summa-root"] / "report.json",
          "summa-readme": ROOTS["summa-root"] / "Readme.md"}
 
 "Constants that are not files"

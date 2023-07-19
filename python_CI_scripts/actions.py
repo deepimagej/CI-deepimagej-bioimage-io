@@ -114,7 +114,14 @@ def reproduce_pipeline(skip_inference=False):
     # report the errors & comm files
     list(map(lambda x: comm.serialize_models(x, "reproduce"),
              ({"models-passing": models_passing} | models_discriminated["error-found"]).items()))
-
-    # todo # generate a report
-
     return
+
+
+def report():
+    """
+    Report the test information obtained during the CI. Uses:
+    - Model info
+    - Test summary info
+    - Metrics info
+    """
+
