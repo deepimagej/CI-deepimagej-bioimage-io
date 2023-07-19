@@ -58,7 +58,7 @@ python -u main.py -s "{\"include\": [{\"resource_id\": \"10.5281/zenodo.5910854\
 
 
 ## Running reproduce scripts 
-Assumes model folders have been populated and their paths are written on `models_to_test.txt`.
+Assumes model folders have been populated and the models to test after download are written on `test_summaries/errors_info/download_keep-testing.yaml`.
 ````
-TODO
+python -u main.py reproduce
 ````
