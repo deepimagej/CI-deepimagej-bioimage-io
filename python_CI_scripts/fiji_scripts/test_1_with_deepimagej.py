@@ -5,10 +5,11 @@ import sys
 import json
 import os
 import shutil
+import time
 from ij import IJ
 
 
-def my_print(s, indent="   "):
+def my_print(s, indent="   *** "):
     """start all prints with a default indent"""
     print(indent + str(s))
     sys.stdout.flush()
@@ -23,29 +24,8 @@ with open(config_dir, "r") as f:
 CONSTANTS = config["CONSTANTS"]
 ROOTS = config["ROOTS"]
 
-
 with open(os.path.join(folder, CONSTANTS["dij-args-filename"]), "r") as f:
     DIJ_RECORD = json.load(f)
-
-my_print(DIJ_RECORD.keys()) # debug
-my_print(DIJ_RECORD) # debug
-
-
-# Aux functions
-
-def print_start_msg(msg, indent_level=0):
-    tic = datetime.datetime.now()
-    ind = " " * 2 * indent_level
-    my_print("{}{}, started at: {}".format(ind, msg, tic))
-    return tic
-
-
-def print_elapsed_time(tic, msg, indent_level=0):
-    tac = datetime.datetime.now()
-    ind = " " * 2 * indent_level
-    my_print("{}{} at: {}".format(ind, msg, tac))
-    my_print("{}Elapsed time: {}".format(ind, tac - tic))
-    return tac
 
 
 # Functions to move the model_folder to Fiji/models for testing
@@ -69,32 +49,37 @@ def delete_model_folder(fiji_home=ROOTS["fiji-home"]):
 # Function to test with DIJ from Fiji
 
 def test_one_with_deepimagej(dij_record, fiji_home=ROOTS["fiji-home"]):
-    my_print("input paht:  "+dij_record["model-folder"] + dij_record["input-img"])
     try:
         imp = IJ.openImage(dij_record["model-folder"] + dij_record["input-img"])
     except Exception as e:
-        my_print("-- Error trying to open sample input image")
+        my_print("Error trying to open sample input image")
         return
 
     if imp is None:
-        my_print("-- Error trying to open sample input image")
+        my_print("Error trying to open sample input image")
         return
 
-    delete_model_folder()
-    copy_model_folder(model_folder=dij_record["model-folder"])
+    delete_model_folder(fiji_home)
+    copy_model_folder(fiji_home, model_folder=dij_record["model-folder"])
     try:
         IJ.run(imp, "DeepImageJ Run", dij_record["dij-arg"])
     except Exception as e:
-        my_print("-- Error during DeepImagej run")
+        my_print("Error during DeepImagej run")
         return
     try:
-        IJ.saveAs("Tiff", dij_record["model-folder"] + CONSTANTS["CI-output-name"])
+        ci_output_path = dij_record["model-folder"] + CONSTANTS["CI-output-name"]
+        IJ.saveAs("Tiff", ci_output_path)
+        my_print("CI output image saved in: " + ci_output_path)
     except Exception as e:
-        my_print("-- Error trying to save output image")
+        my_print("Error trying to save output image")
 
-    delete_model_folder()
+    delete_model_folder(fiji_home)
 
 
-my_print("Hi from script 1")
+tic = time.time()
+my_print("Started testing model: {}, at {}".format(DIJ_RECORD["nickname"], datetime.datetime.now()))
+my_print("Name: {}".format(DIJ_RECORD["name"]))
 test_one_with_deepimagej(DIJ_RECORD)
-
+my_print("Finished testing model: {}".format(DIJ_RECORD["nickname"], datetime.datetime.now()))
+toc = time.time()
+my_print("Time taken: {:.1f} min, ({:.0f} s)".format((toc - tic) / 60, toc - tic))

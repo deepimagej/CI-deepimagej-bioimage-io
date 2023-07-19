@@ -13,8 +13,8 @@ import subprocess
 script_names = list(map(lambda x: str(Path(".", "fiji_scripts", x).absolute()),
                         ["test_1_with_deepimagej.py", "create_output_metrics.py"]))
 
-script_prints = ["-- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS\n",
-                 "-- script 2/2: COMPARING TO EXPECTED OUTPUT\n"]
+script_prints = ["** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS\n",
+                 "** script 2/2: COMPARING TO EXPECTED OUTPUT\n"]
 
 
 def gen_messages(all_model_folders, k="start"):
@@ -41,7 +41,7 @@ def compose_command(model_folder, script_name):
 
 def gen_execution_dicts(all_model_folders, scripts=script_names):
     """Generates a dict with execution info for every step (models). It has the commands and prints"""
-    return list(map(lambda i_m: {"message":  "- MODEL {:3}/{:3}\n".format(i_m[0]+1, len(all_model_folders)),
+    return list(map(lambda i_m: {"message":  "* MODEL {:3}/{:3}\n".format(i_m[0]+1, len(all_model_folders)),
                                  "cmd-vecs": list(map(lambda x: compose_command(i_m[1], x), scripts))},
                     enumerate(all_model_folders)))
 
