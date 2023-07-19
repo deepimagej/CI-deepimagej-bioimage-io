@@ -52,9 +52,16 @@ def run_exec_step(execution_step, logs=FILES["logs"]):
     utils.print_and_log(execution_step["message"], [logs["out"], logs["err"]])
     for cmd, msg in zip(execution_step["cmd-vecs"], script_prints):
         utils.print_and_log(msg, [logs["out"], logs["err"]])
-        c = subprocess.run(cmd, capture_output=True, text=True)  # <- Shelling out happens here
-        utils.print_and_log(c.stdout, [logs["out"]], pr=True)
-        utils.print_and_log(c.stderr, [logs["err"]], pr=False)
+        max_seconds = 10*60
+        try:
+            # Shelling out happens here, 20 minutes timeout (for bad models that might have infinite processing)
+            c = subprocess.run(cmd, capture_output=True, text=True, timeout=max_seconds)
+            utils.print_and_log(c.stdout, [logs["out"]], pr=True)
+            utils.print_and_log(c.stderr, [logs["err"]], pr=False)
+        except subprocess.TimeoutExpired as e:
+            utils.print_and_log("ERROR: Process timed out {:.1f} min ({:.0f} s).".format(max_seconds/60, max_seconds) +
+                                " Maybe running the model in deepimagej produces and infinite loop.\n",
+                                [logs["out"], logs["err"]], pr=True)
 
 
 def test_models_in_fiji(all_model_folders, scripts=script_names, logs_dict=FILES["logs"]):
