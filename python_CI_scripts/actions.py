@@ -10,6 +10,7 @@ import models
 import errors
 import downloads
 import communicate as comm
+import run_fiji_scripts
 
 
 def initial_pipeline(ini_return, input_json):
@@ -77,7 +78,7 @@ def download_pipeline(input_json):
     # write dij_args.json for every model to test in fiji
     list(map(lambda x: comm.write_dij_record(x), keep_testing_dw))
     utils.print_and_log("\nComm file '{}' created for these {} models \n\n".format(CONSTANTS["dij-args-filename"],
-                                                                                    len(keep_testing_dw)),
+                                                                                   len(keep_testing_dw)),
                         [FILES["summa-readme"]])
 
     return
@@ -94,7 +95,8 @@ def reproduce_pipeline():
     # Serialize config
     config.serialize_config()
 
-    # todo # Call fiji commands
+    # Call fiji commands
+    run_fiji_scripts.test_models_in_fiji(model_paths)
 
     # todo # write test summaries for errors during reproduce
 
