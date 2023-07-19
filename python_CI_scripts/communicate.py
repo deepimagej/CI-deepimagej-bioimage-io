@@ -38,7 +38,7 @@ def serialize_models(error_data_structure, stage, out_folder=ROOTS["summa-root"]
         yaml.dump(rdf_paths, yaml_file, default_flow_style=False, sort_keys=False)
 
 
-# TODO (in progress) COMPOSE THE ARGUMENTS FOR DEEPIMAGEJ
+# COMPOSE THE ARGUMENTS FOR DEEPIMAGEJ
 
 def format_axes(model_record):
     """Changes format of axes from rdf (e.g. byzxc) to the one needed for DIJ (e.g. Y,Z,X,C)"""

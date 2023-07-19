@@ -21,6 +21,7 @@ parser.add_argument("action", choices=["init", "download", "reproduce"], default
     #  reproduce      Run the models on Fiji with DeepImageJ headless. Create tests summaries.\n""")
 parser.add_argument('-j', '--json-file', action='store', default=ROOTS["pending-matrix-root"] / "use_cases.json")
 parser.add_argument('-s', '--json-string', action='store')
+parser.add_argument('-i', '--skip-inference', action="store", default=False)
 
 
 args = parser.parse_args()
@@ -34,7 +35,7 @@ print("\nInput json is:\n {} \n".format(input_json))
 
 action_fns = {"init": partial(actions.initial_pipeline, ini_return=False, input_json=input_json),
               "download": partial(actions.download_pipeline, input_json=input_json),
-              "reproduce": actions.reproduce_pipeline}
+              "reproduce": partial(actions.reproduce_pipeline, skip_inference=args.skip_inference)}
 
 # create necessary folders
 (ROOTS["summa-root"]/CONSTANTS["errors-dir-name"]).mkdir(parents=True, exist_ok=True)

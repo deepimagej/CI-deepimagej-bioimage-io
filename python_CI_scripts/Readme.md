@@ -9,20 +9,20 @@ python -u main.py -h
 The output should be something like this
 
 ````
-usage: main.py [-h] [-j JSON_FILE] [-s JSON_STRING] {init,download,reproduce}
+usage: main.py [-h] [-j JSON_FILE] [-s JSON_STRING] [-i SKIP_INFERENCE] {init,download,reproduce}
 
 Python CI for testing bioimagio models in deepimagej
 
 positional arguments:
   {init,download,reproduce}
-                        # init (DEFAULT) Initial checks & generate folder structures and files for the compatible
-                        models to test. # download Populate model folders (download files). Build args for DeepImagej
-                        headless. # reproduce Run the models on Fiji with DeepImageJ headless. Create tests summaries.
+                        # init (DEFAULT) Initial checks & generate folder structures and files for the compatible models to test. # download Populate model folders (download files). Build
+                        args for DeepImagej headless. # reproduce Run the models on Fiji with DeepImageJ headless. Create tests summaries.
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
   -j JSON_FILE, --json-file JSON_FILE
   -s JSON_STRING, --json-string JSON_STRING
+  -i SKIP_INFERENCE, --skip-inference SKIP_INFERENCE
 
 more info at: https://github.com/ivan-ea/CI-deepimagej-bioimage-io/blob/master/python_CI_scripts/Readme.md
 ````

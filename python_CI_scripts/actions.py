@@ -30,7 +30,7 @@ def initial_pipeline(ini_return, input_json):
     # write test summaries for errors during init
     list(map(lambda x: summaries.write_summaries_from_error(x), models_discriminated["error-found"].items()))
 
-    # report the errors & comm file
+    # report the errors & comm files
     list(map(lambda x: x.unlink(), (ROOTS["summa-root"]/CONSTANTS["errors-dir-name"]).glob("*")))
 
     list(map(lambda x: comm.serialize_models(x, "all"), ({"models_to_test": model_records}).items()))
@@ -84,7 +84,7 @@ def download_pipeline(input_json):
     return
 
 
-def reproduce_pipeline():
+def reproduce_pipeline(skip_inference=False):
     """Reproduce pipeline for Windows"""
 
     # read serialized models to keep testing after download (download_keep-testing.yaml)
@@ -96,12 +96,25 @@ def reproduce_pipeline():
     config.serialize_config()
 
     # Call fiji commands
-    run_fiji_scripts.test_models_in_fiji(model_paths)
+    if not skip_inference:
+        run_fiji_scripts.test_models_in_fiji(model_paths)
 
-    # todo # write test summaries for errors during reproduce
+    # Write test summaries for errors during reproduce
+    models_discriminated = errors.separate_by_error(model_records, errors.reproduce_errors_fns)
+    models_passing = models_discriminated["keep-testing"]
 
-    # todo # write test summaries for models that pass
+    list(map(lambda x: summaries.write_summaries_from_error(x), models_discriminated["error-found"].items()))
 
-    # todo # report the errors & comm files (pass in "reproduce_keep-testing.yaml")
+    # Write test summaries for models that pass
+    list(map(lambda x: summaries.write_test_summary(summaries.gen_summa_dict(True), x), models_passing))
+
+    msg = "- Created {:3} test summaries for models that pass the CI\n".format(len(models_passing))
+    utils.print_and_log(msg, [FILES["summa-readme"]])
+
+    # report the errors & comm files
+    list(map(lambda x: comm.serialize_models(x, "reproduce"),
+             ({"models-passing": models_passing} | models_discriminated["error-found"]).items()))
+
+    # todo # generate a report
 
     return
