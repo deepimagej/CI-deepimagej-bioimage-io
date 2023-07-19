@@ -47,7 +47,7 @@ def write_summaries_from_error(error_data_structure, verb=True):
         utils.print_and_log(msg, [FILES["summa-readme"]])
 
 
-# todo (in progress) Reports
+# Reports
 
 def get_id_info(model_record):
     """Get the resource id and version id, given a model record"""
@@ -58,12 +58,18 @@ def get_id_info(model_record):
 
 def get_test_summary_info(model_record):
     """Gets the test summary of a model as a dictionary"""
-    summa_path = utils.get_in(model_record, ["paths", "model-dir-path"])
+    summa_path = utils.get_in(model_record, ["paths", "summa-path"])
+    test_summary_path = summa_path / CONSTANTS["summary-name"]
+    if not test_summary_path.exists():
+        return {}
     with open(summa_path / CONSTANTS["summary-name"], "r", encoding="utf-8") as f:
         data = yaml.safe_load(f)
     return data
 
 
-def gen_report_record(model_record):
+def gen_report_record(model_record, test_id):
     """Generates the report information given a model record"""
-
+    model_info = utils.select_keys(model_record, ["name", "nickname", "rdf-info", "weight-types"])
+    test_info = utils.select_keys(get_test_summary_info(model_record), ["status", "error", "name"])
+    return {"test-id": test_id} | get_id_info(model_record) | model_info | {"test-summary": test_info,
+                                                                            "metrics": errors.get_output_metrics(model_record)}

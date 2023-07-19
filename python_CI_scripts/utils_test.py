@@ -5,6 +5,8 @@ from utils import *
 nested_d = {"l-1": [1, 2, 3], "l-2": {"b": 3, "l-3": {"c": 4, "d": 5}}}
 assert get_in(nested_d, ["l-2", "c"], default="err") == "err"
 
+# test select_keys
+assert select_keys({"ni": 1, "ak": 2, 'sha': 3, 'man': 4}, ["man", "ak"]) == {'man': 4, "ak": 2}
 
 # test new_root_path
 a_path = Path("a_root", "first_folder", "second_folder", "file.txt")

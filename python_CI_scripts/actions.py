@@ -1,16 +1,18 @@
 """Define the steps for every action: init, download, and reproduce"""
+
 import config
 import summaries
 from config import ROOTS, FILES, CONSTANTS
 import utils
-
-from pathlib import Path
 import collection
 import models
 import errors
 import downloads
 import communicate as comm
 import run_fiji_scripts
+
+from pathlib import Path
+import json
 
 
 def initial_pipeline(ini_return, input_json):
@@ -31,7 +33,7 @@ def initial_pipeline(ini_return, input_json):
     list(map(lambda x: summaries.write_summaries_from_error(x), models_discriminated["error-found"].items()))
 
     # report the errors & comm files
-    list(map(lambda x: x.unlink(), (ROOTS["summa-root"]/CONSTANTS["errors-dir-name"]).glob("*")))
+    list(map(lambda x: x.unlink(), (ROOTS["summa-root"] / CONSTANTS["errors-dir-name"]).glob("*")))
 
     list(map(lambda x: comm.serialize_models(x, "all"), ({"models_to_test": model_records}).items()))
 
@@ -39,7 +41,7 @@ def initial_pipeline(ini_return, input_json):
              ({"keep-testing": keep_testing} | models_discriminated["error-found"]).items()))
 
     utils.print_and_log("\n{} models to keep testing after init.\nDetailed information in {}\n\n".format(
-        len(keep_testing), ROOTS["summa-root"]/CONSTANTS["errors-dir-name"]), [FILES["summa-readme"]])
+        len(keep_testing), ROOTS["summa-root"] / CONSTANTS["errors-dir-name"]), [FILES["summa-readme"]])
 
     if ini_return:
         return keep_testing
@@ -73,7 +75,7 @@ def download_pipeline(input_json):
              ({"keep-testing": keep_testing_dw} | models_discriminated["error-found"]).items()))
 
     utils.print_and_log("\n{} models to keep testing after download.\nDetailed information in {}\n".format(
-        len(keep_testing_dw), ROOTS["summa-root"]/CONSTANTS["errors-dir-name"]), [FILES["summa-readme"]])
+        len(keep_testing_dw), ROOTS["summa-root"] / CONSTANTS["errors-dir-name"]), [FILES["summa-readme"]])
 
     # write dij_args.json for every model to test in fiji
     list(map(lambda x: comm.write_dij_record(x), keep_testing_dw))
@@ -124,4 +126,16 @@ def report():
     - Test summary info
     - Metrics info
     """
+    rdf_paths = models.parse_model(ROOTS["summa-root"] / CONSTANTS["errors-dir-name"] / "all_models_to_test.yaml")
+    model_records = list((map(lambda x: models.build_model(Path(x)), rdf_paths)))
 
+    models_info = list(
+        map(lambda x: summaries.gen_report_record(x[1], "{:3}/{:3}".format(x[0] + 1, len(model_records))),
+            enumerate(model_records)))
+
+    with open(FILES["report"], 'w') as fp:
+        json.dump({"report": models_info}, fp, indent=2)
+
+    utils.print_and_log("\nReport for the {} models tested written in: {}\n".format(len(model_records),
+                                                                                    FILES["report"].absolute()),
+                        [FILES["summa-readme"]])

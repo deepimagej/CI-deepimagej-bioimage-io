@@ -54,7 +54,7 @@ def run_exec_step(execution_step, logs=FILES["logs"]):
         utils.print_and_log(msg, [logs["out"], logs["err"]])
         max_seconds = 10*60
         try:
-            # Shelling out happens here, 20 minutes timeout (for bad models that might have infinite processing)
+            # Shelling out happens here, some minutes for timeout (for bad models that might have infinite processing)
             c = subprocess.run(cmd, capture_output=True, text=True, timeout=max_seconds)
             utils.print_and_log(c.stdout, [logs["out"]], pr=True)
             utils.print_and_log(c.stderr, [logs["err"]], pr=False)
