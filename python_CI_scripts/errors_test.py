@@ -17,6 +17,8 @@ assert not errors.is_any_compatible_weight(models_test.a_model_record)
 assert errors.is_any_compatible_weight(models_test.pt_model_record)
 assert errors.is_any_compatible_weight(models_test.tf_model_record)
 
+# test reproduce checks
+errors.get_metrics_file(models_test.tf_model_record)
 
 # test discriminating errors
 model_records = [models_test.a_model_record, models_test.pt_model_record, models_test.tf_model_record]
@@ -47,3 +49,8 @@ all_models_discriminated = errors.separate_by_error(all_actual_models, errors.in
 assert 50 < utils.count_dict(all_models_discriminated)["keep-testing"] < 150
 assert utils.count_dict(all_models_discriminated["error-found"])['key-run-mode'] == 4
 assert utils.count_dict(all_models_discriminated["error-found"])["no-compatible-weights"] > 20
+
+
+# test reproduce errors
+assert errors.get_output_metrics(models_test.tf_model_record) == {'max-val': 255.0, 'mae': 0.0, 'mse': 0.0}
+assert errors.is_ok_metrics(models_test.tf_model_record)

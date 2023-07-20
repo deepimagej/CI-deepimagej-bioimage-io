@@ -9,20 +9,21 @@ python -u main.py -h
 The output should be something like this
 
 ````
-usage: main.py [-h] [-j JSON_FILE] [-s JSON_STRING] {init,download,reproduce}
+usage: main.py [-h] [-j JSON_FILE] [-s JSON_STRING] [-i SKIP_INFERENCE] {init,download,reproduce,report}
 
 Python CI for testing bioimagio models in deepimagej
 
 positional arguments:
-  {init,download,reproduce}
-                        # init (DEFAULT) Initial checks & generate folder structures and files for the compatible
-                        models to test. # download Populate model folders (download files). Build args for DeepImagej
-                        headless. # reproduce Run the models on Fiji with DeepImageJ headless. Create tests summaries.
+  {init,download,reproduce,report}
+                        # init (DEFAULT) Initial checks & generate folder structures and files for the compatible models to test. # download Populate model folders (download files). Build
+                        args for DeepImagej headless. # reproduce Run the models on Fiji with DeepImageJ headless. Create tests summaries. # report Generates a report with the results of
+                        the run.
 
-optional arguments:
+options:
   -h, --help            show this help message and exit
   -j JSON_FILE, --json-file JSON_FILE
   -s JSON_STRING, --json-string JSON_STRING
+  -i SKIP_INFERENCE, --skip-inference SKIP_INFERENCE
 
 more info at: https://github.com/ivan-ea/CI-deepimagej-bioimage-io/blob/master/python_CI_scripts/Readme.md
 ````
@@ -58,7 +59,14 @@ python -u main.py -s "{\"include\": [{\"resource_id\": \"10.5281/zenodo.5910854\
 
 
 ## Running reproduce scripts 
-Assumes model folders have been populated and their paths are written on `models_to_test.txt`.
+Assumes model folders have been populated and the models to test after download are written on `test_summaries/errors_info/download_keep-testing.yaml`.
 ````
-TODO
+python -u main.py reproduce
+````
+Use the `-i true` flag to skip inference. Useful if want to check a previous long run.
+
+## Generating the report
+Use this after the `reproduce` step
+````
+python -u main.py report
 ````

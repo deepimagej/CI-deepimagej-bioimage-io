@@ -1,13 +1,18 @@
 """Define the steps for every action: init, download, and reproduce"""
+
+import config
 import summaries
 from config import ROOTS, FILES, CONSTANTS
 import utils
-
 import collection
 import models
 import errors
 import downloads
 import communicate as comm
+import run_fiji_scripts
+
+from pathlib import Path
+import json
 
 
 def initial_pipeline(ini_return, input_json):
@@ -27,8 +32,8 @@ def initial_pipeline(ini_return, input_json):
     # write test summaries for errors during init
     list(map(lambda x: summaries.write_summaries_from_error(x), models_discriminated["error-found"].items()))
 
-    # report the errors & comm file
-    list(map(lambda x: x.unlink(), (ROOTS["summa-root"]/CONSTANTS["errors-dir-name"]).glob("*")))
+    # report the errors & comm files
+    list(map(lambda x: x.unlink(), (ROOTS["summa-root"] / CONSTANTS["errors-dir-name"]).glob("*")))
 
     list(map(lambda x: comm.serialize_models(x, "all"), ({"models_to_test": model_records}).items()))
 
@@ -36,7 +41,7 @@ def initial_pipeline(ini_return, input_json):
              ({"keep-testing": keep_testing} | models_discriminated["error-found"]).items()))
 
     utils.print_and_log("\n{} models to keep testing after init.\nDetailed information in {}\n\n".format(
-        len(keep_testing), ROOTS["summa-root"]/CONSTANTS["errors-dir-name"]), [FILES["summa-readme"]])
+        len(keep_testing), ROOTS["summa-root"] / CONSTANTS["errors-dir-name"]), [FILES["summa-readme"]])
 
     if ini_return:
         return keep_testing
@@ -70,28 +75,67 @@ def download_pipeline(input_json):
              ({"keep-testing": keep_testing_dw} | models_discriminated["error-found"]).items()))
 
     utils.print_and_log("\n{} models to keep testing after download.\nDetailed information in {}\n".format(
-        len(keep_testing_dw), ROOTS["summa-root"]/CONSTANTS["errors-dir-name"]), [FILES["summa-readme"]])
+        len(keep_testing_dw), ROOTS["summa-root"] / CONSTANTS["errors-dir-name"]), [FILES["summa-readme"]])
 
     # write dij_args.json for every model to test in fiji
     list(map(lambda x: comm.write_dij_record(x), keep_testing_dw))
     utils.print_and_log("\nComm file '{}' created for these {} models \n\n".format(CONSTANTS["dij-args-filename"],
-                                                                                    len(keep_testing_dw)),
+                                                                                   len(keep_testing_dw)),
                         [FILES["summa-readme"]])
 
     return
 
 
-def reproduce_pipeline():
+def reproduce_pipeline(skip_inference=False):
     """Reproduce pipeline for Windows"""
+
     # read serialized models to keep testing after download (download_keep-testing.yaml)
-    rdf_paths = models.parse_model(ROOTS["summa-root"] / CONSTANTS["errors-dir-name"]/ "download_keep-testing.yaml")
+    rdf_paths = models.parse_model(ROOTS["summa-root"] / CONSTANTS["errors-dir-name"] / "download_keep-testing.yaml")
+    model_records = list((map(lambda x: models.build_model(Path(x)), rdf_paths)))
+    model_paths = list(map(lambda x: comm.get_model_folder_str(x), model_records))
 
-    # todo # Serialize config
+    # Serialize config
+    config.serialize_config()
 
-    # todo # Call fiji commands
+    # Call fiji commands
+    if not skip_inference:
+        run_fiji_scripts.test_models_in_fiji(model_paths)
 
-    # todo # write test summaries for errors during reproduce
+    # Write test summaries for errors during reproduce
+    models_discriminated = errors.separate_by_error(model_records, errors.reproduce_errors_fns)
+    models_passing = models_discriminated["keep-testing"]
 
-    # todo # report the errors & comm files
+    list(map(lambda x: summaries.write_summaries_from_error(x), models_discriminated["error-found"].items()))
 
+    # Write test summaries for models that pass
+    list(map(lambda x: summaries.write_test_summary(summaries.gen_summa_dict(True), x), models_passing))
+
+    msg = "- Created {:3} test summaries for models that pass the CI\n".format(len(models_passing))
+    utils.print_and_log(msg, [FILES["summa-readme"]])
+
+    # report the errors & comm files
+    list(map(lambda x: comm.serialize_models(x, "reproduce"),
+             ({"models-passing": models_passing} | models_discriminated["error-found"]).items()))
     return
+
+
+def report():
+    """
+    Report the test information obtained during the CI. Uses:
+    - Model info
+    - Test summary info
+    - Metrics info
+    """
+    rdf_paths = models.parse_model(ROOTS["summa-root"] / CONSTANTS["errors-dir-name"] / "all_models_to_test.yaml")
+    model_records = list((map(lambda x: models.build_model(Path(x)), rdf_paths)))
+
+    models_info = list(
+        map(lambda x: summaries.gen_report_record(x[1], "{:3}/{:3}".format(x[0] + 1, len(model_records))),
+            enumerate(model_records)))
+
+    with open(FILES["report"], 'w') as fp:
+        json.dump({"report": models_info}, fp, indent=2)
+
+    utils.print_and_log("\nReport for the {} models tested written in: {}\n".format(len(model_records),
+                                                                                    FILES["report"].absolute()),
+                        [FILES["summa-readme"]])

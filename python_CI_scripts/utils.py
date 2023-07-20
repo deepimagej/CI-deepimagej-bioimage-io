@@ -25,6 +25,9 @@ def get_in(dic, key_list, default=None):
         return get_in(dic.get(key_list[0], {}), key_list[1:], default=default)
 
 
+def select_keys(d, keys):
+    return dict((k, d[k]) for k in keys if k in d)
+
 
 def new_root_path(old_root, new_root, file_path):
     """Returns a path with a new root"""

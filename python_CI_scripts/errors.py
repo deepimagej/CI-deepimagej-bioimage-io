@@ -2,7 +2,10 @@
 
 from config import CONSTANTS
 import utils
+
+import json
 from functools import reduce
+from pathlib import Path
 
 "Errors that could happen during the initial checks"
 initial_errors = {"no-dij-config": "rdf does not have keys for :config :deepimagej",
@@ -90,6 +93,35 @@ download_errors_fns = {"download-fail": is_success_download,
 
 
 # REPRODUCE CHECKS
+def get_metrics_file(model_record):
+    """Returns the file of the output_metrics corresponding to the model record"""
+    return Path(utils.get_in(model_record, ["paths", "model-dir-path"]), CONSTANTS["output-metrics-name"])
+
+
+def get_output_metrics(model_record):
+    """Read into a hash-map the output metrics file generated after inference + compare outputs"""
+    metrics_path = get_metrics_file(model_record)
+    if not metrics_path.exists():
+        return {}
+    with open(metrics_path, "r") as f:
+        metrics_dic = json.load(f)
+
+    return metrics_dic
+
+
+def is_metrics_produced(model_record):
+    """Checks if headless run of deepimagej produced an image (metrics file is an empty map)"""
+    return len(get_output_metrics(model_record)) > 0
+
+
+def is_ok_metrics(model_record):
+    metrics_dic = get_output_metrics(model_record)
+    return metrics_dic["mse"] <= CONSTANTS["mse-threshold"]
+
+
+reproduce_errors_fns = {"dij-headless": is_metrics_produced,
+                        "comparison": is_ok_metrics}
+
 
 # DISCRIMINATE MODELS BY ERROR TYPE
 
