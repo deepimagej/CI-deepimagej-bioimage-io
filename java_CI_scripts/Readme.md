@@ -2,15 +2,15 @@ Project directory for the clojure CI scripts.
 
 # Information
 
-This folder contains the first version of the CI, which was developed in Clojure, and was finished in february 2023.
-A new version of the CI, in python, was developed. It is in this same repo, in the folder `../python_CI_scripts/`
+This folder contains the first version of the CI, which was developed in Clojure, and was finished in February 2023.
+A new version of the CI, in python, was developed in July 2023. It is in this same repo, in the folder `../python_CI_scripts/`
 
 The code structure is very close in both versions. Although the new one contains improvements,
-so it should be the preferred one.
+so it should be the one preferred.
 
-Nonetheless, some functionalities remain only available through the clj version e.g.
+Nevertheless, some functionalities remain only available through the clj version e.g.
 - update the collection automatically `pending_matrix/only_collection.json`
-- set up fiji and deep imagej in different OS's
+- set up fiji and deepimagej in different OS's
 
 # Local Setup
 You need to perform this 2-step setup in order to **use** or develop this version of the code.
