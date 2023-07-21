@@ -1,17 +1,5 @@
 # CI-deepimagej-bioimage-io
-Scripts and gh workflows for testing the models of the Bioimage Model Zoo in DeepImageJ 
-
-Resources:
-- [Bioimageio Wiki](https://github.com/bioimage-io/bioimage.io/wiki/Contribute-community-partner-specific-test-summaries)
-- [Issue](https://github.com/bioimage-io/collection-bioimage-io/issues/515)
-
-
-# Local testing of models from the zoo
-- Change directory to `python_CI_scripts/` or to `java_CI_scripts/`.
-- Follow the instructions from the `Readme.md` there.
-
-# Information
-The code implements a system for the automatic testing of models from the Biomage Model Zoo in DeepImageJ.
+System for the automatic testing of models from the Biomage Model Zoo in DeepImageJ.
 
 - The **input** of the system is the specification of the models to test (in json format)
 - The **output** is a test summary for each of the input models (in yaml files).
@@ -54,3 +42,13 @@ Each stage has different kind of errors that can happen. These are detected and 
 
 The words in blue represent code name-spaces that implement the functionality. 
 Some of the code focuses only on the requirements for 1 of the stages, whereas other code is needed all through the CI.
+
+# Local testing of models from the zoo
+- Change directory to `python_CI_scripts/` or to `java_CI_scripts/`.
+- Follow the instructions from the `Readme.md` there.
+
+# Resources:
+- [Bioimageio Wiki](https://github.com/bioimage-io/bioimage.io/wiki/Contribute-community-partner-specific-test-summaries)
+- [Issue](https://github.com/bioimage-io/collection-bioimage-io/issues/515)
+
+
