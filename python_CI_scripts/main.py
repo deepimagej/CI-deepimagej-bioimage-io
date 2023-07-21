@@ -16,9 +16,9 @@ parser = argparse.ArgumentParser(
     epilog="more info at: https://github.com/ivan-ea/CI-deepimagej-bioimage-io/blob/master/python_CI_scripts/Readme.md")
 
 parser.add_argument("action", choices=["init", "download", "reproduce", "report"], default="init", help="""
-    #  init (DEFAULT) Initial checks & generate folder structures and files for the compatible models to test.\n
+    #  init (DEFAULT) Initial checks & Parse the input and prepares the models to be tested.\n
     #  download       Populate model folders (download files). Build args for DeepImagej headless.\n
-    #  reproduce      Run the models on Fiji with DeepImageJ headless. Create tests summaries.\n
+    #  reproduce      Run the models on Fiji with DeepImageJ headless. Compare with the expected output image.\n
     #  report         Generates a report with the results of the run.""")
 parser.add_argument('-j', '--json-file', action='store', default=ROOTS["pending-matrix-root"] / "use_cases.json")
 parser.add_argument('-s', '--json-string', action='store')

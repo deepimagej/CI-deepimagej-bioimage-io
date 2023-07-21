@@ -38,9 +38,10 @@ Python CI for testing bioimagio models in deepimagej
 
 positional arguments:
   {init,download,reproduce,report}
-                        # init (DEFAULT) Initial checks & generate folder structures and files for the compatible models to test. # download Populate model folders (download files). Build
-                        args for DeepImagej headless. # reproduce Run the models on Fiji with DeepImageJ headless. Create tests summaries. # report Generates a report with the results of
-                        the run.
+                        # init (DEFAULT) Initial checks & Parse the input and prepares the models to be tested.
+                        # download Populate model folders (download files). Build args for DeepImagej headless. 
+                        # reproduce Run the models on Fiji with DeepImageJ headless. Compare with the expected output image.
+                        # report Generates a report with the results of the run.
 
 options:
   -h, --help            show this help message and exit
