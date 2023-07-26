@@ -31,13 +31,14 @@ CONSTANTS = {"CI-output-name": "CI_OUTPUT.tif",
              "fiji-flags": ["--headless", "--ij2", "--console", "--run"],
              "fiji-scripts-arg-name": "folder",
              "model-dir-name": "the_model",
-             "mse-threshold": 2.5,
+             "mse-threshold": 9e-2,
              "output-metrics-name": "output_metrics.json",
              "sample-input-name": "sample_input_0.tif",
              "sample-output-name": "sample_output_0.tif",
              "special-headless-chars": [" ", "_", "."],
              "summary-name": "test_summary.yaml",
              "summa-readme-header": "# Report summary",
+             "timeout_s": 10*60,
              "valid-weight-keys": ["torchscript", "pytorch_script", "tensorflow_saved_model_bundle", "onnx"]}
 
 

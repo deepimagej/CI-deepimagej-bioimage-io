@@ -116,7 +116,7 @@ def is_metrics_produced(model_record):
 
 def is_ok_metrics(model_record):
     metrics_dic = get_output_metrics(model_record)
-    return metrics_dic["mse"] <= CONSTANTS["mse-threshold"]
+    return metrics_dic["mse-center"] <= CONSTANTS["mse-threshold"]
 
 
 reproduce_errors_fns = {"dij-headless": is_metrics_produced,
