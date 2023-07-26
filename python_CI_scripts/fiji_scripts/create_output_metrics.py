@@ -90,8 +90,8 @@ for c in range(0, channels):
                     val = ip1.getPixelValue(x, y)
                     if val > max_val:
                         max_val = val
-mse = sum_mse / (width * height)
-mae = sum_mae / (width * height)
+mse = sum_mse / (width * height * channels * slices * frames)
+mae = sum_mae / (width * height * channels * slices * frames)
 
 # Mae and Mse will be calculated relative to the max intensity value
 metrics_dic = {"mse": mse/max_val,
