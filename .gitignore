@@ -21,6 +21,10 @@ bash_scripts/dependencies_2115/
 
 .idea/
 
+# clj test outputs
+java_CI_scripts/test_outputs/
+
+
 # paths to Models to test
 # change a lot between computers (abs paths) and inputs (contents)
 resources/models_to_test.txt
@@ -29,6 +33,8 @@ resources/models_to_test.sh
 resources/test_the_models.sh
 resources/rdfs_to_test.txt
 resources/config.edn
+resources/config.json
+resources/failed_download_rdfs.txt
 
 # gh-pages branch
 gh-pages-branch/
