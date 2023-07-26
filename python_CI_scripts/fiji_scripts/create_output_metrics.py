@@ -98,6 +98,36 @@ metrics_dic = {"mse": mse/max_val,
                "mae": mae/max_val,
                "max-val": max_val}
 
+
+# GET METRICS OF THE CENTER
+def get_start_end(size):
+    if size <= 3:
+        return [0, size]
+    return [int(size/4), int(size/2)+1]
+
+
+sum_mse_center = 0.0
+sum_mae_center = 0.0
+n_center_pixels = 0
+for c in range(*get_start_end(channels)):
+    for z in range(*get_start_end(slices)):
+        for t in range(*get_start_end(frames)):
+            imp4.setPositionWithoutUpdate(c, z, t)
+            imp3.setPositionWithoutUpdate(c, z, t)
+            imp1.setPositionWithoutUpdate(c, z, t)
+            ip4 = imp4.getProcessor()
+            ip3 = imp3.getProcessor()
+            ip1 = imp1.getProcessor()
+            for x in range(*get_start_end(width)):
+                for y in range(*get_start_end(height)):
+                    sum_mse_center = sum_mse_center + ip4.getPixelValue(x, y)
+                    sum_mae = sum_mae + abs(ip3.getPixelValue(x, y))
+                    n_center_pixels += 1
+
+mse_center = sum_mse_center / n_center_pixels
+mae = sum_mae_center / n_center_pixels
+
+
 my_print("MSE (relative): {:.5g}".format(metrics_dic["mse"]))
 my_print("MAE (relative): {:.5g}".format(metrics_dic["mae"]))
 my_print("Max value: {}".format(metrics_dic["max-val"]))
