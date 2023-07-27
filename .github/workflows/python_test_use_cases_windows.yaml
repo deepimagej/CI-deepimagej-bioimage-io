@@ -44,7 +44,7 @@ jobs:
         uses: conda-incubator/setup-miniconda@v2
         with:
           auto-update-conda: true
-          environment-file: python_scripts/conda_env_packages.yaml
+          environment-file: python_CI_scripts/conda_env_packages.yaml
 
       - name: check conda install (on pwsh, that is the default shell)
         working-directory: ./CI-deepimagej-bioimage-io/java_CI_scripts
