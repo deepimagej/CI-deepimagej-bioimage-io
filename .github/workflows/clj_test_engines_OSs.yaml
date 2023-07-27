@@ -1,4 +1,4 @@
-name: CI - test different engines and OS's
+name: clj CI - test different engines and OS's
 
 # Controls when the workflow will run
 on:
