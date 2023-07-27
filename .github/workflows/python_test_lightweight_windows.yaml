@@ -1,4 +1,4 @@
-name: python CI - test use cases ON WINDOWS, and with DIJ 3
+name: python CI - test lightweight models ON WINDOWS, and with DIJ 3
 
 # Controls when the workflow will run
 on:
