@@ -29,7 +29,8 @@ all_errors = initial_errors | download_errors | reproduce_errors
 "Different stages of the CI"
 ci_stages = {"initial": "Initial compatibility checks with DeepImageJ",
              "download": "Downloading testing resources for DeepImageJ",
-             "reproduce": "Reproduce test outputs with DeepImageJ headless"}
+             "reproduce": "Reproduce test outputs with DeepImageJ headless",
+             "manual": "Reproduce test outputs with DeepImageJ GUI (manually tested)"}
 
 
 def find_stage(error_key):

@@ -18,7 +18,9 @@ import json
 def initial_pipeline(ini_return, input_json):
     """input_json already parsed"""
     rdf_paths = collection.get_rdfs_to_test(input_json)
-    model_records = list(filter(lambda x: errors.is_model(x), (map(lambda x: models.build_model(x), rdf_paths))))
+    all_model_records = list(filter(lambda x: errors.is_model(x), (map(lambda x: models.build_model(x), rdf_paths))))
+    manual_models = list(filter(lambda x: errors.is_manually_tested(x), all_model_records))
+    model_records = list(filter(lambda x: not errors.is_manually_tested(x), all_model_records))
     models_discriminated = errors.separate_by_error(model_records, errors.init_errors_fns)
     keep_testing = models_discriminated["keep-testing"]
 
@@ -26,8 +28,14 @@ def initial_pipeline(ini_return, input_json):
     with open(FILES["summa-readme"], "w") as f:
         f.write(CONSTANTS["summa-readme-header"] + "\n")
 
-    utils.print_and_log("\n{} models to test ({} rdf paths)\n\n".format(len(model_records), len(rdf_paths)),
+    utils.print_and_log("\n{} models to test ({} rdf paths)\n\n".format(len(all_model_records), len(rdf_paths)),
                         [FILES["summa-readme"]])
+
+    # Write test summaries for models that were manually tested
+    list(map(lambda x: summaries.write_test_summary(summaries.gen_summa_dict(True, manual=True), x), manual_models))
+
+    msg = "- Created {:3} test summaries for models that passed the CI manually\n".format(len(manual_models))
+    utils.print_and_log(msg, [FILES["summa-readme"]])
 
     # write test summaries for errors during init
     list(map(lambda x: summaries.write_summaries_from_error(x), models_discriminated["error-found"].items()))
@@ -35,10 +43,11 @@ def initial_pipeline(ini_return, input_json):
     # report the errors & comm files
     list(map(lambda x: x.unlink(), (ROOTS["summa-root"] / CONSTANTS["errors-dir-name"]).glob("*")))
 
-    list(map(lambda x: comm.serialize_models(x, "all"), ({"models_to_test": model_records}).items()))
+    list(map(lambda x: comm.serialize_models(x, "all"), ({"models_to_test": all_model_records}).items()))
 
     list(map(lambda x: comm.serialize_models(x, "init"),
-             ({"keep-testing": keep_testing} | models_discriminated["error-found"]).items()))
+             ({"keep-testing": keep_testing,
+               "manually-tested": manual_models} | models_discriminated["error-found"]).items()))
 
     utils.print_and_log("\n{} models to keep testing after init.\nDetailed information in {}\n\n".format(
         len(keep_testing), ROOTS["summa-root"] / CONSTANTS["errors-dir-name"]), [FILES["summa-readme"]])
