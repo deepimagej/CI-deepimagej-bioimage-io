@@ -1,6 +1,5 @@
-Project directory for the CI scripts in python
+# Python CI Scripts for CI-deepimagej-bioimage-io
 
-# Information
 This folder contains the second version of the CI, developed in Python. For more information about the differences,
 refer to the [Readme](../java_CI_scripts/Readme.md) of the previous version of the CI.
 
