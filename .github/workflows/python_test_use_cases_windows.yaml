@@ -47,9 +47,10 @@ jobs:
           environment-file: python_CI_scripts/conda_env_packages.yaml
 
       - name: check conda install (on pwsh, that is the default shell)
-        working-directory: ./CI-deepimagej-bioimage-io/java_CI_scripts
+        working-directory: ./
         shell: pwsh
         run: |
+          pwd
           conda env list
           conda info
           python --version
