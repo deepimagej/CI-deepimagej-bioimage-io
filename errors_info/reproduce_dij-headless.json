@@ -1,0 +1,95 @@
+{
+  "reproduce_dij-headless": [
+    {
+      "name": "HyLFM-Net-stat",
+      "nickname": "ambitious-sloth",
+      "rdf-info": {
+        "type": "model",
+        "dij-config?": false,
+        "run-mode": null
+      },
+      "paths": {
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.7614645\\7642674\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.7614645\\7642674",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.7614645\\7642674",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.7614645\\7642674",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.7614645\\7642674"
+      },
+      "weight-types": [
+        "onnx",
+        "torchscript"
+      ],
+      "inputs": {
+        "name": "lf",
+        "axes": "bcyx",
+        "original-sample": "sample_input.tif",
+        "original-test": "test_input.npy",
+        "original-p*process": "scale_range"
+      },
+      "outputs": {
+        "name": "prediction",
+        "axes": "bczyx",
+        "original-sample": "sample_output.tif",
+        "original-test": "test_output.npy"
+      }
+    },
+    {
+      "name": "2D UNet Arabidopsis Ovules",
+      "nickname": "pioneering-rhino",
+      "rdf-info": {
+        "type": "model",
+        "dij-config?": false,
+        "run-mode": null
+      },
+      "paths": {
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.6334383\\7805067\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.6334383\\7805067",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.6334383\\7805067",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.6334383\\7805067",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.6334383\\7805067"
+      },
+      "weight-types": [
+        "torchscript"
+      ],
+      "inputs": {
+        "name": "input0",
+        "axes": "bcyx",
+        "original-test": "test-input.npy"
+      },
+      "outputs": {
+        "name": "output0",
+        "axes": "bcyx",
+        "original-test": "test-output.npy"
+      }
+    },
+    {
+      "name": "Drosophila epithelia cell boundary segmentation of 2D projections",
+      "nickname": "easy-going-sauropod",
+      "rdf-info": {
+        "type": "model",
+        "dij-config?": false,
+        "run-mode": null
+      },
+      "paths": {
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.7380171\\7405349\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.7380171\\7405349",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.7380171\\7405349",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.7380171\\7405349",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.7380171\\7405349"
+      },
+      "weight-types": [
+        "tensorflow_saved_model_bundle"
+      ],
+      "inputs": {
+        "name": "input0",
+        "axes": "bczyx",
+        "original-test": "sample.npy"
+      },
+      "outputs": {
+        "name": "output0",
+        "axes": "bczyx",
+        "original-test": "distance.npy"
+      }
+    }
+  ]
+}

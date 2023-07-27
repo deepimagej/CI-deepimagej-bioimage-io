@@ -1,432 +1,173 @@
-STARTED TESTING THE 26 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-06-16T13:21:57.024895800
+STARTED TESTING THE 10 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-07-27 11:40:57.437298
 
-Logs are in: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\java_CI_scripts\..\test_summaries\fiji_log_out.txt and fiji_log_err.txt
+Logs are in D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\..\test_summaries\fiji_log_out.txt and fiji_log_err.txt
 
-- MODEL 1/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+* MODEL   1/ 10
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: No SLF4J providers were found.
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
 SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
+** script 2/2: COMPARING TO EXPECTED OUTPUT
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 2/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+* MODEL   2/ 10
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
+OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+2023-07-27 11:42:43.367783: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_100.dll'; dlerror: cudart64_100.dll not found
+2023-07-27 11:42:43.367837: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2023-07-27 11:42:43.453759: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: C:\Users\RUNNER~1\BLANK_~1\Fiji.app\models\the_model\
+2023-07-27 11:42:43.482494: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-07-27 11:42:43.525692: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2023-07-27 11:42:43.527845: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2023-07-27 11:42:43.527899: E tensorflow/stream_executor/cuda/cuda_driver.cc:318] failed call to cuInit: UNKNOWN ERROR (303)
+2023-07-27 11:42:43.530220: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: fv-az553-457
+2023-07-27 11:42:43.530349: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: fv-az553-457
+2023-07-27 11:42:43.694064: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-07-27 11:42:44.906603: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 1452219 microseconds.
+** script 2/2: COMPARING TO EXPECTED OUTPUT
+OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
+OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+* MODEL   3/ 10
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: No SLF4J providers were found.
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
 SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
+** script 2/2: COMPARING TO EXPECTED OUTPUT
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 3/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-2023-06-16 11:27:14.005528: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_100.dll'; dlerror: cudart64_100.dll not found
-2023-06-16 11:27:14.005586: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-2023-06-16 11:27:14.100538: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: C:\Users\RUNNER~1\BLANK_~1\Fiji.app\models\the_model\
-2023-06-16 11:27:14.125902: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-06-16 11:27:14.160511: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
-2023-06-16 11:27:14.162573: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
-2023-06-16 11:27:14.162630: E tensorflow/stream_executor/cuda/cuda_driver.cc:318] failed call to cuInit: UNKNOWN ERROR (303)
-2023-06-16 11:27:14.166694: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: fv-az277-18
-2023-06-16 11:27:14.166824: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: fv-az277-18
-2023-06-16 11:27:14.302980: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-06-16 11:27:14.915791: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 815214 microseconds.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 4/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+* MODEL   4/ 10
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: No SLF4J providers were found.
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
 SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
+** script 2/2: COMPARING TO EXPECTED OUTPUT
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 5/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+* MODEL   5/ 10
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
+OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+2023-07-27 11:45:04.604143: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_100.dll'; dlerror: cudart64_100.dll not found
+2023-07-27 11:45:04.604200: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2023-07-27 11:45:04.688058: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: C:\Users\RUNNER~1\BLANK_~1\Fiji.app\models\the_model\
+2023-07-27 11:45:04.690644: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
+2023-07-27 11:45:04.693536: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
+2023-07-27 11:45:04.695504: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2023-07-27 11:45:04.695551: E tensorflow/stream_executor/cuda/cuda_driver.cc:318] failed call to cuInit: UNKNOWN ERROR (303)
+2023-07-27 11:45:04.697653: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: fv-az553-457
+2023-07-27 11:45:04.697771: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: fv-az553-457
+2023-07-27 11:45:04.708815: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
+2023-07-27 11:45:04.755920: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 67829 microseconds.
+** script 2/2: COMPARING TO EXPECTED OUTPUT
+OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
+OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+* MODEL   6/ 10
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: No SLF4J providers were found.
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
 SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Ignoring binding found at [jar:file:/C:/Users/RUNNER~1/BLANK_~1/Fiji.app/jars/logback-classic-1.2.3.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
+** script 2/2: COMPARING TO EXPECTED OUTPUT
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 6/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+* MODEL   7/ 10
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: No SLF4J providers were found.
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 7/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: No SLF4J providers were found.
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 8/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-2023-06-16 11:31:13.228744: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_100.dll'; dlerror: cudart64_100.dll not found
-2023-06-16 11:31:13.228811: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-2023-06-16 11:31:13.326316: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: C:\Users\RUNNER~1\BLANK_~1\Fiji.app\models\the_model\
-2023-06-16 11:31:13.342707: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-06-16 11:31:13.363864: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
-2023-06-16 11:31:13.365937: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
-2023-06-16 11:31:13.365987: E tensorflow/stream_executor/cuda/cuda_driver.cc:318] failed call to cuInit: UNKNOWN ERROR (303)
-2023-06-16 11:31:13.369838: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: fv-az277-18
-2023-06-16 11:31:13.369964: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: fv-az277-18
-2023-06-16 11:31:13.439870: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-06-16 11:31:13.819590: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 493233 microseconds.
-Macro Error: Width or height is 0 in line 25
- 
-run ( "Scale..." , "x=- y=- width=&wsize height=&hsize interpolation=Bicubic create" <)> ; 
-java.lang.NullPointerException
-	at deepimagej.processing.ProcessingBridge.runProcessingMacro(ProcessingBridge.java:187)
-	at deepimagej.processing.ProcessingBridge.runPreprocessing(ProcessingBridge.java:77)
-	at deepimagej.tools.DijRunnerPreprocessing.call(DijRunnerPreprocessing.java:134)
-	at deepimagej.tools.DijRunnerPreprocessing.call(DijRunnerPreprocessing.java:1)
+io.bioimage.modelrunner.exceptions.RunModelException: Error executing the Tensorflow 2 model in a separate process. The process was not terminated correctly.
+2023-07-27 11:46:46.869652: W external/org_tensorflow/tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'cudart64_110.dll'; dlerror: cudart64_110.dll not found
+2023-07-27 11:46:46.869701: I external/org_tensorflow/tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+2023-07-27 11:46:48.604363: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:43] Reading SavedModel from: C:\Users\RUNNER~1\BLANK_~1\Fiji.app\models\the_model\
+2023-07-27 11:46:48.621657: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:107] Reading meta graph with tags { serve }
+2023-07-27 11:46:48.621711: I external/org_tensorflow/tensorflow/cc/saved_model/reader.cc:148] Reading SavedModel debug info (if present) from: C:\Users\RUNNER~1\BLANK_~1\Fiji.app\models\the_model\
+2023-07-27 11:46:48.623663: I external/org_tensorflow/tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2023-07-27 11:46:48.625714: W external/org_tensorflow/tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
+2023-07-27 11:46:48.625772: W external/org_tensorflow/tensorflow/stream_executor/cuda/cuda_driver.cc:269] failed call to cuInit: UNKNOWN ERROR (303)
+2023-07-27 11:46:48.628963: I external/org_tensorflow/tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: fv-az553-457
+2023-07-27 11:46:48.629065: I external/org_tensorflow/tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: fv-az553-457
+2023-07-27 11:46:48.704560: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:210] Restoring SavedModel bundle.
+2023-07-27 11:46:49.147452: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:194] Running initialization op on SavedModel bundle at path: C:\Users\RUNNER~1\BLANK_~1\Fiji.app\models\the_model\
+2023-07-27 11:46:49.228438: I external/org_tensorflow/tensorflow/cc/saved_model/loader.cc:283] SavedModel load for tags { serve }; Status: success: OK. Took 622929 microseconds.
+Exception in thread "main" java.lang.IllegalArgumentException: No Operation named [input0] in the Graph
+	at org.tensorflow.Graph.outputOrThrow(Graph.java:211)
+	at org.tensorflow.Session$Runner.feed(Session.java:248)
+	at io.bioimage.modelrunner.tensorflow.v2.api030.Tensorflow2Interface.run(Tensorflow2Interface.java:259)
+	at io.bioimage.modelrunner.tensorflow.v2.api030.Tensorflow2Interface.main(Tensorflow2Interface.java:480)
+
+	at io.bioimage.modelrunner.tensorflow.v2.api030.Tensorflow2Interface.runInterprocessing(Tensorflow2Interface.java:301)
+	at io.bioimage.modelrunner.tensorflow.v2.api030.Tensorflow2Interface.run(Tensorflow2Interface.java:248)
+	at io.bioimage.modelrunner.model.Model.runModel(Model.java:325)
+	at deepimagej.RunnerDL.call(RunnerDL.java:398)
+	at deepimagej.RunnerDL.call(RunnerDL.java:1)
 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
 	at java.lang.Thread.run(Thread.java:750)
-java.util.concurrent.ExecutionException: java.lang.NullPointerException
-	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
-	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
-	at DeepImageJ_Run.calculateImage(DeepImageJ_Run.java:1046)
-	at DeepImageJ_Run.arrangeParametersAndRunModel(DeepImageJ_Run.java:736)
-	at DeepImageJ_Run.run(DeepImageJ_Run.java:300)
-	at ij.IJ.runUserPlugIn(IJ.java:237)
-	at ij.IJ.runPlugIn(IJ.java:203)
-	at ij.Executer.runCommand(Executer.java:152)
-	at ij.Executer.run(Executer.java:70)
-	at ij.IJ.run(IJ.java:319)
-	at ij.IJ.run(IJ.java:409)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at clojure.lang.Reflector.invokeMatchingMethod(Reflector.java:93)
-	at clojure.lang.Reflector.invokeStaticMethod(Reflector.java:207)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej$fn__31.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$test_one_with_deepimagej__AMPERSAND__info.invoke(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$_main.doInvoke(NO_SOURCE_FILE:0)
-	at clojure.lang.RestFn.invoke(RestFn.java:397)
-	at reproduce.test_1_with_deepimagej$eval53.invokeStatic(NO_SOURCE_FILE:0)
-	at reproduce.test_1_with_deepimagej$eval53.invoke(NO_SOURCE_FILE)
-	at clojure.lang.Compiler.eval(Compiler.java:6927)
-	at clojure.lang.Compiler.eval(Compiler.java:6890)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:88)
-	at org.scijava.plugins.scripting.clojure.ClojureScriptEngine.eval(ClojureScriptEngine.java:63)
-	at org.scijava.script.ScriptModule.run(ScriptModule.java:164)
-	at org.scijava.module.ModuleRunner.run(ModuleRunner.java:163)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:124)
-	at org.scijava.module.ModuleRunner.call(ModuleRunner.java:63)
-	at org.scijava.thread.DefaultThreadService.lambda$wrap$2(DefaultThreadService.java:225)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
-Caused by: java.lang.NullPointerException
-	at deepimagej.tools.DijRunnerPreprocessing.removeProcessedImageAndShowOriginal(DijRunnerPreprocessing.java:206)
-	at deepimagej.tools.DijRunnerPreprocessing.call(DijRunnerPreprocessing.java:176)
-	at deepimagej.tools.DijRunnerPreprocessing.call(DijRunnerPreprocessing.java:1)
-	... 4 more
--- script 2/2: COMPARING TO EXPECTED OUTPUT
+** script 2/2: COMPARING TO EXPECTED OUTPUT
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 9/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+* MODEL   8/ 10
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: No SLF4J providers were found.
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
 SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
+** script 2/2: COMPARING TO EXPECTED OUTPUT
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 10/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 11/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+* MODEL   9/ 10
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: No SLF4J providers were found.
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
 SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
+** script 2/2: COMPARING TO EXPECTED OUTPUT
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 12/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-2023-06-16 11:36:23.694995: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_100.dll'; dlerror: cudart64_100.dll not found
-2023-06-16 11:36:23.695054: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-2023-06-16 11:36:23.787916: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: C:\Users\RUNNER~1\BLANK_~1\Fiji.app\models\the_model\
-2023-06-16 11:36:23.839646: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-06-16 11:36:23.909098: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
-2023-06-16 11:36:23.911060: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
-2023-06-16 11:36:23.911111: E tensorflow/stream_executor/cuda/cuda_driver.cc:318] failed call to cuInit: UNKNOWN ERROR (303)
-2023-06-16 11:36:23.915022: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: fv-az277-18
-2023-06-16 11:36:23.915151: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: fv-az277-18
-2023-06-16 11:36:24.178768: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-06-16 11:36:25.384197: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 1596238 microseconds.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 13/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+* MODEL  10/ 10
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
 SLF4J: No SLF4J providers were found.
 SLF4J: Defaulting to no-operation (NOP) logger implementation
 SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
 SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
 SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
+** script 2/2: COMPARING TO EXPECTED OUTPUT
 OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
 OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 14/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-2023-06-16 11:53:48.737122: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_100.dll'; dlerror: cudart64_100.dll not found
-2023-06-16 11:53:48.737183: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-2023-06-16 11:53:48.832164: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: C:\Users\RUNNER~1\BLANK_~1\Fiji.app\models\the_model\
-2023-06-16 11:53:48.866347: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-06-16 11:53:48.917446: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
-2023-06-16 11:53:48.919580: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
-2023-06-16 11:53:48.919637: E tensorflow/stream_executor/cuda/cuda_driver.cc:318] failed call to cuInit: UNKNOWN ERROR (303)
-2023-06-16 11:53:48.923281: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: fv-az277-18
-2023-06-16 11:53:48.923411: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: fv-az277-18
-2023-06-16 11:53:49.122869: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-06-16 11:53:50.543269: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 1710955 microseconds.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 15/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: No SLF4J providers were found.
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 16/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-2023-06-16 11:56:35.251069: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_100.dll'; dlerror: cudart64_100.dll not found
-2023-06-16 11:56:35.251128: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-2023-06-16 11:56:35.345356: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: C:\Users\RUNNER~1\BLANK_~1\Fiji.app\models\the_model\
-2023-06-16 11:56:35.348318: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-06-16 11:56:35.351506: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
-2023-06-16 11:56:35.353417: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
-2023-06-16 11:56:35.353464: E tensorflow/stream_executor/cuda/cuda_driver.cc:318] failed call to cuInit: UNKNOWN ERROR (303)
-2023-06-16 11:56:35.357230: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: fv-az277-18
-2023-06-16 11:56:35.357422: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: fv-az277-18
-2023-06-16 11:56:35.370068: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-06-16 11:56:35.427208: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 81814 microseconds.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 17/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: No SLF4J providers were found.
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
-[W functional.py:21] Warning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument. (function )
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 18/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: No SLF4J providers were found.
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 19/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: No SLF4J providers were found.
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 20/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: No SLF4J providers were found.
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 21/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-2023-06-16 12:02:18.833595: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'cudart64_100.dll'; dlerror: cudart64_100.dll not found
-2023-06-16 12:02:18.833654: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
-2023-06-16 12:02:18.926910: I tensorflow/cc/saved_model/reader.cc:31] Reading SavedModel from: C:\Users\RUNNER~1\BLANK_~1\Fiji.app\models\the_model\
-2023-06-16 12:02:18.929693: I tensorflow/cc/saved_model/reader.cc:54] Reading meta graph with tags { serve }
-2023-06-16 12:02:18.932963: I tensorflow/core/platform/cpu_feature_guard.cc:142] Your CPU supports instructions that this TensorFlow binary was not compiled to use: AVX2
-2023-06-16 12:02:18.935974: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'nvcuda.dll'; dlerror: nvcuda.dll not found
-2023-06-16 12:02:18.936027: E tensorflow/stream_executor/cuda/cuda_driver.cc:318] failed call to cuInit: UNKNOWN ERROR (303)
-2023-06-16 12:02:18.940023: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: fv-az277-18
-2023-06-16 12:02:18.940150: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: fv-az277-18
-2023-06-16 12:02:18.952417: I tensorflow/cc/saved_model/loader.cc:202] Restoring SavedModel bundle.
-2023-06-16 12:02:19.013221: I tensorflow/cc/saved_model/loader.cc:311] SavedModel load for tags { serve }; Status: success. Took 86274 microseconds.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 22/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: No SLF4J providers were found.
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
-[W functional.py:21] Warning: Implicit dimension choice for softmax has been deprecated. Change the call to include dim=X as an argument. (function )
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 23/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: No SLF4J providers were found.
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 24/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: No SLF4J providers were found.
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 25/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: No SLF4J providers were found.
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-- MODEL 26/26
--- script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
-SLF4J: No SLF4J providers were found.
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-SLF4J: Class path contains SLF4J bindings targeting slf4j-api versions 1.7.x or earlier.
-SLF4J: Ignoring binding found at [jar:file:/D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/java_CI_scripts/engines/pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu/slf4j-simple-1.7.25.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-SLF4J: See https://www.slf4j.org/codes.html#ignoredBindings for an explanation.
--- script 2/2: COMPARING TO EXPECTED OUTPUT
-OpenJDK 64-Bit Server VM warning: ignoring option PermSize=128m; support was removed in 8.0
-OpenJDK 64-Bit Server VM warning: Using incremental CMS is deprecated and will likely be removed in a future release
+FINISHED TESTING THE 10 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-07-27 11:50:52.333640
 
-FINISHED TESTING THE 26 MODELS IN FIJI AT 2023-06-16T14:14:06.599035900
+Logs are in D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\..\test_summaries\fiji_log_out.txt and fiji_log_err.txt
 
- Logs are in: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\java_CI_scripts\..\test_summaries\fiji_log_out.txt and fiji_log_err.txt
-
-Total Time Taken: PT52M9.496S
+Total Time Taken: 0:09:54.911899

@@ -1,4 +1,5 @@
-bioimageio_spec_version: 0.4.8post1
-error: rdf does not have keys for :config :deepimagej
+bioimageio_spec_version: 0.4.9
+bioimageio_core_version: 0.5.9
+error: Failure to download model with 'bioimageio.core.export_resource_package'
 status: failed
-name: Initial compatibility checks with DeepImageJ
+name: Downloading testing resources for DeepImageJ

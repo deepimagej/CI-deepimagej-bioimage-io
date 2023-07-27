@@ -1,0 +1,53 @@
+{
+  "ROOTS": {
+    "collection-root": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs",
+    "summa-root": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries",
+    "models-root": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models",
+    "samples-root": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej",
+    "resources-root": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\resources",
+    "pending-matrix-root": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\java_CI_scripts\\pending_matrix",
+    "fiji-home": "C:\\Users\\runneradmin\\blank_fiji"
+  },
+  "FILES": {
+    "config": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\config.json",
+    "failed-downloads": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\failed_download_rdfs.txt",
+    "fiji-executable": "C:\\Users\\runneradmin\\blank_fiji\\Fiji.app\\ImageJ-win64.exe",
+    "logs": {
+      "out": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\fiji_log_out.txt",
+      "err": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\fiji_log_err.txt"
+    },
+    "report": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\report.json",
+    "summa-readme": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\Readme.md"
+  },
+  "CONSTANTS": {
+    "CI-output-name": "CI_OUTPUT.tif",
+    "dij-args-filename": "dij_args.json",
+    "errors-dir-name": "errors_info",
+    "fiji-flags": [
+      "--headless",
+      "--ij2",
+      "--console",
+      "--run"
+    ],
+    "fiji-scripts-arg-name": "folder",
+    "model-dir-name": "the_model",
+    "mse-threshold": 0.09,
+    "output-metrics-name": "output_metrics.json",
+    "sample-input-name": "sample_input_0.tif",
+    "sample-output-name": "sample_output_0.tif",
+    "special-headless-chars": [
+      " ",
+      "_",
+      "."
+    ],
+    "summary-name": "test_summary.yaml",
+    "summa-readme-header": "# Report summary",
+    "timeout_s": 1200,
+    "valid-weight-keys": [
+      "torchscript",
+      "pytorch_script",
+      "tensorflow_saved_model_bundle",
+      "onnx"
+    ]
+  }
+}
