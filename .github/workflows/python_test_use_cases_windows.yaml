@@ -90,6 +90,11 @@ jobs:
           ls -l test_summaries
           ls -R -l models
 
+      - name: print contents of log (error)
+        working-directory: ./
+        run: |
+          cat test_summaries/fiji_log_err.txt
+
       - name: upload the test summaries
         uses: actions/upload-artifact@v3
         with:
