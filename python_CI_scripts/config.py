@@ -16,8 +16,8 @@ ROOTS = {"collection-root": Path("..", "bioimageio-gh-pages", "rdfs").absolute()
          "fiji-home": Path.home() / "blank_fiji"}
 
 "Configuration constants that are files"
-FILES = {"config": ROOTS["resources-root"] / "config.json",
-         "failed-downloads": ROOTS["resources-root"] / "failed_download_rdfs.txt",
+FILES = {"config": ROOTS["summa-root"] / "config.json",
+         "failed-downloads": ROOTS["summa-root"] / "failed_download_rdfs.txt",
          "fiji-executable": ROOTS["fiji-home"] / "Fiji.app" / "ImageJ-win64.exe",
          "logs": {"out": ROOTS["summa-root"] / "fiji_log_out.txt",
                   "err": ROOTS["summa-root"] / "fiji_log_err.txt"},

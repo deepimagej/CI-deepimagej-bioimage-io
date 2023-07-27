@@ -1,4 +1,4 @@
-name: CI - test only collection.json (on linux)
+name: clj CI - test only collection.json ON WINDOWS, and with DIJ 3
 
 # Controls when the workflow will run
 on:
@@ -14,7 +14,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   my-ci-job:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -41,28 +41,27 @@ jobs:
           babashka-version: 1.1.173
 
       - name: Setup fiji & deepimagej
-        working-directory: ./bash_scripts
+        working-directory: ./java_CI_scripts 
         run: |
-          sh setup_deepimagej.sh
+          bb "(require '[reproduce.setup-fiji :as r]) (r/setup-fiji-&-deepimagej3)"
 
       - name: run initial stage
         working-directory: ./java_CI_scripts
         run: |
           bb --version
           bb "(require 'collection) (collection/generate-pending-matrix-from-collection true)" # update the collection to latest version
+          echo "Models in generated Collection json"
           cat ./pending_matrix/only_collection.json
           bb -m core.main -j ./pending_matrix/only_collection.json download
+          ls -R -l ../models
 
-      - name: check that initial pipeline of CI went OK
-        run: |
-          chmod +x ./bash_scripts/check_initial_CI.sh
-          bash ./bash_scripts/check_initial_CI.sh
 
       - name: run reproduce pipeline
         working-directory: ./java_CI_scripts
         run: |
           bb --version
           bb -m core.main reproduce
+          ls -R -l ../models
 
       - name: upload the test summaries
         uses: actions/upload-artifact@v3

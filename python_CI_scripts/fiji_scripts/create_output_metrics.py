@@ -20,7 +20,7 @@ my_print("The folder is: " + folder)  # check if the argument is being read corr
 my_print("wd: " + os.getcwd())
 
 # Read config and dij record file
-config_dir = "test_outputs/resources/config.json"
+config_dir = "../test_summaries/config.json"
 with open(config_dir, "r") as f:
     config = json.load(f)
 CONSTANTS = config["CONSTANTS"]

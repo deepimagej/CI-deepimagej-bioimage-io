@@ -1,4 +1,4 @@
-name: CI - test use-cases only (on linux)
+name: python CI - test lightweight models ON WINDOWS, and with DIJ 3
 
 # Controls when the workflow will run
 on:
@@ -8,19 +8,13 @@ on:
       pending_matrix:
         description: 'json encoded gh matrix of pending validations for new or updated resources (default: test on all resources)'
         required: true
-        #default: '''{"include": [{"resource_id": "**", "version_id": "**"}]}'''
-        default: '''{"include": [
-		    {"resource_id": "10.5281/zenodo.5749843","version_id": "5888237"},
-		    {"resource_id": "10.5281/zenodo.6338614","version_id": "6338615"},
-		    {"resource_id": "10.5281/zenodo.6200635","version_id": "7702687"},
-		    {"resource_id": "10.5281/zenodo.6200999","version_id": "7690494"},
-		    {"resource_id": "10.5281/zenodo.6406756","version_id": "6811922"}]}'''
+        default: '''{"include": [{"resource_id": "**", "version_id": "**"}]}'''
         type: string
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   my-ci-job:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -46,27 +40,61 @@ jobs:
         with:
           babashka-version: 1.1.173
 
-      - name: Setup fiji & deepimagej
-        working-directory: ./bash_scripts
+      - name: setup conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          environment-file: python_CI_scripts/conda_env_packages.yaml
+
+      - name: check conda install (on pwsh, that is the default shell)
+        working-directory: ./
+        shell: pwsh
         run: |
-          sh setup_deepimagej.sh
+          pwd
+          conda env list
+          conda info
+          python --version
+          conda list
+
+      - name: Setup fiji & deepimagej, and update collection
+        working-directory: ./java_CI_scripts 
+        run: |
+          bb --version
+          bb "(require '[reproduce.setup-fiji :as r]) (r/setup-fiji-&-deepimagej3)"
+          bb "(require 'collection) (collection/generate-pending-matrix-from-collection true)" # update the collection to latest version
+          echo "Models in generated only_collection json"
+          cat ./pending_matrix/only_collection.json
 
       - name: run initial stage
-        working-directory: ./java_CI_scripts
+        working-directory: ./python_CI_scripts
         run: |
-          bb --version
-          bb -m core.main -s ${{ inputs.pending_matrix }} download
-
-      - name: check that initial pipeline of CI went OK
+          python -u main.py -j ..\java_CI_scripts\pending_matrix\lightweight_models.json download
+          
+          
+      - name: check initial stage ok
+        working-directory: ./
         run: |
-          chmod +x ./bash_scripts/check_initial_CI.sh
-          bash ./bash_scripts/check_initial_CI.sh
+          cat test_summaries\Readme.md
+          ls -R -l models
 
       - name: run reproduce pipeline
-        working-directory: ./java_CI_scripts
+        working-directory: ./python_CI_scripts
         run: |
-          bb --version
-          bb -m core.main reproduce
+          python -u main.py reproduce
+          python -u main.py report
+
+      - name: check reproduce stage ok
+        working-directory: ./
+        run: |
+          cat test_summaries\Readme.md
+          ls -l test_summaries
+          ls -R -l models
+
+      - name: print contents of log (error)
+        working-directory: ./
+        run: |
+          cat test_summaries/fiji_log_err.txt
+
 
       - name: upload the test summaries
         uses: actions/upload-artifact@v3
