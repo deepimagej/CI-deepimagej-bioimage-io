@@ -57,7 +57,8 @@ def download_pipeline(input_json):
 
     # download
     tic = utils.print_start_msg("Downloading {} models".format(len(keep_testing_ini)))
-    list(map(lambda x: downloads.download_model(x, verb=True), keep_testing_ini))
+    list(map(lambda x: downloads.download_model(x[1], verb=True, id_="{:3}/{:3}".format(x[0] + 1, len(keep_testing_ini))),
+             enumerate(keep_testing_ini)))
     utils.print_elapsed_time(tic, "Finished all downloads")
 
     # get correct images
