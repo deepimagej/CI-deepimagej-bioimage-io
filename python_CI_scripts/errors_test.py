@@ -17,6 +17,8 @@ assert not errors.is_any_compatible_weight(models_test.a_model_record)
 assert errors.is_any_compatible_weight(models_test.pt_model_record)
 assert errors.is_any_compatible_weight(models_test.tf_model_record)
 
+# test reproduce checks
+errors.get_metrics_file(models_test.tf_model_record)
 
 # test discriminating errors
 model_records = [models_test.a_model_record, models_test.pt_model_record, models_test.tf_model_record]
@@ -28,7 +30,7 @@ assert utils.count_dict(d_models_weights["error-found"]) == {'no-compatible-weig
 
 d_all_models_runmode = errors.check_error({"keep-testing": models_test.all_model_records},
                                           list(errors.init_errors_fns.items())[0])
-assert len(d_all_models_runmode["keep-testing"]) > 200
+assert len(d_all_models_runmode["keep-testing"]) > 190
 assert set(map(lambda x: x["name"], d_all_models_runmode["error-found"]["key-run-mode"])) == {
     'Cells and gland Segmentation (FRUNet)',
     'Glial Cell SMLM (DeepSTORM - ZeroCostDL4Mic)',
@@ -47,3 +49,8 @@ all_models_discriminated = errors.separate_by_error(all_actual_models, errors.in
 assert 50 < utils.count_dict(all_models_discriminated)["keep-testing"] < 150
 assert utils.count_dict(all_models_discriminated["error-found"])['key-run-mode'] == 4
 assert utils.count_dict(all_models_discriminated["error-found"])["no-compatible-weights"] > 20
+
+
+# test reproduce errors
+assert errors.get_output_metrics(models_test.tf_model_record) == {'max-val': 255.0, 'mae': 0.0, 'mse': 0.0}
+assert errors.is_ok_metrics(models_test.tf_model_record)

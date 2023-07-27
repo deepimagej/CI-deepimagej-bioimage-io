@@ -27,7 +27,8 @@ def get_paths_info(rdf_path):
     return {"rdf-path": rdf_path,
             "summa-path": utils.new_root_path(old_root, ROOTS["summa-root"], rdf_path),
             "model-dir-path": utils.new_root_path(old_root, ROOTS["models-root"], rdf_path),
-            "samples-path": utils.new_root_path(old_root, ROOTS["samples-root"], rdf_path)}
+            "samples-path": utils.new_root_path(old_root, ROOTS["samples-root"], rdf_path),
+            "manual-samples-path": utils.new_root_path(old_root, ROOTS["samples-root"] / "manual", rdf_path)}
 
 
 def get_weight_info(rdf_dict):
@@ -37,6 +38,23 @@ def get_weight_info(rdf_dict):
     if weights_dict is not None:
         return list(filter(lambda x: x in CONSTANTS["valid-weight-keys"], weights_dict.keys()))
     return []
+
+
+def get_pprocess_info(rdf_dict, type_="inputs"):
+    """Gathers information about pre- or post-processing from the parsed yaml file"""
+    pp = "preprocess" if type_ == "inputs" else "postprocess"
+    dij_config = utils.get_in(rdf_dict, ["config", "deepimagej", "prediction", pp], default=[None])[0]
+
+    if dij_config is not None:
+        name = utils.get_in(dij_config, ["kwargs"], default="")
+        return name
+
+    pp = pp + "ing"
+    _puts_dict = rdf_dict.get(type_)[0]
+    pp_dict = _puts_dict.get(pp, [{}])[0]
+    name = utils.get_in(pp_dict, ["name"], default="")
+    # mode = utils.get_in(pp_dict, ["kwargs", "mode"], default="")
+    return name
 
 
 def get_tensor_info(rdf_dict, type_="inputs"):
@@ -54,6 +72,10 @@ def get_tensor_info(rdf_dict, type_="inputs"):
         tensor_info["original-sample"] = Path(sample_inputs[0]).name
     if test_inputs is not None:
         tensor_info["original-test"] = Path(test_inputs[0]).name
+
+    pp_name = get_pprocess_info(rdf_dict, type_)
+    if len(pp_name) > 2:
+        tensor_info["original-p*process"] = pp_name
 
     return tensor_info
 
