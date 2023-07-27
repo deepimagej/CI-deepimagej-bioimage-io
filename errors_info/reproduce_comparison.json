@@ -1,3 +1,37 @@
 {
-  "reproduce_comparison": []
+  "reproduce_comparison": [
+    {
+      "name": "Pancreatic Phase Contrast Cell Segmentation (U-Net)",
+      "nickname": "discreet-rooster",
+      "rdf-info": {
+        "type": "model",
+        "dij-config?": true,
+        "run-mode": null
+      },
+      "paths": {
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.5914248\\8186255\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.5914248\\8186255",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.5914248\\8186255",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.5914248\\8186255",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.5914248\\8186255"
+      },
+      "weight-types": [
+        "tensorflow_saved_model_bundle"
+      ],
+      "inputs": {
+        "name": "input",
+        "axes": "byxc",
+        "original-sample": "exampleImage.tiff",
+        "original-test": "exampleImage.npy",
+        "original-p*process": "per_sample_scale_range.ijm"
+      },
+      "outputs": {
+        "name": "output",
+        "axes": "byxc",
+        "original-sample": "resultImage.tiff",
+        "original-test": "resultImage.npy",
+        "original-p*process": "binarize.ijm"
+      }
+    }
+  ]
 }

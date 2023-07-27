@@ -8,16 +8,16 @@
 44 models to keep testing after init.
 Detailed information in D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\..\test_summaries\errors_info
 
-- Created  31 test summaries for the error key: download-fail
-- Created   3 test summaries for the error key: no-test-images
+- Created   5 test summaries for the error key: download-fail
+- Created   5 test summaries for the error key: no-test-images
 
-10 models to keep testing after download.
+34 models to keep testing after download.
 Detailed information in D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\..\test_summaries\errors_info
 
-Comm file 'dij_args.json' created for these 10 models 
+Comm file 'dij_args.json' created for these 34 models 
 
-- Created   3 test summaries for the error key: dij-headless
-- Created   0 test summaries for the error key: comparison
-- Created   7 test summaries for models that pass the CI
+- Created  13 test summaries for the error key: dij-headless
+- Created   1 test summaries for the error key: comparison
+- Created  20 test summaries for models that pass the CI
 
 Report for the 50 models tested written in: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\..\test_summaries\report.json

@@ -1,5 +1,5 @@
 bioimageio_spec_version: 0.4.9
 bioimageio_core_version: 0.5.9
-error: Failure to download model with 'bioimageio.core.export_resource_package'
+error: Error while running DeepImageJ headless (CI did not produce an output image)
 status: failed
-name: Downloading testing resources for DeepImageJ
+name: Reproduce test outputs with DeepImageJ headless

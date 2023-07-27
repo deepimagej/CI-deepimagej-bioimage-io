@@ -1,62 +1,35 @@
 {
   "download_no-test-images": [
     {
-      "name": "2D UNet for label-free prediction of mCherry-H2B",
-      "nickname": "noisy-hedgehog",
+      "name": "HPA Bestfitting InceptionV3",
+      "nickname": "straightforward-crocodile",
       "rdf-info": {
         "type": "model",
         "dij-config?": false,
         "run-mode": null
       },
       "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.8064806\\8073617\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.8064806\\8073617",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.8064806\\8073617",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.8064806\\8073617",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.8064806\\8073617"
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.5910854\\6539073\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.5910854\\6539073",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.5910854\\6539073",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.5910854\\6539073",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.5910854\\6539073"
       },
       "weight-types": [
-        "torchscript"
+        "onnx",
+        "pytorch_script"
       ],
       "inputs": {
-        "name": "input0",
+        "name": "image",
         "axes": "bcyx",
-        "original-test": "test-input.npy",
-        "original-p*process": "zero_mean_unit_variance"
+        "original-sample": "sample_image.tif",
+        "original-test": "test_input.npy",
+        "original-p*process": "scale_linear"
       },
       "outputs": {
-        "name": "output0",
-        "axes": "bcyx",
-        "original-test": "test-output.npy"
-      }
-    },
-    {
-      "name": "EmbryoNet base model",
-      "nickname": "nice-peacock",
-      "rdf-info": {
-        "type": "model",
-        "dij-config?": false,
-        "run-mode": null
-      },
-      "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.7315440\\7315441\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.7315440\\7315441",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.7315440\\7315441",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.7315440\\7315441",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.7315440\\7315441"
-      },
-      "weight-types": [
-        "onnx"
-      ],
-      "inputs": {
-        "name": "data",
-        "axes": "bcyx",
-        "original-test": "input_test_image.npy"
-      },
-      "outputs": {
-        "name": "output",
-        "axes": "c",
-        "original-test": "result.npy"
+        "name": "classes",
+        "axes": "bc",
+        "original-test": "test_output_classes.npy"
       }
     },
     {
@@ -88,6 +61,95 @@
         "axes": "byxc",
         "original-test": "test_output.tif",
         "original-p*process": "scale_linear"
+      }
+    },
+    {
+      "name": "2D UNet for label-free prediction of mCherry-H2B",
+      "nickname": "noisy-hedgehog",
+      "rdf-info": {
+        "type": "model",
+        "dij-config?": false,
+        "run-mode": null
+      },
+      "paths": {
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.8064806\\8073617\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.8064806\\8073617",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.8064806\\8073617",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.8064806\\8073617",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.8064806\\8073617"
+      },
+      "weight-types": [
+        "torchscript"
+      ],
+      "inputs": {
+        "name": "input0",
+        "axes": "bcyx",
+        "original-test": "test-input.npy",
+        "original-p*process": "zero_mean_unit_variance"
+      },
+      "outputs": {
+        "name": "output0",
+        "axes": "bcyx",
+        "original-test": "test-output.npy"
+      }
+    },
+    {
+      "name": "HPA Bestfitting Densenet",
+      "nickname": "polite-pig",
+      "rdf-info": {
+        "type": "model",
+        "dij-config?": false,
+        "run-mode": null
+      },
+      "paths": {
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.5910163\\5942853\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.5910163\\5942853",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.5910163\\5942853",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.5910163\\5942853",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.5910163\\5942853"
+      },
+      "weight-types": [
+        "onnx"
+      ],
+      "inputs": {
+        "name": "image",
+        "axes": "bcyx",
+        "original-test": "test_input.npy",
+        "original-p*process": "scale_linear"
+      },
+      "outputs": {
+        "name": "classes",
+        "axes": "bc",
+        "original-test": "test_output_classes.npy"
+      }
+    },
+    {
+      "name": "EmbryoNet base model",
+      "nickname": "nice-peacock",
+      "rdf-info": {
+        "type": "model",
+        "dij-config?": false,
+        "run-mode": null
+      },
+      "paths": {
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.7315440\\7315441\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.7315440\\7315441",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.7315440\\7315441",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.7315440\\7315441",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.7315440\\7315441"
+      },
+      "weight-types": [
+        "onnx"
+      ],
+      "inputs": {
+        "name": "data",
+        "axes": "bcyx",
+        "original-test": "input_test_image.npy"
+      },
+      "outputs": {
+        "name": "output",
+        "axes": "c",
+        "original-test": "result.npy"
       }
     }
   ]
