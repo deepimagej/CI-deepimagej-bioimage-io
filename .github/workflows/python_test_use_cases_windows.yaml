@@ -1,0 +1,120 @@
+name: python CI - test only collection.json ON WINDOWS, and with DIJ 3
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab (github website)
+  workflow_dispatch:
+    inputs:
+      pending_matrix:
+        description: 'json encoded gh matrix of pending validations for new or updated resources (default: test on all resources)'
+        required: true
+        default: '''{"include": [{"resource_id": "**", "version_id": "**"}]}'''
+        type: string
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  my-ci-job:
+    runs-on: windows-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      # Check out another repository
+      - uses: actions/checkout@v3
+        with:
+          repository: bioimage-io/collection-bioimage-io
+          ref: gh-pages
+          path: bioimageio-gh-pages
+      - uses: actions/checkout@v3
+        with:
+          repository: ivan-ea/numpy-tiff-deepimagej
+          ref: master
+          path: numpy-tiff-deepimagej
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world! ${{ inputs.pending_matrix }}
+
+      - name: setup babashka
+        uses: turtlequeue/setup-babashka@v1.5.0
+        with:
+          babashka-version: 1.1.173
+
+      - name: setup conda
+      - uses: conda-incubator/setup-miniconda@v2
+        with:
+          auto-update-conda: true
+          environment-file: python_scripts/conda_env_packages.yaml
+
+      - name: check conda install (on pwsh, that is the default shell)
+        working-directory: ./CI-deepimagej-bioimage-io/java_CI_scripts
+        shell: pwsh
+        run: |
+          conda env list
+          conda info
+          python --version
+          conda list
+
+      - name: Setup fiji & deepimagej, and update collection
+        working-directory: ./java_CI_scripts 
+        run: |
+          bb --version
+          bb "(require '[reproduce.setup-fiji :as r]) (r/setup-fiji-&-deepimagej3)"
+          bb "(require 'collection) (collection/generate-pending-matrix-from-collection true)" # update the collection to latest version
+          echo "Models in generated only_collection json"
+          cat ./pending_matrix/only_collection.json
+
+      - name: run initial stage
+        working-directory: ./python_CI_scripts
+        run: |
+          python -u main.py -j ..\java_CI_scripts\pending_matrix\use_cases.json download
+          
+          
+      - name: check initial stage ok
+        working-directory: ./
+        run: |
+          cat test_summaries\Readme.md
+          ls -R -l models
+
+      - name: run reproduce pipeline
+        working-directory: ./python_CI_scripts
+        run: |
+          python -u main.py reproduce
+          python -u main.py report
+
+      - name: check reproduce stage ok
+        working-directory: ./
+        run: |
+          cat test_summaries\Readme.md
+          ls -l test_summaries
+          ls -R -l models
+
+      - name: upload the test summaries
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-summaries
+          path: ./test_summaries/
+          retention-days: 1
+
+  deploy:
+    needs: my-ci-job
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/download-artifact@v3
+      with:
+        name: test-summaries
+        path: ./test_summaries/
+
+    - name: exploratory commands
+      run: |
+        chmod +x ./bash_scripts/explore_commands.sh
+        bash ./bash_scripts/explore_commands.sh
+
+    - name: Deploy test summaries to gh-pages 🚀
+      uses: JamesIves/github-pages-deploy-action@v4.2.3
+      with:
+        clean: false
+        branch: gh-pages
+        folder: ./test_summaries
+      
