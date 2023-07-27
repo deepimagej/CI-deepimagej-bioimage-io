@@ -8,7 +8,7 @@ import os
 print("   The folder is: " + folder) # check if the argument is being read correctly
 print("pwd: " + os.getcwd())
 
-config_dir = "test_outputs/resources/config.json"
+config_dir = "../test_summaries/config.json"
 with open(config_dir, "r") as f:
     config = json.load(f)
 CONSTANTS = config["CONSTANTS"]
