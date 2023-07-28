@@ -78,7 +78,8 @@ Each stage tests the models for specific criteria, and the corresponding errors 
 
 After the 3 stages are completed and all the test summaries generated, a report is automatically created with the results of the testing for every model. 
 
-The blue words from the figure represent code name-spaces that implement the functionality. Some code focuses only on the requirements for 1 of the stages, whereas other is needed all throughout the CI.
+The blue words from the figure represent code name-spaces that implement the functionality. 
+Some code focus only on the requirements for one of the stages, whereas others are needed all throughout the CI.
 
 ### Manually tested models
 Manually tested models are represented by the ladder in the figure. These models are handled during the *init* stage and bypass all the other stages.
