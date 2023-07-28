@@ -1,4 +1,4 @@
-name: python CI - test only collection.json ON WINDOWS, and with DIJ 3
+name: python CI - test BioImage.IO resources with DeepImageJ ON WINDOWS
 
 # Controls when the workflow will run
 on:
