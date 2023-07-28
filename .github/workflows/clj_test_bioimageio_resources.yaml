@@ -1,4 +1,4 @@
-name: python CI - test BioImage.IO resources with DeepImageJ ON WINDOWS
+name: clj CI - test BioImage.IO resources with DeepImageJ
 
 # Controls when the workflow will run
 on:
@@ -13,13 +13,11 @@ on:
         {"resource_id": "deepimagej","version_id": "DeepSTORMZeroCostDL4Mic/latest"},
         {"resource_id": "10.5281/zenodo.6334881","version_id": "6346477"}]}'''
         type: string
-        # RAW STRINGS CONTAINING JSON ARE A BAD IDEA, (single/double quotes and escaping depends on the shell)
-        # it's better to use json files ...
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   my-ci-job:
-    runs-on: windows-latest
+    runs-on: windows-latest # HAS TO BE ON WINDOWS SINCE DIJ3.03 HAS WEIRD LINUX HEADLESS BUG
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -45,60 +43,23 @@ jobs:
         with:
           babashka-version: 1.1.173
 
-      - name: setup conda
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-          auto-update-conda: true
-          environment-file: python_CI_scripts/conda_env_packages.yaml
-
-      - name: check conda install (on pwsh, that is the default shell)
-        working-directory: ./
-        shell: pwsh
-        run: |
-          conda env list
-          conda info
-          python --version
-          conda list
-
-      - name: Setup fiji & deepimagej, and update collection
+      - name: Setup fiji & deepimagej
         working-directory: ./java_CI_scripts 
         run: |
-          bb --version
           bb "(require '[reproduce.setup-fiji :as r]) (r/setup-fiji-&-deepimagej3)"
-          bb "(require 'collection) (collection/generate-pending-matrix-from-collection true)" # update the collection to latest version
-          echo "Models in generated only_collection json"
-          cat ./pending_matrix/only_collection.json
 
       - name: run initial stage
-        working-directory: ./python_CI_scripts
+        working-directory: ./java_CI_scripts
         run: |
-          python -u main.py --j ..\java_CI_scripts\pending_matrix\all_models.json download
-          
-          
-          
-      - name: check initial stage ok
-        working-directory: ./
-        run: |
-          cat test_summaries\Readme.md
-          ls -R -l models
+          bb --version
+          bb -m core.main -s ${{ inputs.pending_matrix }} download
+          ls -R -l ../models          
 
       - name: run reproduce pipeline
-        working-directory: ./python_CI_scripts
+        working-directory: ./java_CI_scripts
         run: |
-          python -u main.py reproduce
-          python -u main.py report
-
-      - name: check reproduce stage ok
-        working-directory: ./
-        run: |
-          cat test_summaries\Readme.md
-          ls -l test_summaries
-          ls -R -l models
-
-      - name: print contents of log (error)
-        working-directory: ./
-        run: |
-          cat test_summaries/fiji_log_err.txt
+          bb --version
+          bb -m core.main reproduce
 
       - name: upload the test summaries
         uses: actions/upload-artifact@v3
