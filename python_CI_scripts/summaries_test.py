@@ -29,6 +29,14 @@ assert d_comp == {'bioimageio_spec_version': '0.4.9',
                   'status': 'failed',
                   'name': 'Reproduce test outputs with DeepImageJ headless'}
 
+
+d_manual = summaries.gen_summa_dict(True, manual=True)
+assert d_manual == {'bioimageio_spec_version': '0.4.9',
+                    'bioimageio_core_version': '0.5.9',
+                    'status': 'passed',
+                    'name': 'Reproduce test outputs with DeepImageJ GUI (manually tested)'}
+
+
 # test write_test_summary
 mock_path = Path(".", "test_outputs", "test_summary_folder")
 mock_model = {"paths": {"summa-path": mock_path}}

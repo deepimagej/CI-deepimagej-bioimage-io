@@ -1,7 +1,7 @@
 """Error keys and messages for the different possible failed test summaries"""
 
-from config import CONSTANTS
-import utils
+from config import CONSTANTS, FILES
+import utils, collection, models
 
 import json
 from functools import reduce
@@ -29,7 +29,8 @@ all_errors = initial_errors | download_errors | reproduce_errors
 "Different stages of the CI"
 ci_stages = {"initial": "Initial compatibility checks with DeepImageJ",
              "download": "Downloading testing resources for DeepImageJ",
-             "reproduce": "Reproduce test outputs with DeepImageJ headless"}
+             "reproduce": "Reproduce test outputs with DeepImageJ headless",
+             "manual": "Reproduce test outputs with DeepImageJ GUI (manually tested)"}
 
 
 def find_stage(error_key):
@@ -47,6 +48,15 @@ def find_stage(error_key):
 def is_model(model_record):
     """Checks if a model record is from an rdf of type 'model'"""
     return utils.get_in(model_record, ["rdf-info", "type"]) == "model"
+
+
+def is_manually_tested(model_record):
+    """Checks if the arg model is present among the manually tested models"""
+    manual_json = collection.file_json_2_vector(FILES["manually-tested"])
+    manual_rdfs = collection.get_rdfs_to_test(manual_json)
+    manual_records = list(map(lambda x: models.build_model(x), manual_rdfs))
+
+    return model_record in manual_records
 
 
 def is_no_run_mode(model_record):

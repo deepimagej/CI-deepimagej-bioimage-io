@@ -22,7 +22,8 @@ FILES = {"config": ROOTS["summa-root"] / "config.json",
          "logs": {"out": ROOTS["summa-root"] / "fiji_log_out.txt",
                   "err": ROOTS["summa-root"] / "fiji_log_err.txt"},
          "report": ROOTS["summa-root"] / "report.json",
-         "summa-readme": ROOTS["summa-root"] / "Readme.md"}
+         "summa-readme": ROOTS["summa-root"] / "Readme.md",
+         "manually-tested": ROOTS["pending-matrix-root"] / "manually_tested.json"}
 
 "Constants that are not files"
 CONSTANTS = {"CI-output-name": "CI_OUTPUT.tif",

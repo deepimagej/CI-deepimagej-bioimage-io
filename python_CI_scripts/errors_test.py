@@ -1,7 +1,10 @@
+from config import ROOTS
 import utils
 import errors
 import models
 import models_test
+
+from pathlib import Path
 
 # test the initial checks
 non_model = models.build_model(models_test.not_a_model_rdf)
@@ -16,6 +19,11 @@ assert not errors.is_any_compatible_weight(non_model)
 assert not errors.is_any_compatible_weight(models_test.a_model_record)
 assert errors.is_any_compatible_weight(models_test.pt_model_record)
 assert errors.is_any_compatible_weight(models_test.tf_model_record)
+
+manual_rdf = Path(ROOTS["collection-root"], "10.5281", "zenodo.7786492", "7786493", "rdf.yaml")
+manual_model = models.build_model(manual_rdf)
+assert not errors.is_manually_tested(models_test.pt_model_record)
+assert errors.is_manually_tested(manual_model)
 
 # test reproduce checks
 errors.get_metrics_file(models_test.tf_model_record)
@@ -52,5 +60,6 @@ assert utils.count_dict(all_models_discriminated["error-found"])["no-compatible-
 
 
 # test reproduce errors
-assert errors.get_output_metrics(models_test.tf_model_record) == {'max-val': 255.0, 'mae': 0.0, 'mse': 0.0}
+assert errors.get_output_metrics(models_test.tf_model_record) == {'mae-center': 0.0, 'max-val': 255.0,
+                                                                  'mse-center': 0.0, 'mae': 0.0, 'mse': 0.0}
 assert errors.is_ok_metrics(models_test.tf_model_record)

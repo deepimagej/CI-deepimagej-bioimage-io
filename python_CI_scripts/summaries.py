@@ -12,10 +12,12 @@ default_summa_dict = {"bioimageio_spec_version": bioimageio_spec_version,
                       "bioimageio_core_version": bioimageio_core_version}
 
 
-def gen_summa_dict(passed=False, error_key="other"):
+def gen_summa_dict(passed=False, error_key="other", manual=False):
     d = default_summa_dict.copy()
     if passed:
-        d.update({"status": "passed", "name": errors.ci_stages["reproduce"]})
+        type_ = "manual" if manual else "reproduce"
+        d.update({"status": "passed", "name": errors.ci_stages[type_]})
+
     else:
         stage = errors.find_stage(error_key)
         d.update({"error": errors.all_errors.get(error_key, "Other error"),

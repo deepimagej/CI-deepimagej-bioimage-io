@@ -1,5 +1,9 @@
 {
   "include": [
-    {"resource_id": "10.5281/zenodo.7786492","version_id": "7786493"}
+    {"resource_id": "10.5281/zenodo.7786492","version_id": "7786493"},
+    {"resource_id": "10.5281/zenodo.7614645","version_id": "7642674"},
+    {"resource_id": "10.5281/zenodo.6346511","version_id": "7768142"},
+    {"resource_id": "10.5281/zenodo.6334777","version_id": "7765026"},
+    {"resource_id": "deepimagej/skinlesionclassification","version_id": "latest"}
   ]
 }
