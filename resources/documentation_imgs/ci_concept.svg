@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
-   sodipodi:docname="ci.svg"
+   sodipodi:docname="ci_concept.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,9 +24,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="2.1089996"
-     inkscape:cx="161.92512"
-     inkscape:cy="70.175453"
+     inkscape:zoom="1.0544998"
+     inkscape:cx="113.32387"
+     inkscape:cy="156.47229"
      inkscape:window-width="1920"
      inkscape:window-height="1017"
      inkscape:window-x="-8"
@@ -111,7 +111,10 @@
        inkscape:randomized="0"
        d="m 110.62312,83.641532 -25.639248,0 -25.639246,0 12.819623,-22.204237 12.819623,-22.204238 12.819622,22.204237 z"
        inkscape:transform-center-y="-7.7386104"
-       transform="matrix(1.0455586,0,0,1.0455586,-61.142804,-39.974902)" />
+       transform="matrix(1.0455586,0,0,1.0455586,-61.142804,-39.974902)"
+       inkscape:export-filename="ci_concept.png"
+       inkscape:export-xdpi="185.22742"
+       inkscape:export-ydpi="185.22742" />
     <path
        fill-rule="evenodd"
        clip-rule="evenodd"
@@ -463,9 +466,9 @@
          transform="translate(-13.062492,-2.75)"><tspan
            x="-5.9242983"
            y="6.7637143"
-           id="tspan1877"><tspan
+           id="tspan901"><tspan
              style="baseline-shift:baseline;white-space:normal;stop-color:#000000;stop-opacity:1"
-             id="tspan1875">create_output_metrics</tspan></tspan></text>
+             id="tspan899">create_output_metrics</tspan></tspan></text>
     </g>
     <path
        style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#3279e6;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
@@ -535,7 +538,7 @@
      id="layer3"
      inkscape:label="ladder"
      sodipodi:insensitive="true"
-     style="display:none">
+     style="display:inline">
     <path
        style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#a2792d;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
        d="M 23.782254,-11.225074 14.37557,57.738225"
