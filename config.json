@@ -17,7 +17,8 @@
       "err": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\fiji_log_err.txt"
     },
     "report": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\report.json",
-    "summa-readme": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\Readme.md"
+    "summa-readme": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\Readme.md",
+    "manually-tested": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\java_CI_scripts\\pending_matrix\\manually_tested.json"
   },
   "CONSTANTS": {
     "CI-output-name": "CI_OUTPUT.tif",

@@ -1,8 +1,8 @@
 {
   "init_key-run-mode": [
     {
-      "name": "Skin lesions classification",
-      "nickname": null,
+      "name": "Cells and gland Segmentation (FRUNet)",
+      "nickname": "impartial-shark",
       "rdf-info": {
         "type": "model",
         "dij-config?": true,
@@ -11,63 +11,26 @@
         }
       },
       "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\deepimagej\\SkinLesionClassification\\latest\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\deepimagej\\SkinLesionClassification\\latest",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\deepimagej\\SkinLesionClassification\\latest",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\deepimagej\\SkinLesionClassification\\latest",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\deepimagej\\SkinLesionClassification\\latest"
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.6865412\\6919253\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.6865412\\6919253",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.6865412\\6919253",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.6865412\\6919253",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.6865412\\6919253"
       },
-      "weight-types": [
-        "pytorch_script"
-      ],
-      "inputs": {
-        "name": "input0",
-        "axes": "bcyx",
-        "original-sample": "0066.tif",
-        "original-test": "0066.npy",
-        "original-p*process": "preprocessing.ijm"
-      },
-      "outputs": {
-        "name": "output0",
-        "axes": "bi",
-        "original-sample": "lesion.csv",
-        "original-test": "lesion.npy",
-        "original-p*process": "post.ijm"
-      }
-    },
-    {
-      "name": "Pancreatic Cell Phase Contrast Segmentation (DeepWater - CTC submission)",
-      "nickname": null,
-      "rdf-info": {
-        "type": "model",
-        "dij-config?": true,
-        "run-mode": {
-          "name": "deepimagej"
-        }
-      },
-      "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\deepimagej\\MU-Lux_CTC_PhC-C2DL-PSC\\latest\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\deepimagej\\MU-Lux_CTC_PhC-C2DL-PSC\\latest",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\deepimagej\\MU-Lux_CTC_PhC-C2DL-PSC\\latest",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\deepimagej\\MU-Lux_CTC_PhC-C2DL-PSC\\latest",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\deepimagej\\MU-Lux_CTC_PhC-C2DL-PSC\\latest"
-      },
-      "weight-types": [
-        "tensorflow_saved_model_bundle"
-      ],
+      "weight-types": [],
       "inputs": {
         "name": "input",
         "axes": "byxc",
-        "original-sample": "exampleImage.tiff",
+        "original-sample": "exampleImage.tif",
         "original-test": "exampleImage.npy",
-        "original-p*process": "preprocessing.txt"
+        "original-p*process": "per_sample_scale_range.ijm"
       },
       "outputs": {
         "name": "output",
         "axes": "byxc",
-        "original-sample": "resultImage.tiff",
-        "original-test": "cells-watershed.npy",
-        "original-p*process": "postprocessing.txt"
+        "original-sample": "resultImage.tif",
+        "original-test": "resultImage.npy",
+        "original-p*process": "binarize.ijm"
       }
     },
     {
@@ -106,8 +69,8 @@
       }
     },
     {
-      "name": "Cells and gland Segmentation (FRUNet)",
-      "nickname": "impartial-shark",
+      "name": "Pancreatic Cell Phase Contrast Segmentation (DeepWater - CTC submission)",
+      "nickname": null,
       "rdf-info": {
         "type": "model",
         "dij-config?": true,
@@ -116,26 +79,28 @@
         }
       },
       "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.6865412\\6919253\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.6865412\\6919253",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.6865412\\6919253",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.6865412\\6919253",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.6865412\\6919253"
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\deepimagej\\MU-Lux_CTC_PhC-C2DL-PSC\\latest\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\deepimagej\\MU-Lux_CTC_PhC-C2DL-PSC\\latest",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\deepimagej\\MU-Lux_CTC_PhC-C2DL-PSC\\latest",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\deepimagej\\MU-Lux_CTC_PhC-C2DL-PSC\\latest",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\deepimagej\\MU-Lux_CTC_PhC-C2DL-PSC\\latest"
       },
-      "weight-types": [],
+      "weight-types": [
+        "tensorflow_saved_model_bundle"
+      ],
       "inputs": {
         "name": "input",
         "axes": "byxc",
-        "original-sample": "exampleImage.tif",
+        "original-sample": "exampleImage.tiff",
         "original-test": "exampleImage.npy",
-        "original-p*process": "per_sample_scale_range.ijm"
+        "original-p*process": "preprocessing.txt"
       },
       "outputs": {
         "name": "output",
         "axes": "byxc",
-        "original-sample": "resultImage.tif",
-        "original-test": "resultImage.npy",
-        "original-p*process": "binarize.ijm"
+        "original-sample": "resultImage.tiff",
+        "original-test": "cells-watershed.npy",
+        "original-p*process": "postprocessing.txt"
       }
     }
   ]

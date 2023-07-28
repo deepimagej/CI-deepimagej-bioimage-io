@@ -1,125 +1,32 @@
 {
   "reproduce_dij-headless": [
     {
-      "name": "3D UNet Arabidopsis Apical Stem Cells",
-      "nickname": "emotional-cricket",
-      "rdf-info": {
-        "type": "model",
-        "dij-config?": true,
-        "run-mode": null
-      },
-      "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.6346511\\7768142\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.6346511\\7768142",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.6346511\\7768142",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.6346511\\7768142",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.6346511\\7768142"
-      },
-      "weight-types": [
-        "torchscript"
-      ],
-      "inputs": {
-        "name": "raw",
-        "axes": "bczyx",
-        "original-sample": "sample_input_0.tif",
-        "original-test": "test_input.npy"
-      },
-      "outputs": {
-        "name": "output0",
-        "axes": "bczyx",
-        "original-sample": "sample_output_0.tif",
-        "original-test": "test_output.npy"
-      }
-    },
-    {
-      "name": "3D UNet Lateral Root Primordia Cells",
-      "nickname": "thoughtful-turtle",
-      "rdf-info": {
-        "type": "model",
-        "dij-config?": true,
-        "run-mode": null
-      },
-      "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.6334777\\7765026\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.6334777\\7765026",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.6334777\\7765026",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.6334777\\7765026",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.6334777\\7765026"
-      },
-      "weight-types": [
-        "torchscript"
-      ],
-      "inputs": {
-        "name": "raw",
-        "axes": "bczyx",
-        "original-sample": "sample_input_0.tif",
-        "original-test": "test_input.npy"
-      },
-      "outputs": {
-        "name": "output0",
-        "axes": "bczyx",
-        "original-sample": "sample_output_0.tif",
-        "original-test": "test_output.npy"
-      }
-    },
-    {
-      "name": "3D UNet Mouse Embryo Live",
-      "nickname": "powerful-fish",
-      "rdf-info": {
-        "type": "model",
-        "dij-config?": true,
-        "run-mode": null
-      },
-      "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.6384845\\7774490\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.6384845\\7774490",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.6384845\\7774490",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.6384845\\7774490",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.6384845\\7774490"
-      },
-      "weight-types": [
-        "torchscript"
-      ],
-      "inputs": {
-        "name": "raw",
-        "axes": "bczyx",
-        "original-sample": "sample_input_0.tif",
-        "original-test": "test_input.npy"
-      },
-      "outputs": {
-        "name": "output0",
-        "axes": "bczyx",
-        "original-sample": "sample_output_0.tif",
-        "original-test": "test_output.npy"
-      }
-    },
-    {
-      "name": "2D UNet Arabidopsis Ovules",
-      "nickname": "pioneering-rhino",
+      "name": "Drosophila epithelia cell boundary segmentation of 2D projections",
+      "nickname": "easy-going-sauropod",
       "rdf-info": {
         "type": "model",
         "dij-config?": false,
         "run-mode": null
       },
       "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.6334383\\7805067\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.6334383\\7805067",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.6334383\\7805067",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.6334383\\7805067",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.6334383\\7805067"
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.7380171\\7405349\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.7380171\\7405349",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.7380171\\7405349",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.7380171\\7405349",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.7380171\\7405349"
       },
       "weight-types": [
-        "torchscript"
+        "tensorflow_saved_model_bundle"
       ],
       "inputs": {
         "name": "input0",
-        "axes": "bcyx",
-        "original-test": "test-input.npy"
+        "axes": "bczyx",
+        "original-test": "sample.npy"
       },
       "outputs": {
         "name": "output0",
-        "axes": "bcyx",
-        "original-test": "test-output.npy"
+        "axes": "bczyx",
+        "original-test": "distance.npy"
       }
     },
     {
@@ -183,35 +90,6 @@
       }
     },
     {
-      "name": "Drosophila epithelia cell boundary segmentation of 2D projections",
-      "nickname": "easy-going-sauropod",
-      "rdf-info": {
-        "type": "model",
-        "dij-config?": false,
-        "run-mode": null
-      },
-      "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.7380171\\7405349\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.7380171\\7405349",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.7380171\\7405349",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.7380171\\7405349",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.7380171\\7405349"
-      },
-      "weight-types": [
-        "tensorflow_saved_model_bundle"
-      ],
-      "inputs": {
-        "name": "input0",
-        "axes": "bczyx",
-        "original-test": "sample.npy"
-      },
-      "outputs": {
-        "name": "output0",
-        "axes": "bczyx",
-        "original-test": "distance.npy"
-      }
-    },
-    {
       "name": "Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)",
       "nickname": "naked-microbe",
       "rdf-info": {
@@ -242,6 +120,37 @@
         "original-sample": "resultImage.tiff",
         "original-test": "resultImage.npy",
         "original-p*process": "postprocessing.txt"
+      }
+    },
+    {
+      "name": "3D UNet Mouse Embryo Live",
+      "nickname": "powerful-fish",
+      "rdf-info": {
+        "type": "model",
+        "dij-config?": true,
+        "run-mode": null
+      },
+      "paths": {
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.6384845\\7774490\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.6384845\\7774490",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.6384845\\7774490",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.6384845\\7774490",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.6384845\\7774490"
+      },
+      "weight-types": [
+        "torchscript"
+      ],
+      "inputs": {
+        "name": "raw",
+        "axes": "bczyx",
+        "original-sample": "sample_input_0.tif",
+        "original-test": "test_input.npy"
+      },
+      "outputs": {
+        "name": "output0",
+        "axes": "bczyx",
+        "original-sample": "sample_output_0.tif",
+        "original-test": "test_output.npy"
       }
     },
     {
@@ -306,39 +215,6 @@
       }
     },
     {
-      "name": "HyLFM-Net-stat",
-      "nickname": "ambitious-sloth",
-      "rdf-info": {
-        "type": "model",
-        "dij-config?": false,
-        "run-mode": null
-      },
-      "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.7614645\\7642674\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.7614645\\7642674",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.7614645\\7642674",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.7614645\\7642674",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.7614645\\7642674"
-      },
-      "weight-types": [
-        "onnx",
-        "torchscript"
-      ],
-      "inputs": {
-        "name": "lf",
-        "axes": "bcyx",
-        "original-sample": "sample_input.tif",
-        "original-test": "test_input.npy",
-        "original-p*process": "scale_range"
-      },
-      "outputs": {
-        "name": "prediction",
-        "axes": "bczyx",
-        "original-sample": "sample_output.tif",
-        "original-test": "test_output.npy"
-      }
-    },
-    {
       "name": "2D UNet Arabidopsis Apical Stem Cells",
       "nickname": "laid-back-lobster",
       "rdf-info": {
@@ -368,34 +244,32 @@
       }
     },
     {
-      "name": "Mitochondria resolution enhancement Wasserstein GAN",
-      "nickname": "organized-cricket",
+      "name": "2D UNet Arabidopsis Ovules",
+      "nickname": "pioneering-rhino",
       "rdf-info": {
         "type": "model",
-        "dij-config?": true,
+        "dij-config?": false,
         "run-mode": null
       },
       "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.7786492\\7786493\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.7786492\\7786493",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.7786492\\7786493",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.7786492\\7786493",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.7786492\\7786493"
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.6334383\\7805067\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.6334383\\7805067",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.6334383\\7805067",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.6334383\\7805067",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.6334383\\7805067"
       },
       "weight-types": [
         "torchscript"
       ],
       "inputs": {
-        "name": "input",
-        "axes": "bcxy",
-        "original-sample": "sample_input_0.tif",
-        "original-test": "test_input.npy"
+        "name": "input0",
+        "axes": "bcyx",
+        "original-test": "test-input.npy"
       },
       "outputs": {
-        "name": "output",
-        "axes": "bcxy",
-        "original-sample": "sample_output_0.tif",
-        "original-test": "test_output.npy"
+        "name": "output0",
+        "axes": "bcyx",
+        "original-test": "test-output.npy"
       }
     }
   ]

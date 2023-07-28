@@ -1,28 +1,26 @@
-STARTED TESTING THE 34 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-07-27 14:35:22.020712
+STARTED TESTING THE 30 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-07-28 09:48:23.425983
 
 Logs are in D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\..\test_summaries\fiji_log_out.txt and fiji_log_err.txt
 
-* MODEL   1/ 34
+* MODEL   1/ 30
 ** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6028097/6028098/
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6200999/7690494/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: organized-badger, at 2023-07-27 14:35:33.533000
-   *** Name: PlatynereisEMnucleiSegmentationBoundaryModel
+   *** Started testing model: conscientious-seashell, at 2023-07-28 09:48:34.792000
+   *** Name: HPA Nucleus Segmentation (DPNUnet)
 engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
 [DEBUG] Processing image: sample_input_0.tif
 [DEBUG] Start loading models
 [DEBUG] Finished loading models
 [DEBUG] Checking and installing missing engines
-14:35:37 -- Engine: tensorflow-2.7.0-0.4.0-windows-x86_64-cpu-gpu
+09:48:49 -- Engine: tensorflow-2.7.0-0.4.0-windows-x86_64-cpu-gpu
 
 tensorflow-core-api-0.4.0.jar: [##############################] 100%
-total: [#.............................] 5%
+total: [##############################] 100%
 protobuf-java-3.22.0.jar: [##############################] 100%
-total: [#.............................] 5%
+total: [##############################] 100%
 ndarray-0.3.3.jar: [##############################] 100%
-total: [#.............................] 5%
-tensorflow-core-api-0.4.0-windows-x86_64-gpu.jar: [..............................] 1%
-total: [#.............................] 5%
+total: [##############################] 100%
 tensorflow-core-api-0.4.0-windows-x86_64-gpu.jar: [##############################] 100%
 total: [##############################] 100%
 javacpp-1.5.8.jar: [##############################] 100%
@@ -31,7 +29,7 @@ javacpp-1.5.6-windows-x86_64.jar: [##############################] 100%
 total: [##############################] 100%
 dl-modelrunner-tensorflow-2b-0.3.0.jar: [##############################] 100%
 total: [##############################] 100%
-14:35:42 -- Engine: tensorflow-1.15.0-1.15.0-windows-x86_64-cpu-gpu
+09:48:53 -- Engine: tensorflow-1.15.0-1.15.0-windows-x86_64-cpu-gpu
 
 libtensorflow-1.15.0.jar: [##############################] 100%
 total: [##############################] 100%
@@ -43,31 +41,33 @@ proto-1.15.0.jar: [##############################] 100%
 total: [##############################] 100%
 dl-modelrunner-tensorflow-1-0.3.0.jar: [##############################] 100%
 total: [##############################] 100%
-14:35:45 -- Engine: onnx-17-1.12.1-windows-x86_64-cpu-gpu
+09:48:57 -- Engine: onnx-17-1.12.1-windows-x86_64-cpu-gpu
 
+onnxruntime_gpu-1.12.1.jar: [..............................] 0%
+total: [..............................] 0%
 onnxruntime_gpu-1.12.1.jar: [##############################] 100%
 total: [##############################] 100%
 dl-modelrunner-onnx-0.3.1.jar: [##############################] 100%
 total: [##############################] 100%
-14:35:48 -- Engine: pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu
+09:49:00 -- Engine: pytorch-1.13.1-1.13.1-windows-x86_64-cpu-gpu
 
 pytorch-jni-1.13.1-0.21.0.jar: [##############################] 100%
-total: [##############################] 100%
+total: [###################...........] 67%
 pytorch-engine-0.21.0.jar: [##############################] 100%
-total: [##############################] 100%
+total: [###################...........] 67%
 api-0.21.0.jar: [##############################] 100%
-total: [##############################] 100%
+total: [###################...........] 67%
 slf4j-simple-1.7.25.jar: [##############################] 100%
-total: [##############################] 100%
+total: [###################...........] 67%
 dl-modelrunner-pytorch-0.3.0.jar: [##############################] 100%
-total: [##############################] 100%
+total: [###################...........] 67%
 jna-5.13.0.jar: [##############################] 100%
 total: [##############################] 100%
 commons-compress-1.21.jar: [##############################] 100%
 total: [##############################] 100%
 slf4j-api-2.0.6.jar: [##############################] 100%
 total: [##############################] 100%
-14:35:51 -- Engine: pytorch-2.0.0-2.0.0-windows-x86_64-cpu-gpu
+09:49:03 -- Engine: pytorch-2.0.0-2.0.0-windows-x86_64-cpu-gpu
 
 pytorch-jni-2.0.0-0.22.1.jar: [##############################] 100%
 total: [####################..........] 67%
@@ -76,7 +76,7 @@ total: [####################..........] 67%
 api-0.22.1.jar: [##############################] 100%
 total: [####################..........] 67%
 dl-modelrunner-pytorch-0.3.0.jar: [##############################] 100%
-total: [##############################] 100%
+total: [####################..........] 67%
 jna-5.13.0.jar: [##############################] 100%
 total: [##############################] 100%
 commons-compress-1.22.jar: [##############################] 100%
@@ -98,47 +98,38 @@ Loading:     100% |========================================|
 [DEBUG] Image name: sample_input_0.tif
 [DEBUG] Start pre-processing
 [DEBUG] Run Macro pre-processing
-Mean value:158.0579
-Standard deviation value:31.3358
 [DEBUG] End pre-processing
 [DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/8
-[DEBUG] (Inference) Patch 2/8
-[DEBUG] (Inference) Patch 3/8
-[DEBUG] (Inference) Patch 4/8
-[DEBUG] (Inference) Patch 5/8
-[DEBUG] (Inference) Patch 6/8
-[DEBUG] (Inference) Patch 7/8
-[DEBUG] (Inference) Patch 8/8
+[DEBUG] (Inference) Patch 1/1
 [DEBUG] Start post-processing 
 [DEBUG] End post-processing 
 [DEBUG] Close all the inputs except the input image
 [DEBUG] Open images at the end of the execution:
- - PlatynereisEMnucleiSegmentationBoundaryModel_output0_sample_input_0
-[DEBUG] Execution of model 'PlatynereisEMnucleiSegmentationBoundaryModel' completed.
+ - HPA Nucleus Segmentation (DPNUnet)_output0_sample_input_0
+[DEBUG] Execution of model 'HPA Nucleus Segmentation (DPNUnet)' completed.
 Exited engine ClassLoader
 [DEBUG] End execution
-   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6028097/6028098/CI_OUTPUT.tif
-   *** Finished testing model: organized-badger
-   *** Time taken: 2.4 min, (143 s)
+   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6200999/7690494/CI_OUTPUT.tif
+   *** Finished testing model: conscientious-seashell
+   *** Time taken: 0.7 min, (43 s)
 ** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6028097/6028098/
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6200999/7690494/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** centers of [256, 256, 2, 32, 1] are:
-     [[64, 129], [64, 129], [0, 2], [8, 17], [0, 1]]
+   *** centers of [512, 512, 3, 1, 1] are:
+     [[128, 257], [128, 257], [0, 3], [0, 1], [0, 1]]
    *** Max value: 1.0
-   *** MSE (relative): 0.038296
-   *** MSE center (relative): 0.0022729
-   *** MAE (relative): 0.080934
-   *** MAE center (relative): 0.012925
-   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6028097/6028098/output_metrics.json
-   *** Time taken: 0.2 min, (12 s)
-* MODEL   2/ 34
+   *** MSE (relative): 1.5581e-11
+   *** MSE center (relative): 1.1175e-11
+   *** MAE (relative): 4.3689e-07
+   *** MAE center (relative): 2.601e-07
+   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6200999/7690494/output_metrics.json
+   *** Time taken: 0.0 min, (3 s)
+* MODEL   2/ 30
 ** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6348084/6348085/
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7380171/7405349/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: fearless-crab, at 2023-07-27 14:38:31.753000
-   *** Name: StarDist Fluorescence Nuclei Segmentation
+   *** Started testing model: easy-going-sauropod, at 2023-07-28 09:49:43.251000
+   *** Name: Drosophila epithelia cell boundary segmentation of 2D projections
 engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
 [DEBUG] Processing image: sample_input_0.tif
 [DEBUG] Start loading models
@@ -156,92 +147,26 @@ engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-
 [DEBUG] Loading model
 [DEBUG] Image name: sample_input_0.tif
 [DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Percentile normalization to the axes: xy
-with min_percentile: 0.01
-and max_percentile: 0.998
 [DEBUG] End pre-processing
 [DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/4
-[DEBUG] (Inference) Patch 2/4
-[DEBUG] (Inference) Patch 3/4
-[DEBUG] (Inference) Patch 4/4
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
+[DEBUG] (Inference) Patch 1/1
+Error applying the model
+
+Note that in Pytorch <=1.6.0 the batch dimension should not be provided, it is added automatically.
 [DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - StarDist Fluorescence Nuclei Segmentation_output_sample_input_0
-[DEBUG] Execution of model 'StarDist Fluorescence Nuclei Segmentation' completed.
-Exited engine ClassLoader
-[DEBUG] End execution
-   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6348084/6348085/CI_OUTPUT.tif
-   *** Finished testing model: fearless-crab
-   *** Time taken: 0.3 min, (19 s)
-** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6348084/6348085/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** centers of [384, 384, 33, 1, 1] are:
-     [[96, 193], [96, 193], [8, 17], [0, 1], [0, 1]]
-   *** Max value: 43.4840507507
-   *** MSE (relative): 0.036326
-   *** MSE center (relative): 9.0281e-08
-   *** MAE (relative): 0.0059596
-   *** MAE center (relative): 2.5823e-05
-   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6348084/6348085/output_metrics.json
-   *** Time taken: 0.2 min, (15 s)
-* MODEL   3/ 34
-** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6346511/7768142/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: emotional-cricket, at 2023-07-27 14:39:27.563000
-   *** Name: 3D UNet Arabidopsis Apical Stem Cells
-engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Start loading models
-[DEBUG] Finished loading models
-[DEBUG] Checking and installing missing engines
-[DEBUG] Available Deep Learning frameworks:
- -onnx-17 (GPU: true) [CUDA 11.4]
- -pytorch-1.13.1 (GPU: true) 
- -pytorch-2.0.0 (GPU: true) 
- -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
- -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
-
-
-[DEBUG] Engines found
-[DEBUG] Loading model
-
-Loading:     100% |========================================|
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/8
-[DEBUG] (Inference) Patch 2/8
-[DEBUG] (Inference) Patch 3/8
-[DEBUG] (Inference) Patch 4/8
-[DEBUG] (Inference) Patch 5/8
-[DEBUG] (Inference) Patch 6/8
-[DEBUG] (Inference) Patch 7/8
-[DEBUG] (Inference) Patch 8/8
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
-[DEBUG] Execution of model '3D UNet Arabidopsis Apical Stem Cells' completed.
 Exited engine ClassLoader
 [DEBUG] End execution
 There are no images open
 ** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6346511/7768142/
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7380171/7405349/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
    *** Run did not produce output
-   *** Empty metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6346511/7768142/output_metrics.json
-* MODEL   4/ 34
+   *** Empty metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7380171/7405349/output_metrics.json
+* MODEL   3/ 30
 ** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
    *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5847355/6647683/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: powerful-chipmunk, at 2023-07-27 14:40:51.953000
+   *** Started testing model: powerful-chipmunk, at 2023-07-28 09:50:23.778000
    *** Name: CovidIFCellSegmentationBoundaryModel
 engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
 [DEBUG] Processing image: sample_input_0.tif
@@ -294,232 +219,12 @@ Exited engine ClassLoader
    *** MAE center (relative): 0.0028319
    *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5847355/6647683/output_metrics.json
    *** Time taken: 0.0 min, (2 s)
-* MODEL   5/ 34
+* MODEL   4/ 30
 ** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6079314/7695872/
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5749843/5888237/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: wild-whale, at 2023-07-27 14:41:34.069000
-   *** Name: EpitheliaAffinityModel
-engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Start loading models
-[DEBUG] Finished loading models
-[DEBUG] Checking and installing missing engines
-[DEBUG] Available Deep Learning frameworks:
- -onnx-17 (GPU: true) [CUDA 11.4]
- -pytorch-1.13.1 (GPU: true) 
- -pytorch-2.0.0 (GPU: true) 
- -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
- -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
-
-
-[DEBUG] Engines found
-[DEBUG] Loading model
-
-Loading:     100% |========================================|
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:0.186
-Standard deviation value:0.1245
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/4
-[DEBUG] (Inference) Patch 2/4
-[DEBUG] (Inference) Patch 3/4
-[DEBUG] (Inference) Patch 4/4
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - EpitheliaAffinityModel_output0_sample_input_0
-[DEBUG] Execution of model 'EpitheliaAffinityModel' completed.
-Exited engine ClassLoader
-[DEBUG] End execution
-   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6079314/7695872/CI_OUTPUT.tif
-   *** Finished testing model: wild-whale
-   *** Time taken: 0.1 min, (5 s)
-** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6079314/7695872/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** centers of [256, 256, 8, 1, 1] are:
-     [[64, 129], [64, 129], [2, 5], [0, 1], [0, 1]]
-   *** Max value: 1.0
-   *** MSE (relative): 0.0063616
-   *** MSE center (relative): 0.00024227
-   *** MAE (relative): 0.013974
-   *** MAE center (relative): 0.0035443
-   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6079314/7695872/output_metrics.json
-   *** Time taken: 0.0 min, (2 s)
-* MODEL   6/ 34
-** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6334777/7765026/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: thoughtful-turtle, at 2023-07-27 14:42:03.422000
-   *** Name: 3D UNet Lateral Root Primordia Cells
-engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Start loading models
-[DEBUG] Finished loading models
-[DEBUG] Checking and installing missing engines
-[DEBUG] Available Deep Learning frameworks:
- -onnx-17 (GPU: true) [CUDA 11.4]
- -pytorch-1.13.1 (GPU: true) 
- -pytorch-2.0.0 (GPU: true) 
- -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
- -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
-
-
-[DEBUG] Engines found
-[DEBUG] Loading model
-
-Loading:     100% |========================================|
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/8
-[DEBUG] (Inference) Patch 2/8
-[DEBUG] (Inference) Patch 3/8
-[DEBUG] (Inference) Patch 4/8
-[DEBUG] (Inference) Patch 5/8
-[DEBUG] (Inference) Patch 6/8
-[DEBUG] (Inference) Patch 7/8
-[DEBUG] (Inference) Patch 8/8
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
-[DEBUG] Execution of model '3D UNet Lateral Root Primordia Cells' completed.
-Exited engine ClassLoader
-[DEBUG] End execution
-There are no images open
-** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6334777/7765026/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Run did not produce output
-   *** Empty metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6334777/7765026/output_metrics.json
-* MODEL   7/ 34
-** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5817052/5906839/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: creative-panda, at 2023-07-27 14:43:27.241000
-   *** Name: Neuron Segmentation in 2D EM (Membrane)
-engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Start loading models
-[DEBUG] Finished loading models
-[DEBUG] Checking and installing missing engines
-[DEBUG] Available Deep Learning frameworks:
- -onnx-17 (GPU: true) [CUDA 11.4]
- -pytorch-1.13.1 (GPU: true) 
- -pytorch-2.0.0 (GPU: true) 
- -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
- -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
-
-
-[DEBUG] Engines found
-[DEBUG] Loading model
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Percentile normalization to the axes: xy
-with min_percentile: 0.01
-and max_percentile: 0.998
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/1
-[DEBUG] Start post-processing 
-[DEBUG] Run Macro post-processing
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - Neuron Segmentation in 2D EM (Membrane)_output0_sample_input_0
-[DEBUG] Execution of model 'Neuron Segmentation in 2D EM (Membrane)' completed.
-Exited engine ClassLoader
-[DEBUG] End execution
-   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5817052/5906839/CI_OUTPUT.tif
-   *** Finished testing model: creative-panda
-   *** Time taken: 0.6 min, (37 s)
-** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5817052/5906839/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** centers of [512, 512, 1, 1, 1] are:
-     [[128, 257], [128, 257], [0, 1], [0, 1], [0, 1]]
-   *** Max value: 255.0
-   *** MSE (relative): 0
-   *** MSE center (relative): 0
-   *** MAE (relative): 0
-   *** MAE center (relative): 0
-   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5817052/5906839/output_metrics.json
-   *** Time taken: 0.0 min, (1 s)
-* MODEL   8/ 34
-** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6028280/6647695/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: willing-hedgehog, at 2023-07-27 14:44:28.637000
-   *** Name: PlatynereisEMcellsSegmentationBoundaryModel
-engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Start loading models
-[DEBUG] Finished loading models
-[DEBUG] Checking and installing missing engines
-[DEBUG] Available Deep Learning frameworks:
- -onnx-17 (GPU: true) [CUDA 11.4]
- -pytorch-1.13.1 (GPU: true) 
- -pytorch-2.0.0 (GPU: true) 
- -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
- -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
-
-
-[DEBUG] Engines found
-[DEBUG] Loading model
-
-Loading:     100% |========================================|
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:175.0249
-Standard deviation value:26.874
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/8
-[DEBUG] (Inference) Patch 2/8
-[DEBUG] (Inference) Patch 3/8
-[DEBUG] (Inference) Patch 4/8
-[DEBUG] (Inference) Patch 5/8
-[DEBUG] (Inference) Patch 6/8
-[DEBUG] (Inference) Patch 7/8
-[DEBUG] (Inference) Patch 8/8
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - PlatynereisEMcellsSegmentationBoundaryModel_output0_sample_input_0
-[DEBUG] Execution of model 'PlatynereisEMcellsSegmentationBoundaryModel' completed.
-Exited engine ClassLoader
-[DEBUG] End execution
-   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6028280/6647695/CI_OUTPUT.tif
-   *** Finished testing model: willing-hedgehog
-   *** Time taken: 13.7 min, (823 s)
-** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6028280/6647695/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** centers of [256, 256, 1, 32, 1] are:
-     [[64, 129], [64, 129], [0, 1], [8, 17], [0, 1]]
-   *** Max value: 0.999988555908
-   *** MSE (relative): 0.03442
-   *** MSE center (relative): 0.0016901
-   *** MAE (relative): 0.079352
-   *** MAE center (relative): 0.027039
-   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6028280/6647695/output_metrics.json
-   *** Time taken: 0.1 min, (7 s)
-* MODEL   9/ 34
-** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6348728/6348729/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: non-judgemental-eagle, at 2023-07-27 14:58:40.938000
-   *** Name: Arabidopsis Leaf Segmentation
+   *** Started testing model: humorous-owl, at 2023-07-28 09:51:05.344000
+   *** Name: Cell Segmentation from Membrane Staining for Plant Tissues
 engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
 [DEBUG] Processing image: sample_input_0.tif
 [DEBUG] Start loading models
@@ -539,59 +244,6 @@ engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-
 [DEBUG] Start pre-processing
 [DEBUG] Run Macro pre-processing
 Percentile normalization to the axes: xyz
-with min_percentile: 0.01
-and max_percentile: 1
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/1
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - Arabidopsis Leaf Segmentation_output_sample_input_0
-[DEBUG] Execution of model 'Arabidopsis Leaf Segmentation' completed.
-Exited engine ClassLoader
-[DEBUG] End execution
-   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6348728/6348729/CI_OUTPUT.tif
-   *** Finished testing model: non-judgemental-eagle
-   *** Time taken: 0.6 min, (35 s)
-** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6348728/6348729/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** centers of [256, 256, 1, 8, 1] are:
-     [[64, 129], [64, 129], [0, 1], [2, 5], [0, 1]]
-   *** Max value: 0.993139028549
-   *** MSE (relative): 0.0032548
-   *** MSE center (relative): 0.00038258
-   *** MAE (relative): 0.02637
-   *** MAE center (relative): 0.0098305
-   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6348728/6348729/output_metrics.json
-   *** Time taken: 0.0 min, (2 s)
-* MODEL  10/ 34
-** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5914248/8186255/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: discreet-rooster, at 2023-07-27 14:59:40.696000
-   *** Name: Pancreatic Phase Contrast Cell Segmentation (U-Net)
-engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Start loading models
-[DEBUG] Finished loading models
-[DEBUG] Checking and installing missing engines
-[DEBUG] Available Deep Learning frameworks:
- -onnx-17 (GPU: true) [CUDA 11.4]
- -pytorch-1.13.1 (GPU: true) 
- -pytorch-2.0.0 (GPU: true) 
- -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
- -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
-
-
-[DEBUG] Engines found
-[DEBUG] Loading model
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Percentile normalization to the axes: xy
 with min_percentile: 0
 and max_percentile: 1
 [DEBUG] End pre-processing
@@ -605,176 +257,30 @@ and max_percentile: 1
 [DEBUG] End post-processing 
 [DEBUG] Close all the inputs except the input image
 [DEBUG] Open images at the end of the execution:
- - Pancreatic Phase Contrast Cell Segmentation (U-Net)_output_sample_input_0
-[DEBUG] Execution of model 'Pancreatic Phase Contrast Cell Segmentation (U-Net)' completed.
+ - Cell Segmentation from Membrane Staining for Plant Tissues_output_sample_input_0
+[DEBUG] Execution of model 'Cell Segmentation from Membrane Staining for Plant Tissues' completed.
 Exited engine ClassLoader
 [DEBUG] End execution
-   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5914248/8186255/CI_OUTPUT.tif
-   *** Finished testing model: discreet-rooster
-   *** Time taken: 0.2 min, (15 s)
+   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5749843/5888237/CI_OUTPUT.tif
+   *** Finished testing model: humorous-owl
+   *** Time taken: 0.7 min, (45 s)
 ** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5914248/8186255/
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5749843/5888237/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** centers of [720, 576, 1, 1, 1] are:
-     [[180, 361], [144, 289], [0, 1], [0, 1], [0, 1]]
-   *** Max value: 1.0
-   *** MSE (relative): 7151.4
-   *** MSE center (relative): 5271.8
-   *** MAE (relative): 28.154
-   *** MAE center (relative): 20.754
-   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5914248/8186255/output_metrics.json
+   *** centers of [256, 256, 1, 8, 1] are:
+     [[64, 129], [64, 129], [0, 1], [2, 5], [0, 1]]
+   *** Max value: 255.0
+   *** MSE (relative): 0
+   *** MSE center (relative): 0
+   *** MAE (relative): 0
+   *** MAE center (relative): 0
+   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5749843/5888237/output_metrics.json
    *** Time taken: 0.0 min, (2 s)
-* MODEL  11/ 34
-** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6384845/7774490/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: powerful-fish, at 2023-07-27 15:00:18.525000
-   *** Name: 3D UNet Mouse Embryo Live
-engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Start loading models
-[DEBUG] Finished loading models
-[DEBUG] Checking and installing missing engines
-[DEBUG] Available Deep Learning frameworks:
- -onnx-17 (GPU: true) [CUDA 11.4]
- -pytorch-1.13.1 (GPU: true) 
- -pytorch-2.0.0 (GPU: true) 
- -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
- -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
-
-
-[DEBUG] Engines found
-[DEBUG] Loading model
-
-Loading:     100% |========================================|
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/8
-[DEBUG] (Inference) Patch 2/8
-[DEBUG] (Inference) Patch 3/8
-[DEBUG] (Inference) Patch 4/8
-[DEBUG] (Inference) Patch 5/8
-[DEBUG] (Inference) Patch 6/8
-[DEBUG] (Inference) Patch 7/8
-[DEBUG] (Inference) Patch 8/8
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
-[DEBUG] Execution of model '3D UNet Mouse Embryo Live' completed.
-Exited engine ClassLoader
-[DEBUG] End execution
-There are no images open
-** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6384845/7774490/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Run did not produce output
-   *** Empty metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6384845/7774490/output_metrics.json
-* MODEL  12/ 34
-** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6334383/7805067/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: pioneering-rhino, at 2023-07-27 15:01:04.254000
-   *** Name: 2D UNet Arabidopsis Ovules
-engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Start loading models
-[DEBUG] Finished loading models
-[DEBUG] Checking and installing missing engines
-[DEBUG] Available Deep Learning frameworks:
- -onnx-17 (GPU: true) [CUDA 11.4]
- -pytorch-1.13.1 (GPU: true) 
- -pytorch-2.0.0 (GPU: true) 
- -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
- -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
-
-
-[DEBUG] Engines found
-[DEBUG] Loading model
-
-Loading:     100% |========================================|
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/1
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
-[DEBUG] Execution of model '2D UNet Arabidopsis Ovules' completed.
-Exited engine ClassLoader
-[DEBUG] End execution
-There are no images open
-** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6334383/7805067/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Run did not produce output
-   *** Empty metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6334383/7805067/output_metrics.json
-* MODEL  13/ 34
-** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5764892/6647674/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: affable-shark, at 2023-07-27 15:01:29.840000
-   *** Name: NucleiSegmentationBoundaryModel
-engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Start loading models
-[DEBUG] Finished loading models
-[DEBUG] Checking and installing missing engines
-[DEBUG] Available Deep Learning frameworks:
- -onnx-17 (GPU: true) [CUDA 11.4]
- -pytorch-1.13.1 (GPU: true) 
- -pytorch-2.0.0 (GPU: true) 
- -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
- -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
-
-
-[DEBUG] Engines found
-[DEBUG] Loading model
-
-Loading:     100% |========================================|
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:17.7199
-Standard deviation value:20.2505
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/4
-[DEBUG] (Inference) Patch 2/4
-[DEBUG] (Inference) Patch 3/4
-[DEBUG] (Inference) Patch 4/4
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - NucleiSegmentationBoundaryModel_output0_sample_input_0
-[DEBUG] Execution of model 'NucleiSegmentationBoundaryModel' completed.
-Exited engine ClassLoader
-[DEBUG] End execution
-   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5764892/6647674/CI_OUTPUT.tif
-   *** Finished testing model: affable-shark
-   *** Time taken: 0.1 min, (9 s)
-** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5764892/6647674/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** centers of [256, 256, 2, 1, 1] are:
-     [[64, 129], [64, 129], [0, 2], [0, 1], [0, 1]]
-   *** Max value: 0.999956965446
-   *** MSE (relative): 0.00015255
-   *** MSE center (relative): 1.246e-05
-   *** MAE (relative): 0.0027948
-   *** MAE center (relative): 0.0018617
-   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5764892/6647674/output_metrics.json
-   *** Time taken: 0.0 min, (1 s)
-* MODEL  14/ 34
+* MODEL   5/ 30
 ** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
    *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7772662/7781091/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: noisy-fish, at 2023-07-27 15:02:01.751000
+   *** Started testing model: noisy-fish, at 2023-07-28 09:52:14.351000
    *** Name: 3D UNet Arabidopsis Ovules Nuclei
 engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
 [DEBUG] Processing image: sample_input_0.tif
@@ -845,12 +351,12 @@ There are no images open
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
    *** Run did not produce output
    *** Empty metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7772662/7781091/output_metrics.json
-* MODEL  15/ 34
+* MODEL   6/ 30
 ** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7261974/7782776/
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5914248/8186255/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: placid-llama, at 2023-07-27 15:02:23.716000
-   *** Name: B. Sutilist bacteria segmentation - Widefield microscopy - 2D UNet
+   *** Started testing model: discreet-rooster, at 2023-07-28 09:52:36.143000
+   *** Name: Pancreatic Phase Contrast Cell Segmentation (U-Net)
 engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
 [DEBUG] Processing image: sample_input_0.tif
 [DEBUG] Start loading models
@@ -870,186 +376,43 @@ engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-
 [DEBUG] Start pre-processing
 [DEBUG] Run Macro pre-processing
 Percentile normalization to the axes: xy
-with min_percentile: 0.01
-and max_percentile: 0.998
+with min_percentile: 0
+and max_percentile: 1
 [DEBUG] End pre-processing
 [DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/1
+[DEBUG] (Inference) Patch 1/4
+[DEBUG] (Inference) Patch 2/4
+[DEBUG] (Inference) Patch 3/4
+[DEBUG] (Inference) Patch 4/4
 [DEBUG] Start post-processing 
+[DEBUG] Run Macro post-processing
 [DEBUG] End post-processing 
 [DEBUG] Close all the inputs except the input image
 [DEBUG] Open images at the end of the execution:
- - B. Sutilist bacteria segmentation - Widefield microscopy - 2D UNet_conv2d_19_sample_input_0
-[DEBUG] Execution of model 'B. Sutilist bacteria segmentation - Widefield microscopy - 2D UNet' completed.
+ - Pancreatic Phase Contrast Cell Segmentation (U-Net)_output_sample_input_0
+[DEBUG] Execution of model 'Pancreatic Phase Contrast Cell Segmentation (U-Net)' completed.
 Exited engine ClassLoader
 [DEBUG] End execution
-   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7261974/7782776/CI_OUTPUT.tif
-   *** Finished testing model: placid-llama
-   *** Time taken: 0.3 min, (19 s)
+   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5914248/8186255/CI_OUTPUT.tif
+   *** Finished testing model: discreet-rooster
+   *** Time taken: 0.3 min, (17 s)
 ** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7261974/7782776/
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5914248/8186255/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** centers of [512, 512, 3, 1, 1] are:
-     [[128, 257], [128, 257], [0, 3], [0, 1], [0, 1]]
-   *** Max value: 0.999632000923
-   *** MSE (relative): 3.1873e-05
-   *** MSE center (relative): 3.3487e-05
-   *** MAE (relative): 0.0013852
-   *** MAE center (relative): 0.0012661
-   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7261974/7782776/output_metrics.json
-   *** Time taken: 0.1 min, (3 s)
-* MODEL  16/ 34
-** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6383429/7774505/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: loyal-squid, at 2023-07-27 15:03:07.414000
-   *** Name: 3D UNet Mouse Embryo Fixed
-engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Start loading models
-[DEBUG] Finished loading models
-[DEBUG] Checking and installing missing engines
-[DEBUG] Available Deep Learning frameworks:
- -onnx-17 (GPU: true) [CUDA 11.4]
- -pytorch-1.13.1 (GPU: true) 
- -pytorch-2.0.0 (GPU: true) 
- -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
- -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
-
-
-[DEBUG] Engines found
-[DEBUG] Loading model
-
-Loading:     100% |========================================|
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/8
-[DEBUG] (Inference) Patch 2/8
-[DEBUG] (Inference) Patch 3/8
-[DEBUG] (Inference) Patch 4/8
-[DEBUG] (Inference) Patch 5/8
-[DEBUG] (Inference) Patch 6/8
-[DEBUG] (Inference) Patch 7/8
-[DEBUG] (Inference) Patch 8/8
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
-[DEBUG] Execution of model '3D UNet Mouse Embryo Fixed' completed.
-Exited engine ClassLoader
-[DEBUG] End execution
-There are no images open
-** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6383429/7774505/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Run did not produce output
-   *** Empty metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6383429/7774505/output_metrics.json
-* MODEL  17/ 34
-** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7380171/7405349/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: easy-going-sauropod, at 2023-07-27 15:03:40.091000
-   *** Name: Drosophila epithelia cell boundary segmentation of 2D projections
-engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Start loading models
-[DEBUG] Finished loading models
-[DEBUG] Checking and installing missing engines
-[DEBUG] Available Deep Learning frameworks:
- -onnx-17 (GPU: true) [CUDA 11.4]
- -pytorch-1.13.1 (GPU: true) 
- -pytorch-2.0.0 (GPU: true) 
- -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
- -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
-
-
-[DEBUG] Engines found
-[DEBUG] Loading model
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/1
-Error applying the model
-
-Note that in Pytorch <=1.6.0 the batch dimension should not be provided, it is added automatically.
-[DEBUG] Close all the inputs except the input image
-Exited engine ClassLoader
-[DEBUG] End execution
-There are no images open
-** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7380171/7405349/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Run did not produce output
-   *** Empty metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7380171/7405349/output_metrics.json
-* MODEL  18/ 34
-** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5874741/5874742/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: impartial-shrimp, at 2023-07-27 15:04:14.332000
-   *** Name: Neuron Segmentation in EM (Membrane Prediction)
-engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Start loading models
-[DEBUG] Finished loading models
-[DEBUG] Checking and installing missing engines
-[DEBUG] Available Deep Learning frameworks:
- -onnx-17 (GPU: true) [CUDA 11.4]
- -pytorch-1.13.1 (GPU: true) 
- -pytorch-2.0.0 (GPU: true) 
- -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
- -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
-
-
-[DEBUG] Engines found
-[DEBUG] Loading model
-
-Loading:     100% |========================================|
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:126.0766
-Standard deviation value:32.7007
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/8
-[DEBUG] (Inference) Patch 2/8
-[DEBUG] (Inference) Patch 3/8
-[DEBUG] (Inference) Patch 4/8
-[DEBUG] (Inference) Patch 5/8
-[DEBUG] (Inference) Patch 6/8
-[DEBUG] (Inference) Patch 7/8
-[DEBUG] (Inference) Patch 8/8
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - Neuron Segmentation in EM (Membrane Prediction)_output0_sample_input_0
-[DEBUG] Execution of model 'Neuron Segmentation in EM (Membrane Prediction)' completed.
-Exited engine ClassLoader
-[DEBUG] End execution
-   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5874741/5874742/CI_OUTPUT.tif
-   *** Finished testing model: impartial-shrimp
-   *** Time taken: 2.8 min, (166 s)
-** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5874741/5874742/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** centers of [360, 360, 1, 32, 1] are:
-     [[90, 181], [90, 181], [0, 1], [8, 17], [0, 1]]
+   *** centers of [720, 576, 1, 1, 1] are:
+     [[180, 361], [144, 289], [0, 1], [0, 1], [0, 1]]
    *** Max value: 1.0
-   *** MSE (relative): 0.014321
-   *** MSE center (relative): 0.0001323
-   *** MAE (relative): 0.024155
-   *** MAE center (relative): 0.0031592
-   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5874741/5874742/output_metrics.json
-   *** Time taken: 0.2 min, (12 s)
-* MODEL  19/ 34
+   *** MSE (relative): 7151.4
+   *** MSE center (relative): 5271.8
+   *** MAE (relative): 28.154
+   *** MAE center (relative): 20.754
+   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5914248/8186255/output_metrics.json
+   *** Time taken: 0.0 min, (2 s)
+* MODEL   7/ 30
 ** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
    *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6811491/6811492/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: independent-shrimp, at 2023-07-27 15:07:34.989000
+   *** Started testing model: independent-shrimp, at 2023-07-28 09:53:16.708000
    *** Name: EnhancerMitochondriaEM3D
 engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
 [DEBUG] Processing image: sample_input_0.tif
@@ -1094,7 +457,7 @@ Exited engine ClassLoader
 [DEBUG] End execution
    *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6811491/6811492/CI_OUTPUT.tif
    *** Finished testing model: independent-shrimp
-   *** Time taken: 1.9 min, (116 s)
+   *** Time taken: 2.0 min, (118 s)
 ** script 2/2: COMPARING TO EXPECTED OUTPUT
    *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6811491/6811492/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
@@ -1107,12 +470,12 @@ Exited engine ClassLoader
    *** MAE center (relative): 0.04122
    *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6811491/6811492/output_metrics.json
    *** Time taken: 0.2 min, (13 s)
-* MODEL  20/ 34
+* MODEL   8/ 30
 ** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5869899/6647688/
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6383429/7774505/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: hiding-tiger, at 2023-07-27 15:10:07.563000
-   *** Name: LiveCellSegmentationBoundaryModel
+   *** Started testing model: loyal-squid, at 2023-07-28 09:55:49.931000
+   *** Name: 3D UNet Mouse Embryo Fixed
 engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
 [DEBUG] Processing image: sample_input_0.tif
 [DEBUG] Start loading models
@@ -1132,100 +495,34 @@ engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-
 Loading:     100% |========================================|
 [DEBUG] Image name: sample_input_0.tif
 [DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:128.0212
-Standard deviation value:9.4274
 [DEBUG] End pre-processing
 [DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/4
-[DEBUG] (Inference) Patch 2/4
-[DEBUG] (Inference) Patch 3/4
-[DEBUG] (Inference) Patch 4/4
+[DEBUG] (Inference) Patch 1/8
+[DEBUG] (Inference) Patch 2/8
+[DEBUG] (Inference) Patch 3/8
+[DEBUG] (Inference) Patch 4/8
+[DEBUG] (Inference) Patch 5/8
+[DEBUG] (Inference) Patch 6/8
+[DEBUG] (Inference) Patch 7/8
+[DEBUG] (Inference) Patch 8/8
 [DEBUG] Start post-processing 
 [DEBUG] End post-processing 
 [DEBUG] Close all the inputs except the input image
 [DEBUG] Open images at the end of the execution:
- - LiveCellSegmentationBoundaryModel_output0_sample_input_0
-[DEBUG] Execution of model 'LiveCellSegmentationBoundaryModel' completed.
+[DEBUG] Execution of model '3D UNet Mouse Embryo Fixed' completed.
 Exited engine ClassLoader
 [DEBUG] End execution
-   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5869899/6647688/CI_OUTPUT.tif
-   *** Finished testing model: hiding-tiger
-   *** Time taken: 0.3 min, (18 s)
+There are no images open
 ** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5869899/6647688/
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6383429/7774505/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** centers of [512, 512, 2, 1, 1] are:
-     [[128, 257], [128, 257], [0, 2], [0, 1], [0, 1]]
-   *** Max value: 1.0
-   *** MSE (relative): 0.00015603
-   *** MSE center (relative): 0.00010112
-   *** MAE (relative): 0.0037617
-   *** MAE center (relative): 0.0034222
-   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5869899/6647688/output_metrics.json
-   *** Time taken: 0.0 min, (2 s)
-* MODEL  21/ 34
-** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6406803/6406804/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: shivering-raccoon, at 2023-07-27 15:10:48.809000
-   *** Name: MitchondriaEMSegmentation2D
-engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Start loading models
-[DEBUG] Finished loading models
-[DEBUG] Checking and installing missing engines
-[DEBUG] Available Deep Learning frameworks:
- -onnx-17 (GPU: true) [CUDA 11.4]
- -pytorch-1.13.1 (GPU: true) 
- -pytorch-2.0.0 (GPU: true) 
- -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
- -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
-
-
-[DEBUG] Engines found
-[DEBUG] Loading model
-
-Loading:     100% |========================================|
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Mean value:128.3344
-Standard deviation value:54.6462
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/4
-[DEBUG] (Inference) Patch 2/4
-[DEBUG] (Inference) Patch 3/4
-[DEBUG] (Inference) Patch 4/4
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - MitchondriaEMSegmentation2D_output0_sample_input_0
-[DEBUG] Execution of model 'MitchondriaEMSegmentation2D' completed.
-Exited engine ClassLoader
-[DEBUG] End execution
-   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6406803/6406804/CI_OUTPUT.tif
-   *** Finished testing model: shivering-raccoon
-   *** Time taken: 0.3 min, (18 s)
-** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6406803/6406804/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** centers of [512, 512, 2, 1, 1] are:
-     [[128, 257], [128, 257], [0, 2], [0, 1], [0, 1]]
-   *** Max value: 0.999997735023
-   *** MSE (relative): 8.2216e-05
-   *** MSE center (relative): 4.0359e-05
-   *** MAE (relative): 0.0012748
-   *** MAE center (relative): 0.0018003
-   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6406803/6406804/output_metrics.json
-   *** Time taken: 0.0 min, (2 s)
-* MODEL  22/ 34
+   *** Run did not produce output
+   *** Empty metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6383429/7774505/output_metrics.json
+* MODEL   9/ 30
 ** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
    *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6559474/6559475/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: naked-microbe, at 2023-07-27 15:11:30.295000
+   *** Started testing model: naked-microbe, at 2023-07-28 09:56:22.687000
    *** Name: Small Extracellular Vesicle TEM Segmentation (Fully Residual U-Net)
 engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
 [DEBUG] Processing image: sample_input_0.tif
@@ -1257,11 +554,168 @@ There are no images open
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
    *** Run did not produce output
    *** Empty metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6559474/6559475/output_metrics.json
-* MODEL  23/ 34
+* MODEL  10/ 30
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6348084/6348085/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** Started testing model: fearless-crab, at 2023-07-28 09:57:02.531000
+   *** Name: StarDist Fluorescence Nuclei Segmentation
+engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Start loading models
+[DEBUG] Finished loading models
+[DEBUG] Checking and installing missing engines
+[DEBUG] Available Deep Learning frameworks:
+ -onnx-17 (GPU: true) [CUDA 11.4]
+ -pytorch-1.13.1 (GPU: true) 
+ -pytorch-2.0.0 (GPU: true) 
+ -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
+ -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
+
+
+[DEBUG] Engines found
+[DEBUG] Loading model
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Percentile normalization to the axes: xy
+with min_percentile: 0.01
+and max_percentile: 0.998
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Inference) Patch 1/4
+[DEBUG] (Inference) Patch 2/4
+[DEBUG] (Inference) Patch 3/4
+[DEBUG] (Inference) Patch 4/4
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - StarDist Fluorescence Nuclei Segmentation_output_sample_input_0
+[DEBUG] Execution of model 'StarDist Fluorescence Nuclei Segmentation' completed.
+Exited engine ClassLoader
+[DEBUG] End execution
+   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6348084/6348085/CI_OUTPUT.tif
+   *** Finished testing model: fearless-crab
+   *** Time taken: 0.3 min, (15 s)
+** script 2/2: COMPARING TO EXPECTED OUTPUT
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6348084/6348085/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** centers of [384, 384, 33, 1, 1] are:
+     [[96, 193], [96, 193], [8, 17], [0, 1], [0, 1]]
+   *** Max value: 43.4840507507
+   *** MSE (relative): 0.036326
+   *** MSE center (relative): 9.0281e-08
+   *** MAE (relative): 0.0059596
+   *** MAE center (relative): 2.5823e-05
+   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6348084/6348085/output_metrics.json
+   *** Time taken: 0.2 min, (14 s)
+* MODEL  11/ 30
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7261974/7782776/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** Started testing model: placid-llama, at 2023-07-28 09:57:53.887000
+   *** Name: B. Sutilist bacteria segmentation - Widefield microscopy - 2D UNet
+engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Start loading models
+[DEBUG] Finished loading models
+[DEBUG] Checking and installing missing engines
+[DEBUG] Available Deep Learning frameworks:
+ -onnx-17 (GPU: true) [CUDA 11.4]
+ -pytorch-1.13.1 (GPU: true) 
+ -pytorch-2.0.0 (GPU: true) 
+ -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
+ -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
+
+
+[DEBUG] Engines found
+[DEBUG] Loading model
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Percentile normalization to the axes: xy
+with min_percentile: 0.01
+and max_percentile: 0.998
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Inference) Patch 1/1
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - B. Sutilist bacteria segmentation - Widefield microscopy - 2D UNet_conv2d_19_sample_input_0
+[DEBUG] Execution of model 'B. Sutilist bacteria segmentation - Widefield microscopy - 2D UNet' completed.
+Exited engine ClassLoader
+[DEBUG] End execution
+   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7261974/7782776/CI_OUTPUT.tif
+   *** Finished testing model: placid-llama
+   *** Time taken: 0.1 min, (7 s)
+** script 2/2: COMPARING TO EXPECTED OUTPUT
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7261974/7782776/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** centers of [512, 512, 3, 1, 1] are:
+     [[128, 257], [128, 257], [0, 3], [0, 1], [0, 1]]
+   *** Max value: 0.999632000923
+   *** MSE (relative): 3.1873e-05
+   *** MSE center (relative): 3.3487e-05
+   *** MAE (relative): 0.0013852
+   *** MAE center (relative): 0.0012661
+   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7261974/7782776/output_metrics.json
+   *** Time taken: 0.0 min, (3 s)
+* MODEL  12/ 30
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6384845/7774490/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** Started testing model: powerful-fish, at 2023-07-28 09:58:25.980000
+   *** Name: 3D UNet Mouse Embryo Live
+engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Start loading models
+[DEBUG] Finished loading models
+[DEBUG] Checking and installing missing engines
+[DEBUG] Available Deep Learning frameworks:
+ -onnx-17 (GPU: true) [CUDA 11.4]
+ -pytorch-1.13.1 (GPU: true) 
+ -pytorch-2.0.0 (GPU: true) 
+ -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
+ -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
+
+
+[DEBUG] Engines found
+[DEBUG] Loading model
+
+Loading:     100% |========================================|
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Inference) Patch 1/8
+[DEBUG] (Inference) Patch 2/8
+[DEBUG] (Inference) Patch 3/8
+[DEBUG] (Inference) Patch 4/8
+[DEBUG] (Inference) Patch 5/8
+[DEBUG] (Inference) Patch 6/8
+[DEBUG] (Inference) Patch 7/8
+[DEBUG] (Inference) Patch 8/8
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+[DEBUG] Execution of model '3D UNet Mouse Embryo Live' completed.
+Exited engine ClassLoader
+[DEBUG] End execution
+There are no images open
+** script 2/2: COMPARING TO EXPECTED OUTPUT
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6384845/7774490/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** Run did not produce output
+   *** Empty metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6384845/7774490/output_metrics.json
+* MODEL  13/ 30
 ** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
    *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6334583/7805434/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: passionate-t-rex, at 2023-07-27 15:12:11.839000
+   *** Started testing model: passionate-t-rex, at 2023-07-28 09:59:11.330000
    *** Name: 3D UNet Arabidopsis Ovules
 engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
 [DEBUG] Processing image: sample_input_0.tif
@@ -1298,12 +752,12 @@ There are no images open
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
    *** Run did not produce output
    *** Empty metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6334583/7805434/output_metrics.json
-* MODEL  24/ 34
+* MODEL  14/ 30
 ** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5749843/5888237/
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6028280/6647695/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: humorous-owl, at 2023-07-27 15:12:43.945000
-   *** Name: Cell Segmentation from Membrane Staining for Plant Tissues
+   *** Started testing model: willing-hedgehog, at 2023-07-28 09:59:43.314000
+   *** Name: PlatynereisEMcellsSegmentationBoundaryModel
 engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
 [DEBUG] Processing image: sample_input_0.tif
 [DEBUG] Start loading models
@@ -1319,47 +773,164 @@ engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-
 
 [DEBUG] Engines found
 [DEBUG] Loading model
+
+Loading:     100% |========================================|
 [DEBUG] Image name: sample_input_0.tif
 [DEBUG] Start pre-processing
 [DEBUG] Run Macro pre-processing
-Percentile normalization to the axes: xyz
-with min_percentile: 0
-and max_percentile: 1
+Mean value:175.0249
+Standard deviation value:26.874
 [DEBUG] End pre-processing
 [DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/4
-[DEBUG] (Inference) Patch 2/4
-[DEBUG] (Inference) Patch 3/4
-[DEBUG] (Inference) Patch 4/4
+[DEBUG] (Inference) Patch 1/8
+[DEBUG] (Inference) Patch 2/8
+[DEBUG] (Inference) Patch 3/8
+[DEBUG] (Inference) Patch 4/8
+[DEBUG] (Inference) Patch 5/8
+[DEBUG] (Inference) Patch 6/8
+[DEBUG] (Inference) Patch 7/8
+[DEBUG] (Inference) Patch 8/8
 [DEBUG] Start post-processing 
-[DEBUG] Run Macro post-processing
 [DEBUG] End post-processing 
 [DEBUG] Close all the inputs except the input image
 [DEBUG] Open images at the end of the execution:
- - Cell Segmentation from Membrane Staining for Plant Tissues_output_sample_input_0
-[DEBUG] Execution of model 'Cell Segmentation from Membrane Staining for Plant Tissues' completed.
+ - PlatynereisEMcellsSegmentationBoundaryModel_output0_sample_input_0
+[DEBUG] Execution of model 'PlatynereisEMcellsSegmentationBoundaryModel' completed.
 Exited engine ClassLoader
 [DEBUG] End execution
-   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5749843/5888237/CI_OUTPUT.tif
-   *** Finished testing model: humorous-owl
-   *** Time taken: 0.7 min, (40 s)
+   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6028280/6647695/CI_OUTPUT.tif
+   *** Finished testing model: willing-hedgehog
+   *** Time taken: 13.6 min, (818 s)
 ** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5749843/5888237/
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6028280/6647695/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** centers of [256, 256, 1, 8, 1] are:
-     [[64, 129], [64, 129], [0, 1], [2, 5], [0, 1]]
-   *** Max value: 255.0
-   *** MSE (relative): 0
-   *** MSE center (relative): 0
-   *** MAE (relative): 0
-   *** MAE center (relative): 0
-   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5749843/5888237/output_metrics.json
-   *** Time taken: 0.0 min, (2 s)
-* MODEL  25/ 34
+   *** centers of [256, 256, 1, 32, 1] are:
+     [[64, 129], [64, 129], [0, 1], [8, 17], [0, 1]]
+   *** Max value: 0.999988555908
+   *** MSE (relative): 0.03442
+   *** MSE center (relative): 0.0016901
+   *** MAE (relative): 0.079352
+   *** MAE center (relative): 0.027039
+   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6028280/6647695/output_metrics.json
+   *** Time taken: 0.1 min, (7 s)
+* MODEL  15/ 30
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6200635/7702687/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** Started testing model: loyal-parrot, at 2023-07-28 10:13:51.288000
+   *** Name: HPA Cell Segmentation (DPNUnet)
+engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Start loading models
+[DEBUG] Finished loading models
+[DEBUG] Checking and installing missing engines
+[DEBUG] Available Deep Learning frameworks:
+ -onnx-17 (GPU: true) [CUDA 11.4]
+ -pytorch-1.13.1 (GPU: true) 
+ -pytorch-2.0.0 (GPU: true) 
+ -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
+ -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
+
+
+[DEBUG] Engines found
+[DEBUG] Loading model
+
+Loading:     100% |========================================|
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Inference) Patch 1/1
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - HPA Cell Segmentation (DPNUnet)_output0_sample_input_0
+[DEBUG] Execution of model 'HPA Cell Segmentation (DPNUnet)' completed.
+Exited engine ClassLoader
+[DEBUG] End execution
+   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6200635/7702687/CI_OUTPUT.tif
+   *** Finished testing model: loyal-parrot
+   *** Time taken: 0.4 min, (22 s)
+** script 2/2: COMPARING TO EXPECTED OUTPUT
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6200635/7702687/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** centers of [512, 512, 3, 1, 1] are:
+     [[128, 257], [128, 257], [0, 3], [0, 1], [0, 1]]
+   *** Max value: 0.999531149864
+   *** MSE (relative): 1.9966e-10
+   *** MSE center (relative): 2.5482e-10
+   *** MAE (relative): 5.6459e-06
+   *** MAE center (relative): 7.0661e-06
+   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6200635/7702687/output_metrics.json
+   *** Time taken: 0.0 min, (3 s)
+* MODEL  16/ 30
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5874741/5874742/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** Started testing model: impartial-shrimp, at 2023-07-28 10:14:38.172000
+   *** Name: Neuron Segmentation in EM (Membrane Prediction)
+engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Start loading models
+[DEBUG] Finished loading models
+[DEBUG] Checking and installing missing engines
+[DEBUG] Available Deep Learning frameworks:
+ -onnx-17 (GPU: true) [CUDA 11.4]
+ -pytorch-1.13.1 (GPU: true) 
+ -pytorch-2.0.0 (GPU: true) 
+ -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
+ -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
+
+
+[DEBUG] Engines found
+[DEBUG] Loading model
+
+Loading:     100% |========================================|
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Mean value:126.0766
+Standard deviation value:32.7007
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Inference) Patch 1/8
+[DEBUG] (Inference) Patch 2/8
+[DEBUG] (Inference) Patch 3/8
+[DEBUG] (Inference) Patch 4/8
+[DEBUG] (Inference) Patch 5/8
+[DEBUG] (Inference) Patch 6/8
+[DEBUG] (Inference) Patch 7/8
+[DEBUG] (Inference) Patch 8/8
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - Neuron Segmentation in EM (Membrane Prediction)_output0_sample_input_0
+[DEBUG] Execution of model 'Neuron Segmentation in EM (Membrane Prediction)' completed.
+Exited engine ClassLoader
+[DEBUG] End execution
+   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5874741/5874742/CI_OUTPUT.tif
+   *** Finished testing model: impartial-shrimp
+   *** Time taken: 2.7 min, (165 s)
+** script 2/2: COMPARING TO EXPECTED OUTPUT
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5874741/5874742/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** centers of [360, 360, 1, 32, 1] are:
+     [[90, 181], [90, 181], [0, 1], [8, 17], [0, 1]]
+   *** Max value: 1.0
+   *** MSE (relative): 0.014321
+   *** MSE center (relative): 0.0001323
+   *** MAE (relative): 0.024155
+   *** MAE center (relative): 0.0031592
+   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5874741/5874742/output_metrics.json
+   *** Time taken: 0.2 min, (13 s)
+* MODEL  17/ 30
 ** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
    *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6406756/6811922/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: hiding-blowfish, at 2023-07-27 15:13:47.631000
+   *** Started testing model: hiding-blowfish, at 2023-07-28 10:17:59.098000
    *** Name: EnhancerMitochondriaEM2D
 engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
 [DEBUG] Processing image: sample_input_0.tif
@@ -1413,11 +984,69 @@ Exited engine ClassLoader
    *** MAE center (relative): 0.010371
    *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6406756/6811922/output_metrics.json
    *** Time taken: 0.0 min, (2 s)
-* MODEL  26/ 34
+* MODEL  18/ 30
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6338614/6338615/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** Started testing model: chatty-frog, at 2023-07-28 10:18:40.627000
+   *** Name: StarDist H&E Nuclei Segmentation
+engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Start loading models
+[DEBUG] Finished loading models
+[DEBUG] Checking and installing missing engines
+[DEBUG] Available Deep Learning frameworks:
+ -onnx-17 (GPU: true) [CUDA 11.4]
+ -pytorch-1.13.1 (GPU: true) 
+ -pytorch-2.0.0 (GPU: true) 
+ -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
+ -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
+
+
+[DEBUG] Engines found
+[DEBUG] Loading model
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Percentile normalization to the axes: xy
+with min_percentile: 0.01
+and max_percentile: 0.998
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Inference) Patch 1/6
+[DEBUG] (Inference) Patch 2/6
+[DEBUG] (Inference) Patch 3/6
+[DEBUG] (Inference) Patch 4/6
+[DEBUG] (Inference) Patch 5/6
+[DEBUG] (Inference) Patch 6/6
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - StarDist H&E Nuclei Segmentation_output_sample_input_0
+[DEBUG] Execution of model 'StarDist H&E Nuclei Segmentation' completed.
+Exited engine ClassLoader
+[DEBUG] End execution
+   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6338614/6338615/CI_OUTPUT.tif
+   *** Finished testing model: chatty-frog
+   *** Time taken: 0.4 min, (22 s)
+** script 2/2: COMPARING TO EXPECTED OUTPUT
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6338614/6338615/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** centers of [512, 304, 33, 1, 1] are:
+     [[128, 257], [76, 153], [8, 17], [0, 1], [0, 1]]
+   *** Max value: 35.1791687012
+   *** MSE (relative): 0.02642
+   *** MSE center (relative): 0.0041312
+   *** MAE (relative): 0.010532
+   *** MAE center (relative): 0.0071758
+   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6338614/6338615/output_metrics.json
+   *** Time taken: 0.2 min, (15 s)
+* MODEL  19/ 30
 ** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
    *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6808325/6808413/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: determined-chipmunk, at 2023-07-27 15:14:30.079000
+   *** Started testing model: determined-chipmunk, at 2023-07-28 10:19:39.862000
    *** Name: EM3DBoundaryEnhancer
 engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
 [DEBUG] Processing image: sample_input_0.tif
@@ -1462,7 +1091,7 @@ Exited engine ClassLoader
 [DEBUG] End execution
    *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6808325/6808413/CI_OUTPUT.tif
    *** Finished testing model: determined-chipmunk
-   *** Time taken: 1.4 min, (84 s)
+   *** Time taken: 1.4 min, (83 s)
 ** script 2/2: COMPARING TO EXPECTED OUTPUT
    *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6808325/6808413/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
@@ -1475,11 +1104,11 @@ Exited engine ClassLoader
    *** MAE center (relative): 0.017675
    *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6808325/6808413/output_metrics.json
    *** Time taken: 0.1 min, (7 s)
-* MODEL  27/ 34
+* MODEL  20/ 30
 ** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
    *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7274275/8123818/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: joyful-deer, at 2023-07-27 15:16:23.101000
+   *** Started testing model: joyful-deer, at 2023-07-28 10:21:31.280000
    *** Name: CebraNET Cellular Membranes in Volume SEM
 engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
 [DEBUG] Processing image: sample_input_0.tif
@@ -1508,11 +1137,281 @@ There are no images open
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
    *** Run did not produce output
    *** Empty metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7274275/8123818/output_metrics.json
-* MODEL  28/ 34
+* MODEL  21/ 30
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6334881/7805026/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** Started testing model: laid-back-lobster, at 2023-07-28 10:21:52.476000
+   *** Name: 2D UNet Arabidopsis Apical Stem Cells
+engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Start loading models
+[DEBUG] Finished loading models
+[DEBUG] Checking and installing missing engines
+[DEBUG] Available Deep Learning frameworks:
+ -onnx-17 (GPU: true) [CUDA 11.4]
+ -pytorch-1.13.1 (GPU: true) 
+ -pytorch-2.0.0 (GPU: true) 
+ -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
+ -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
+
+
+[DEBUG] Engines found
+[DEBUG] Loading model
+
+Loading:     100% |========================================|
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Inference) Patch 1/1
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+[DEBUG] Execution of model '2D UNet Arabidopsis Apical Stem Cells' completed.
+Exited engine ClassLoader
+[DEBUG] End execution
+There are no images open
+** script 2/2: COMPARING TO EXPECTED OUTPUT
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6334881/7805026/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** Run did not produce output
+   *** Empty metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6334881/7805026/output_metrics.json
+* MODEL  22/ 30
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5764892/6647674/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** Started testing model: affable-shark, at 2023-07-28 10:22:15.741000
+   *** Name: NucleiSegmentationBoundaryModel
+engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Start loading models
+[DEBUG] Finished loading models
+[DEBUG] Checking and installing missing engines
+[DEBUG] Available Deep Learning frameworks:
+ -onnx-17 (GPU: true) [CUDA 11.4]
+ -pytorch-1.13.1 (GPU: true) 
+ -pytorch-2.0.0 (GPU: true) 
+ -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
+ -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
+
+
+[DEBUG] Engines found
+[DEBUG] Loading model
+
+Loading:     100% |========================================|
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Mean value:17.7199
+Standard deviation value:20.2505
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Inference) Patch 1/4
+[DEBUG] (Inference) Patch 2/4
+[DEBUG] (Inference) Patch 3/4
+[DEBUG] (Inference) Patch 4/4
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - NucleiSegmentationBoundaryModel_output0_sample_input_0
+[DEBUG] Execution of model 'NucleiSegmentationBoundaryModel' completed.
+Exited engine ClassLoader
+[DEBUG] End execution
+   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5764892/6647674/CI_OUTPUT.tif
+   *** Finished testing model: affable-shark
+   *** Time taken: 0.1 min, (8 s)
+** script 2/2: COMPARING TO EXPECTED OUTPUT
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5764892/6647674/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** centers of [256, 256, 2, 1, 1] are:
+     [[64, 129], [64, 129], [0, 2], [0, 1], [0, 1]]
+   *** Max value: 0.999956965446
+   *** MSE (relative): 0.00015255
+   *** MSE center (relative): 1.246e-05
+   *** MAE (relative): 0.0027948
+   *** MAE center (relative): 0.0018617
+   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5764892/6647674/output_metrics.json
+   *** Time taken: 0.0 min, (1 s)
+* MODEL  23/ 30
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5817052/5906839/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** Started testing model: creative-panda, at 2023-07-28 10:22:47.318000
+   *** Name: Neuron Segmentation in 2D EM (Membrane)
+engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Start loading models
+[DEBUG] Finished loading models
+[DEBUG] Checking and installing missing engines
+[DEBUG] Available Deep Learning frameworks:
+ -onnx-17 (GPU: true) [CUDA 11.4]
+ -pytorch-1.13.1 (GPU: true) 
+ -pytorch-2.0.0 (GPU: true) 
+ -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
+ -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
+
+
+[DEBUG] Engines found
+[DEBUG] Loading model
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Percentile normalization to the axes: xy
+with min_percentile: 0.01
+and max_percentile: 0.998
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Inference) Patch 1/1
+[DEBUG] Start post-processing 
+[DEBUG] Run Macro post-processing
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - Neuron Segmentation in 2D EM (Membrane)_output0_sample_input_0
+[DEBUG] Execution of model 'Neuron Segmentation in 2D EM (Membrane)' completed.
+Exited engine ClassLoader
+[DEBUG] End execution
+   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5817052/5906839/CI_OUTPUT.tif
+   *** Finished testing model: creative-panda
+   *** Time taken: 0.5 min, (28 s)
+** script 2/2: COMPARING TO EXPECTED OUTPUT
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5817052/5906839/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** centers of [512, 512, 1, 1, 1] are:
+     [[128, 257], [128, 257], [0, 1], [0, 1], [0, 1]]
+   *** Max value: 255.0
+   *** MSE (relative): 0
+   *** MSE center (relative): 0
+   *** MAE (relative): 0
+   *** MAE center (relative): 0
+   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5817052/5906839/output_metrics.json
+   *** Time taken: 0.0 min, (1 s)
+* MODEL  24/ 30
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6028097/6028098/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** Started testing model: organized-badger, at 2023-07-28 10:23:38.823000
+   *** Name: PlatynereisEMnucleiSegmentationBoundaryModel
+engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Start loading models
+[DEBUG] Finished loading models
+[DEBUG] Checking and installing missing engines
+[DEBUG] Available Deep Learning frameworks:
+ -onnx-17 (GPU: true) [CUDA 11.4]
+ -pytorch-1.13.1 (GPU: true) 
+ -pytorch-2.0.0 (GPU: true) 
+ -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
+ -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
+
+
+[DEBUG] Engines found
+[DEBUG] Loading model
+
+Loading:     100% |========================================|
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Mean value:158.0579
+Standard deviation value:31.3358
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Inference) Patch 1/8
+[DEBUG] (Inference) Patch 2/8
+[DEBUG] (Inference) Patch 3/8
+[DEBUG] (Inference) Patch 4/8
+[DEBUG] (Inference) Patch 5/8
+[DEBUG] (Inference) Patch 6/8
+[DEBUG] (Inference) Patch 7/8
+[DEBUG] (Inference) Patch 8/8
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - PlatynereisEMnucleiSegmentationBoundaryModel_output0_sample_input_0
+[DEBUG] Execution of model 'PlatynereisEMnucleiSegmentationBoundaryModel' completed.
+Exited engine ClassLoader
+[DEBUG] End execution
+   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6028097/6028098/CI_OUTPUT.tif
+   *** Finished testing model: organized-badger
+   *** Time taken: 2.0 min, (120 s)
+** script 2/2: COMPARING TO EXPECTED OUTPUT
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6028097/6028098/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** centers of [256, 256, 2, 32, 1] are:
+     [[64, 129], [64, 129], [0, 2], [8, 17], [0, 1]]
+   *** Max value: 1.0
+   *** MSE (relative): 0.038296
+   *** MSE center (relative): 0.0022729
+   *** MAE (relative): 0.080934
+   *** MAE center (relative): 0.012925
+   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6028097/6028098/output_metrics.json
+   *** Time taken: 0.2 min, (13 s)
+* MODEL  25/ 30
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5869899/6647688/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** Started testing model: hiding-tiger, at 2023-07-28 10:26:14.589000
+   *** Name: LiveCellSegmentationBoundaryModel
+engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Start loading models
+[DEBUG] Finished loading models
+[DEBUG] Checking and installing missing engines
+[DEBUG] Available Deep Learning frameworks:
+ -onnx-17 (GPU: true) [CUDA 11.4]
+ -pytorch-1.13.1 (GPU: true) 
+ -pytorch-2.0.0 (GPU: true) 
+ -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
+ -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
+
+
+[DEBUG] Engines found
+[DEBUG] Loading model
+
+Loading:     100% |========================================|
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Mean value:128.0212
+Standard deviation value:9.4274
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Inference) Patch 1/4
+[DEBUG] (Inference) Patch 2/4
+[DEBUG] (Inference) Patch 3/4
+[DEBUG] (Inference) Patch 4/4
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - LiveCellSegmentationBoundaryModel_output0_sample_input_0
+[DEBUG] Execution of model 'LiveCellSegmentationBoundaryModel' completed.
+Exited engine ClassLoader
+[DEBUG] End execution
+   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5869899/6647688/CI_OUTPUT.tif
+   *** Finished testing model: hiding-tiger
+   *** Time taken: 0.3 min, (17 s)
+** script 2/2: COMPARING TO EXPECTED OUTPUT
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5869899/6647688/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** centers of [512, 512, 2, 1, 1] are:
+     [[128, 257], [128, 257], [0, 2], [0, 1], [0, 1]]
+   *** Max value: 1.0
+   *** MSE (relative): 0.00015603
+   *** MSE center (relative): 0.00010112
+   *** MAE (relative): 0.0037617
+   *** MAE center (relative): 0.0034222
+   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5869899/6647688/output_metrics.json
+   *** Time taken: 0.0 min, (2 s)
+* MODEL  26/ 30
 ** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
    *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5874841/6630266/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: kind-seashell, at 2023-07-27 15:16:45.317000
+   *** Started testing model: kind-seashell, at 2023-07-28 10:26:56.120000
    *** Name: MitochondriaEMSegmentationBoundaryModel
 engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
 [DEBUG] Processing image: sample_input_0.tif
@@ -1569,193 +1468,12 @@ Exited engine ClassLoader
    *** MAE center (relative): 0.00052943
    *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.5874841/6630266/output_metrics.json
    *** Time taken: 0.2 min, (13 s)
-* MODEL  29/ 34
+* MODEL  27/ 30
 ** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7614645/7642674/
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6079314/7695872/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: ambitious-sloth, at 2023-07-27 15:22:54.698000
-   *** Name: HyLFM-Net-stat
-engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Start loading models
-[DEBUG] Finished loading models
-[DEBUG] Checking and installing missing engines
-[DEBUG] Available Deep Learning frameworks:
- -onnx-17 (GPU: true) [CUDA 11.4]
- -pytorch-1.13.1 (GPU: true) 
- -pytorch-2.0.0 (GPU: true) 
- -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
- -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
-
-
-[DEBUG] Engines found
-[DEBUG] Loading model
-
-Loading:     100% |========================================|
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/1
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
-[DEBUG] Execution of model 'HyLFM-Net-stat' completed.
-Exited engine ClassLoader
-[DEBUG] End execution
-There are no images open
-** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7614645/7642674/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Run did not produce output
-   *** Empty metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7614645/7642674/output_metrics.json
-* MODEL  30/ 34
-** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6338614/6338615/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: chatty-frog, at 2023-07-27 15:23:40.288000
-   *** Name: StarDist H&E Nuclei Segmentation
-engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Start loading models
-[DEBUG] Finished loading models
-[DEBUG] Checking and installing missing engines
-[DEBUG] Available Deep Learning frameworks:
- -onnx-17 (GPU: true) [CUDA 11.4]
- -pytorch-1.13.1 (GPU: true) 
- -pytorch-2.0.0 (GPU: true) 
- -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
- -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
-
-
-[DEBUG] Engines found
-[DEBUG] Loading model
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-Percentile normalization to the axes: xy
-with min_percentile: 0.01
-and max_percentile: 0.998
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/6
-[DEBUG] (Inference) Patch 2/6
-[DEBUG] (Inference) Patch 3/6
-[DEBUG] (Inference) Patch 4/6
-[DEBUG] (Inference) Patch 5/6
-[DEBUG] (Inference) Patch 6/6
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - StarDist H&E Nuclei Segmentation_output_sample_input_0
-[DEBUG] Execution of model 'StarDist H&E Nuclei Segmentation' completed.
-Exited engine ClassLoader
-[DEBUG] End execution
-   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6338614/6338615/CI_OUTPUT.tif
-   *** Finished testing model: chatty-frog
-   *** Time taken: 0.4 min, (25 s)
-** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6338614/6338615/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** centers of [512, 304, 33, 1, 1] are:
-     [[128, 257], [76, 153], [8, 17], [0, 1], [0, 1]]
-   *** Max value: 35.1791687012
-   *** MSE (relative): 0.02642
-   *** MSE center (relative): 0.0041312
-   *** MAE (relative): 0.010532
-   *** MAE center (relative): 0.0071758
-   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6338614/6338615/output_metrics.json
-   *** Time taken: 0.2 min, (14 s)
-* MODEL  31/ 34
-** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6334881/7805026/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: laid-back-lobster, at 2023-07-27 15:24:41.395000
-   *** Name: 2D UNet Arabidopsis Apical Stem Cells
-engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Start loading models
-[DEBUG] Finished loading models
-[DEBUG] Checking and installing missing engines
-[DEBUG] Available Deep Learning frameworks:
- -onnx-17 (GPU: true) [CUDA 11.4]
- -pytorch-1.13.1 (GPU: true) 
- -pytorch-2.0.0 (GPU: true) 
- -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
- -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
-
-
-[DEBUG] Engines found
-[DEBUG] Loading model
-
-Loading:     100% |========================================|
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/1
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
-[DEBUG] Execution of model '2D UNet Arabidopsis Apical Stem Cells' completed.
-Exited engine ClassLoader
-[DEBUG] End execution
-There are no images open
-** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6334881/7805026/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Run did not produce output
-   *** Empty metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6334881/7805026/output_metrics.json
-* MODEL  32/ 34
-** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7786492/7786493/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: organized-cricket, at 2023-07-27 15:25:04.533000
-   *** Name: Mitochondria resolution enhancement Wasserstein GAN
-engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Start loading models
-[DEBUG] Finished loading models
-[DEBUG] Checking and installing missing engines
-[DEBUG] Available Deep Learning frameworks:
- -onnx-17 (GPU: true) [CUDA 11.4]
- -pytorch-1.13.1 (GPU: true) 
- -pytorch-2.0.0 (GPU: true) 
- -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
- -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
-
-
-[DEBUG] Engines found
-[DEBUG] Loading model
-
-Loading:     100% |========================================|
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/1
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
-[DEBUG] Execution of model 'Mitochondria resolution enhancement Wasserstein GAN' completed.
-Exited engine ClassLoader
-[DEBUG] End execution
-There are no images open
-** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7786492/7786493/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Run did not produce output
-   *** Empty metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.7786492/7786493/output_metrics.json
-* MODEL  33/ 34
-** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6200635/7702687/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: loyal-parrot, at 2023-07-27 15:25:27.308000
-   *** Name: HPA Cell Segmentation (DPNUnet)
+   *** Started testing model: wild-whale, at 2023-07-28 10:33:04.202000
+   *** Name: EpitheliaAffinityModel
 engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
 [DEBUG] Processing image: sample_input_0.tif
 [DEBUG] Start loading models
@@ -1776,86 +1494,190 @@ Loading:     100% |========================================|
 [DEBUG] Image name: sample_input_0.tif
 [DEBUG] Start pre-processing
 [DEBUG] Run Macro pre-processing
+Mean value:0.186
+Standard deviation value:0.1245
 [DEBUG] End pre-processing
 [DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/1
+[DEBUG] (Inference) Patch 1/4
+[DEBUG] (Inference) Patch 2/4
+[DEBUG] (Inference) Patch 3/4
+[DEBUG] (Inference) Patch 4/4
 [DEBUG] Start post-processing 
 [DEBUG] End post-processing 
 [DEBUG] Close all the inputs except the input image
 [DEBUG] Open images at the end of the execution:
- - HPA Cell Segmentation (DPNUnet)_output0_sample_input_0
-[DEBUG] Execution of model 'HPA Cell Segmentation (DPNUnet)' completed.
+ - EpitheliaAffinityModel_output0_sample_input_0
+[DEBUG] Execution of model 'EpitheliaAffinityModel' completed.
 Exited engine ClassLoader
 [DEBUG] End execution
-   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6200635/7702687/CI_OUTPUT.tif
-   *** Finished testing model: loyal-parrot
-   *** Time taken: 0.4 min, (25 s)
+   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6079314/7695872/CI_OUTPUT.tif
+   *** Finished testing model: wild-whale
+   *** Time taken: 0.1 min, (5 s)
 ** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6200635/7702687/
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6079314/7695872/
    *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** centers of [512, 512, 3, 1, 1] are:
-     [[128, 257], [128, 257], [0, 3], [0, 1], [0, 1]]
-   *** Max value: 0.999531149864
-   *** MSE (relative): 1.9966e-10
-   *** MSE center (relative): 2.5482e-10
-   *** MAE (relative): 5.6459e-06
-   *** MAE center (relative): 7.0661e-06
-   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6200635/7702687/output_metrics.json
-   *** Time taken: 0.1 min, (4 s)
-* MODEL  34/ 34
-** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6200999/7690494/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** Started testing model: conscientious-seashell, at 2023-07-27 15:26:17.906000
-   *** Name: HPA Nucleus Segmentation (DPNUnet)
-engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
-[DEBUG] Processing image: sample_input_0.tif
-[DEBUG] Start loading models
-[DEBUG] Finished loading models
-[DEBUG] Checking and installing missing engines
-[DEBUG] Available Deep Learning frameworks:
- -onnx-17 (GPU: true) [CUDA 11.4]
- -pytorch-1.13.1 (GPU: true) 
- -pytorch-2.0.0 (GPU: true) 
- -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
- -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
-
-
-[DEBUG] Engines found
-[DEBUG] Loading model
-
-Loading:     100% |========================================|
-[DEBUG] Image name: sample_input_0.tif
-[DEBUG] Start pre-processing
-[DEBUG] Run Macro pre-processing
-[DEBUG] End pre-processing
-[DEBUG] Running inference on the tensors
-[DEBUG] (Inference) Patch 1/1
-[DEBUG] Start post-processing 
-[DEBUG] End post-processing 
-[DEBUG] Close all the inputs except the input image
-[DEBUG] Open images at the end of the execution:
- - HPA Nucleus Segmentation (DPNUnet)_output0_sample_input_0
-[DEBUG] Execution of model 'HPA Nucleus Segmentation (DPNUnet)' completed.
-Exited engine ClassLoader
-[DEBUG] End execution
-   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6200999/7690494/CI_OUTPUT.tif
-   *** Finished testing model: conscientious-seashell
-   *** Time taken: 0.4 min, (24 s)
-** script 2/2: COMPARING TO EXPECTED OUTPUT
-   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6200999/7690494/
-   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
-   *** centers of [512, 512, 3, 1, 1] are:
-     [[128, 257], [128, 257], [0, 3], [0, 1], [0, 1]]
+   *** centers of [256, 256, 8, 1, 1] are:
+     [[64, 129], [64, 129], [2, 5], [0, 1], [0, 1]]
    *** Max value: 1.0
-   *** MSE (relative): 1.5581e-11
-   *** MSE center (relative): 1.1175e-11
-   *** MAE (relative): 4.3689e-07
-   *** MAE center (relative): 2.601e-07
-   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6200999/7690494/output_metrics.json
-   *** Time taken: 0.0 min, (3 s)
-FINISHED TESTING THE 34 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-07-27 15:26:56.946710
+   *** MSE (relative): 0.0063616
+   *** MSE center (relative): 0.00024227
+   *** MAE (relative): 0.013974
+   *** MAE center (relative): 0.0035443
+   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6079314/7695872/output_metrics.json
+   *** Time taken: 0.0 min, (2 s)
+* MODEL  28/ 30
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6334383/7805067/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** Started testing model: pioneering-rhino, at 2023-07-28 10:33:33.556000
+   *** Name: 2D UNet Arabidopsis Ovules
+engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Start loading models
+[DEBUG] Finished loading models
+[DEBUG] Checking and installing missing engines
+[DEBUG] Available Deep Learning frameworks:
+ -onnx-17 (GPU: true) [CUDA 11.4]
+ -pytorch-1.13.1 (GPU: true) 
+ -pytorch-2.0.0 (GPU: true) 
+ -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
+ -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
+
+
+[DEBUG] Engines found
+[DEBUG] Loading model
+
+Loading:     100% |========================================|
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Inference) Patch 1/1
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+[DEBUG] Execution of model '2D UNet Arabidopsis Ovules' completed.
+Exited engine ClassLoader
+[DEBUG] End execution
+There are no images open
+** script 2/2: COMPARING TO EXPECTED OUTPUT
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6334383/7805067/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** Run did not produce output
+   *** Empty metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6334383/7805067/output_metrics.json
+* MODEL  29/ 30
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6348728/6348729/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** Started testing model: non-judgemental-eagle, at 2023-07-28 10:33:58.413000
+   *** Name: Arabidopsis Leaf Segmentation
+engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Start loading models
+[DEBUG] Finished loading models
+[DEBUG] Checking and installing missing engines
+[DEBUG] Available Deep Learning frameworks:
+ -onnx-17 (GPU: true) [CUDA 11.4]
+ -pytorch-1.13.1 (GPU: true) 
+ -pytorch-2.0.0 (GPU: true) 
+ -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
+ -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
+
+
+[DEBUG] Engines found
+[DEBUG] Loading model
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Percentile normalization to the axes: xyz
+with min_percentile: 0.01
+and max_percentile: 1
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Inference) Patch 1/1
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - Arabidopsis Leaf Segmentation_output_sample_input_0
+[DEBUG] Execution of model 'Arabidopsis Leaf Segmentation' completed.
+Exited engine ClassLoader
+[DEBUG] End execution
+   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6348728/6348729/CI_OUTPUT.tif
+   *** Finished testing model: non-judgemental-eagle
+   *** Time taken: 0.5 min, (31 s)
+** script 2/2: COMPARING TO EXPECTED OUTPUT
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6348728/6348729/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** centers of [256, 256, 1, 8, 1] are:
+     [[64, 129], [64, 129], [0, 1], [2, 5], [0, 1]]
+   *** Max value: 0.993139028549
+   *** MSE (relative): 0.0032548
+   *** MSE center (relative): 0.00038258
+   *** MAE (relative): 0.02637
+   *** MAE center (relative): 0.0098305
+   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6348728/6348729/output_metrics.json
+   *** Time taken: 0.0 min, (2 s)
+* MODEL  30/ 30
+** script 1/2: TESTING WITH DEEPIMAGEJ HEADLESS
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6406803/6406804/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** Started testing model: shivering-raccoon, at 2023-07-28 10:34:53.302000
+   *** Name: MitchondriaEMSegmentation2D
+engines jars directory is D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\engines
+[DEBUG] Processing image: sample_input_0.tif
+[DEBUG] Start loading models
+[DEBUG] Finished loading models
+[DEBUG] Checking and installing missing engines
+[DEBUG] Available Deep Learning frameworks:
+ -onnx-17 (GPU: true) [CUDA 11.4]
+ -pytorch-1.13.1 (GPU: true) 
+ -pytorch-2.0.0 (GPU: true) 
+ -tensorflow-1.15.0 (GPU: true) [CUDA 10.0]
+ -tensorflow-2.7.0 (GPU: true) [CUDA 11.2]
+
+
+[DEBUG] Engines found
+[DEBUG] Loading model
+
+Loading:     100% |========================================|
+[DEBUG] Image name: sample_input_0.tif
+[DEBUG] Start pre-processing
+[DEBUG] Run Macro pre-processing
+Mean value:128.3344
+Standard deviation value:54.6462
+[DEBUG] End pre-processing
+[DEBUG] Running inference on the tensors
+[DEBUG] (Inference) Patch 1/4
+[DEBUG] (Inference) Patch 2/4
+[DEBUG] (Inference) Patch 3/4
+[DEBUG] (Inference) Patch 4/4
+[DEBUG] Start post-processing 
+[DEBUG] End post-processing 
+[DEBUG] Close all the inputs except the input image
+[DEBUG] Open images at the end of the execution:
+ - MitchondriaEMSegmentation2D_output0_sample_input_0
+[DEBUG] Execution of model 'MitchondriaEMSegmentation2D' completed.
+Exited engine ClassLoader
+[DEBUG] End execution
+   *** CI output image saved in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6406803/6406804/CI_OUTPUT.tif
+   *** Finished testing model: shivering-raccoon
+   *** Time taken: 0.3 min, (17 s)
+** script 2/2: COMPARING TO EXPECTED OUTPUT
+   *** The folder is: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6406803/6406804/
+   *** wd: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts
+   *** centers of [512, 512, 2, 1, 1] are:
+     [[128, 257], [128, 257], [0, 2], [0, 1], [0, 1]]
+   *** Max value: 0.999997735023
+   *** MSE (relative): 8.2216e-05
+   *** MSE center (relative): 4.0359e-05
+   *** MAE (relative): 0.0012748
+   *** MAE center (relative): 0.0018003
+   *** Metrics file written in: D:/a/CI-deepimagej-bioimage-io/CI-deepimagej-bioimage-io/python_CI_scripts/../models/10.5281/zenodo.6406803/6406804/output_metrics.json
+   *** Time taken: 0.0 min, (2 s)
+FINISHED TESTING THE 30 MODELS WITH DEEPIMAGEJ IN FIJI AT 2023-07-28 10:35:24.328512
 
 Logs are in D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\..\test_summaries\fiji_log_out.txt and fiji_log_err.txt
 
-Total Time Taken: 0:51:34.941553
+Total Time Taken: 0:47:00.902529
