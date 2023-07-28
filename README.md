@@ -1,53 +1,95 @@
 # CI-deepimagej-bioimage-io
-System for the automatic testing of models from the Biomage Model Zoo in DeepImageJ.
 
-- The **input** of the system is the specification of the models to test (in json format)
-- The **output** is a test summary for each of the input models (in yaml files).
-  - The test summary "pass" if the model was able to run on DeepImageJ headless mode (and produce the correct output).
-  - Otherwise, the test summary "failed" and contains information of the error encountered.
+## Continuous Integration between DeepImageJ and the BioImage Model Zoo
+The CI-deepimagej-bioimage-io project enables continuous integration between DeepImageJ and the BioImage Model Zoo, allowing seamless integration of pre-trained deep learning models from the BioImage Model Zoo into DeepImageJ's framework.
 
-The test summaries are saved in the `gh-pages` branch of this repository.
-Additional information is also saved in that branch, e.g:
-- `report.json`: a detailed report with the results for every model.
-- `Readme.md`: a summary of the results.
+### Table of Contents
+- [Introduction](#introduction)
+- [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+  * [Usage](#usage)
+    + [Model Card](#model-card)
+    + [Test Summary](#test-summary)
+    + [Local Testing](#local-testing)
+- [System Overview](#system-overview)
+- [Implementation Details](#implementation-details)
+  * [Python CI](#python-ci)
+  * [Clorjure CI (Deprecated)](#clorjure-ci--deprecated-)
+- [Contribute](#contribute)
+- [License](#license)
+- [Resources:](#resources-)
 
-## Why?
-The content of the test summaries is rendered in each of the model cards of [bioimage.io](https://bioimage.io/).
-This will give information to users on whether each of the models will work on DeepImageJ. In this way, the user can 
-choose only the models that we know to be working properly, and avoid surprises when downloading a model that will not work.
+## Introduction 
+DeepImageJ is an open-source plugin for ImageJ that integrates deep learning models into the ImageJ ecosystem. The BioImage Model Zoo is a repository of pre-trained deep learning models designed for biological image analysis. This project aims to bridge the gap between the two, allowing users to easily utilize models from the BioImage Model Zoo within DeepImageJ's environment.
 
-Models that pass the CI will display on the webpage similarly to the figure below. In the `Test Summary` section of the model card,
-clicking in `[more details]`.
+The CI process ensures that only models known to work properly with DeepImageJ are made available to users, avoiding surprises when downloading models that may not function as expected.
+
+## Getting Started
+
+### Prerequisites
+
+- [DeepImageJ](https://github.com/deepimagej/deepimagej): Make sure you have DeepImageJ installed in your ImageJ/Fiji setup.
+- [BioImage Model Zoo](https://github.com/bioimage-io/bioimage-io): You should have access to the BioImage Model Zoo repository.
+
+### Installation
+
+Clone this repository:
+
+```bash
+git clone https://github.com/deepimagej/CI-deepimagej-bioimage-io.git
+``` 
+
+### Usage
+
+#### Model Card
+Models that pass the CI will display on the webpage similarly to the figure below. In the Test Summary section of the model card, clicking on [more details] will reveal additional information about the CI process.
 
 ![dij_pass](resources/documentation_imgs/dij_pass.png)
 
 On the other hand, models that fail will display the image below on its model card.
 ![dij_fail](resources/documentation_imgs/dij_fail.png)
 
-The error information can also help in addressing it, as it specifies the point where the testing process failed.
+The error information can be helpful, as it specifies the where the testing process failed.
 
-## How?
-The main idea consist on a progressive filtering of all the input models during the different stages of testing.
-The models that go through all process are the ones which pass. For the rest, the corresponding error is detected.
+#### Test Summary
+The CI process is divided into three stages: init, download, and reproduce. Each stage tests the models for specific criteria, and the corresponding errors are detected and reported in the test summary.
+CI Stages:
+* **init**: The init stage parses the input and prepares the models to be tested.
+* **download**: The download stage involves the download of the models from the bioimage.io repository.
+* **reproduce**: The reproduce stage runs the models inside Fiji, with DeepImageJ in headless mode. It then compares the output images with the expected output to validate the model's compatibility with DeepImageJ.
+
+#### Local Testing
+- Change directory to `python_CI_scripts/` or to `java_CI_scripts/` to your own paths.
+- Follow the instructions from the `Readme.md` there.
+
+## System Overview
+The CI system operates as follows:
+* The input of the system is the specification of the models to test, provided in JSON format.
+* The output is a test summary for each of the input models, saved as YAML files.
+* The test summary is marked as "pass" if the model was able to run on DeepImageJ headless mode and produce the correct output.
+* If the model fails the testing process, the test summary contains information about the encountered error.
+* All test summaries are saved in the gh-pages branch of this repository.
+* Additional information, such as a detailed report with the results for every model (report.json) and a summary of the results (Readme.md), are also saved in that branch.
 
 ![ci_stages](resources/documentation_imgs/ci_concept.png)
 
 
-The CI is divided in 3 stages:
-1. **init**: Parses the input and prepares the models to be tested.
-2. **download**: Download of the models from [bioimage.io](https://bioimage.io/).
-3. **reproduce**: Run the models inside Fiji, with DeepImageJ headless mode. Compare with the expected output images.
+## Implementation Details
 
-Each stage has different kind of errors that can happen. These are detected and reported in the corresponding test summary.
+### Python CI
+The CI is implemented in Python and resides in the python folder of this GitHub repository. Detailed information on the Python CI process can be found in the corresponding Python CI README.
 
-The words in blue represent code name-spaces that implement the functionality. 
-Some of the code focuses only on the requirements for 1 of the stages, whereas other code is needed all through the CI.
+### Clorjure CI (Deprecated)
+The deprecated Clojure CI implementation is located in the clojure folder. It is no longer in use.
 
-# Local testing of models from the zoo
-- Change directory to `python_CI_scripts/` or to `java_CI_scripts/`.
-- Follow the instructions from the `Readme.md` there.
+## Contribute
+Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to create an issue or submit a pull request. 
 
-# Resources:
+## License
+This project is licensed under the [BSD 2-Clause License](LICENSE). See the [LICENSE](LICENSE) file for more details.
+
+## Resources:
 - [Bioimageio Wiki](https://github.com/bioimage-io/bioimage.io/wiki/Contribute-community-partner-specific-test-summaries)
 - [Issue](https://github.com/bioimage-io/collection-bioimage-io/issues/515)
 
