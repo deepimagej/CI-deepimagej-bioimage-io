@@ -72,7 +72,7 @@ jobs:
       - name: run initial stage
         working-directory: ./python_CI_scripts
         run: |
-          python -u main.py --j ..\java_CI_scripts\pending_matrix\all_models.json download
+          python -u main.py -j ..\java_CI_scripts\pending_matrix\all_models.json download
           
           
           
