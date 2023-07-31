@@ -63,8 +63,8 @@ The CI system operates as follows:
 * The output is a test summary for each of the input models, saved as YAML files.
 * The test summary is marked as "pass" if the model was able to run on DeepImageJ headless mode and produce the correct output.
 * If the model fails the testing process, the test summary contains information about the encountered error.
-* All test summaries are saved in the `gh-pages` branch of this repository.
-* Additional information, such as a detailed report with the results for every model (`report.json`) and a summary of the results (`Readme.md`) are also saved in that branch.
+* All test summaries are saved in the [`gh-pages`](https://github.com/deepimagej/CI-deepimagej-bioimage-io/tree/gh-pages) branch of this repository.
+* That branch contains also additional information of the latest CI run, such as a detailed report with the results for every model ([`report.json`](https://github.com/deepimagej/CI-deepimagej-bioimage-io/blob/gh-pages/report.json))and a brief summary of the results ([`Readme.md`](https://github.com/deepimagej/CI-deepimagej-bioimage-io/blob/gh-pages/Readme.md)).
 
 ![ci_stages](resources/documentation_imgs/ci_concept.png)
 
@@ -88,7 +88,7 @@ The steps to specify models that have been manually tested are:
 1. Run model inference manually with DeepImageJ on Fiji's graphical user interface
 2. Check if the output of the inference is similar to the provided sample output.
 This [fiji script](resources/compare_2_images.py) (in the `resources/` folder) allows you to compare 2 images and provides the same metrics that the automatic CI uses.
-3. If steps 1. and 2. were correct, you should add an entry of the model (`resource_id` and `version_id`) to the list in `manually_tested.json` located [here](java_CI_scripts/pending_matrix/manually_tested.json)
+3. If steps 1. and 2. were correct, you should add an entry of the model (`resource_id` and `version_id`) to the list in `manually_tested.json` located [here](java_CI_scripts/pending_matrix/manually_tested.json).
 
 All models in that list are considered manually tested and will (by)pass the CI.
 
