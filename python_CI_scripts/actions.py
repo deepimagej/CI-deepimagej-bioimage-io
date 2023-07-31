@@ -34,13 +34,14 @@ def initial_pipeline(ini_return, input_json):
     # Write test summaries for models that were manually tested
     list(map(lambda x: summaries.write_test_summary(summaries.gen_summa_dict(True, manual=True), x), manual_models))
 
-    msg = "- Created {:3} test summaries for models that passed the CI manually\n".format(len(manual_models))
+    msg = "- *Created {:3} test summaries for models that passed the CI manually*\n".format(len(manual_models))
     utils.print_and_log(msg, [FILES["summa-readme"]])
 
-    # write test summaries for errors during init
+    # Write test summaries for errors during init
     list(map(lambda x: summaries.write_summaries_from_error(x), models_discriminated["error-found"].items()))
 
-    # report the errors & comm files
+    # Report the errors & comm files
+    # first, delete all existing files in test_summaries/errors_info
     list(map(lambda x: x.unlink(), (ROOTS["summa-root"] / CONSTANTS["errors-dir-name"]).glob("*")))
 
     list(map(lambda x: comm.serialize_models(x, "all"), ({"models_to_test": all_model_records}).items()))
@@ -120,7 +121,7 @@ def reproduce_pipeline(skip_inference=False):
     # Write test summaries for models that pass
     list(map(lambda x: summaries.write_test_summary(summaries.gen_summa_dict(True), x), models_passing))
 
-    msg = "- Created {:3} test summaries for models that pass the CI\n".format(len(models_passing))
+    msg = "- *Created {:3} test summaries for models that pass the CI automatically*\n".format(len(models_passing))
     utils.print_and_log(msg, [FILES["summa-readme"]])
 
     # report the errors & comm files

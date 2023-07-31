@@ -38,8 +38,11 @@ def write_metrics_file(metrics_dic={}, metrics_file=metrics_file_path):
         json.dump(metrics_dic, f, indent=2)
 
 
-# open the 2 images that will be compared
 tic = time.time()
+my_print("Started calculating metrics for model: {}, at {}".format(DIJ_RECORD["nickname"], datetime.datetime.now()))
+
+
+# open the 2 images that will be compared
 imp1 = IJ.openImage(DIJ_RECORD["model-folder"] + DIJ_RECORD["output-img"])
 imp2 = IJ.openImage(DIJ_RECORD["model-folder"] + CONSTANTS["CI-output-name"])
 
@@ -101,7 +104,7 @@ def get_start_end(size):
     return [int(size/4), int(size/2)+1]
 
 
-my_print("centers of {} are:\n     {}".format(get5dims(imp1), list(map(lambda x: get_start_end(x), get5dims(imp1)))))
+my_print("centers of {} are:\n       {}".format(get5dims(imp1), list(map(lambda x: get_start_end(x), get5dims(imp1)))))
 
 sum_mse_center = 0.0
 sum_mae_center = 0.0

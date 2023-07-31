@@ -8,10 +8,10 @@ on:
       pending_matrix:
         description: 'json encoded gh matrix of pending validations for new or updated resources (default: test on all resources)'
         required: true
-        #default: '''{"include": [{"resource_id": "**", "version_id": "**"}]}'''
-        default: '''{"include": [{"resource_id": "10.5281/zenodo.7261974","version_id": "7261975"},
-        {"resource_id": "deepimagej","version_id": "DeepSTORMZeroCostDL4Mic/latest"},
-        {"resource_id": "10.5281/zenodo.6334881","version_id": "6346477"}]}'''
+        default: '''{"include": [{"resource_id": "**", "version_id": "**"}]}'''
+        #default: '''{"include": [{"resource_id": "10.5281/zenodo.7261974","version_id": "7261975"},
+        #{"resource_id": "deepimagej","version_id": "DeepSTORMZeroCostDL4Mic/latest"},
+        #{"resource_id": "10.5281/zenodo.6334881","version_id": "6346477"}]}'''
         type: string
         # RAW STRINGS CONTAINING JSON ARE A BAD IDEA, (single/double quotes and escaping depends on the shell)
         # it's better to use json files ...
@@ -72,7 +72,7 @@ jobs:
       - name: run initial stage
         working-directory: ./python_CI_scripts
         run: |
-          python -u main.py --j ..\java_CI_scripts\pending_matrix\all_models.json download
+          python -u main.py -j ..\java_CI_scripts\pending_matrix\all_models.json download
           
           
           
