@@ -35,8 +35,11 @@ def download_model(model_record, verb=False, failed_file=FILES["failed-downloads
             print("  Error:", type(e).__name__ + " || " + str(list(map(lambda x: str(x), e.args))))
 
     if zip_path.exists():
+        # extract zip file
         with zipfile.ZipFile(zip_path, "r") as zip_file:
             zip_file.extractall(path=folder_path / (CONSTANTS["model-dir-name"]))
+        # delete zip file (to save disk space, specially important on gh-actions)
+        zip_path.unlink()
 
 
 def save_images(s_path, model_folder_path, type_="input", verb=False):
