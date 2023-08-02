@@ -64,7 +64,11 @@ The CI system operates as follows:
 * The test summary is marked as "pass" if the model was able to run on DeepImageJ headless mode and produce the correct output.
 * If the model fails the testing process, the test summary contains information about the encountered error.
 * All test summaries are saved in the [`gh-pages`](https://github.com/deepimagej/CI-deepimagej-bioimage-io/tree/gh-pages) branch of this repository.
-* That branch contains also additional information of the latest CI run, such as a detailed report with the results for every model ([`report.json`](https://github.com/deepimagej/CI-deepimagej-bioimage-io/blob/gh-pages/report.json))and a brief summary of the results ([`Readme.md`](https://github.com/deepimagej/CI-deepimagej-bioimage-io/blob/gh-pages/Readme.md)).
+* That branch contains also additional information of the latest CI run, such as:
+  + a detailed report with the results for every model [`report.json`](https://github.com/deepimagej/CI-deepimagej-bioimage-io/blob/gh-pages/report.json).
+  + a brief summary of the results [`Readme.md`](https://github.com/deepimagej/CI-deepimagej-bioimage-io/blob/gh-pages/Readme.md)).
+  + detailed information of models separated by error type in the folder [`errors_info/`](https://github.com/deepimagej/CI-deepimagej-bioimage-io/tree/gh-pages/errors_info)
+  + the logs of the headless fiji run, [standard output](https://github.com/deepimagej/CI-deepimagej-bioimage-io/blob/gh-pages/fiji_log_out.txt) and [standard error](https://github.com/deepimagej/CI-deepimagej-bioimage-io/blob/gh-pages/fiji_log_err.txt)
 
 ![ci_stages](resources/documentation_imgs/ci_concept.png)
 

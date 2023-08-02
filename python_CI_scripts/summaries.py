@@ -73,5 +73,9 @@ def gen_report_record(model_record, test_id):
     """Generates the report information given a model record"""
     model_info = utils.select_keys(model_record, ["name", "nickname", "rdf-info", "weight-types"])
     test_info = utils.select_keys(get_test_summary_info(model_record), ["status", "error", "name"])
-    return {"test-id": test_id} | get_id_info(model_record) | model_info | {"test-summary": test_info,
-                                                                            "metrics": errors.get_output_metrics(model_record)}
+    inverse_all_errors = {v: k for k, v in errors.all_errors.items()}
+
+    report_info = {"test-id": test_id} | get_id_info(model_record) | model_info
+    return report_info | {"error-key": inverse_all_errors.get(test_info.get("error")),
+                          "test-summary": test_info,
+                          "metrics": errors.get_output_metrics(model_record)}

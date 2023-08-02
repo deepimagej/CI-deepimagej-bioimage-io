@@ -33,5 +33,10 @@ assert not errors.is_correct_images(problematic_models[0])
 
 # onnx model that only has input image (output is table, so cannot be tested)
 onnx_model = models.build_model(collection.get_rdfs_to_test([{"resource_id": "10.5281/zenodo.5910854", "version_id": "6539073"}])[0])
-downloads.download_model(problematic_models[1], verb=True)
-assert not errors.is_success_download(problematic_models[1])
+downloads.download_model(onnx_model, verb=True)
+assert not errors.is_success_download(onnx_model)
+
+# fiji n2v model
+n2v_model = models.build_model(collection.get_rdfs_to_test([{"resource_id": "fiji/N2VSEMDemo", "version_id": "latest"}])[0])
+downloads.download_model(n2v_model, verb=True)
+downloads.save_correct_sample_images(n2v_model, verb=True)

@@ -17,6 +17,7 @@ def parse_model(rdf_path):
 def get_rdf_info(rdf_dict):
     """Gets relevant info from a parsed rdf dictionary"""
     return {"type": rdf_dict["type"],
+            "input-images": len(rdf_dict["inputs"]),
             "dij-config?": "deepimagej" in rdf_dict["config"],
             "run-mode": utils.get(rdf_dict, "run_mode")}
 
