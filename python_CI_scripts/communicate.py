@@ -53,8 +53,18 @@ def get_input_shape(model_record):
     This information comes from the numpy, is stored in the file input_shape.edn
     """
     extracted_path = utils.get_in(model_record, ["paths", "model-dir-path"]) / CONSTANTS["model-dir-name"]
-    test_input = np.load(extracted_path / utils.get_in(model_record, ["inputs", "original-test"]))
-    return ",".join(list(map(str, test_input.shape[1:])))
+    try:
+        test_input = np.load(extracted_path / utils.get_in(model_record, ["inputs", "original-test"]))
+        return ",".join(list(map(str, test_input.shape[1:])))
+    # if the model has no numpy images, use the info in the tiffs repo (only happens for fiji/N2v)
+    except ValueError as e:
+        with open(utils.get_in(model_record, ["paths", "samples-path"]) / "input_shape.edn" ,"r") as f:
+            l_ = f.readline()
+            l_ = l_.replace(" ", "")
+            l_ = l_.replace("[", "")
+            l_ = l_.replace("]", "")
+        print("Line is", l_[2:])  # debug
+        return l_[2:]
 
 
 def get_weight_format(model_record):
