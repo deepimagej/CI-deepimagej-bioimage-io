@@ -5,6 +5,7 @@
       "nickname": "amiable-crocodile",
       "rdf-info": {
         "type": "model",
+        "input-images": 1,
         "dij-config?": false,
         "run-mode": null
       },
@@ -32,6 +33,7 @@
       "nickname": null,
       "rdf-info": {
         "type": "model",
+        "input-images": 1,
         "dij-config?": true,
         "run-mode": null
       },

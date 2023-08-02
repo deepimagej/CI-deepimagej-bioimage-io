@@ -1,0 +1,34 @@
+{
+  "init_many-input-images": [
+    {
+      "name": "EmbryoNet base model",
+      "nickname": "nice-peacock",
+      "rdf-info": {
+        "type": "model",
+        "input-images": 3,
+        "dij-config?": false,
+        "run-mode": null
+      },
+      "paths": {
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.7315440\\7315441\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.7315440\\7315441",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.7315440\\7315441",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.7315440\\7315441",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.7315440\\7315441"
+      },
+      "weight-types": [
+        "onnx"
+      ],
+      "inputs": {
+        "name": "data",
+        "axes": "bcyx",
+        "original-test": "input_test_image.npy"
+      },
+      "outputs": {
+        "name": "output",
+        "axes": "c",
+        "original-test": "result.npy"
+      }
+    }
+  ]
+}

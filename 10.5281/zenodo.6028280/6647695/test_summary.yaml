@@ -1,4 +1,5 @@
 bioimageio_spec_version: 0.4.9
 bioimageio_core_version: 0.5.9
-status: passed
-name: Reproduce test outputs with DeepImageJ headless
+error: Error while running DeepImageJ headless (CI did not produce an output image).
+status: failed
+name: Reproduce test outputs with DeepImageJ headless.

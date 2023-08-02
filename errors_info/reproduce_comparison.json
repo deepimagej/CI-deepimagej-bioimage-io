@@ -5,6 +5,7 @@
       "nickname": "discreet-rooster",
       "rdf-info": {
         "type": "model",
+        "input-images": 1,
         "dij-config?": true,
         "run-mode": null
       },
