@@ -8,29 +8,30 @@ from functools import reduce
 from pathlib import Path
 
 "Errors that could happen during the initial checks"
-initial_errors = {"no-dij-config": "rdf does not have keys for :config :deepimagej",
-                  "no-sample-images": "Sample image tiffs have not been generated from numpy tests files",
-                  "no-compatible-weights": "rdf does not have a compatible weight format",
-                  "key-run-mode": "Test not yet available: rdf contains the key run_mode with value deepimagej",
-                  "not-a-model": "rdf type is not a DL model",  # no test summaries for these though,
-                  "incompatible-spec": "Version of the rdf is incompatible with DeepImageJ"}
+initial_errors = {"no-dij-config": "rdf does not have keys for :config :deepimagej.",
+                  "no-sample-images": "Sample image tiffs have not been generated from numpy tests files.",
+                  "no-compatible-weights": "rdf does not have a compatible weight format.",
+                  "key-run-mode": "Test not yet available: rdf contains the key run_mode with value deepimagej.",
+                  "not-a-model": "rdf type is not a DL model.",  # no test summaries for these though,
+                  "incompatible-spec": "Version of the rdf is incompatible with DeepImageJ.",
+                  "many-input-images": "Model incompatible with DeepImageJ, requires more than 1 input image."}
 
 "Errors that could happen while downloading files for testing"
-download_errors = {"download-fail": "Failure to download model with 'bioimageio.core.export_resource_package'",
-                   "no-test-images": "No correct sample images to test",
-                   "no-pprocess": "P*processing yaml info and files do not agree"}
+download_errors = {"download-fail": "Failure to download model with 'bioimageio.core.export_resource_package'.",
+                   "no-test-images": "No correct sample images to test.",
+                   "no-pprocess": "P*processing yaml info and files do not agree."}
 
 "Errors that could happen trying to reproduce output with DeepImageJ"
-reproduce_errors = {"dij-headless": "Error while running DeepImageJ headless (CI did not produce an output image)",
-                    "comparison": "Difference between CI and expected outputs is greater than threshold (CI produced an output image)"}
+reproduce_errors = {"dij-headless": "Error while running DeepImageJ headless (CI did not produce an output image).",
+                    "comparison": "Difference between CI and expected outputs is greater than threshold (CI produced an output image)."}
 
 all_errors = initial_errors | download_errors | reproduce_errors
 
 "Different stages of the CI"
-ci_stages = {"initial": "Initial compatibility checks with DeepImageJ",
-             "download": "Downloading testing resources for DeepImageJ",
-             "reproduce": "Reproduce test outputs with DeepImageJ headless",
-             "manual": "Reproduce test outputs with DeepImageJ GUI (manually tested)"}
+ci_stages = {"initial": "Initial compatibility checks with DeepImageJ.",
+             "download": "Downloading testing resources for DeepImageJ.",
+             "reproduce": "Reproduce test outputs with DeepImageJ headless.",
+             "manual": "Reproduce test outputs with DeepImageJ GUI (manually tested)."}
 
 
 def find_stage(error_key):
@@ -75,10 +76,17 @@ def is_any_compatible_weight(model_record):
     return len(w) > 0
 
 
+def is_1_input_image(model_record):
+    """Check if the model has 1 image as input"""
+    n_images = utils.get_in(model_record, ["rdf-info", "input-images"])
+    return n_images == 1
+
+
 """Association of each possible initial error with a discrimination function.
 Order of errors here affects order on how errors are checked"""
 init_errors_fns = {"key-run-mode": is_no_run_mode,
-                   "no-compatible-weights": is_any_compatible_weight}
+                   "no-compatible-weights": is_any_compatible_weight,
+                   "many-input-images": is_1_input_image}
 
 
 # DOWNLOAD CHECKS

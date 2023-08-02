@@ -58,7 +58,7 @@ def get_input_shape(model_record):
         return ",".join(list(map(str, test_input.shape[1:])))
     # if the model has no numpy images, use the info in the tiffs repo (only happens for fiji/N2v)
     except ValueError as e:
-        with open(utils.get_in(model_record, ["paths", "samples-path"]) / "input_shape.edn" ,"r") as f:
+        with open(utils.get_in(model_record, ["paths", "samples-path"]) / "input_shape.edn", "r") as f:
             l_ = f.readline()
             l_ = l_.replace(" ", "")
             l_ = l_.replace("[", "")
