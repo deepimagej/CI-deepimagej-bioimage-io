@@ -1,76 +1,6 @@
 {
   "init_manually-tested": [
     {
-      "name": "Skin lesions classification",
-      "nickname": null,
-      "rdf-info": {
-        "type": "model",
-        "input-images": 1,
-        "dij-config?": true,
-        "run-mode": {
-          "name": "deepimagej"
-        }
-      },
-      "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\deepimagej\\SkinLesionClassification\\latest\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\deepimagej\\SkinLesionClassification\\latest",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\deepimagej\\SkinLesionClassification\\latest",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\deepimagej\\SkinLesionClassification\\latest",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\deepimagej\\SkinLesionClassification\\latest"
-      },
-      "weight-types": [
-        "pytorch_script"
-      ],
-      "inputs": {
-        "name": "input0",
-        "axes": "bcyx",
-        "original-sample": "0066.tif",
-        "original-test": "0066.npy",
-        "original-p*process": "preprocessing.ijm"
-      },
-      "outputs": {
-        "name": "output0",
-        "axes": "bi",
-        "original-sample": "lesion.csv",
-        "original-test": "lesion.npy",
-        "original-p*process": "post.ijm"
-      }
-    },
-    {
-      "name": "HyLFM-Net-stat",
-      "nickname": "ambitious-sloth",
-      "rdf-info": {
-        "type": "model",
-        "input-images": 1,
-        "dij-config?": false,
-        "run-mode": null
-      },
-      "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.7614645\\7642674\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.7614645\\7642674",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.7614645\\7642674",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.7614645\\7642674",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.7614645\\7642674"
-      },
-      "weight-types": [
-        "onnx",
-        "torchscript"
-      ],
-      "inputs": {
-        "name": "lf",
-        "axes": "bcyx",
-        "original-sample": "sample_input.tif",
-        "original-test": "test_input.npy",
-        "original-p*process": "scale_range"
-      },
-      "outputs": {
-        "name": "prediction",
-        "axes": "bczyx",
-        "original-sample": "sample_output.tif",
-        "original-test": "test_output.npy"
-      }
-    },
-    {
       "name": "3D UNet Lateral Root Primordia Cells",
       "nickname": "thoughtful-turtle",
       "rdf-info": {
@@ -98,38 +28,6 @@
       "outputs": {
         "name": "output0",
         "axes": "bczyx",
-        "original-sample": "sample_output_0.tif",
-        "original-test": "test_output.npy"
-      }
-    },
-    {
-      "name": "Mitochondria resolution enhancement Wasserstein GAN",
-      "nickname": "organized-cricket",
-      "rdf-info": {
-        "type": "model",
-        "input-images": 1,
-        "dij-config?": true,
-        "run-mode": null
-      },
-      "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.7786492\\7786493\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.7786492\\7786493",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.7786492\\7786493",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.7786492\\7786493",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.7786492\\7786493"
-      },
-      "weight-types": [
-        "torchscript"
-      ],
-      "inputs": {
-        "name": "input",
-        "axes": "bcxy",
-        "original-sample": "sample_input_0.tif",
-        "original-test": "test_input.npy"
-      },
-      "outputs": {
-        "name": "output",
-        "axes": "bcxy",
         "original-sample": "sample_output_0.tif",
         "original-test": "test_output.npy"
       }
@@ -171,6 +69,72 @@
       }
     },
     {
+      "name": "Mitochondria resolution enhancement Wasserstein GAN",
+      "nickname": "organized-cricket",
+      "rdf-info": {
+        "type": "model",
+        "input-images": 1,
+        "dij-config?": true,
+        "run-mode": null
+      },
+      "paths": {
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.7786492\\7786493\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.7786492\\7786493",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.7786492\\7786493",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.7786492\\7786493",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.7786492\\7786493"
+      },
+      "weight-types": [
+        "torchscript"
+      ],
+      "inputs": {
+        "name": "input",
+        "axes": "bcxy",
+        "original-sample": "sample_input_0.tif",
+        "original-test": "test_input.npy"
+      },
+      "outputs": {
+        "name": "output",
+        "axes": "bcxy",
+        "original-sample": "sample_output_0.tif",
+        "original-test": "test_output.npy"
+      }
+    },
+    {
+      "name": "HyLFM-Net-stat",
+      "nickname": "ambitious-sloth",
+      "rdf-info": {
+        "type": "model",
+        "input-images": 1,
+        "dij-config?": false,
+        "run-mode": null
+      },
+      "paths": {
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.7614645\\7642674\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.7614645\\7642674",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.7614645\\7642674",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.7614645\\7642674",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.7614645\\7642674"
+      },
+      "weight-types": [
+        "onnx",
+        "torchscript"
+      ],
+      "inputs": {
+        "name": "lf",
+        "axes": "bcyx",
+        "original-sample": "sample_input.tif",
+        "original-test": "test_input.npy",
+        "original-p*process": "scale_range"
+      },
+      "outputs": {
+        "name": "prediction",
+        "axes": "bczyx",
+        "original-sample": "sample_output.tif",
+        "original-test": "test_output.npy"
+      }
+    },
+    {
       "name": "3D UNet Arabidopsis Apical Stem Cells",
       "nickname": "emotional-cricket",
       "rdf-info": {
@@ -200,6 +164,42 @@
         "axes": "bczyx",
         "original-sample": "sample_output_0.tif",
         "original-test": "test_output.npy"
+      }
+    },
+    {
+      "name": "Skin lesions classification",
+      "nickname": null,
+      "rdf-info": {
+        "type": "model",
+        "input-images": 1,
+        "dij-config?": true,
+        "run-mode": {
+          "name": "deepimagej"
+        }
+      },
+      "paths": {
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\deepimagej\\SkinLesionClassification\\latest\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\deepimagej\\SkinLesionClassification\\latest",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\deepimagej\\SkinLesionClassification\\latest",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\deepimagej\\SkinLesionClassification\\latest",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\deepimagej\\SkinLesionClassification\\latest"
+      },
+      "weight-types": [
+        "pytorch_script"
+      ],
+      "inputs": {
+        "name": "input0",
+        "axes": "bcyx",
+        "original-sample": "0066.tif",
+        "original-test": "0066.npy",
+        "original-p*process": "preprocessing.ijm"
+      },
+      "outputs": {
+        "name": "output0",
+        "axes": "bi",
+        "original-sample": "lesion.csv",
+        "original-test": "lesion.npy",
+        "original-p*process": "post.ijm"
       }
     }
   ]

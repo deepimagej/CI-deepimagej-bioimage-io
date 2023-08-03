@@ -18,8 +18,8 @@ Detailed information in D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io
 
 Comm file 'dij_args.json' created for these 31 models 
 
-- Created  11 test summaries for the error key: dij-headless
+- Created  10 test summaries for the error key: dij-headless
 - Created   1 test summaries for the error key: comparison
-- *Created  19 test summaries for models that pass the CI automatically*
+- *Created  20 test summaries for models that pass the CI automatically*
 
 Report for the 50 models tested written in: D:\a\CI-deepimagej-bioimage-io\CI-deepimagej-bioimage-io\python_CI_scripts\..\test_summaries\report.json

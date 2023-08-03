@@ -1,74 +1,6 @@
 {
   "download_download-fail": [
     {
-      "name": "Widefield Super-resolution (GAN - TxRed)",
-      "nickname": null,
-      "rdf-info": {
-        "type": "model",
-        "input-images": 1,
-        "dij-config?": true,
-        "run-mode": null
-      },
-      "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\deepimagej\\WidefieldTxredSuperResolution\\latest\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\deepimagej\\WidefieldTxredSuperResolution\\latest",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\deepimagej\\WidefieldTxredSuperResolution\\latest",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\deepimagej\\WidefieldTxredSuperResolution\\latest",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\deepimagej\\WidefieldTxredSuperResolution\\latest"
-      },
-      "weight-types": [
-        "tensorflow_saved_model_bundle"
-      ],
-      "inputs": {
-        "name": "input_images",
-        "axes": "yxc",
-        "original-sample": "exampleImage.tiff",
-        "original-test": "exampleImage.npy",
-        "original-p*process": "preprocessing.txt"
-      },
-      "outputs": {
-        "name": "output_images",
-        "axes": "byxc",
-        "original-sample": "resultImage.tiff",
-        "original-test": "resultImage.npy",
-        "original-p*process": "postprocessing.txt"
-      }
-    },
-    {
-      "name": "Widefield Super-resolution (GAN - FITC)",
-      "nickname": null,
-      "rdf-info": {
-        "type": "model",
-        "input-images": 1,
-        "dij-config?": true,
-        "run-mode": null
-      },
-      "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\deepimagej\\WidefieldFitcSuperResolution\\latest\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\deepimagej\\WidefieldFitcSuperResolution\\latest",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\deepimagej\\WidefieldFitcSuperResolution\\latest",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\deepimagej\\WidefieldFitcSuperResolution\\latest",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\deepimagej\\WidefieldFitcSuperResolution\\latest"
-      },
-      "weight-types": [
-        "tensorflow_saved_model_bundle"
-      ],
-      "inputs": {
-        "name": "input_images",
-        "axes": "yxc",
-        "original-sample": "exampleImage.tiff",
-        "original-test": "exampleImage.npy",
-        "original-p*process": "preprocessing.txt"
-      },
-      "outputs": {
-        "name": "output_images",
-        "axes": "byxc",
-        "original-sample": "resultImage.tiff",
-        "original-test": "resultImage.npy",
-        "original-p*process": "postprocessing.txt"
-      }
-    },
-    {
       "name": "Masson\u2019s Trichrome Virtual Staining (GAN)",
       "nickname": null,
       "rdf-info": {
@@ -103,7 +35,7 @@
       }
     },
     {
-      "name": "Widefield Super-resolution (GAN - DAPI)",
+      "name": "Widefield Super-resolution (GAN - TxRed)",
       "nickname": null,
       "rdf-info": {
         "type": "model",
@@ -112,11 +44,11 @@
         "run-mode": null
       },
       "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\deepimagej\\WidefieldDapiSuperResolution\\latest\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\deepimagej\\WidefieldDapiSuperResolution\\latest",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\deepimagej\\WidefieldDapiSuperResolution\\latest",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\deepimagej\\WidefieldDapiSuperResolution\\latest",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\deepimagej\\WidefieldDapiSuperResolution\\latest"
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\deepimagej\\WidefieldTxredSuperResolution\\latest\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\deepimagej\\WidefieldTxredSuperResolution\\latest",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\deepimagej\\WidefieldTxredSuperResolution\\latest",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\deepimagej\\WidefieldTxredSuperResolution\\latest",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\deepimagej\\WidefieldTxredSuperResolution\\latest"
       },
       "weight-types": [
         "tensorflow_saved_model_bundle"
@@ -164,6 +96,74 @@
       },
       "outputs": {
         "name": "output",
+        "axes": "byxc",
+        "original-sample": "resultImage.tiff",
+        "original-test": "resultImage.npy",
+        "original-p*process": "postprocessing.txt"
+      }
+    },
+    {
+      "name": "Widefield Super-resolution (GAN - DAPI)",
+      "nickname": null,
+      "rdf-info": {
+        "type": "model",
+        "input-images": 1,
+        "dij-config?": true,
+        "run-mode": null
+      },
+      "paths": {
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\deepimagej\\WidefieldDapiSuperResolution\\latest\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\deepimagej\\WidefieldDapiSuperResolution\\latest",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\deepimagej\\WidefieldDapiSuperResolution\\latest",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\deepimagej\\WidefieldDapiSuperResolution\\latest",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\deepimagej\\WidefieldDapiSuperResolution\\latest"
+      },
+      "weight-types": [
+        "tensorflow_saved_model_bundle"
+      ],
+      "inputs": {
+        "name": "input_images",
+        "axes": "yxc",
+        "original-sample": "exampleImage.tiff",
+        "original-test": "exampleImage.npy",
+        "original-p*process": "preprocessing.txt"
+      },
+      "outputs": {
+        "name": "output_images",
+        "axes": "byxc",
+        "original-sample": "resultImage.tiff",
+        "original-test": "resultImage.npy",
+        "original-p*process": "postprocessing.txt"
+      }
+    },
+    {
+      "name": "Widefield Super-resolution (GAN - FITC)",
+      "nickname": null,
+      "rdf-info": {
+        "type": "model",
+        "input-images": 1,
+        "dij-config?": true,
+        "run-mode": null
+      },
+      "paths": {
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\deepimagej\\WidefieldFitcSuperResolution\\latest\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\deepimagej\\WidefieldFitcSuperResolution\\latest",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\deepimagej\\WidefieldFitcSuperResolution\\latest",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\deepimagej\\WidefieldFitcSuperResolution\\latest",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\deepimagej\\WidefieldFitcSuperResolution\\latest"
+      },
+      "weight-types": [
+        "tensorflow_saved_model_bundle"
+      ],
+      "inputs": {
+        "name": "input_images",
+        "axes": "yxc",
+        "original-sample": "exampleImage.tiff",
+        "original-test": "exampleImage.npy",
+        "original-p*process": "preprocessing.txt"
+      },
+      "outputs": {
+        "name": "output_images",
         "axes": "byxc",
         "original-sample": "resultImage.tiff",
         "original-test": "resultImage.npy",

@@ -43,7 +43,7 @@
     ],
     "summary-name": "test_summary.yaml",
     "summa-readme-header": "# Report summary",
-    "timeout_s": 1200,
+    "timeout_s": 1800,
     "valid-weight-keys": [
       "torchscript",
       "pytorch_script",

@@ -1,40 +1,6 @@
 {
   "init_key-run-mode": [
     {
-      "name": "Cells and gland Segmentation (FRUNet)",
-      "nickname": "impartial-shark",
-      "rdf-info": {
-        "type": "model",
-        "input-images": 1,
-        "dij-config?": true,
-        "run-mode": {
-          "name": "deepimagej"
-        }
-      },
-      "paths": {
-        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.6865412\\6919253\\rdf.yaml",
-        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.6865412\\6919253",
-        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.6865412\\6919253",
-        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.6865412\\6919253",
-        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.6865412\\6919253"
-      },
-      "weight-types": [],
-      "inputs": {
-        "name": "input",
-        "axes": "byxc",
-        "original-sample": "exampleImage.tif",
-        "original-test": "exampleImage.npy",
-        "original-p*process": "per_sample_scale_range.ijm"
-      },
-      "outputs": {
-        "name": "output",
-        "axes": "byxc",
-        "original-sample": "resultImage.tif",
-        "original-test": "resultImage.npy",
-        "original-p*process": "binarize.ijm"
-      }
-    },
-    {
       "name": "Pancreatic Cell Phase Contrast Segmentation (DeepWater - CTC submission)",
       "nickname": null,
       "rdf-info": {
@@ -68,6 +34,40 @@
         "original-sample": "resultImage.tiff",
         "original-test": "cells-watershed.npy",
         "original-p*process": "postprocessing.txt"
+      }
+    },
+    {
+      "name": "Cells and gland Segmentation (FRUNet)",
+      "nickname": "impartial-shark",
+      "rdf-info": {
+        "type": "model",
+        "input-images": 1,
+        "dij-config?": true,
+        "run-mode": {
+          "name": "deepimagej"
+        }
+      },
+      "paths": {
+        "rdf-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\bioimageio-gh-pages\\rdfs\\10.5281\\zenodo.6865412\\6919253\\rdf.yaml",
+        "summa-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\test_summaries\\10.5281\\zenodo.6865412\\6919253",
+        "model-dir-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\models\\10.5281\\zenodo.6865412\\6919253",
+        "samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\10.5281\\zenodo.6865412\\6919253",
+        "manual-samples-path": "D:\\a\\CI-deepimagej-bioimage-io\\CI-deepimagej-bioimage-io\\python_CI_scripts\\..\\numpy-tiff-deepimagej\\manual\\10.5281\\zenodo.6865412\\6919253"
+      },
+      "weight-types": [],
+      "inputs": {
+        "name": "input",
+        "axes": "byxc",
+        "original-sample": "exampleImage.tif",
+        "original-test": "exampleImage.npy",
+        "original-p*process": "per_sample_scale_range.ijm"
+      },
+      "outputs": {
+        "name": "output",
+        "axes": "byxc",
+        "original-sample": "resultImage.tif",
+        "original-test": "resultImage.npy",
+        "original-p*process": "binarize.ijm"
       }
     }
   ]
