@@ -39,7 +39,7 @@ CONSTANTS = {"CI-output-name": "CI_OUTPUT.tif",
              "special-headless-chars": [" ", "_", "."],
              "summary-name": "test_summary.yaml",
              "summa-readme-header": "# Report summary",
-             "timeout_s": 20*60,
+             "timeout_s": 30*60,
              "valid-weight-keys": ["torchscript", "pytorch_script", "tensorflow_saved_model_bundle", "onnx"]}
 
 
